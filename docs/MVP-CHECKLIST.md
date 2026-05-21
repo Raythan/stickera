@@ -57,11 +57,11 @@ Normative detail: [docs/PHASES/04-packs.md](PHASES/04-packs.md).
 
 Normative detail: [docs/PHASES/05-trading.md](PHASES/05-trading.md).
 
-- [ ] `TradePayload` codec + validation tests
-- [ ] Create offer + QR display
-- [ ] Accept flow + `applyTrade`
-- [ ] Trade log in localStorage
-- [ ] Copy/trust disclaimer (i18n)
+- [x] `TradePayload` codec + validation tests
+- [x] Create offer + QR display
+- [x] Accept flow + `applyTrade`
+- [x] Trade log in localStorage
+- [x] Copy/trust disclaimer (i18n)
 
 ## Phase 6 — Portfolio & ship
 

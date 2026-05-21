@@ -26,6 +26,9 @@ export default function RootLayout() {
           >
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="album/[id]" options={{ title: '' }} />
+            <Stack.Screen name="trade/index" options={{ title: '' }} />
+            <Stack.Screen name="trade/offer" options={{ title: '' }} />
+            <Stack.Screen name="trade/accept" options={{ title: '' }} />
             <Stack.Screen
               name="about"
               options={{ presentation: 'modal', title: '' }}

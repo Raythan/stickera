@@ -45,12 +45,12 @@ errors.trade.insufficientDuplicate
 
 ## Checklist de saída
 
-- [ ] Só lista stickers com qty ≥ 2 para oferta
-- [ ] QR contém payload v1 válido
-- [ ] Acceptor vê preview claro (dá / recebe)
-- [ ] `trade_log` registra status
-- [ ] Disclaimer visível (confiança local)
-- [ ] Testes codec passando
+- [x] Só lista stickers com qty ≥ 2 para oferta
+- [x] QR contém payload v1 válido
+- [x] Acceptor vê preview claro (dá / recebe)
+- [x] `trade_log` registra status
+- [x] Disclaimer visível (confiança local)
+- [x] Testes codec passando
 
 ## Anti-padrões
 

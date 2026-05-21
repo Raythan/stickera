@@ -33,6 +33,30 @@
     "album": {
       "progress": "{{owned}} / {{total}}",
       "openAlbum": "View album"
+    },
+    "trade": {
+      "title": "Trade duplicates",
+      "createOffer": "Create offer",
+      "pastePayload": "Paste trade payload",
+      "copyPayload": "Copy payload",
+      "confirm": "Confirm trade",
+      "confirmIncoming": "Confirm incoming trade",
+      "disclaimer": "Trades are local and trust-based. Only trade with people you know.",
+      "success": "Trade completed!",
+      "youGive": "You give",
+      "youReceive": "You receive",
+      "pendingIncoming": "Pending — confirm when your partner completes",
+      "noDuplicates": "No duplicates to trade yet. Open more packs!",
+      "selectOffered": "Select a duplicate to offer",
+      "selectWanted": "Select a sticker you want",
+      "offerReady": "Your offer is ready",
+      "pasteHint": "Paste or enter a trade payload from your partner",
+      "recentTrades": "Recent trades",
+      "noTrades": "No trades yet",
+      "enterOfferId": "Enter offer ID to confirm",
+      "accepted": "Accepted",
+      "sent": "Sent",
+      "cancelled": "Cancelled"
     }
   },
   "about": {
@@ -50,6 +74,13 @@
       "notReady": "Pack is not ready yet. Please wait for the cooldown.",
       "poolTooSmall": "Not enough stickers in the pool. Enable more albums or wait for content updates.",
       "noEnabledAlbums": "No albums enabled. Go to Settings to enable at least one album."
+    },
+    "trade": {
+      "expired": "This offer has expired.",
+      "insufficientDuplicate": "You don't have enough duplicates of the offered sticker.",
+      "invalidPayload": "Invalid trade payload. Check and try again.",
+      "wantedNotInCatalog": "The wanted sticker is not in your enabled albums.",
+      "offeredNotInCatalog": "The offered sticker is not in your enabled albums."
     }
   },
   "collection": {

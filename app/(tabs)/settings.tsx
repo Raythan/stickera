@@ -127,6 +127,15 @@ export default function SettingsScreen() {
 
       <Pressable
         accessibilityRole="button"
+        onPress={() => router.push('/trade')}
+        style={({ pressed }) => [styles.aboutRow, pressed && styles.pressed]}
+      >
+        <Text variant="bodyBold">{t('screens.trade.title')}</Text>
+        <Icon name="swap-horizontal" size={20} color={theme.colors.textMuted} />
+      </Pressable>
+
+      <Pressable
+        accessibilityRole="button"
         onPress={() => router.push('/about')}
         style={({ pressed }) => [styles.aboutRow, pressed && styles.pressed]}
       >

@@ -33,6 +33,30 @@
     "album": {
       "progress": "{{owned}} / {{total}}",
       "openAlbum": "Ver álbum"
+    },
+    "trade": {
+      "title": "Trocar repetidas",
+      "createOffer": "Criar oferta",
+      "pastePayload": "Colar payload de troca",
+      "copyPayload": "Copiar payload",
+      "confirm": "Confirmar troca",
+      "confirmIncoming": "Confirmar troca recebida",
+      "disclaimer": "Trocas são locais e baseadas em confiança. Troque apenas com quem você conhece.",
+      "success": "Troca concluída!",
+      "youGive": "Você dá",
+      "youReceive": "Você recebe",
+      "pendingIncoming": "Pendente — confirme quando seu parceiro completar",
+      "noDuplicates": "Sem repetidas para trocar. Abra mais pacotes!",
+      "selectOffered": "Selecione uma repetida para oferecer",
+      "selectWanted": "Selecione uma figurinha que você quer",
+      "offerReady": "Sua oferta está pronta",
+      "pasteHint": "Cole ou digite o payload de troca do seu parceiro",
+      "recentTrades": "Trocas recentes",
+      "noTrades": "Nenhuma troca ainda",
+      "enterOfferId": "Digite o ID da oferta para confirmar",
+      "accepted": "Aceita",
+      "sent": "Enviada",
+      "cancelled": "Cancelada"
     }
   },
   "about": {
@@ -50,6 +74,13 @@
       "notReady": "O pacote ainda não está pronto. Aguarde o cooldown.",
       "poolTooSmall": "Figurinhas insuficientes no pool. Habilite mais álbuns ou aguarde atualizações.",
       "noEnabledAlbums": "Nenhum álbum habilitado. Vá em Ajustes para habilitar pelo menos um."
+    },
+    "trade": {
+      "expired": "Esta oferta expirou.",
+      "insufficientDuplicate": "Você não tem repetidas suficientes da figurinha oferecida.",
+      "invalidPayload": "Payload de troca inválido. Verifique e tente novamente.",
+      "wantedNotInCatalog": "A figurinha desejada não está nos seus álbuns habilitados.",
+      "offeredNotInCatalog": "A figurinha oferecida não está nos seus álbuns habilitados."
     }
   },
   "collection": {

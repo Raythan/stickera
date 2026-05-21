@@ -73,6 +73,26 @@ export type CollectionRow = {
   updated_at: string;
 };
 
+export type TradeSide = { stickerId: string; quantity: 1 };
+
+export type TradePayload = {
+  v: 1;
+  offerId: string;
+  fromDisplayName?: string;
+  offered: TradeSide;
+  wanted: TradeSide;
+  expiresAt: string;
+};
+
+export type TradeAck = { v: 1; offerId: string; acceptedAt: string };
+
+export type TradeLogEntry = {
+  id: string;
+  payload_json: string;
+  status: 'draft' | 'sent' | 'completed' | 'cancelled';
+  created_at: string;
+};
+
 export type SyncResult = {
   ok: boolean;
   source: 'bundled' | 'remote' | 'cache';
