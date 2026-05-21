@@ -1,10 +1,9 @@
-import * as Localization from 'expo-localization';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import { resources } from './resources';
 
-const deviceLocale = Localization.getLocales()[0]?.languageCode ?? 'en';
+const deviceLocale = (typeof navigator !== 'undefined' ? navigator.language?.split('-')[0] : 'en') ?? 'en';
 const fallbackLng = process.env.EXPO_PUBLIC_DEFAULT_LOCALE ?? 'en';
 const initialLng = deviceLocale === 'pt' ? 'pt' : fallbackLng;
 

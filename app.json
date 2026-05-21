@@ -36,7 +36,7 @@
       "content/albums/**/*.gif",
       "content/albums/**/*.webp"
     ],
-    "plugins": ["expo-router", "expo-localization"],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true,
       "baseUrl": "/stickera"
