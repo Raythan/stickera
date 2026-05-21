@@ -5,10 +5,14 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
-import { TradePreview } from '@/components/molecules/TradePreview';
+import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
+import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
+import { resolveStickerItemsByIds } from '@/features/trade/tradableStickerItems';
+import { useTradableStickerItems } from '@/features/trade/useTradableStickerItems';
 import { useTradeAccept } from '@/features/trade/useTradeAccept';
+import type { TradableStickerItem } from '@/domain/types';
 import { theme } from '@/theme';
 
 function tradeErrorKey(error: string): string | null {
@@ -19,6 +23,8 @@ function tradeErrorKey(error: string): string | null {
     'invalidPayload',
     'wantedNotInCatalog',
     'offeredNotInCatalog',
+    'tooManyStickers',
+    'emptySelection',
   ];
   if (error === 'INVALID_TRADE_PAYLOAD') return 'errors.trade.invalidPayload';
   if (known.includes(error)) return `errors.trade.${error}`;
@@ -28,11 +34,16 @@ function tradeErrorKey(error: string): string | null {
 export default function TradeAcceptScreen() {
   const { t } = useTranslation();
   const { p } = useLocalSearchParams<{ p?: string }>();
-  const { decode, confirm, preview, isAccepting, error } = useTradeAccept();
+  const { decode, confirm, preview, offeredIds, isAccepting, error } = useTradeAccept();
+  const { items: tradableItems, loading: tradableLoading } = useTradableStickerItems();
   const [input, setInput] = useState('');
   const [success, setSuccess] = useState(false);
   const [encodedAck, setEncodedAck] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [partnerItems, setPartnerItems] = useState<TradableStickerItem[]>([]);
+  const [selectedAcceptorIds, setSelectedAcceptorIds] = useState<string[]>([]);
+
+  const isV2 = preview?.v === 2;
 
   useEffect(() => {
     if (p) {
@@ -41,17 +52,34 @@ export default function TradeAcceptScreen() {
     }
   }, [p, decode]);
 
+  useEffect(() => {
+    if (!preview || offeredIds.length === 0) {
+      setPartnerItems([]);
+      return;
+    }
+    void resolveStickerItemsByIds(offeredIds).then(setPartnerItems);
+  }, [preview, offeredIds]);
+
+  const toggleAcceptor = useCallback((id: string) => {
+    setSelectedAcceptorIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
+  }, []);
+
   const handleDecode = useCallback(() => {
-    if (input.trim()) decode(input.trim());
+    if (input.trim()) {
+      setSelectedAcceptorIds([]);
+      decode(input.trim());
+    }
   }, [input, decode]);
 
   const handleConfirm = useCallback(async () => {
-    const result = await confirm();
+    const result = await confirm(isV2 ? selectedAcceptorIds : []);
     if (result.ok) {
       setSuccess(true);
       setEncodedAck(result.encodedAck);
     }
-  }, [confirm]);
+  }, [confirm, isV2, selectedAcceptorIds]);
 
   const handleCopyAck = useCallback(async () => {
     if (!encodedAck || Platform.OS !== 'web' || !navigator.clipboard) return;
@@ -61,6 +89,12 @@ export default function TradeAcceptScreen() {
   }, [encodedAck]);
 
   const errorKey = error ? tradeErrorKey(error) : null;
+  const selectedCounterItems = tradableItems.filter((i) =>
+    selectedAcceptorIds.includes(i.stickerId),
+  );
+
+  const canConfirmV2 = isV2 && selectedAcceptorIds.length > 0;
+  const canConfirmV1 = !isV2 && preview !== null;
 
   if (success && encodedAck) {
     return (
@@ -75,10 +109,7 @@ export default function TradeAcceptScreen() {
           {encodedAck}
         </Text>
         {Platform.OS === 'web' ? (
-          <Button
-            label={copied ? '✓' : t('screens.trade.copyAck')}
-            onPress={handleCopyAck}
-          />
+          <Button label={copied ? '✓' : t('screens.trade.copyAck')} onPress={handleCopyAck} />
         ) : null}
       </ScreenTemplate>
     );
@@ -96,7 +127,7 @@ export default function TradeAcceptScreen() {
         style={styles.input}
         value={input}
         onChangeText={setInput}
-        placeholder="eyJ2IjoxLC..."
+        placeholder="eyJ2IjoyLC..."
         placeholderTextColor={theme.colors.textMuted}
         multiline
         numberOfLines={3}
@@ -117,19 +148,44 @@ export default function TradeAcceptScreen() {
 
       {preview ? (
         <View>
-          <TradePreview
-            offeredStickerId={preview.offered.stickerId}
-            wantedStickerId={preview.wanted.stickerId}
-          />
           {preview.fromDisplayName ? (
             <Text variant="caption" color={theme.colors.textMuted} style={styles.from}>
               {preview.fromDisplayName}
             </Text>
           ) : null}
+
+          <TradeBundlePreview
+            items={partnerItems}
+            title={t('screens.trade.partnerOffers')}
+          />
+
+          {isV2 ? (
+            tradableLoading ? (
+              <Text variant="body" color={theme.colors.textMuted}>
+                {t('common.loading')}
+              </Text>
+            ) : (
+              <>
+                <TradeStickerSelectGrid
+                  items={tradableItems}
+                  selectedIds={selectedAcceptorIds}
+                  onToggle={toggleAcceptor}
+                  label={t('screens.trade.selectCounterOffer')}
+                />
+                {selectedAcceptorIds.length > 0 ? (
+                  <TradeBundlePreview
+                    items={selectedCounterItems}
+                    title={t('screens.trade.youGive')}
+                  />
+                ) : null}
+              </>
+            )
+          ) : null}
+
           <Button
             label={t('screens.trade.confirm')}
             onPress={handleConfirm}
-            disabled={isAccepting}
+            disabled={isAccepting || (!canConfirmV2 && !canConfirmV1)}
           />
         </View>
       ) : null}

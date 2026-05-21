@@ -1,46 +1,75 @@
-import type { CollectionRow, TradePayload } from '@/domain/types';
+import type { CollectionRow } from '@/domain/types';
 
-/**
- * Applies a trade to a collection.
- * - initiator: gives offered (-1), receives wanted (+1)
- * - acceptor: gives wanted (-1), receives offered (+1)
- * Returns a new array; does not mutate input.
- */
-export function applyTrade(
+export function applyTradeBundle(
   collection: CollectionRow[],
-  payload: TradePayload,
-  role: 'initiator' | 'acceptor',
+  giveIds: string[],
+  receiveIds: string[],
   now = new Date(),
 ): CollectionRow[] {
-  const give = role === 'initiator' ? payload.offered.stickerId : payload.wanted.stickerId;
-  const receive = role === 'initiator' ? payload.wanted.stickerId : payload.offered.stickerId;
   const ts = now.toISOString();
-
   const map = new Map<string, CollectionRow>();
   for (const row of collection) {
     map.set(row.sticker_id, { ...row });
   }
 
-  const giveRow = map.get(give);
-  if (!giveRow || giveRow.quantity < 1) {
-    throw new Error('TRADE_INSUFFICIENT_QTY');
+  for (const stickerId of giveIds) {
+    const row = map.get(stickerId);
+    if (!row || row.quantity < 1) {
+      throw new Error('TRADE_INSUFFICIENT_QTY');
+    }
+    map.set(stickerId, { ...row, quantity: row.quantity - 1, updated_at: ts });
   }
-  map.set(give, { ...giveRow, quantity: giveRow.quantity - 1, updated_at: ts });
 
-  const receiveRow = map.get(receive);
-  if (receiveRow) {
-    map.set(receive, { ...receiveRow, quantity: receiveRow.quantity + 1, updated_at: ts });
-  } else {
-    const albumId = receive.split(':')[0];
-    map.set(receive, {
-      sticker_id: receive,
-      album_id: albumId,
-      quantity: 1,
-      is_new: 1,
-      first_obtained_at: ts,
-      updated_at: ts,
-    });
+  for (const stickerId of receiveIds) {
+    const existing = map.get(stickerId);
+    if (existing) {
+      map.set(stickerId, {
+        ...existing,
+        quantity: existing.quantity + 1,
+        updated_at: ts,
+      });
+    } else {
+      const albumId = stickerId.split(':')[0];
+      map.set(stickerId, {
+        sticker_id: stickerId,
+        album_id: albumId,
+        quantity: 1,
+        is_new: 1,
+        first_obtained_at: ts,
+        updated_at: ts,
+      });
+    }
   }
 
   return Array.from(map.values());
+}
+
+/** v1 single-pair apply */
+export function applyTrade(
+  collection: CollectionRow[],
+  payload: import('@/domain/types').TradePayloadV1,
+  role: 'initiator' | 'acceptor',
+  now = new Date(),
+): CollectionRow[] {
+  const give = role === 'initiator' ? payload.offered.stickerId : payload.wanted.stickerId;
+  const receive = role === 'initiator' ? payload.wanted.stickerId : payload.offered.stickerId;
+  return applyTradeBundle(collection, [give], [receive], now);
+}
+
+export function applyTradeV2Acceptor(
+  collection: CollectionRow[],
+  offeredIds: string[],
+  acceptorIds: string[],
+  now = new Date(),
+): CollectionRow[] {
+  return applyTradeBundle(collection, acceptorIds, offeredIds, now);
+}
+
+export function applyTradeV2Initiator(
+  collection: CollectionRow[],
+  offeredIds: string[],
+  acceptorIds: string[],
+  now = new Date(),
+): CollectionRow[] {
+  return applyTradeBundle(collection, offeredIds, acceptorIds, now);
 }

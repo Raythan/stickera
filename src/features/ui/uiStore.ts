@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import type { StickerDef, TradePayload } from '@/domain/types';
+import type { StickerDef, TradePayloadAny } from '@/domain/types';
 
 type UiStore = {
   localeOverride: 'en' | 'pt' | null;
@@ -8,8 +8,8 @@ type UiStore = {
   packRevealQueue: StickerDef[] | null;
   setPackRevealQueue: (stickers: StickerDef[] | null) => void;
   clearPackReveal: () => void;
-  activeTradeDraft: TradePayload | null;
-  setActiveTradeDraft: (draft: TradePayload | null) => void;
+  activeTradeDraft: TradePayloadAny | null;
+  setActiveTradeDraft: (draft: TradePayloadAny | null) => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({

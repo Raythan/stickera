@@ -13,12 +13,15 @@ import { useTradeConfirm } from '@/features/trade/useTradeConfirm';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { theme } from '@/theme';
 
-function parseOfferId(payloadJson: string): string | null {
+function parsePayloadMeta(payloadJson: string): { offerId: string | null; needsAck: boolean } {
   try {
-    const payload = JSON.parse(payloadJson) as { offerId?: string };
-    return payload.offerId ?? null;
+    const payload = JSON.parse(payloadJson) as { offerId?: string; v?: number };
+    return {
+      offerId: payload.offerId ?? null,
+      needsAck: payload.v === 2,
+    };
   } catch {
-    return null;
+    return { offerId: null, needsAck: false };
   }
 }
 
@@ -133,19 +136,26 @@ export default function TradeHubScreen() {
         <View style={styles.section}>
           <Text variant="bodyBold">{t('screens.trade.pendingIncoming')}</Text>
           {pendingSent.map((entry) => {
-            const offerId = parseOfferId(entry.payload_json);
+            const { offerId, needsAck } = parsePayloadMeta(entry.payload_json);
             if (!offerId) return null;
             return (
               <View key={entry.id} style={styles.pendingRow}>
                 <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
                   {offerId.slice(0, 8)}…
+                  {needsAck ? ' (v2)' : ''}
                 </Text>
-                <Button
-                  label={t('screens.trade.confirmIncoming')}
-                  size="sm"
-                  onPress={() => void handleConfirm(offerId)}
-                  disabled={isConfirming}
-                />
+                {!needsAck ? (
+                  <Button
+                    label={t('screens.trade.confirmIncoming')}
+                    size="sm"
+                    onPress={() => void handleConfirm(offerId)}
+                    disabled={isConfirming}
+                  />
+                ) : (
+                  <Text variant="caption" color={theme.colors.textMuted}>
+                    {t('screens.trade.pasteAck')}
+                  </Text>
+                )}
               </View>
             );
           })}

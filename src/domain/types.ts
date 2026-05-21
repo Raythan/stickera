@@ -75,7 +75,10 @@ export type CollectionRow = {
 
 export type TradeSide = { stickerId: string; quantity: 1 };
 
-export type TradePayload = {
+/** @deprecated Use TradePayloadV1 — kept as alias */
+export type TradePayload = TradePayloadV1;
+
+export type TradePayloadV1 = {
   v: 1;
   offerId: string;
   fromDisplayName?: string;
@@ -84,7 +87,39 @@ export type TradePayload = {
   expiresAt: string;
 };
 
-export type TradeAck = { v: 1; offerId: string; acceptedAt: string };
+export type TradePayloadV2 = {
+  v: 2;
+  offerId: string;
+  fromDisplayName?: string;
+  offeredIds: string[];
+  expiresAt: string;
+};
+
+export type TradePayloadAny = TradePayloadV1 | TradePayloadV2;
+
+export type TradeAckV1 = { v: 1; offerId: string; acceptedAt: string };
+
+export type TradeAckV2 = {
+  v: 2;
+  offerId: string;
+  acceptedAt: string;
+  acceptorIds: string[];
+};
+
+export type TradeAckAny = TradeAckV1 | TradeAckV2;
+
+/** @deprecated Use TradeAckV1 */
+export type TradeAck = TradeAckV1;
+
+export type TradableStickerItem = {
+  stickerId: string;
+  albumId: string;
+  name: string;
+  imageUri?: string;
+  frameCss?: string;
+  quantity: number;
+  rarity?: string;
+};
 
 export type TradeLogEntry = {
   id: string;

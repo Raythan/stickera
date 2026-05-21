@@ -48,6 +48,11 @@
       "pendingIncoming": "Pending — confirm when your partner completes",
       "noDuplicates": "No duplicates to trade yet. Open more packs!",
       "selectOffered": "Select a duplicate to offer",
+      "selectOfferedVisual": "Tap duplicates you are offering",
+      "selectCounterOffer": "Tap duplicates you give in return",
+      "partnerOffers": "Partner offers",
+      "selectedCount": "{{count}} selected (max {{max}})",
+      "useCopyNotQr": "Large offer — copy the payload instead of QR",
       "selectWanted": "Select a sticker you want",
       "offerReady": "Your offer is ready",
       "pasteHint": "Paste or enter a trade payload from your partner",
@@ -104,7 +109,9 @@
       "invalidPayload": "Invalid trade payload. Check and try again.",
       "wantedNotInCatalog": "The wanted sticker is not in your enabled albums.",
       "offeredNotInCatalog": "The offered sticker is not in your enabled albums.",
-      "insufficientWanted": "You do not have the sticker you would give in this trade."
+      "insufficientWanted": "You do not have the sticker you would give in this trade.",
+      "tooManyStickers": "Too many stickers selected (max 100 per side).",
+      "emptySelection": "Select at least one sticker."
     }
   },
   "collection": {

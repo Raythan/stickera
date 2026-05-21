@@ -123,10 +123,16 @@ function tradableStickers(collection: CollectionRow[]): StickerId[];
 ## Zustand (ephemeral UI)
 
 ```typescript
+type TradePayloadV1 = { v: 1; offerId; offered; wanted; expiresAt };
+type TradePayloadV2 = { v: 2; offerId; offeredIds: string[]; expiresAt };
+type TradePayloadAny = TradePayloadV1 | TradePayloadV2;
+type TradeAckV2 = { v: 2; offerId; acceptedAt; acceptorIds: string[] };
+type TradableStickerItem = { stickerId; albumId; name; imageUri?; frameCss?; quantity };
+
 type UiStore = {
   packRevealQueue: StickerDef[] | null;
   clearPackReveal: () => void;
-  activeTradeDraft: TradePayload | null;
+  activeTradeDraft: TradePayloadAny | null;
 };
 ```
 

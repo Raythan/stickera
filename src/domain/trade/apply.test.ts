@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 
 import type { CollectionRow, TradePayload } from '@/domain/types';
 
-import { applyTrade } from './apply';
+import { applyTrade, applyTradeBundle } from './apply';
 
 const now = new Date('2026-05-21T14:00:00Z');
 
@@ -52,5 +52,19 @@ describe('applyTrade', () => {
       { sticker_id: 'album:1', album_id: 'album', quantity: 0, is_new: 0, first_obtained_at: null, updated_at: '' },
     ];
     expect(() => applyTrade(emptyCollection, payload, 'initiator', now)).toThrow('TRADE_INSUFFICIENT_QTY');
+  });
+});
+
+describe('applyTradeBundle', () => {
+  it('applies multi give and receive', () => {
+    const rich: CollectionRow[] = [
+      { sticker_id: 'album:1', album_id: 'album', quantity: 3, is_new: 0, first_obtained_at: null, updated_at: '' },
+      { sticker_id: 'album:2', album_id: 'album', quantity: 3, is_new: 0, first_obtained_at: null, updated_at: '' },
+      { sticker_id: 'album:3', album_id: 'album', quantity: 2, is_new: 0, first_obtained_at: null, updated_at: '' },
+    ];
+    const result = applyTradeBundle(rich, ['album:1', 'album:2'], ['album:3'], now);
+    expect(result.find((r) => r.sticker_id === 'album:1')?.quantity).toBe(2);
+    expect(result.find((r) => r.sticker_id === 'album:2')?.quantity).toBe(2);
+    expect(result.find((r) => r.sticker_id === 'album:3')?.quantity).toBe(3);
   });
 });

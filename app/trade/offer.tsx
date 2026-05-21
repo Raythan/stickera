@@ -1,50 +1,43 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
-import { TradeStickerPicker } from '@/components/molecules/TradeStickerPicker';
-import { TradePreview } from '@/components/molecules/TradePreview';
+import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { TradeQrDisplay } from '@/components/molecules/TradeQrDisplay';
+import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
-import { useTradableStickers } from '@/features/trade/useTradableStickers';
+import { QR_RECOMMENDED_MAX_STICKERS } from '@/domain/trade/constants';
+import { useTradableStickerItems } from '@/features/trade/useTradableStickerItems';
 import { useTradeOffer } from '@/features/trade/useTradeOffer';
-import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
-import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { theme } from '@/theme';
 
 export default function TradeOfferScreen() {
   const { t } = useTranslation();
-  const { stickerIds, loading } = useTradableStickers();
+  const { items, loading } = useTradableStickerItems();
   const { createOffer, isCreating } = useTradeOffer();
-  const [allStickerIds, setAllStickerIds] = useState<string[]>([]);
-  const [offeredId, setOfferedId] = useState<string | null>(null);
-  const [wantedId, setWantedId] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [encoded, setEncoded] = useState<string | null>(null);
+  const [offerCount, setOfferCount] = useState(0);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    void (async () => {
-      const enabledIds = await EnabledAlbumRepository.listEnabledIds();
-      const ids: string[] = [];
-      for (const albumId of enabledIds) {
-        const manifest = await getAlbumManifest(albumId);
-        if (!manifest) continue;
-        for (const s of manifest.stickers) ids.push(s.id);
-      }
-      setAllStickerIds(ids);
-    })();
+  const toggleId = useCallback((id: string) => {
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
   }, []);
 
+  const selectedItems = items.filter((i) => selectedIds.includes(i.stickerId));
+
   const handleCreate = useCallback(async () => {
-    if (!offeredId || !wantedId) return;
-    const result = await createOffer({
-      offeredStickerId: offeredId,
-      wantedStickerId: wantedId,
-    });
-    if (result.ok) setEncoded(result.encoded);
-  }, [offeredId, wantedId, createOffer]);
+    if (selectedIds.length === 0) return;
+    const result = await createOffer({ offeredIds: selectedIds });
+    if (result.ok) {
+      setEncoded(result.encoded);
+      setOfferCount(result.payload.offeredIds.length);
+    }
+  }, [selectedIds, createOffer]);
 
   const handleCopy = useCallback(async () => {
     if (!encoded) return;
@@ -56,10 +49,16 @@ export default function TradeOfferScreen() {
   }, [encoded]);
 
   if (encoded) {
+    const showQr = offerCount <= QR_RECOMMENDED_MAX_STICKERS;
     return (
       <ScreenTemplate title={t('screens.trade.offerReady')}>
-        <TradePreview offeredStickerId={offeredId!} wantedStickerId={wantedId!} />
-        <TradeQrDisplay payload={encoded} />
+        <TradeBundlePreview items={selectedItems} title={t('screens.trade.youGive')} />
+        {showQr ? <TradeQrDisplay payload={encoded} /> : null}
+        {!showQr ? (
+          <Text variant="caption" color={theme.colors.secondary} style={styles.hint}>
+            {t('screens.trade.useCopyNotQr')}
+          </Text>
+        ) : null}
         <View style={styles.actions}>
           <Button
             label={copied ? '✓' : t('screens.trade.copyPayload')}
@@ -77,28 +76,24 @@ export default function TradeOfferScreen() {
   return (
     <ScreenTemplate title={t('screens.trade.createOffer')}>
       {loading ? (
-        <Text variant="body" color={theme.colors.textMuted}>{t('common.loading')}</Text>
+        <Text variant="body" color={theme.colors.textMuted}>
+          {t('common.loading')}
+        </Text>
       ) : (
         <>
-          <TradeStickerPicker
-            stickerIds={stickerIds}
-            selectedId={offeredId}
-            onSelect={setOfferedId}
-            label={t('screens.trade.selectOffered')}
+          <TradeStickerSelectGrid
+            items={items}
+            selectedIds={selectedIds}
+            onToggle={toggleId}
+            label={t('screens.trade.selectOfferedVisual')}
           />
-          <TradeStickerPicker
-            stickerIds={allStickerIds.filter((id) => id !== offeredId)}
-            selectedId={wantedId}
-            onSelect={setWantedId}
-            label={t('screens.trade.selectWanted')}
-          />
-          {offeredId && wantedId ? (
-            <TradePreview offeredStickerId={offeredId} wantedStickerId={wantedId} />
+          {selectedIds.length > 0 ? (
+            <TradeBundlePreview items={selectedItems} />
           ) : null}
           <Button
             label={t('screens.trade.createOffer')}
             onPress={handleCreate}
-            disabled={!offeredId || !wantedId || isCreating}
+            disabled={selectedIds.length === 0 || isCreating}
           />
         </>
       )}

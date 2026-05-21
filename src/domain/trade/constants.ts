@@ -1,0 +1,2 @@
+export const MAX_TRADE_STICKERS_PER_SIDE = 100;
+export const QR_RECOMMENDED_MAX_STICKERS = 8;

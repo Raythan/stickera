@@ -65,15 +65,17 @@ Use após editar manifests, locales ou antes de declarar uma fase concluída.
 
 ## §4 Trade payload
 
-**Specs:** [TRADING-P2P.md](TRADING-P2P.md), [schemas/trade-payload.schema.json](schemas/trade-payload.schema.json).
+**Specs:** [TRADING-P2P.md](TRADING-P2P.md), [schemas/trade-payload.schema.json](schemas/trade-payload.schema.json), [schemas/trade-ack.schema.json](schemas/trade-ack.schema.json).
 
 | # | Critério |
 |---|----------|
-| 1 | `v === 1` |
-| 2 | `offerId` UUID |
-| 3 | `offered.quantity` e `wanted.quantity` === 1 |
+| 1 | Payload **v2** (novas ofertas): `offeredIds` 1..100, sem repetição; sem `wanted` |
+| 2 | Payload **v1** (legado): decode aceito; `offered`/`wanted` qty === 1 |
+| 3 | `offerId` UUID |
 | 4 | `expiresAt` ISO futuro na criação |
-| 5 | `stickerId` existem no catálogo habilitado |
+| 5 | IDs existem no catálogo habilitado |
+| 6 | Ack **v2**: `acceptorIds` 1..100; iniciador aplica bundle com ack |
+| 7 | Initiador: cada ID oferecido com `quantity >= 2`; aceitador: cada `acceptorIds` com `quantity >= 2` |
 
 ---
 

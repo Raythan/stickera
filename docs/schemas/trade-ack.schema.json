@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stickera.dev/schemas/trade-ack.schema.json",
+  "title": "StickeraTradeAck",
+  "oneOf": [
+    { "$ref": "#/$defs/ackV1" },
+    { "$ref": "#/$defs/ackV2" }
+  ],
+  "$defs": {
+    "ackV1": {
+      "type": "object",
+      "required": ["v", "offerId", "acceptedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "v": { "const": 1 },
+        "offerId": { "type": "string", "format": "uuid" },
+        "acceptedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "ackV2": {
+      "type": "object",
+      "required": ["v", "offerId", "acceptedAt", "acceptorIds"],
+      "additionalProperties": false,
+      "properties": {
+        "v": { "const": 2 },
+        "offerId": { "type": "string", "format": "uuid" },
+        "acceptedAt": { "type": "string", "format": "date-time" },
+        "acceptorIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        }
+      }
+    }
+  }
+}

@@ -48,6 +48,11 @@
       "pendingIncoming": "Pendente — confirme quando seu parceiro completar",
       "noDuplicates": "Sem repetidas para trocar. Abra mais pacotes!",
       "selectOffered": "Selecione uma repetida para oferecer",
+      "selectOfferedVisual": "Toque nas repetidas que você oferece",
+      "selectCounterOffer": "Toque nas repetidas que você devolve",
+      "partnerOffers": "O parceiro oferece",
+      "selectedCount": "{{count}} selecionadas (máx. {{max}})",
+      "useCopyNotQr": "Oferta grande — copie o payload em vez do QR",
       "selectWanted": "Selecione uma figurinha que você quer",
       "offerReady": "Sua oferta está pronta",
       "pasteHint": "Cole ou digite o payload de troca do seu parceiro",
@@ -104,7 +109,9 @@
       "invalidPayload": "Payload de troca inválido. Verifique e tente novamente.",
       "wantedNotInCatalog": "A figurinha desejada não está nos seus álbuns habilitados.",
       "offeredNotInCatalog": "A figurinha oferecida não está nos seus álbuns habilitados.",
-      "insufficientWanted": "Você não tem a figurinha que daria nesta troca."
+      "insufficientWanted": "Você não tem a figurinha que daria nesta troca.",
+      "tooManyStickers": "Muitas figurinhas selecionadas (máx. 100 por lado).",
+      "emptySelection": "Selecione pelo menos uma figurinha."
     }
   },
   "collection": {

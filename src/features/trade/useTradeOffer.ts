@@ -1,16 +1,16 @@
 import { useCallback, useState } from 'react';
 
 import { encodeTradePayload } from '@/domain/trade/codec';
-import { createTradePayload } from '@/domain/trade/createOffer';
-import { validateOfferAsInitiator } from '@/domain/trade/validate';
-import type { TradePayload } from '@/domain/types';
+import { createTradePayloadV2 } from '@/domain/trade/createOffer';
+import { validateInitiatorOfferIds } from '@/domain/trade/validate';
+import type { TradePayloadV2 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
 export type TradeOfferResult =
-  | { ok: true; payload: TradePayload; encoded: string }
+  | { ok: true; payload: TradePayloadV2; encoded: string }
   | { ok: false; reason: string };
 
 async function buildCatalogStickerIds(): Promise<Set<string>> {
@@ -29,21 +29,24 @@ export function useTradeOffer() {
 
   const createOffer = useCallback(
     async (opts: {
-      offeredStickerId: string;
-      wantedStickerId: string;
+      offeredIds: string[];
       fromDisplayName?: string;
     }): Promise<TradeOfferResult> => {
       setIsCreating(true);
       try {
-        const payload = createTradePayload({
-          offeredStickerId: opts.offeredStickerId,
-          wantedStickerId: opts.wantedStickerId,
+        const payload = createTradePayloadV2({
+          offeredIds: opts.offeredIds,
           fromDisplayName: opts.fromDisplayName,
         });
 
         const collection = await CollectionRepository.getAllAsRows();
         const catalogIds = await buildCatalogStickerIds();
-        const validation = validateOfferAsInitiator(payload, collection, catalogIds);
+        const validation = validateInitiatorOfferIds(
+          payload.offeredIds,
+          collection,
+          catalogIds,
+          payload.expiresAt,
+        );
         if (!validation.valid) {
           return { ok: false, reason: validation.reason };
         }

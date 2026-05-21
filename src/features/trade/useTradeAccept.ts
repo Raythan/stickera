@@ -1,10 +1,17 @@
 import { useCallback, useState } from 'react';
 
-import { applyTrade } from '@/domain/trade/apply';
-import { createTradeAck, encodeTradeAck } from '@/domain/trade/ackCodec';
+import {
+  applyTrade,
+  applyTradeV2Acceptor,
+} from '@/domain/trade/apply';
+import { createTradeAck, createTradeAckV2, encodeTradeAck } from '@/domain/trade/ackCodec';
 import { decodeTradePayload } from '@/domain/trade/codec';
-import { validateOfferAsAcceptor } from '@/domain/trade/validate';
-import type { TradePayload } from '@/domain/types';
+import { getInitiatorOfferedIds } from '@/domain/trade/payloadHelpers';
+import {
+  validateAcceptorCounterIds,
+  validateOfferAsAcceptor,
+} from '@/domain/trade/validate';
+import type { TradePayloadAny } from '@/domain/types';
 import { AppConfigService } from '@/services/config/AppConfigService';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
@@ -12,7 +19,7 @@ import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
 export type AcceptResult =
-  | { ok: true; payload: TradePayload; encodedAck: string }
+  | { ok: true; payload: TradePayloadAny; encodedAck: string }
   | { ok: false; reason: string };
 
 async function buildCatalogStickerIds(): Promise<Set<string>> {
@@ -28,7 +35,7 @@ async function buildCatalogStickerIds(): Promise<Set<string>> {
 
 export function useTradeAccept() {
   const [isAccepting, setIsAccepting] = useState(false);
-  const [preview, setPreview] = useState<TradePayload | null>(null);
+  const [preview, setPreview] = useState<TradePayloadAny | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [requiresConfirmation, setRequiresConfirmation] = useState(true);
 
@@ -51,47 +58,87 @@ export function useTradeAccept() {
     }
   }, [loadConfig]);
 
-  const confirm = useCallback(async (): Promise<AcceptResult> => {
-    if (!preview) return { ok: false, reason: 'NO_PREVIEW' };
-    setIsAccepting(true);
-    setError(null);
-    try {
-      const collection = await CollectionRepository.getAllAsRows();
-      const catalogIds = await buildCatalogStickerIds();
+  const confirm = useCallback(
+    async (acceptorIds: string[] = []): Promise<AcceptResult> => {
+      if (!preview) return { ok: false, reason: 'NO_PREVIEW' };
+      setIsAccepting(true);
+      setError(null);
+      try {
+        const collection = await CollectionRepository.getAllAsRows();
+        const catalogIds = await buildCatalogStickerIds();
 
-      const validation = validateOfferAsAcceptor(preview, collection, catalogIds);
-      if (!validation.valid) {
-        setError(validation.reason);
-        return { ok: false, reason: validation.reason };
+        if (preview.v === 2) {
+          const validation = validateAcceptorCounterIds(
+            preview,
+            acceptorIds,
+            collection,
+            catalogIds,
+          );
+          if (!validation.valid) {
+            setError(validation.reason);
+            return { ok: false, reason: validation.reason };
+          }
+
+          const updated = applyTradeV2Acceptor(
+            collection,
+            preview.offeredIds,
+            acceptorIds,
+          );
+          await CollectionRepository.saveAll(updated);
+
+          const encodedAck = encodeTradeAck(
+            createTradeAckV2(preview.offerId, acceptorIds),
+          );
+          await TradeLogRepository.append({
+            id: preview.offerId,
+            payload_json: JSON.stringify(preview),
+            status: 'completed',
+            created_at: new Date().toISOString(),
+          });
+
+          const result = { ok: true as const, payload: preview, encodedAck };
+          setPreview(null);
+          return result;
+        }
+
+        const validation = validateOfferAsAcceptor(preview, collection, catalogIds);
+        if (!validation.valid) {
+          setError(validation.reason);
+          return { ok: false, reason: validation.reason };
+        }
+
+        const updated = applyTrade(collection, preview, 'acceptor');
+        await CollectionRepository.saveAll(updated);
+
+        await TradeLogRepository.append({
+          id: preview.offerId,
+          payload_json: JSON.stringify(preview),
+          status: 'completed',
+          created_at: new Date().toISOString(),
+        });
+
+        const encodedAck = encodeTradeAck(createTradeAck(preview.offerId));
+        const result = { ok: true as const, payload: preview, encodedAck };
+        setPreview(null);
+        return result;
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : 'TRADE_ERROR';
+        setError(msg);
+        return { ok: false, reason: msg };
+      } finally {
+        setIsAccepting(false);
       }
+    },
+    [preview],
+  );
 
-      const updated = applyTrade(collection, preview, 'acceptor');
-      await CollectionRepository.saveAll(updated);
-
-      await TradeLogRepository.append({
-        id: preview.offerId,
-        payload_json: JSON.stringify(preview),
-        status: 'completed',
-        created_at: new Date().toISOString(),
-      });
-
-      const encodedAck = encodeTradeAck(createTradeAck(preview.offerId));
-      const result = { ok: true as const, payload: preview, encodedAck };
-      setPreview(null);
-      return result;
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : 'TRADE_ERROR';
-      setError(msg);
-      return { ok: false, reason: msg };
-    } finally {
-      setIsAccepting(false);
-    }
-  }, [preview]);
+  const offeredIds = preview ? getInitiatorOfferedIds(preview) : [];
 
   return {
     decode,
     confirm,
     preview,
+    offeredIds,
     isAccepting,
     error,
     requiresConfirmation,
