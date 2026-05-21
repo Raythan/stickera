@@ -1,0 +1,72 @@
+{
+  "screens": {
+    "home": {
+      "title": "Meus álbuns",
+      "subtitle": "Colecione figurinhas, abra pacotes temporizados e troque repetidas.",
+      "comingSoon": "Sincronização de álbuns na Fase 2",
+      "framePreviewHint": "Cada álbum tem seu frame.css — a arte entra por cima depois (lazy).",
+      "openPack": "Abrir pacote"
+    },
+    "pack": {
+      "title": "Abrir pacote",
+      "placeholder": "Abertura de pacotes na Fase 4. Timer e revelação ficarão aqui."
+    },
+    "settings": {
+      "title": "Configurações",
+      "syncAlbums": "Atualizar álbuns",
+      "syncHint": "Baixa catálogo e arquivos do CDN (ou usa o bundle offline).",
+      "syncButton": "Sincronizar agora",
+      "syncing": "Sincronizando…",
+      "syncDone": "{{count}} álbum(ns) atualizado(s)",
+      "contentVersion": "Versão do conteúdo: {{version}}",
+      "language": "Idioma",
+      "languageHint": "Inglês e português disponíveis no MVP."
+    },
+    "about": {
+      "title": "Sobre"
+    },
+    "album": {
+      "progress": "{{owned}} / {{total}}",
+      "openAlbum": "Ver álbum"
+    }
+  },
+  "about": {
+    "tagline": "MVP de álbum de figurinhas — offline-first, sem backend.",
+    "madeWith": "Feito com Expo e Spec Driven Development"
+  },
+  "common": {
+    "loading": "Carregando…",
+    "error": "Algo deu errado",
+    "back": "Voltar"
+  },
+  "errors": {
+    "bootstrapFailed": "Não foi possível carregar o conteúdo dos álbuns. Verifique a conexão ou reinstale o app."
+  },
+  "tabs": {
+    "home": "Álbuns",
+    "pack": "Pacote",
+    "settings": "Ajustes"
+  },
+  "preview": {
+    "albumName": "Exploradores do Espaço",
+    "albumProgress": "0 / 12",
+    "badgeNew": "Prévia"
+  },
+  "albums": {
+    "retroGames": {
+      "name": "Retro Games"
+    },
+    "spaceExplorers": {
+      "name": "Exploradores do Espaço"
+    },
+    "worldCup2026": {
+      "name": "Copa do Mundo FIFA 2026",
+      "stickers": {
+        "01": { "name": "Neymar" },
+        "02": { "name": "Vinícius Jr." },
+        "03": { "name": "Raphinha" },
+        "04": { "name": "Endrick" }
+      }
+    }
+  }
+}

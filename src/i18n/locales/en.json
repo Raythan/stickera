@@ -1,0 +1,72 @@
+{
+  "screens": {
+    "home": {
+      "title": "My Albums",
+      "subtitle": "Collect stickers, open timed packs, trade duplicates.",
+      "comingSoon": "Albums sync in Phase 2",
+      "framePreviewHint": "Each album has its own frame.css — art loads on top later (lazy).",
+      "openPack": "Open pack"
+    },
+    "pack": {
+      "title": "Open pack",
+      "placeholder": "Pack opening arrives in Phase 4. Timer and reveals will live here."
+    },
+    "settings": {
+      "title": "Settings",
+      "syncAlbums": "Update albums",
+      "syncHint": "Pull catalog and album files from CDN (or use bundled content offline).",
+      "syncButton": "Sync now",
+      "syncing": "Syncing…",
+      "syncDone": "{{count}} album(s) updated",
+      "contentVersion": "Content version: {{version}}",
+      "language": "Language",
+      "languageHint": "English and Portuguese are available in the MVP."
+    },
+    "about": {
+      "title": "About"
+    },
+    "album": {
+      "progress": "{{owned}} / {{total}}",
+      "openAlbum": "View album"
+    }
+  },
+  "about": {
+    "tagline": "Sticker album MVP — offline-first, no backend.",
+    "madeWith": "Built with Expo & Spec Driven Development"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "back": "Back"
+  },
+  "errors": {
+    "bootstrapFailed": "Could not load album content. Check your connection or reinstall the app."
+  },
+  "tabs": {
+    "home": "Albums",
+    "pack": "Pack",
+    "settings": "Settings"
+  },
+  "preview": {
+    "albumName": "Space Explorers",
+    "albumProgress": "0 / 12",
+    "badgeNew": "Preview"
+  },
+  "albums": {
+    "retroGames": {
+      "name": "Retro Games"
+    },
+    "spaceExplorers": {
+      "name": "Space Explorers"
+    },
+    "worldCup2026": {
+      "name": "FIFA World Cup 2026",
+      "stickers": {
+        "01": { "name": "Neymar" },
+        "02": { "name": "Vinícius Jr." },
+        "03": { "name": "Raphinha" },
+        "04": { "name": "Endrick" }
+      }
+    }
+  }
+}

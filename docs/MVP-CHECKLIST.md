@@ -16,23 +16,23 @@ Normative detail: [docs/PHASES/00-governance.md](PHASES/00-governance.md).
 
 Normative detail: [docs/PHASES/01-scaffold.md](PHASES/01-scaffold.md).
 
-- [ ] Expo app scaffold (TypeScript, Expo Router)
-- [ ] Folder structure per ARCHITECTURE.md
-- [ ] `EXPO_PUBLIC_CONTENT_BASE_URL` in `.env.example`
-- [ ] `src/theme/*` tokens
-- [ ] Atoms: `Button`, `Text`, `Image`, `Icon`, `Badge`
-- [ ] Templates: `ScreenTemplate`, `AboutTemplate`
-- [ ] i18n wired; EN + PT files with home/pack/settings keys
+- [x] Expo app scaffold (TypeScript, Expo Router)
+- [x] Folder structure per ARCHITECTURE.md
+- [x] `EXPO_PUBLIC_CONTENT_BASE_URL` in `.env.example`
+- [x] `src/theme/*` tokens
+- [x] Atoms: `Button`, `Text`, `Image`, `Icon`, `Badge`
+- [x] Templates: `ScreenTemplate`, `AboutTemplate`
+- [x] i18n wired; EN + PT files with home/pack/settings keys
 
 ## Phase 2 — Content & persistence
 
 Normative detail: [docs/PHASES/02-persistence.md](PHASES/02-persistence.md).
 
-- [ ] Zod validators for `catalog.json` / `album.json`
-- [ ] SQLite migrations + repositories
-- [ ] Bundled album in `content/`
-- [ ] Sync service + manual refresh UI
-- [ ] Netlify/GitHub deploy of `content/`
+- [x] Zod validators for `catalog.json` / `album.json`
+- [x] SQLite migrations + repositories
+- [x] Bundled album in `content/`
+- [x] Sync service + manual refresh UI
+- [x] GitHub Pages PWA deploy ([DEPLOY-CONTENT.md](DEPLOY-CONTENT.md) + `deploy-github-pages.yml` → https://raythan.github.io/stickera/)
 
 ## Phase 3 — Collection & albums
 

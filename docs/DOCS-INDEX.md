@@ -22,6 +22,8 @@ Navegação central para **Spec Driven Development (SDD)**.
 | [ATOMIC-DESIGN.md](ATOMIC-DESIGN.md) | UI tiers |
 | [I18N.md](I18N.md) | en + pt |
 | [CONTENT-SYNC.md](CONTENT-SYNC.md) | CDN, manifests |
+| [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md) | Netlify / Actions para publicar `content/` |
+| [STICKER-FRAMES.md](STICKER-FRAMES.md) | frame.css por álbum + arte lazy |
 | [TRADING-P2P.md](TRADING-P2P.md) | Troca offline |
 
 ## Processo SDD

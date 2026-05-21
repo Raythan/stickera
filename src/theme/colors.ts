@@ -1,0 +1,18 @@
+export const colors = {
+  background: '#F7F3ED',
+  surface: '#FFFFFF',
+  surfaceMuted: '#EDE8DF',
+  primary: '#E85D4C',
+  primaryPressed: '#D14A3A',
+  secondary: '#1B4D5C',
+  secondaryMuted: '#2A6B7D',
+  accent: '#F4B942',
+  text: '#1A1A1A',
+  textMuted: '#5C5C5C',
+  textInverse: '#FFFFFF',
+  border: '#D9D2C5',
+  success: '#3D8B6E',
+  error: '#C0392B',
+  stickerPlaceholder: '#E8E2D8',
+  shadow: 'rgba(26, 26, 26, 0.12)',
+} as const;

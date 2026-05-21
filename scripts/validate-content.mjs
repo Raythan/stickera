@@ -38,6 +38,8 @@ function validateCatalog(catalog) {
   }
 }
 
+const IMAGE_EXT = /\.(png|jpg|jpeg|gif)$/i;
+
 function validateAlbum(albumPath, album) {
   const albumDir = path.dirname(albumPath);
   const errors = [];
@@ -45,19 +47,28 @@ function validateAlbum(albumPath, album) {
   if (!album.id || !album.revision || !album.nameKey?.startsWith('albums.')) {
     errors.push(`${albumPath}: id, revision, nameKey (albums.*) obrigatórios`);
   }
-  if (!Array.isArray(album.stickers) || album.stickers.length === 0) {
-    errors.push(`${albumPath}: stickers[] vazio`);
+  const framePath = path.join(albumDir, album.frameStylePath ?? 'frame.css');
+  if (!fs.existsSync(framePath)) {
+    errors.push(`frame.css ausente: ${path.relative(ROOT, framePath)}`);
+  }
+  if (!Array.isArray(album.stickers)) {
+    errors.push(`${albumPath}: stickers deve ser array (pode ser vazio se só CSS)`);
   }
   const ids = new Set();
   for (const s of album.stickers ?? []) {
-    if (!s.id || !s.nameKey?.startsWith('albums.') || !s.image) {
-      errors.push(`${albumPath}: sticker ${s.id ?? '?'} precisa id, nameKey, image`);
+    if (!s.id || !s.nameKey?.startsWith('albums.')) {
+      errors.push(`${albumPath}: sticker ${s.id ?? '?'} precisa id, nameKey`);
+    }
+    if (s.image && !IMAGE_EXT.test(s.image)) {
+      errors.push(`${albumPath}: image deve ser stickers/*.(png|jpg|jpeg|gif)`);
     }
     if (ids.has(s.id)) errors.push(`${albumPath}: id duplicado ${s.id}`);
     ids.add(s.id);
-    const imgPath = path.join(albumDir, s.image);
-    if (!fs.existsSync(imgPath)) {
-      errors.push(`Imagem ausente: ${path.relative(ROOT, imgPath)}`);
+    if (s.image) {
+      const imgPath = path.join(albumDir, s.image);
+      if (!fs.existsSync(imgPath)) {
+        errors.push(`Imagem ausente: ${path.relative(ROOT, imgPath)}`);
+      }
     }
   }
   if (album.coverImage) {

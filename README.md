@@ -37,6 +37,32 @@
 - `.cursor/skills/` — 4 skills com `reference.md`  
 - [AGENTS.md](AGENTS.md) — entrada para agentes  
 
+## Conteúdo — molduras CSS por álbum
+
+Cada álbum em `content/albums/{id}/` tem `frame.css` (molde) e `stickers/` para artes (png, jpg, jpeg, gif). Ver [docs/STICKER-FRAMES.md](docs/STICKER-FRAMES.md).
+
+## PWA no celular (GitHub Pages)
+
+**https://raythan.github.io/stickera/** — abra no navegador do telefone e use **Adicionar à tela inicial**. Sem Expo Go e sem estar na mesma rede do notebook.
+
+Deploy automático: push em `main` → workflow [deploy-github-pages.yml](.github/workflows/deploy-github-pages.yml). Detalhes: [docs/DEPLOY-CONTENT.md](docs/DEPLOY-CONTENT.md).
+
+## Desenvolvimento nativo (opcional)
+
+```bash
+npm install
+npm start
+```
+
+`prestart` copia `content/` → `assets/content/`. Build web/PWA: `npm run build:web`.
+
+## Validação
+
+```bash
+npm run validate   # estrutura, content, i18n, bundle
+npm test
+```
+
 ## Status
 
-Governança SDD e specs prontas; app não iniciado. Seguir [docs/MVP-CHECKLIST.md](docs/MVP-CHECKLIST.md) e [docs/PHASES/00-governance.md](docs/PHASES/00-governance.md).
+Fases 1–2 em progresso no código; checklist: [docs/MVP-CHECKLIST.md](docs/MVP-CHECKLIST.md).

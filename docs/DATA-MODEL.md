@@ -31,6 +31,7 @@ All persistent data lives on-device (SQLite + filesystem). Types below are the c
 {
   "id": "space-explorers",
   "revision": 3,
+  "frameStylePath": "frame.css",
   "totalStickers": 50,
   "nameKey": "albums.spaceExplorers.name",
   "coverImage": "cover.webp",
@@ -40,14 +41,16 @@ All persistent data lives on-device (SQLite + filesystem). Types below are the c
       "number": 1,
       "rarity": "common",
       "nameKey": "albums.spaceExplorers.stickers.01.name",
-      "image": "stickers/01.webp"
+      "image": "stickers/01.png"
     }
   ],
   "packWeight": 1
 }
 ```
 
-`nameKey` points to i18n; fallback `name` optional for editor preview only.
+- `frameStylePath`: CSS do molde (`.sticker-frame` + `.sticker-art`) — ver [STICKER-FRAMES.md](STICKER-FRAMES.md).
+- `image`: opcional até a arte existir no repo; formatos `png|jpg|jpeg|gif`.
+- `nameKey` points to i18n; fallback `name` optional for editor preview only.
 
 ## SQLite schema (MVP)
 

@@ -13,12 +13,13 @@ content/
   albums/
     space-explorers/
       album.json
-      cover.webp
-      stickers/
-        01.webp
-        ...
-public/                    # if using Expo web preview only
+      frame.css              # moldura CSS deste álbum (obrigatório)
+      stickers/              # artes: png, jpg, jpeg, gif (lazy no app)
+        01.png
+      cover.webp             # opcional
 ```
+
+Ver [STICKER-FRAMES.md](STICKER-FRAMES.md) — molde CSS + arte sobreposta, um estilo por álbum.
 
 ## Hosting options
 
@@ -66,7 +67,9 @@ update local contentVersion
 
 ## Bundled fallback
 
-Ship `content/catalog.json` + one album inside app binary so **first open works offline**. Remote sync upgrades catalog.
+Ship `content/catalog.json` + albums under `content/albums/` in the app binary so **first open works offline**. Configured in `app.json` → `assetBundlePatterns`; validated with `npm run validate:bundle`. `prestart` mirrors to `assets/content/` as a fallback path.
+
+Remote sync upgrades catalog. Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md).
 
 ## Asset guidelines
 

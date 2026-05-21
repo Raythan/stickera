@@ -1,0 +1,26 @@
+/**
+ * Album: space-explorers — moldura sci-fi / holográfica
+ */
+.sticker-frame {
+  width: 120px;
+  height: 160px;
+  box-sizing: border-box;
+  border: 2px solid #4ecdc4;
+  border-radius: 20px 20px 8px 8px;
+  background: radial-gradient(ellipse at 50% 0%, #1b3a4b 0%, #0d1f2d 70%);
+  box-shadow:
+    0 0 12px rgba(78, 205, 196, 0.4),
+    inset 0 0 24px rgba(78, 205, 196, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sticker-art {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}

@@ -1,0 +1,39 @@
+{
+  "id": "world-cup-2026",
+  "revision": 1,
+  "frameStylePath": "frame.css",
+  "totalStickers": 4,
+  "nameKey": "albums.worldCup2026.name",
+  "coverImage": "stickers/01-neymar.jpeg",
+  "packWeight": 1.25,
+  "stickers": [
+    {
+      "id": "world-cup-2026:01",
+      "number": 1,
+      "rarity": "legendary",
+      "nameKey": "albums.worldCup2026.stickers.01.name",
+      "image": "stickers/01-neymar.jpeg"
+    },
+    {
+      "id": "world-cup-2026:02",
+      "number": 2,
+      "rarity": "rare",
+      "nameKey": "albums.worldCup2026.stickers.02.name",
+      "image": "stickers/02-vinicius-junior.jpeg"
+    },
+    {
+      "id": "world-cup-2026:03",
+      "number": 3,
+      "rarity": "rare",
+      "nameKey": "albums.worldCup2026.stickers.03.name",
+      "image": "stickers/03-raphinha.jpeg"
+    },
+    {
+      "id": "world-cup-2026:04",
+      "number": 4,
+      "rarity": "uncommon",
+      "nameKey": "albums.worldCup2026.stickers.04.name",
+      "image": "stickers/04-endrick.jpeg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Stickera",
+    "slug": "stickera",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "stickera",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F3ED"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.stickera.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F7F3ED"
+      },
+      "package": "dev.stickera.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png",
+      "name": "Stickera",
+      "shortName": "Stickera",
+      "description": "Offline sticker album — PWA",
+      "themeColor": "#E85D4C",
+      "backgroundColor": "#F7F3ED",
+      "display": "standalone",
+      "orientation": "portrait"
+    },
+    "assetBundlePatterns": [
+      "assets/**/*",
+      "content/catalog.json",
+      "content/app-config.json",
+      "content/albums/**/*.json",
+      "content/albums/**/*.css",
+      "content/albums/**/*.png",
+      "content/albums/**/*.jpg",
+      "content/albums/**/*.jpeg",
+      "content/albums/**/*.gif",
+      "content/albums/**/*.webp"
+    ],
+    "plugins": ["expo-router", "expo-localization"],
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/stickera"
+    }
+  }
+}

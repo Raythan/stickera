@@ -17,9 +17,12 @@ content/
   app-config.json
   albums/{albumId}/
     album.json
-    cover.webp
-    stickers/*.webp
+    frame.css              # obrigatório — moldura do álbum
+    stickers/*.{png,jpg,jpeg,gif}   # artes (lazy no app)
+    cover.webp             # opcional
 ```
+
+Ver [docs/STICKER-FRAMES.md](../../docs/STICKER-FRAMES.md).
 
 ## Workflow
 

@@ -8,7 +8,7 @@ Use após editar manifests, locales ou antes de declarar uma fase concluída.
 
 ## §1 Content (`content/`)
 
-**Specs:** [CONTENT-SYNC.md](CONTENT-SYNC.md), [schemas/catalog.schema.json](schemas/catalog.schema.json), [schemas/album.schema.json](schemas/album.schema.json).
+**Specs:** [CONTENT-SYNC.md](CONTENT-SYNC.md), [STICKER-FRAMES.md](STICKER-FRAMES.md), [schemas/catalog.schema.json](schemas/catalog.schema.json), [schemas/album.schema.json](schemas/album.schema.json).
 
 | # | Critério | Pass? |
 |---|----------|-------|
@@ -16,11 +16,12 @@ Use após editar manifests, locales ou antes de declarar uma fase concluída.
 | 2 | `appConfig.packCooldown.unit` ∈ seconds \| minutes \| hours; `value` > 0 | |
 | 3 | `appConfig.stickersPerPack` ≥ 1 | |
 | 4 | Cada `albums[].manifestPath` → arquivo existe | |
-| 5 | `album.json`: `id`, `revision`, `nameKey` prefixo `albums.` | |
-| 6 | `stickers[]` não vazio; `id` únicos no álbum | |
-| 7 | Cada `sticker.image` existe no disco | |
-| 8 | `coverImage` existe se definido | |
-| 9 | Alterou figurinha → `revision`++ e `catalog.version` bump | |
+| 5 | `album.json`: `id`, `revision`, `nameKey`, `frameStylePath` | |
+| 6 | `frame.css` existe no diretório do álbum | |
+| 7 | `stickers[]` é array; `id` únicos; `image` só se arquivo existir | |
+| 8 | `sticker.image` usa `stickers/*.(png\|jpg\|jpeg\|gif)` | |
+| 9 | `coverImage` existe se definido | |
+| 10 | Alterou figurinha ou CSS → `revision`++ e `catalog.version` bump | |
 
 ---
 

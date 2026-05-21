@@ -1,0 +1,40 @@
+# Deploy content/ to Netlify when manifests or stickers change.
+# Requires NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID repository secrets.
+# See docs/DEPLOY-CONTENT.md
+
+name: Deploy content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'netlify.toml'
+      - '.github/workflows/deploy-content.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci || npm install
+
+      - name: Validate content
+        run: npm run validate:content
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './content'
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'content: ${{ github.sha }}'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5

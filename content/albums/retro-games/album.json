@@ -1,0 +1,9 @@
+{
+  "id": "retro-games",
+  "revision": 1,
+  "frameStylePath": "frame.css",
+  "totalStickers": 12,
+  "nameKey": "albums.retroGames.name",
+  "packWeight": 1,
+  "stickers": []
+}

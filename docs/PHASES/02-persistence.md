@@ -47,11 +47,11 @@ Validators retornam `Result` ou throw tipado — escolher um padrão e manter.
 
 ## Checklist de saída
 
-- [ ] Migrations aplicam em primeiro launch
-- [ ] Catálogo bundled abre offline
-- [ ] Pull-to-refresh ou botão “Atualizar álbuns” chama sync
-- [ ] Zod rejeita manifest inválido (teste unitário)
-- [ ] Sem UI de coleção ainda (pode log dev)
+- [x] Migrations aplicam em primeiro launch
+- [x] Catálogo bundled abre offline
+- [x] Pull-to-refresh ou botão “Atualizar álbuns” chama sync
+- [x] Zod rejeita manifest inválido (teste unitário)
+- [ ] Sem UI de coleção ainda (pode log dev) — álbum parcial antecipado (Fase 3)
 
 ## Anti-padrões
 

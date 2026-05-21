@@ -6,9 +6,10 @@ alwaysApply: false
 
 # Content bundle
 
-Read: `docs/CONTENT-SYNC.md`, `docs/schemas/`, skill `stickera-content-bundle`.
+Read: `docs/CONTENT-SYNC.md`, `docs/STICKER-FRAMES.md`, `docs/schemas/`, skill `stickera-content-bundle`.
 
-- Bump `catalog.version` and album `revision` on any sticker/image change
+- Every album folder must include `frame.css` (`.sticker-frame` + `.sticker-art`)
+- Bump `catalog.version` and album `revision` on any sticker/image/CSS change
 - Every sticker: `nameKey` under `albums.*` + keys in `en.json` and `pt.json`
 - Images WebP under `albums/{id}/stickers/`
 - IDs: `album-id:NN` slug album `^[a-z0-9]+(-[a-z0-9]+)*$`
