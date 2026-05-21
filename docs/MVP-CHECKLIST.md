@@ -67,10 +67,10 @@ Normative detail: [docs/PHASES/05-trading.md](PHASES/05-trading.md).
 
 Normative detail: [docs/PHASES/06-release.md](PHASES/06-release.md).
 
-- [ ] About / signature screen (links, tagline, avatar)
-- [ ] App icon + splash with branding
-- [ ] PWA installable on mobile browsers
-- [ ] README install instructions for contributors
+- [x] About / signature screen (links, tagline, avatar)
+- [x] App icon + splash with branding
+- [x] PWA installable on mobile browsers
+- [x] README install instructions for contributors
 
 ## Definition of done
 

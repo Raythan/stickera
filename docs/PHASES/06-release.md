@@ -28,12 +28,12 @@ MVP publicável como vitrine profissional: About, branding, PWA instalável via 
 
 ## Checklist de saída (MVP completo)
 
-- [ ] PRODUCT acceptance criteria met
-- [ ] PWA instala via "Add to Home Screen" em mobile
-- [ ] Offline-capable (service worker + localStorage)
-- [ ] Pack + trade + i18n + about
-- [ ] Sem backend de app
-- [ ] Portfólio: nome e links corretos na About
+- [x] PRODUCT acceptance criteria met
+- [x] PWA instala via "Add to Home Screen" em mobile
+- [x] Offline-capable (service worker + localStorage)
+- [x] Pack + trade + i18n + about
+- [x] Sem backend de app
+- [x] Portfólio: nome e links corretos na About
 
 ## Anti-padrões
 

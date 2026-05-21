@@ -3,11 +3,10 @@
   "stickersPerPack": 4,
   "tradeRequiresConfirmation": true,
   "signature": {
-    "authorName": "Your Name",
+    "authorName": "Raythan",
     "taglineKey": "about.tagline",
     "links": {
-      "github": "https://github.com/yourusername",
-      "linkedin": "https://linkedin.com/in/yourprofile"
+      "github": "https://github.com/Raythan"
     }
   }
 }

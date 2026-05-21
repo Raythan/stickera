@@ -7,27 +7,75 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
-import { useTradableStickers } from '@/features/trade/useTradableStickers';
-import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import type { TradeLogEntry } from '@/domain/types';
+import { useTradableStickers } from '@/features/trade/useTradableStickers';
+import { useTradeConfirm } from '@/features/trade/useTradeConfirm';
+import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { theme } from '@/theme';
+
+function parseOfferId(payloadJson: string): string | null {
+  try {
+    const payload = JSON.parse(payloadJson) as { offerId?: string };
+    return payload.offerId ?? null;
+  } catch {
+    return null;
+  }
+}
 
 export default function TradeHubScreen() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { stickerIds, loading } = useTradableStickers();
+  const { stickerIds, loading, reload: reloadTradable } = useTradableStickers();
+  const { confirmByOfferId, isConfirming } = useTradeConfirm();
   const [recentTrades, setRecentTrades] = useState<TradeLogEntry[]>([]);
+  const [pendingSent, setPendingSent] = useState<TradeLogEntry[]>([]);
+  const [confirmError, setConfirmError] = useState<string | null>(null);
+  const [confirmSuccess, setConfirmSuccess] = useState(false);
+
+  const reloadTrades = useCallback(async () => {
+    const all = await TradeLogRepository.listRecent(20);
+    setRecentTrades(all);
+    setPendingSent(all.filter((e) => e.status === 'sent'));
+  }, []);
 
   useEffect(() => {
-    void TradeLogRepository.listRecent(10).then(setRecentTrades);
-  }, []);
+    void reloadTrades();
+  }, [reloadTrades]);
 
   const goOffer = useCallback(() => router.push('/trade/offer'), [router]);
   const goAccept = useCallback(() => router.push('/trade/accept'), [router]);
 
+  const handleConfirm = useCallback(
+    async (offerId: string) => {
+      setConfirmError(null);
+      setConfirmSuccess(false);
+      const result = await confirmByOfferId(offerId);
+      if (result.ok) {
+        setConfirmSuccess(true);
+        await reloadTrades();
+        await reloadTradable();
+      } else {
+        setConfirmError(result.reason);
+      }
+    },
+    [confirmByOfferId, reloadTrades, reloadTradable],
+  );
+
   return (
     <ScreenTemplate title={t('screens.trade.title')}>
       <TradeDisclaimer />
+
+      {confirmSuccess ? (
+        <Text variant="body" color={theme.colors.success} style={styles.banner}>
+          {t('screens.trade.success')}
+        </Text>
+      ) : null}
+
+      {confirmError ? (
+        <Text variant="caption" color={theme.colors.error} style={styles.banner}>
+          {confirmError}
+        </Text>
+      ) : null}
 
       {!loading && stickerIds.length === 0 ? (
         <Text variant="body" color={theme.colors.textMuted} style={styles.empty}>
@@ -47,6 +95,29 @@ export default function TradeHubScreen() {
           onPress={goAccept}
         />
       </View>
+
+      {pendingSent.length > 0 ? (
+        <View style={styles.section}>
+          <Text variant="bodyBold">{t('screens.trade.pendingIncoming')}</Text>
+          {pendingSent.map((entry) => {
+            const offerId = parseOfferId(entry.payload_json);
+            if (!offerId) return null;
+            return (
+              <View key={entry.id} style={styles.pendingRow}>
+                <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
+                  {offerId.slice(0, 8)}…
+                </Text>
+                <Button
+                  label={t('screens.trade.confirmIncoming')}
+                  size="sm"
+                  onPress={() => void handleConfirm(offerId)}
+                  disabled={isConfirming}
+                />
+              </View>
+            );
+          })}
+        </View>
+      ) : null}
 
       <View style={styles.section}>
         <Text variant="bodyBold">{t('screens.trade.recentTrades')}</Text>
@@ -79,6 +150,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: theme.spacing.xl,
   },
+  banner: {
+    textAlign: 'center',
+    marginBottom: theme.spacing.md,
+  },
   actions: {
     gap: theme.spacing.md,
     marginVertical: theme.spacing.lg,
@@ -87,6 +162,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.surface,
     borderRadius: 16,
     padding: theme.spacing.lg,
+    marginBottom: theme.spacing.lg,
     borderWidth: 1,
     borderColor: theme.colors.border,
   },
@@ -96,6 +172,15 @@ const styles = StyleSheet.create({
   tradeRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingVertical: theme.spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.colors.border,
+  },
+  pendingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: theme.spacing.sm,
     paddingVertical: theme.spacing.sm,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.colors.border,
