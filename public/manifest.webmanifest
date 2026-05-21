@@ -10,6 +10,12 @@
   "theme_color": "#E85D4C",
   "icons": [
     {
+      "src": "/stickera/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/stickera/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
