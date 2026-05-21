@@ -1,8 +1,8 @@
 # Data model
 
-> **SDD:** contrato para `src/domain/types.ts`, SQLite migrations e `docs/schemas/`. Processo: [SDD-DEVELOPMENT.md](SDD-DEVELOPMENT.md). Validação domain: [SPEC-VALIDATION.md](SPEC-VALIDATION.md) §5.
+> **SDD:** contrato para `src/domain/types.ts`, repositórios localStorage e `docs/schemas/`. Processo: [SDD-DEVELOPMENT.md](SDD-DEVELOPMENT.md). Validação domain: [SPEC-VALIDATION.md](SPEC-VALIDATION.md) §5.
 
-All persistent data lives on-device (SQLite + filesystem). Types below are the contract for `src/domain/types.ts` and migrations.
+All persistent data lives in the browser's localStorage (key: `stickera_db_v1`). Types below are the contract for `src/domain/types.ts` and the localStore schema.
 
 ## IDs
 
@@ -52,56 +52,40 @@ All persistent data lives on-device (SQLite + filesystem). Types below are the c
 - `image`: opcional até a arte existir no repo; formatos `png|jpg|jpeg|gif`.
 - `nameKey` points to i18n; fallback `name` optional for editor preview only.
 
-## SQLite schema (MVP)
+## localStorage schema (MVP)
 
-```sql
--- User settings
-CREATE TABLE settings (
-  key TEXT PRIMARY KEY,
-  value TEXT NOT NULL
-);
+The store is a single JSON object under the key `stickera_db_v1`:
 
--- Enabled albums for pack pool
-CREATE TABLE enabled_albums (
-  album_id TEXT PRIMARY KEY,
-  enabled INTEGER NOT NULL DEFAULT 1
-);
-
--- Cached album metadata (from manifest)
-CREATE TABLE albums (
-  id TEXT PRIMARY KEY,
-  revision INTEGER NOT NULL,
-  total_stickers INTEGER NOT NULL,
-  name_key TEXT NOT NULL,
-  cover_uri TEXT,
-  pack_weight REAL DEFAULT 1
-);
-
--- User collection
-CREATE TABLE collection (
-  sticker_id TEXT PRIMARY KEY,
-  album_id TEXT NOT NULL,
-  quantity INTEGER NOT NULL DEFAULT 0,
-  is_new INTEGER NOT NULL DEFAULT 0,
-  first_obtained_at TEXT,
-  updated_at TEXT NOT NULL
-);
-
--- Pack cooldown
-CREATE TABLE pack_state (
-  id INTEGER PRIMARY KEY CHECK (id = 1),
-  last_opened_at TEXT,
-  next_available_at TEXT
-);
-
--- Pending / history trades (local log)
-CREATE TABLE trade_log (
-  id TEXT PRIMARY KEY,
-  payload_json TEXT NOT NULL,
-  status TEXT NOT NULL, -- draft | sent | completed | cancelled
-  created_at TEXT NOT NULL
-);
+```typescript
+type StoreData = {
+  schemaVersion: number;                     // current: 1
+  settings: Record<string, string>;          // key-value pairs
+  albums: AlbumRow[];                        // cached album metadata
+  enabled_albums: Record<string, boolean>;   // album_id → enabled
+  collection: CollectionRow[];               // user sticker collection
+  pack_state: {
+    last_opened_at: string | null;
+    next_available_at: string | null;
+  };
+  trade_log: Array<{
+    id: string;
+    payload_json: string;
+    status: string;                          // draft | sent | completed | cancelled
+    created_at: string;
+  }>;
+};
 ```
+
+Logical tables (equivalent to previous SQL schema):
+
+| Table | Fields |
+|-------|--------|
+| settings | key (PK), value |
+| enabled_albums | album_id (PK), enabled |
+| albums | id (PK), revision, total_stickers, name_key, cover_uri, pack_weight |
+| collection | sticker_id (PK), album_id, quantity, is_new, first_obtained_at, updated_at |
+| pack_state | last_opened_at, next_available_at |
+| trade_log | id (PK), payload_json, status, created_at |
 
 ## Domain: pack draw
 
@@ -156,5 +140,6 @@ type UiStore = {
 
 ## Migration policy
 
-- Version table `schema_version`
-- Forward-only SQL in `src/services/db/migrations/`
+- `schemaVersion` field in the stored JSON
+- Forward-only migrations in `src/services/db/migrations/` (pure JS transforms)
+- Access only via `src/services/db/` repositories

@@ -1,8 +1,11 @@
-import { getDatabase } from './client';
+import { loadStore, saveStore } from './localStore';
 
 export const PackStateRepository = {
   async ensureInitialized(): Promise<void> {
-    const db = await getDatabase();
-    await db.runAsync('INSERT OR IGNORE INTO pack_state (id) VALUES (1)');
+    const store = loadStore();
+    if (!store.pack_state) {
+      store.pack_state = { last_opened_at: null, next_available_at: null };
+      saveStore(store);
+    }
   },
 };

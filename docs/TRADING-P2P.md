@@ -8,7 +8,7 @@ Trading is **opt-in**, **local-trust**, and **duplicate-only**. No server mediat
 
 - User A offers sticker X (duplicate) wants sticker Y from enabled albums
 - User B scans QR or opens deep link / pastes payload
-- Both confirm on device; SQLite updated independently
+- Both confirm on device; localStorage updated independently
 
 ## Trade payload (v1)
 

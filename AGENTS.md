@@ -15,7 +15,7 @@
 
 ## Produto (uma frase)
 
-Álbum de figurinhas mobile, offline-first, pacotes temporizados, troca P2P de repetidas, conteúdo estático — sem backend.
+Álbum de figurinhas PWA, offline-capable, pacotes temporizados, troca P2P de repetidas, conteúdo estático — sem backend.
 
 ## Tarefa → specs
 
@@ -51,7 +51,7 @@
 
 ## Stack (ADR-001)
 
-Expo + Expo Router + TypeScript + Zustand + expo-sqlite + i18next.
+Expo (web export) + Expo Router + TypeScript + Zustand + localStorage + i18next.
 
 ## Pastas (após scaffold)
 

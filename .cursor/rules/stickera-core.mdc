@@ -1,5 +1,5 @@
 ---
-description: Stickera product constraints — offline Expo MVP, docs-first
+description: Stickera product constraints — PWA offline-capable, docs-first
 alwaysApply: true
 ---
 
@@ -9,7 +9,7 @@ Master doc: `docs/DEVELOPMENT-STANDARDS.md`. Entry: `AGENTS.md` + `.cursorrules`
 
 ## Product (non-negotiable)
 
-- Mobile installable; **no app backend**; offline-first; static `content/` + CDN
+- PWA installable (Add to Home Screen); **no app backend**; offline-capable; static `content/` + CDN
 - Atomic UI; i18n EN default + PT required; About/signature for portfolio
 - Pack: cooldown from config; N stickers per pack; no duplicate IDs in one pack
 - Trade: P2P duplicates only — `docs/TRADING-P2P.md`

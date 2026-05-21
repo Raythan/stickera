@@ -18,11 +18,11 @@ Navegação central para **Spec Driven Development (SDD)**.
 |-----------|----------|
 | [PRODUCT.md](PRODUCT.md) | Visão, MVP, parâmetros |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Stack, pastas, rotas |
-| [DATA-MODEL.md](DATA-MODEL.md) | SQLite, pack, coleção |
+| [DATA-MODEL.md](DATA-MODEL.md) | localStorage, pack, coleção |
 | [ATOMIC-DESIGN.md](ATOMIC-DESIGN.md) | UI tiers |
 | [I18N.md](I18N.md) | en + pt |
 | [CONTENT-SYNC.md](CONTENT-SYNC.md) | CDN, manifests |
-| [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md) | Netlify / Actions para publicar `content/` |
+| [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md) | GitHub Pages PWA deploy |
 | [STICKER-FRAMES.md](STICKER-FRAMES.md) | frame.css por álbum + arte lazy |
 | [TRADING-P2P.md](TRADING-P2P.md) | Troca offline |
 
@@ -55,7 +55,7 @@ Navegação central para **Spec Driven Development (SDD)**.
 
 | ADR | Título |
 |-----|--------|
-| [decisions/001-expo-offline-mvp.md](decisions/001-expo-offline-mvp.md) | Expo sem backend |
+| [decisions/001-expo-offline-mvp.md](decisions/001-expo-offline-mvp.md) | PWA sem backend |
 
 ## Cursor (fora de docs/)
 

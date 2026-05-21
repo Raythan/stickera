@@ -4,7 +4,7 @@
 
 ## Objetivo
 
-MVP publicável como vitrine profissional: About, branding, build instalável.
+MVP publicável como vitrine profissional: About, branding, PWA instalável via GitHub Pages.
 
 ## Pré-requisitos
 
@@ -18,31 +18,30 @@ MVP publicável como vitrine profissional: About, branding, build instalável.
 | `AboutTemplate` + `SignatureBlock` | links GitHub/LinkedIn, tagline i18n, avatar opcional |
 | `app/about.tsx` | rota |
 | Ícone / splash | assets em `assets/` — identidade visual consistente com theme |
-| README raiz | como instalar, sync content, créditos |
-| Build | EAS ou build local documentado |
+| README raiz | como rodar, sync content, créditos |
+| PWA manifest | `public/manifest.webmanifest` com ícones corretos |
 
 ## Conteúdo CDN
 
-- `content/` publicado Netlify/GitHub Pages
+- `content/` publicado GitHub Pages
 - `EXPO_PUBLIC_CONTENT_BASE_URL` apontando produção
 
 ## Checklist de saída (MVP completo)
 
-- [ ] PRODUCT acceptance criteria ✅
-- [ ] App instala em Android e roda no iOS sim/device
-- [ ] Offline first launch
+- [ ] PRODUCT acceptance criteria met
+- [ ] PWA instala via "Add to Home Screen" em mobile
+- [ ] Offline-capable (service worker + localStorage)
 - [ ] Pack + trade + i18n + about
 - [ ] Sem backend de app
 - [ ] Portfólio: nome e links corretos na About
 
 ## Anti-padrões
 
-- About vazia ou com placeholder “Your Name” em produção
+- About vazia ou com placeholder "Your Name" em produção
 - Publicar sem `catalog.version` coerente
 
 ## Pós-MVP (fora do cerco atual)
 
 - Push notifications cooldown
-- OTA EAS Update
 - Mais locales além pt
-- Validação automatizada opcional alinhada a SPEC-VALIDATION
+- App nativo via EAS (se demanda justificar)

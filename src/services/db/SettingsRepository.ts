@@ -1,4 +1,4 @@
-import { getDatabase } from './client';
+import { loadStore, saveStore } from './localStore';
 
 export const SETTINGS_KEYS = {
   contentVersion: 'contentVersion',
@@ -8,20 +8,14 @@ export const SETTINGS_KEYS = {
 
 export const SettingsRepository = {
   async get(key: string): Promise<string | null> {
-    const db = await getDatabase();
-    const row = await db.getFirstAsync<{ value: string }>(
-      'SELECT value FROM settings WHERE key = ?',
-      [key],
-    );
-    return row?.value ?? null;
+    const store = loadStore();
+    return store.settings[key] ?? null;
   },
 
   async set(key: string, value: string): Promise<void> {
-    const db = await getDatabase();
-    await db.runAsync(
-      'INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
-      [key, value],
-    );
+    const store = loadStore();
+    store.settings[key] = value;
+    saveStore(store);
   },
 
   async getContentVersion(): Promise<string | null> {

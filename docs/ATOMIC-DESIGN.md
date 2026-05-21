@@ -29,7 +29,7 @@ Exception: `LocalizedText` atom wraps `Text` + `t()` if you standardize one atom
 
 - Combine 2+ atoms; still presentational.
 - May use `useTranslation` for static molecule copy.
-- No direct SQLite / Zustand — receive data via props.
+- No direct localStorage / Zustand — receive data via props.
 
 ### Organisms (`src/components/organisms/`)
 

@@ -10,6 +10,6 @@ Full spec: `docs/CODING-STANDARDS.md`, templates: `docs/FILE-TEMPLATES.md`.
 
 - `strict` TS; no `any`
 - Import order: external → `@/` → relative
-- State: SQLite repos + Zustand UI only; no duplicate derived state
+- State: localStorage repos + Zustand UI only; no duplicate derived state
 - Errors: i18n `errors.*` in UI
 - One export per component file; folder name = component name

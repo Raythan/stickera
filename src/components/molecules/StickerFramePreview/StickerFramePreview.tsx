@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { WebView } from 'react-native-webview';
 
 import { theme } from '@/theme';
 
@@ -18,11 +17,11 @@ function buildFrameHtml(frameCss: string, artUri?: string | null): string {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; }
   body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100%;
     background: transparent;
     font-family: system-ui, sans-serif;
   }
@@ -54,13 +53,11 @@ export function StickerFramePreview({
 
   return (
     <View style={styles.wrap} accessibilityLabel={accessibilityLabel}>
-      <WebView
-        originWhitelist={['*']}
-        source={{ html }}
-        style={styles.webview}
-        scrollEnabled={false}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
+      <iframe
+        title={accessibilityLabel}
+        srcDoc={html}
+        style={styles.iframe as object}
+        sandbox="allow-same-origin"
       />
     </View>
   );
@@ -74,8 +71,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: theme.colors.stickerPlaceholder,
   },
-  webview: {
-    flex: 1,
+  iframe: {
+    width: '100%',
+    height: '100%',
+    borderWidth: 0,
     backgroundColor: 'transparent',
   },
 });

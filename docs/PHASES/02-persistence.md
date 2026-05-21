@@ -4,7 +4,7 @@
 
 ## Objetivo
 
-SQLite como fonte de verdade local; download de `catalog.json` e álbuns; bundle offline inicial.
+localStorage como fonte de verdade local; fetch de `catalog.json` e álbuns via HTTP; conteúdo servido diretamente do CDN.
 
 ## Pré-requisitos
 
@@ -14,12 +14,12 @@ SQLite como fonte de verdade local; download de `catalog.json` e álbuns; bundle
 
 | Artefato | Caminho |
 |----------|---------|
-| Migrations | `src/services/db/migrations/` |
+| LocalStore | `src/services/db/localStore.ts` |
 | Repos | `CollectionRepository`, `AlbumRepository`, `SettingsRepository`, `PackStateRepository` |
 | Validators Zod | `src/domain/validators/` espelhando `docs/schemas/` |
 | Sync | `src/services/sync/ContentSyncService.ts` |
 | Domain types | `src/domain/types.ts` |
-| Bundled content | copiar `content/` para assets ou FS inicial |
+| Content paths | `src/services/content/paths.ts` (URL helpers) |
 
 ## Skills
 
@@ -28,34 +28,34 @@ SQLite como fonte de verdade local; download de `catalog.json` e álbuns; bundle
 
 ## Padrões
 
-### Schema SQLite
+### Schema localStorage
 
-Exatamente como [DATA-MODEL.md](../DATA-MODEL.md) — sem colunas extras sem ADR.
+Exatamente como [DATA-MODEL.md](../DATA-MODEL.md) — sem campos extras sem ADR.
 
 ### Sync
 
 1. Fetch `EXPO_PUBLIC_CONTENT_BASE_URL/catalog.json`
 2. Comparar `version` / `revision`
-3. Baixar imagens para cache dir
-4. Upsert metadados em SQLite
+3. Imagens servidas diretamente via URL do CDN (sem cache local de arquivo)
+4. Upsert metadados em localStorage via repositórios
 
-Falha de rede: app usa bundle + último cache — **não crashar**.
+Falha de rede: app usa último estado do localStorage — **não crashar**.
 
 ### Domain
 
-Validators retornam `Result` ou throw tipado — escolher um padrão e manter.
+Validators retornam `Result<T, E>` ou throw tipado — escolher um padrão e manter.
 
 ## Checklist de saída
 
-- [x] Migrations aplicam em primeiro launch
-- [x] Catálogo bundled abre offline
-- [x] Pull-to-refresh ou botão “Atualizar álbuns” chama sync
+- [x] LocalStore inicializa em primeiro launch
+- [x] Catálogo carrega do CDN
+- [x] Pull-to-refresh ou botão "Atualizar álbuns" chama sync
 - [x] Zod rejeita manifest inválido (teste unitário)
 - [ ] Sem UI de coleção ainda (pode log dev) — álbum parcial antecipado (Fase 3)
 
 ## Anti-padrões
 
-- AsyncStorage como fonte primária da coleção
+- expo-sqlite ou expo-file-system (módulos nativos incompatíveis com export estático web)
 - Fetch de catalog dentro de componente
 - Ignorar `revision` por álbum
 

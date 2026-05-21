@@ -9,7 +9,7 @@ Política mínima para MVP — testes provam conformidade com specs.
 | Camada | O quê | Ferramenta | Obrigatório MVP |
 |--------|-------|------------|-----------------|
 | Domain | RNG, trade, cooldown, validators | Jest | **Sim** |
-| Services | Repos SQLite (integração leve) | Jest + mock DB | Opcional fase 2 |
+| Services | Repos localStorage (integração leve) | Jest + mock storage | Opcional fase 2 |
 | Components | Atoms estáveis | RTL opcional | Não no MVP inicial |
 | E2E | Fluxos completos | Manual checklist | Sim (humano) |
 

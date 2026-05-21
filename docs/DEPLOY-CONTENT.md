@@ -1,6 +1,6 @@
 # Deploy Stickera PWA (GitHub Pages)
 
-The **mobile web app** is a static PWA built with Expo and hosted on GitHub Pages. Album manifests and stickers ship in the **same** deploy (`dist/`), so no laptop or same Wi‑Fi is required to test on a phone.
+The **PWA** is a static web app built with Expo (web export) and hosted on GitHub Pages. Album manifests and stickers ship in the **same** deploy (`dist/`), so no laptop or same Wi-Fi is required to test on a phone.
 
 ## Live URL
 

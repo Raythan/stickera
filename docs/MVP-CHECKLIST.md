@@ -29,9 +29,9 @@ Normative detail: [docs/PHASES/01-scaffold.md](PHASES/01-scaffold.md).
 Normative detail: [docs/PHASES/02-persistence.md](PHASES/02-persistence.md).
 
 - [x] Zod validators for `catalog.json` / `album.json`
-- [x] SQLite migrations + repositories
-- [x] Bundled album in `content/`
-- [x] Sync service + manual refresh UI
+- [x] localStorage store + repositories
+- [x] Content sync via fetch (HTTP)
+- [x] Manual refresh UI
 - [x] GitHub Pages PWA deploy ([DEPLOY-CONTENT.md](DEPLOY-CONTENT.md) + `deploy-github-pages.yml` → https://raythan.github.io/stickera/)
 
 ## Phase 3 — Collection & albums
@@ -41,7 +41,7 @@ Normative detail: [docs/PHASES/03-collection.md](PHASES/03-collection.md).
 - [ ] Album list / detail screens
 - [ ] Enable-disable albums for pack pool
 - [ ] `StickerCard`, `AlbumGrid` organisms
-- [ ] Collection quantities + “new” badge
+- [ ] Collection quantities + "new" badge
 
 ## Phase 4 — Packs
 
@@ -60,7 +60,7 @@ Normative detail: [docs/PHASES/05-trading.md](PHASES/05-trading.md).
 - [ ] `TradePayload` codec + validation tests
 - [ ] Create offer + QR display
 - [ ] Accept flow + `applyTrade`
-- [ ] Trade log in SQLite
+- [ ] Trade log in localStorage
 - [ ] Copy/trust disclaimer (i18n)
 
 ## Phase 6 — Portfolio & ship
@@ -69,9 +69,8 @@ Normative detail: [docs/PHASES/06-release.md](PHASES/06-release.md).
 
 - [ ] About / signature screen (links, tagline, avatar)
 - [ ] App icon + splash with branding
-- [ ] Android dev build / iOS simulator verified
+- [ ] PWA installable on mobile browsers
 - [ ] README install instructions for contributors
-- [ ] Store-ready optional: EAS build profiles
 
 ## Definition of done
 

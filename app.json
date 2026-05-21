@@ -7,22 +7,10 @@
     "icon": "./assets/icon.png",
     "scheme": "stickera",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#F7F3ED"
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "dev.stickera.app"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#F7F3ED"
-      },
-      "package": "dev.stickera.app"
     },
     "web": {
       "bundler": "metro",

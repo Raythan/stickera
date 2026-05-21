@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Copies app icon into public/ for PWA manifest (served at /stickera/icon-*.png). */
+/** Resizes app icon into public/ for PWA manifest (192 and 512 px). */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,8 +13,17 @@ if (!fs.existsSync(src)) {
   process.exit(0);
 }
 
-fs.mkdirSync(publicDir, { recursive: true });
-for (const name of ['icon-192.png', 'icon-512.png']) {
-  fs.copyFileSync(src, path.join(publicDir, name));
+let sharp;
+try {
+  sharp = (await import('sharp')).default;
+} catch {
+  console.error('sync-pwa-icons: sharp not installed — npm install');
+  process.exit(1);
 }
-console.log('✅ PWA icons → public/icon-192.png, icon-512.png');
+
+fs.mkdirSync(publicDir, { recursive: true });
+
+await sharp(src).resize(192, 192).png().toFile(path.join(publicDir, 'icon-192.png'));
+await sharp(src).resize(512, 512).png().toFile(path.join(publicDir, 'icon-512.png'));
+
+console.log('✅ PWA icons → public/icon-192.png (192×192), icon-512.png (512×512)');

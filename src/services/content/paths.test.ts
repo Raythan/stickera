@@ -1,19 +1,25 @@
-jest.mock('expo-file-system', () => ({
-  bundleDirectory: 'file:///app.bundle/',
-  documentDirectory: 'file:///documents/',
+jest.mock('@/config/contentBase', () => ({
+  getContentBaseUrl: () => 'https://raythan.github.io/stickera',
 }));
 
-jest.mock('react-native', () => ({
-  Platform: { OS: 'ios' },
-}));
+import { albumManifestUrl, albumFrameUrl, albumStickerUrl } from './paths';
 
-import { bundledContentCandidateUris, BUNDLED_CONTENT_PREFIXES } from './paths';
+describe('content path helpers', () => {
+  it('albumManifestUrl builds correct URL', () => {
+    expect(albumManifestUrl('world-cup-2026', 1)).toBe(
+      'https://raythan.github.io/stickera/albums/world-cup-2026/album.json',
+    );
+  });
 
-describe('bundledContentCandidateUris', () => {
-  it('tries content/ before assets/content/', () => {
-    const uris = bundledContentCandidateUris('catalog.json');
-    expect(uris.length).toBe(BUNDLED_CONTENT_PREFIXES.length);
-    expect(uris[0]).toContain('/content/catalog.json');
-    expect(uris[1]).toContain('/assets/content/catalog.json');
+  it('albumFrameUrl builds correct URL', () => {
+    expect(albumFrameUrl('retro-games', 'frame.css')).toBe(
+      'https://raythan.github.io/stickera/albums/retro-games/frame.css',
+    );
+  });
+
+  it('albumStickerUrl builds correct URL', () => {
+    expect(albumStickerUrl('world-cup-2026', 'stickers/01-neymar.jpeg')).toBe(
+      'https://raythan.github.io/stickera/albums/world-cup-2026/stickers/01-neymar.jpeg',
+    );
   });
 });

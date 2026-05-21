@@ -1,6 +1,6 @@
 # Stickera
 
-Álbum de figurinhas mobile — offline-first, instalável, sem backend. Conteúdo em `content/` + CDN (Netlify/GitHub). MVP portfolio com UI atomizada e i18n.
+Álbum de figurinhas PWA — offline-capable, instalável via navegador, sem backend. Conteúdo em `content/` + GitHub Pages. MVP portfolio com UI atomizada e i18n.
 
 ## Metodologia: Spec Driven Development (SDD)
 
@@ -22,7 +22,7 @@
 | [docs/PRODUCT.md](docs/PRODUCT.md) | Visão e MVP |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Stack e camadas |
 | [docs/ATOMIC-DESIGN.md](docs/ATOMIC-DESIGN.md) | UI atomizada |
-| [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | SQLite e domínio |
+| [docs/DATA-MODEL.md](docs/DATA-MODEL.md) | localStorage e domínio |
 | [docs/CONTENT-SYNC.md](docs/CONTENT-SYNC.md) | CDN e manifests |
 | [docs/I18N.md](docs/I18N.md) | en + pt |
 | [docs/TRADING-P2P.md](docs/TRADING-P2P.md) | Troca sem servidor |
@@ -41,20 +41,20 @@
 
 Cada álbum em `content/albums/{id}/` tem `frame.css` (molde) e `stickers/` para artes (png, jpg, jpeg, gif). Ver [docs/STICKER-FRAMES.md](docs/STICKER-FRAMES.md).
 
-## PWA no celular (GitHub Pages)
+## PWA (GitHub Pages)
 
-**https://raythan.github.io/stickera/** — abra no navegador do telefone e use **Adicionar à tela inicial**. Sem Expo Go e sem estar na mesma rede do notebook.
+**https://raythan.github.io/stickera/** — abra no navegador do telefone e use **Adicionar à tela inicial**.
 
 Deploy automático: push em `main` → workflow [deploy-github-pages.yml](.github/workflows/deploy-github-pages.yml). Detalhes: [docs/DEPLOY-CONTENT.md](docs/DEPLOY-CONTENT.md).
 
-## Desenvolvimento nativo (opcional)
+## Desenvolvimento
 
 ```bash
 npm install
 npm start
 ```
 
-`prestart` copia `content/` → `assets/content/`. Build web/PWA: `npm run build:web`.
+`prestart` copia `content/` → `assets/content/` e gera ícones PWA. Build para deploy: `npm run build:web`.
 
 ## Validação
 
@@ -65,4 +65,4 @@ npm test
 
 ## Status
 
-Fases 1–2 em progresso no código; checklist: [docs/MVP-CHECKLIST.md](docs/MVP-CHECKLIST.md).
+Fases 1–2 concluídas; checklist: [docs/MVP-CHECKLIST.md](docs/MVP-CHECKLIST.md).

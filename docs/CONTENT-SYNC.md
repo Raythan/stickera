@@ -50,7 +50,7 @@ Ver [STICKER-FRAMES.md](STICKER-FRAMES.md) — molde CSS + arte sobreposta, um e
 
 - Bump `catalog.version` on any album change (ISO date or semver).
 - Per-album `revision` increments when stickers/images change.
-- App stores last synced pair in SQLite `settings.contentVersion` + per-album `revision`.
+- App stores last synced pair in localStorage `settings.contentVersion` + per-album `revision`.
 
 ## Sync algorithm
 
@@ -61,15 +61,15 @@ for each album in catalog.albums:
   if album.revision > local revision:
     fetch album.json
     download missing images (compare etag or filename+revision folder)
-    upsert albums table
+    upsert albums in localStorage
 update local contentVersion
 ```
 
-## Bundled fallback
+## Static content in deploy
 
-Ship `content/catalog.json` + albums under `content/albums/` in the app binary so **first open works offline**. Configured in `app.json` → `assetBundlePatterns`; validated with `npm run validate:bundle`. `prestart` mirrors to `assets/content/` as a fallback path.
+Content is deployed alongside the PWA in `dist/` (GitHub Pages). On first load, the app fetches `catalog.json` from the same origin and registers album metadata in localStorage.
 
-Remote sync upgrades catalog. Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md).
+Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md).
 
 ## Asset guidelines
 
@@ -95,10 +95,9 @@ Remote sync upgrades catalog. Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.m
 - GitHub Action: `npm run validate-content` — JSON schema + broken image paths.
 - Fail PR if `nameKey` missing in locale files.
 
-## OTA vs content
+## Updates
 
 | Update type | Delivery |
 |-------------|----------|
-| JS/UI bugfix | Expo OTA (EAS Update) |
-| New stickers | Static host only — no store review |
-| Native module | New store build |
+| JS/UI fix | Push to main → GitHub Pages redeploy |
+| New stickers | Push content/ to main → same deploy |

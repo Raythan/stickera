@@ -92,7 +92,7 @@ flowchart LR
 |------|-----------------|--------|
 | 0 | DEVELOPMENT-STANDARDS, CURSOR-GOVERNANCE, PHASES/00 | Governança completa |
 | 1 | ARCHITECTURE, ATOMIC-DESIGN, I18N, PHASES/01 | Expo + átomos + locales |
-| 2 | DATA-MODEL, schemas, CONTENT-SYNC, PHASES/02 | SQLite + sync |
+| 2 | DATA-MODEL, schemas, CONTENT-SYNC, PHASES/02 | localStorage + sync |
 | 3 | ATOMIC-DESIGN, PHASES/03 | UI coleção |
 | 4 | PRODUCT, DATA-MODEL, PHASES/04, TESTING | Pack + testes domain |
 | 5 | TRADING-P2P, trade-payload.schema, PHASES/05 | Trade P2P |
@@ -125,7 +125,7 @@ Scripts em `scripts/` (se existirem) são **auxiliares opcionais** — não faze
 |-------|----------|
 | `stickersPerPack = 5` hardcoded | Ler de `app-config.json`; spec em PRODUCT |
 | Trade sem `TradeAck` | Implementar TRADING-P2P ou revisar spec + ADR |
-| Nova coluna SQLite não em DATA-MODEL | Atualizar DATA-MODEL primeiro |
+| Novo campo no localStorage não em DATA-MODEL | Atualizar DATA-MODEL primeiro |
 | UI string sem chave i18n | I18N.md — en + pt |
 | Componente fora do tier atomic | ATOMIC-DESIGN |
 

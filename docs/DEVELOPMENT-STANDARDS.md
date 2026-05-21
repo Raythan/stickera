@@ -38,7 +38,7 @@ Qualquer desvio código ↔ spec exige **primeiro** atualizar a spec (e ADR se e
 |------|----------------|------|
 | 0 | [PHASES/00-governance.md](PHASES/00-governance.md) | SDD + Cursor completos |
 | 1 | [PHASES/01-scaffold.md](PHASES/01-scaffold.md) | Expo + átomos + i18n |
-| 2 | [PHASES/02-persistence.md](PHASES/02-persistence.md) | SQLite + sync vs DATA-MODEL |
+| 2 | [PHASES/02-persistence.md](PHASES/02-persistence.md) | localStorage + sync vs DATA-MODEL |
 | 3 | [PHASES/03-collection.md](PHASES/03-collection.md) | UI coleção vs ATOMIC-DESIGN |
 | 4 | [PHASES/04-packs.md](PHASES/04-packs.md) | Pack vs PRODUCT + testes |
 | 5 | [PHASES/05-trading.md](PHASES/05-trading.md) | Trade vs TRADING-P2P + schema |

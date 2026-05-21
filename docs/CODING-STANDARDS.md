@@ -53,7 +53,7 @@ import type { StickerCardProps } from './StickerCard.types';
 
 | Dado | Onde |
 |------|------|
-| Coleção, cooldown, settings | SQLite via repositories |
+| Coleção, cooldown, settings | localStorage via repositories |
 | Modal aberto, fila reveal | Zustand `uiStore` |
 | Derivable (pode abrir pack?) | selector no hook, não duplicar em Zustand |
 
