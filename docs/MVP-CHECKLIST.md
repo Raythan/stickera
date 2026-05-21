@@ -38,10 +38,10 @@ Normative detail: [docs/PHASES/02-persistence.md](PHASES/02-persistence.md).
 
 Normative detail: [docs/PHASES/03-collection.md](PHASES/03-collection.md).
 
-- [ ] Album list / detail screens
-- [ ] Enable-disable albums for pack pool
-- [ ] `StickerCard`, `AlbumGrid` organisms
-- [ ] Collection quantities + "new" badge
+- [x] Album list / detail screens
+- [x] Enable-disable albums for pack pool
+- [x] `StickerCard`, `AlbumGrid` organisms
+- [x] Collection quantities + "new" badge
 
 ## Phase 4 — Packs
 

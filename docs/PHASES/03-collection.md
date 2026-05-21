@@ -48,11 +48,11 @@ collection.new
 
 ## Checklist de saída
 
-- [ ] Grid carrega offline
-- [ ] Toggle persiste em `enabled_albums`
-- [ ] Detalhe mostra qty 0 cinza / owned color
-- [ ] Troca de idioma re-renderiza `nameKey`
-- [ ] Rotas usam `ScreenTemplate`
+- [x] Grid carrega offline
+- [x] Toggle persiste em `enabled_albums`
+- [x] Detalhe mostra qty 0 cinza / owned color
+- [x] Troca de idioma re-renderiza `nameKey`
+- [x] Rotas usam `ScreenTemplate`
 
 ## Anti-padrões
 

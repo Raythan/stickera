@@ -6,19 +6,48 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/atoms/Button';
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
+import { EnableAlbumToggle } from '@/components/molecules/EnableAlbumToggle';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
-import { useAlbums } from '@/features/collection/useAlbums';
+import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
+import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { useContentSync } from '@/features/sync/useContentSync';
 import { useLocale } from '@/features/ui/useLocale';
+import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { SettingsRepository } from '@/services/db/SettingsRepository';
 import { theme } from '@/theme';
+
+function EnabledAlbumRow({
+  albumId,
+  nameKey,
+  enabled,
+  onToggle,
+}: {
+  albumId: string;
+  nameKey: string;
+  enabled: boolean;
+  onToggle: (id: string, value: boolean) => void;
+}) {
+  const { manifest } = useAlbumManifest(albumId);
+  const title = manifest
+    ? resolveContentLabel(manifest.nameKey ?? nameKey, manifest.names)
+    : nameKey;
+
+  return (
+    <EnableAlbumToggle
+      albumId={albumId}
+      title={title}
+      enabled={enabled}
+      onToggle={onToggle}
+    />
+  );
+}
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   const { locale, setLocale } = useLocale();
   const { sync, syncing, lastResult } = useContentSync();
-  const { reload } = useAlbums();
+  const { items, reload: reloadEnabled, toggle } = useEnabledAlbums();
   const [contentVersion, setContentVersion] = useState<string | null>(null);
 
   const loadVersion = useCallback(async () => {
@@ -31,9 +60,9 @@ export default function SettingsScreen() {
 
   const onSync = useCallback(async () => {
     await sync();
-    await reload();
+    await reloadEnabled();
     await loadVersion();
-  }, [sync, reload, loadVersion]);
+  }, [sync, reloadEnabled, loadVersion]);
 
   return (
     <ScreenTemplate title={t('screens.settings.title')}>
@@ -57,6 +86,22 @@ export default function SettingsScreen() {
             {t('screens.settings.syncDone', { count: lastResult.albumsUpdated })}
           </Text>
         ) : null}
+      </View>
+
+      <View style={styles.section}>
+        <Text variant="bodyBold">{t('screens.settings.enabledAlbums')}</Text>
+        <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+          {t('screens.settings.enabledAlbumsHint')}
+        </Text>
+        {items.map(({ album, enabled }) => (
+          <EnabledAlbumRow
+            key={album.id}
+            albumId={album.id}
+            nameKey={album.name_key}
+            enabled={enabled}
+            onToggle={toggle}
+          />
+        ))}
       </View>
 
       <View style={styles.section}>

@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { StickerCardFrame } from '@/components/molecules/StickerCardFrame';
+import { StickerCard } from '@/components/molecules/StickerCard';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
 
 import type { AlbumStickerGridProps } from './AlbumStickerGrid.types';
 
-export function AlbumStickerGrid({ album, frameCss, getStickerName }: AlbumStickerGridProps) {
+export function AlbumStickerGrid({
+  album,
+  frameCss,
+  getStickerName,
+  getCollectionEntry,
+}: AlbumStickerGridProps) {
   const [artUris, setArtUris] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -31,15 +36,21 @@ export function AlbumStickerGrid({ album, frameCss, getStickerName }: AlbumStick
 
   return (
     <View style={styles.grid}>
-      {album.stickers.map((sticker) => (
-        <StickerCardFrame
-          key={sticker.id}
-          name={getStickerName(sticker)}
-          frameCss={frameCss}
-          artUri={sticker.image ? artUris[sticker.id] : undefined}
-          rarity={sticker.rarity}
-        />
-      ))}
+      {album.stickers.map((sticker) => {
+        const entry = getCollectionEntry(sticker.id);
+        return (
+          <StickerCard
+            key={sticker.id}
+            stickerId={sticker.id}
+            name={getStickerName(sticker)}
+            frameCss={frameCss}
+            imageUri={sticker.image ? artUris[sticker.id] : undefined}
+            quantity={entry.quantity}
+            isNew={entry.isNew}
+            rarity={sticker.rarity}
+          />
+        );
+      })}
     </View>
   );
 }

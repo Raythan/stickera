@@ -20,7 +20,9 @@
       "syncDone": "{{count}} álbum(ns) atualizado(s)",
       "contentVersion": "Versão do conteúdo: {{version}}",
       "language": "Idioma",
-      "languageHint": "Inglês e português disponíveis no MVP."
+      "languageHint": "Inglês e português disponíveis no MVP.",
+      "enabledAlbums": "Álbuns no pool de pacotes",
+      "enabledAlbumsHint": "Álbuns desativados não entram ao abrir pacotes (Fase 4)."
     },
     "about": {
       "title": "Sobre"
@@ -41,6 +43,10 @@
   },
   "errors": {
     "bootstrapFailed": "Não foi possível carregar o conteúdo dos álbuns. Verifique a conexão ou reinstale o app."
+  },
+  "collection": {
+    "quantity": "×{{count}}",
+    "new": "NOVO"
   },
   "tabs": {
     "home": "Álbuns",

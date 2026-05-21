@@ -1,32 +1,26 @@
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
 import { AlbumStickerGrid } from '@/components/organisms/AlbumStickerGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
+import { useAlbumCollection } from '@/features/collection/useAlbumCollection';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
-import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { theme } from '@/theme';
 
 export default function AlbumDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { t } = useTranslation();
   const { manifest, loading: manifestLoading, error: manifestError } = useAlbumManifest(id);
+  const { ownedCount, getEntry, loading: collectionLoading } = useAlbumCollection(id);
   const framePath = manifest?.frameStylePath ?? 'frame.css';
   const { css, loading: frameLoading, error: frameError } = useAlbumFramePreview(
     id ?? null,
     framePath,
   );
-  const [owned, setOwned] = useState(0);
-
-  useEffect(() => {
-    if (!id) return;
-    void CollectionRepository.countOwnedForAlbum(id).then(setOwned);
-  }, [id, manifest]);
 
   if (!id) {
     return (
@@ -36,7 +30,7 @@ export default function AlbumDetailScreen() {
     );
   }
 
-  const loading = manifestLoading || frameLoading;
+  const loading = manifestLoading || frameLoading || collectionLoading;
   const title = manifest
     ? resolveContentLabel(manifest.nameKey ?? id, manifest.names)
     : id;
@@ -48,7 +42,7 @@ export default function AlbumDetailScreen() {
         {manifest ? (
           <Text variant="caption" color={theme.colors.textMuted} style={styles.meta}>
             {t('screens.album.progress', {
-              owned,
+              owned: ownedCount,
               total: manifest.totalStickers,
             })}
           </Text>
@@ -70,6 +64,7 @@ export default function AlbumDetailScreen() {
             getStickerName={(sticker) =>
               resolveContentLabel(sticker.nameKey ?? sticker.id, sticker.names)
             }
+            getCollectionEntry={getEntry}
           />
         ) : null}
         {manifest && manifest.stickers.length === 0 ? (

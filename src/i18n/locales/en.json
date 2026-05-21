@@ -20,7 +20,9 @@
       "syncDone": "{{count}} album(s) updated",
       "contentVersion": "Content version: {{version}}",
       "language": "Language",
-      "languageHint": "English and Portuguese are available in the MVP."
+      "languageHint": "English and Portuguese are available in the MVP.",
+      "enabledAlbums": "Albums in pack pool",
+      "enabledAlbumsHint": "Disabled albums are excluded when you open packs (Phase 4)."
     },
     "about": {
       "title": "About"
@@ -41,6 +43,10 @@
   },
   "errors": {
     "bootstrapFailed": "Could not load album content. Check your connection or reinstall the app."
+  },
+  "collection": {
+    "quantity": "×{{count}}",
+    "new": "NEW"
   },
   "tabs": {
     "home": "Albums",
