@@ -81,11 +81,14 @@ Remote sync upgrades catalog. Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.m
 
 ## Authoring workflow
 
-1. Add images under `content/albums/{id}/stickers/`.
-2. Edit `album.json` sticker list and `nameKey` entries.
-3. Add keys to `src/i18n/locales/en.json` (+ `pt.json`).
-4. Bump `revision` and `catalog.version`.
-5. Push → Netlify deploy → users pull on next sync.
+**No new `.tsx` files** — only `content/` (see [content/README.md](../content/README.md)):
+
+1. Create `content/albums/{id}/` with `album.json`, `frame.css`, optional `stickers/`.
+2. Use `names: { en, pt }` in `album.json` for album and sticker titles (or legacy `nameKey` + `src/i18n`).
+3. Register in `content/catalog.json` and bump `catalog.version` (+ album `revision` when assets change).
+4. Push → GitHub Pages / CDN → users sync on open or pull-to-refresh.
+
+`assets/content/` is a build mirror (`npm run sync:assets`); edit `content/` only.
 
 ## CI (optional later)
 

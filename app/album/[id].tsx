@@ -8,6 +8,7 @@ import { AlbumStickerGrid } from '@/components/organisms/AlbumStickerGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
+import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { theme } from '@/theme';
 
@@ -36,7 +37,9 @@ export default function AlbumDetailScreen() {
   }
 
   const loading = manifestLoading || frameLoading;
-  const title = manifest ? t(manifest.nameKey) : id;
+  const title = manifest
+    ? resolveContentLabel(manifest.nameKey ?? id, manifest.names)
+    : id;
 
   return (
     <>
@@ -64,7 +67,9 @@ export default function AlbumDetailScreen() {
           <AlbumStickerGrid
             album={manifest}
             frameCss={css}
-            getStickerName={(key) => t(key)}
+            getStickerName={(sticker) =>
+              resolveContentLabel(sticker.nameKey ?? sticker.id, sticker.names)
+            }
           />
         ) : null}
         {manifest && manifest.stickers.length === 0 ? (

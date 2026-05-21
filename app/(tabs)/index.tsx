@@ -46,11 +46,7 @@ export default function HomeScreen() {
       ) : null}
       <View style={styles.grid}>
         {albums.map((album) => (
-          <AlbumFrameShowcase
-            key={album.id}
-            album={album}
-            title={t(album.name_key)}
-          />
+          <AlbumFrameShowcase key={album.id} album={album} />
         ))}
       </View>
     </ScreenTemplate>

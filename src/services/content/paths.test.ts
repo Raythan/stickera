@@ -3,6 +3,10 @@ jest.mock('expo-file-system', () => ({
   documentDirectory: 'file:///documents/',
 }));
 
+jest.mock('react-native', () => ({
+  Platform: { OS: 'ios' },
+}));
+
 import { bundledContentCandidateUris, BUNDLED_CONTENT_PREFIXES } from './paths';
 
 describe('bundledContentCandidateUris', () => {

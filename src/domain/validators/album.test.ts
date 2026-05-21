@@ -25,6 +25,25 @@ describe('albumSchema', () => {
     expect(parseAlbum({ ...validAlbum, stickers: [] }).stickers).toEqual([]);
   });
 
+  it('accepts inline names without nameKey', () => {
+    const album = parseAlbum({
+      id: 'ocean-life',
+      revision: 1,
+      frameStylePath: 'frame.css',
+      totalStickers: 1,
+      names: { en: 'Ocean Life', pt: 'Vida Marinha' },
+      stickers: [
+        {
+          id: 'ocean-life:01',
+          number: 1,
+          names: { en: 'Dolphin', pt: 'Golfinho' },
+          image: 'stickers/01.png',
+        },
+      ],
+    });
+    expect(album.names?.en).toBe('Ocean Life');
+  });
+
   it('rejects missing frameStylePath', () => {
     const { frameStylePath: _, ...rest } = validAlbum;
     expect(safeParseAlbum(rest).success).toBe(false);

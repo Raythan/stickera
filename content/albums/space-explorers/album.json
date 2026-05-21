@@ -3,7 +3,7 @@
   "revision": 1,
   "frameStylePath": "frame.css",
   "totalStickers": 12,
-  "nameKey": "albums.spaceExplorers.name",
+  "names": { "en": "Space Explorers", "pt": "Exploradores do Espaço" },
   "packWeight": 1,
   "stickers": []
 }

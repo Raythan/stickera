@@ -8,15 +8,19 @@ import { Text } from '@/components/atoms/Text';
 import { StickerFramePreview } from '@/components/molecules/StickerFramePreview';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
+import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
 import { theme } from '@/theme';
 
 import type { AlbumFrameShowcaseProps } from './AlbumFrameShowcase.types';
 
-export function AlbumFrameShowcase({ album, title }: AlbumFrameShowcaseProps) {
+export function AlbumFrameShowcase({ album }: AlbumFrameShowcaseProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const { manifest } = useAlbumManifest(album.id);
+  const title = manifest
+    ? resolveContentLabel(manifest.nameKey ?? album.name_key, manifest.names)
+    : album.name_key;
   const framePath = manifest?.frameStylePath ?? 'frame.css';
   const { css, loading, error } = useAlbumFramePreview(album.id, framePath);
   const [artUri, setArtUri] = useState<string | null>(null);

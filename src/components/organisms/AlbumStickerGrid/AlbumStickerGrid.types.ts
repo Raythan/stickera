@@ -1,7 +1,7 @@
-import type { AlbumManifest } from '@/domain/types';
+import type { AlbumManifest, StickerDef } from '@/domain/types';
 
 export type AlbumStickerGridProps = {
   album: AlbumManifest;
   frameCss: string;
-  getStickerName: (nameKey: string) => string;
+  getStickerName: (sticker: StickerDef) => string;
 };

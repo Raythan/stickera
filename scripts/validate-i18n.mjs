@@ -11,15 +11,19 @@ const LOCALES_DIR = path.join(ROOT, 'src/i18n/locales');
 const EN = path.join(LOCALES_DIR, 'en.json');
 const PT = path.join(LOCALES_DIR, 'pt.json');
 
+function hasNames(obj) {
+  return obj?.names && (obj.names.en || obj.names.pt);
+}
+
 function collectNameKeysFromContent() {
   const keys = new Set();
   const contentDir = path.join(ROOT, 'content');
   const files = walkDir(path.join(contentDir, 'albums')).filter((f) => f.endsWith('.json'));
   for (const file of files) {
     const data = readJson(file);
-    if (data.nameKey) keys.add(data.nameKey);
+    if (data.nameKey && !hasNames(data)) keys.add(data.nameKey);
     for (const s of data.stickers ?? []) {
-      if (s.nameKey) keys.add(s.nameKey);
+      if (s.nameKey && !hasNames(s)) keys.add(s.nameKey);
     }
   }
   const appConfig = path.join(contentDir, 'app-config.json');

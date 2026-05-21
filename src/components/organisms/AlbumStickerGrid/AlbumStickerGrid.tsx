@@ -34,7 +34,7 @@ export function AlbumStickerGrid({ album, frameCss, getStickerName }: AlbumStick
       {album.stickers.map((sticker) => (
         <StickerCardFrame
           key={sticker.id}
-          name={getStickerName(sticker.nameKey)}
+          name={getStickerName(sticker)}
           frameCss={frameCss}
           artUri={sticker.image ? artUris[sticker.id] : undefined}
           rarity={sticker.rarity}

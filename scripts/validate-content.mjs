@@ -40,12 +40,17 @@ function validateCatalog(catalog) {
 
 const IMAGE_EXT = /\.(png|jpg|jpeg|gif)$/i;
 
+function hasNames(obj) {
+  return obj?.names && (obj.names.en || obj.names.pt);
+}
+
 function validateAlbum(albumPath, album) {
   const albumDir = path.dirname(albumPath);
   const errors = [];
 
-  if (!album.id || !album.revision || !album.nameKey?.startsWith('albums.')) {
-    errors.push(`${albumPath}: id, revision, nameKey (albums.*) obrigatórios`);
+  const albumLabeled = album.nameKey?.startsWith('albums.') || hasNames(album);
+  if (!album.id || !album.revision || !albumLabeled) {
+    errors.push(`${albumPath}: id, revision, nameKey (albums.*) ou names.en/pt obrigatórios`);
   }
   const framePath = path.join(albumDir, album.frameStylePath ?? 'frame.css');
   if (!fs.existsSync(framePath)) {
@@ -56,8 +61,9 @@ function validateAlbum(albumPath, album) {
   }
   const ids = new Set();
   for (const s of album.stickers ?? []) {
-    if (!s.id || !s.nameKey?.startsWith('albums.')) {
-      errors.push(`${albumPath}: sticker ${s.id ?? '?'} precisa id, nameKey`);
+    const stickerLabeled = s.nameKey?.startsWith('albums.') || hasNames(s);
+    if (!s.id || !stickerLabeled) {
+      errors.push(`${albumPath}: sticker ${s.id ?? '?'} precisa id e nameKey ou names.en/pt`);
     }
     if (s.image && !IMAGE_EXT.test(s.image)) {
       errors.push(`${albumPath}: image deve ser stickers/*.(png|jpg|jpeg|gif)`);

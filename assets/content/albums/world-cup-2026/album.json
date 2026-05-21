@@ -3,7 +3,10 @@
   "revision": 1,
   "frameStylePath": "frame.css",
   "totalStickers": 4,
-  "nameKey": "albums.worldCup2026.name",
+  "names": {
+    "en": "FIFA World Cup 2026",
+    "pt": "Copa do Mundo 2026"
+  },
   "coverImage": "stickers/01-neymar.jpeg",
   "packWeight": 1.25,
   "stickers": [
@@ -11,28 +14,28 @@
       "id": "world-cup-2026:01",
       "number": 1,
       "rarity": "legendary",
-      "nameKey": "albums.worldCup2026.stickers.01.name",
+      "names": { "en": "Neymar", "pt": "Neymar" },
       "image": "stickers/01-neymar.jpeg"
     },
     {
       "id": "world-cup-2026:02",
       "number": 2,
       "rarity": "rare",
-      "nameKey": "albums.worldCup2026.stickers.02.name",
+      "names": { "en": "Vinícius Jr.", "pt": "Vinícius Jr." },
       "image": "stickers/02-vinicius-junior.jpeg"
     },
     {
       "id": "world-cup-2026:03",
       "number": 3,
       "rarity": "rare",
-      "nameKey": "albums.worldCup2026.stickers.03.name",
+      "names": { "en": "Raphinha", "pt": "Raphinha" },
       "image": "stickers/03-raphinha.jpeg"
     },
     {
       "id": "world-cup-2026:04",
       "number": 4,
       "rarity": "uncommon",
-      "nameKey": "albums.worldCup2026.stickers.04.name",
+      "names": { "en": "Endrick", "pt": "Endrick" },
       "image": "stickers/04-endrick.jpeg"
     }
   ]

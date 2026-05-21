@@ -18,7 +18,7 @@ export const AlbumRepository = {
         manifest.id,
         manifest.revision,
         manifest.totalStickers,
-        manifest.nameKey,
+        manifest.nameKey ?? manifest.id,
         coverUri,
         manifest.packWeight ?? 1,
       ],

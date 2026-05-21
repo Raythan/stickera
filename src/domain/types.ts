@@ -29,10 +29,16 @@ export type Catalog = {
   appConfig: AppConfig;
 };
 
+export type ContentNames = {
+  en?: string;
+  pt?: string;
+};
+
 export type StickerDef = {
   id: string;
   number: number;
-  nameKey: string;
+  nameKey?: string;
+  names?: ContentNames;
   image?: string;
   rarity?: 'common' | 'uncommon' | 'rare' | 'legendary';
 };
@@ -42,7 +48,8 @@ export type AlbumManifest = {
   revision: number;
   frameStylePath: string;
   totalStickers: number;
-  nameKey: string;
+  nameKey?: string;
+  names?: ContentNames;
   coverImage?: string;
   packWeight?: number;
   stickers: StickerDef[];
