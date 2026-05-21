@@ -1,0 +1,103 @@
+# Stickera — `.cursorrules` (SDD)
+
+Cerca global: **Spec Driven Development**. Specs em `docs/` vencem implementação.
+Detalhes: `docs/DEVELOPMENT-STANDARDS.md`, `docs/CURSOR-GOVERNANCE.md`.
+
+**Este projeto não usa MCP (Model Context Protocol).**
+
+---
+
+## 1. Metodologia SDD (resumo)
+
+| Ordem | Ação |
+|-------|------|
+| 1 | Ler specs da tarefa (AGENTS → SDD-DEVELOPMENT → PHASES → doc de domínio) |
+| 2 | Spec incompleta → escrever/atualizar doc ou `docs/schemas/` + ADR se necessário |
+| 3 | Implementar **somente** o que a spec descreve (quando usuário pedir código) |
+| 4 | Verificar `docs/SPEC-VALIDATION.md` + checklist `docs/PHASES/NN-*.md` |
+| 5 | Handoff citando specs atendidas |
+
+**Spec drift proibido:** código que contradiz PRODUCT, DATA-MODEL, schemas ou PHASES sem atualizar spec antes.
+
+---
+
+## 2. Hierarquia de specs
+
+1. Pedido explícito do usuário  
+2. `docs/PRODUCT.md`  
+3. `docs/decisions/*.md` (accepted)  
+4. `docs/ARCHITECTURE.md`, `docs/DATA-MODEL.md`  
+5. `docs/schemas/*.json`  
+6. Docs de domínio (I18N, TRADING-P2P, ATOMIC-DESIGN, CONTENT-SYNC)  
+7. `docs/PHASES/NN-*.md`  
+8. `docs/CODING-STANDARDS.md`, `docs/FILE-TEMPLATES.md`  
+
+---
+
+## 3. Produto (inegociável)
+
+- Mobile instalável; Expo + TypeScript (ADR-001)  
+- Sem backend de app; offline-first; `content/` + CDN estática  
+- UI atomizada; i18n EN + PT; About com assinatura profissional  
+- Pack: cooldown e N por pacote **da spec/config**, não hardcoded  
+- Trade P2P conforme `docs/TRADING-P2P.md`  
+
+---
+
+## 4. Ordem de implementação (quando codar)
+
+`domain` (+ testes) → `services` → `features` → `components` (atomic) → `app/`
+
+---
+
+## 5. Estrutura (após scaffold)
+
+Ver `docs/ARCHITECTURE.md` e `docs/PHASES/01-scaffold.md`.
+
+---
+
+## 6. Skills
+
+| Tarefa | Skill |
+|--------|-------|
+| Sessão / fase / dúvida de processo | `stickera-sdd-session` |
+| Feature de app | `stickera-feature` |
+| Componente UI | `stickera-atomic-component` |
+| Conteúdo / álbum | `stickera-content-bundle` |
+
+---
+
+## 7. Rules (`.cursor/rules/`)
+
+`stickera-core`, `sdd-governance` (always) + glob rules — ver `docs/CURSOR-GOVERNANCE.md`.
+
+---
+
+## 8. Definition of Done
+
+- Conformidade com specs listadas no handoff  
+- `SPEC-VALIDATION.md` seções aplicáveis verificadas  
+- PHASES exit checklist da fase atual  
+- Sem strings de UI fora do i18n  
+- Commit só se usuário pedir  
+
+---
+
+## 9. Não fazer
+
+- Adicionar MCP, `mcp.json`, ou servidores de ferramentas ao projeto  
+- Codar feature sem spec em `docs/`  
+- Mudar payload/schema sem atualizar `docs/schemas/` e DATA-MODEL  
+- Firebase/backend próprio sem ADR + pedido do usuário  
+
+---
+
+## 10. Índice
+
+| Doc | Uso |
+|-----|-----|
+| `docs/SDD-DEVELOPMENT.md` | Metodologia SDD |
+| `docs/DEVELOPMENT-STANDARDS.md` | Padrões todas as fases |
+| `docs/SPEC-VALIDATION.md` | Checklists de conformidade |
+| `docs/SESSION-PROTOCOL.md` | Protocolo de sessão |
+| `docs/CURSOR-GOVERNANCE.md` | Rules + skills |

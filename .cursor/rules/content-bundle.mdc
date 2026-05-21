@@ -1,0 +1,16 @@
+---
+description: content/ manifests — revision, nameKey, images — see CONTENT-SYNC
+globs: "content/**"
+alwaysApply: false
+---
+
+# Content bundle
+
+Read: `docs/CONTENT-SYNC.md`, `docs/schemas/`, skill `stickera-content-bundle`.
+
+- Bump `catalog.version` and album `revision` on any sticker/image change
+- Every sticker: `nameKey` under `albums.*` + keys in `en.json` and `pt.json`
+- Images WebP under `albums/{id}/stickers/`
+- IDs: `album-id:NN` slug album `^[a-z0-9]+(-[a-z0-9]+)*$`
+
+Conformidade: `docs/SPEC-VALIDATION.md` §1 antes de marcar álbum pronto.

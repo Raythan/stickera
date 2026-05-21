@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": "node .cursor/hooks/session-start.mjs"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node .cursor/hooks/after-content-edit.mjs",
+        "matcher": "content/"
+      },
+      {
+        "command": "node .cursor/hooks/after-locale-edit.mjs",
+        "matcher": "locales/"
+      }
+    ]
+  }
+}

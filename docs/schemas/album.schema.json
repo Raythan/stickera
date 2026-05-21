@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stickera.dev/schemas/album.schema.json",
+  "title": "StickeraAlbum",
+  "type": "object",
+  "required": ["id", "revision", "totalStickers", "nameKey", "stickers"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "totalStickers": { "type": "integer", "minimum": 1 },
+    "nameKey": { "type": "string", "pattern": "^albums\\." },
+    "coverImage": { "type": "string" },
+    "packWeight": { "type": "number", "exclusiveMinimum": 0 },
+    "stickers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sticker" }
+    }
+  },
+  "$defs": {
+    "sticker": {
+      "type": "object",
+      "required": ["id", "number", "nameKey", "image"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "number": { "type": "integer", "minimum": 1 },
+        "rarity": { "type": "string", "enum": ["common", "uncommon", "rare", "legendary"] },
+        "nameKey": { "type": "string", "pattern": "^albums\\." },
+        "image": { "type": "string" }
+      }
+    }
+  }
+}

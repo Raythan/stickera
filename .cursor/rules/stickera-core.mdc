@@ -1,0 +1,25 @@
+---
+description: Stickera product constraints — offline Expo MVP, docs-first
+alwaysApply: true
+---
+
+# Stickera core
+
+Master doc: `docs/DEVELOPMENT-STANDARDS.md`. Entry: `AGENTS.md` + `.cursorrules`.
+
+## Product (non-negotiable)
+
+- Mobile installable; **no app backend**; offline-first; static `content/` + CDN
+- Atomic UI; i18n EN default + PT required; About/signature for portfolio
+- Pack: cooldown from config; N stickers per pack; no duplicate IDs in one pack
+- Trade: P2P duplicates only — `docs/TRADING-P2P.md`
+
+## Code (when user requests implementation)
+
+- Order: `domain` → `services` → `features` → `components` → `app/`
+- No Redux/Firebase without ADR + explicit user request
+- Commits only when user asks; Conventional Commits
+
+## Phase
+
+Follow `docs/PHASES/NN-*.md` for current MVP phase gates.

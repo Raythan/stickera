@@ -1,0 +1,24 @@
+---
+description: SDD — spec before code, read PHASES gates, no spec drift
+alwaysApply: true
+---
+
+# SDD governance
+
+Read: `docs/SDD-DEVELOPMENT.md`, `docs/SESSION-PROTOCOL.md`, `.cursorrules`.
+
+## Spec first
+
+1. Identify specs: AGENTS.md table → open `docs/PHASES/NN-*.md`
+2. If behavior undefined → update spec/schema/ADR **before** code
+3. Implementation must match PRODUCT, DATA-MODEL, domain docs, `docs/schemas/`
+
+## Session end
+
+Cite specs satisfied + PHASES exit checklist. Not "done" on code alone.
+
+## Default scope
+
+Do not scaffold app or add tooling unless user explicitly requests in this task.
+
+Validation: manual `docs/SPEC-VALIDATION.md` (optional `npm run validate:*`).

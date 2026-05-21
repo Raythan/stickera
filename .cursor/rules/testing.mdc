@@ -1,0 +1,15 @@
+---
+description: Domain tests required — see docs/TESTING.md
+globs: "**/*.test.ts,**/*.test.tsx,src/domain/**"
+alwaysApply: false
+---
+
+# Testing
+
+When editing `src/domain/` pack, trade, or cooldown logic:
+
+- Add/update Jest tests in same PR logical unit
+- Cover happy path + edge (pool too small, expired trade)
+- Do not add snapshot tests for atoms in MVP
+
+See `docs/TESTING.md` and `docs/PHASES/04-packs.md`, `05-trading.md`.

@@ -1,0 +1,15 @@
+---
+description: i18n keys and usage for Stickera
+globs: "**/i18n/**,**/locales/**,**/*.{tsx,ts}"
+alwaysApply: false
+---
+
+# i18n
+
+See `docs/I18N.md`.
+
+- Default locale: `en`. Always add the same key to `pt.json`.
+- Key pattern: `screens.pack.openButton`, `albums.{id}.name`.
+- Album manifest uses `nameKey` — never embed PT/EN names only in JSON without keys.
+- Atoms: pass translated strings as props. Molecules and up: `useTranslation()`.
+- Domain layer: no `i18next` imports.

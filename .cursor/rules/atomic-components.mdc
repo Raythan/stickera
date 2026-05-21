@@ -1,0 +1,37 @@
+---
+description: Atomic design — atoms through templates — see docs/ATOMIC-DESIGN.md
+globs: "src/components/**,app/**"
+alwaysApply: false
+---
+
+# Atomic components
+
+Follow `docs/ATOMIC-DESIGN.md`.
+
+## Placement
+
+| Tier | Path |
+|------|------|
+| atoms | `src/components/atoms/` |
+| molecules | `src/components/molecules/` |
+| organisms | `src/components/organisms/` |
+| templates | `src/components/templates/` |
+
+## Imports
+
+```tsx
+// ✅ organism imports molecules
+import { StickerCard } from '@/components/molecules/StickerCard';
+
+// ❌ atom imports organism
+import { AlbumGrid } from '@/components/organisms/AlbumGrid';
+```
+
+## New component
+
+1. Pick tier; check for existing variant.
+2. Folder = component name; export via `index.ts`.
+3. Props type in `*.types.ts` when non-trivial.
+4. Use `theme` tokens — no inline magic numbers in molecules+.
+
+Feature hooks stay in `src/features/`, not inside atoms/molecules unless passed as props from screens.

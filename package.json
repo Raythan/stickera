@@ -1,0 +1,15 @@
+{
+  "name": "stickera",
+  "version": "0.0.0-mvp",
+  "private": true,
+  "description": "Offline sticker album — SDD specs and optional validation scripts",
+  "type": "module",
+  "scripts": {
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:i18n": "node scripts/validate-i18n.mjs",
+    "validate:structure": "node scripts/validate-structure.mjs",
+    "validate:structure:strict": "node scripts/validate-structure.mjs --strict",
+    "mvp:status": "node scripts/mvp-status.mjs",
+    "validate": "npm run validate:structure && npm run validate:content && npm run validate:i18n"
+  }
+}

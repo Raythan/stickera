@@ -1,0 +1,17 @@
+---
+description: Domain and persistence patterns — SQLite, pack draw, trades
+globs: "src/domain/**,src/services/**,src/features/**"
+alwaysApply: false
+---
+
+# Domain & offline data
+
+See `docs/DATA-MODEL.md` and `docs/TRADING-P2P.md`.
+
+- `src/domain/`: pure functions only (no `expo-*`, no React).
+- Pack draw: no duplicate sticker IDs within one pack; use Fisher–Yates.
+- Trades: duplicate-only offers; validate `TradePayload` before `applyTrade`.
+- SQLite access only via `src/services/db/` repositories.
+- Validate remote JSON with Zod before persisting.
+
+Test domain (`drawStickers`, `applyTrade`, cooldown) per `docs/TESTING.md` and `docs/PHASES/04-packs.md`, `05-trading.md`.

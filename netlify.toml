@@ -1,0 +1,11 @@
+# Publish static album content for the mobile app to sync.
+# Set EXPO_PUBLIC_CONTENT_BASE_URL to your Netlify site URL.
+
+[build]
+  publish = "content"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Access-Control-Allow-Origin = "*"

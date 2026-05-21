@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stickera.dev/schemas/catalog.schema.json",
+  "title": "StickeraCatalog",
+  "type": "object",
+  "required": ["version", "albums", "appConfig"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "baseUrl": { "type": "string" },
+    "albums": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/albumRef" }
+    },
+    "appConfig": { "$ref": "#/$defs/appConfig" }
+  },
+  "$defs": {
+    "albumRef": {
+      "type": "object",
+      "required": ["id", "revision", "manifestPath"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "manifestPath": { "type": "string", "pattern": "^/" }
+      }
+    },
+    "appConfig": {
+      "type": "object",
+      "required": ["packCooldown", "stickersPerPack"],
+      "additionalProperties": true,
+      "properties": {
+        "packCooldown": { "$ref": "#/$defs/duration" },
+        "stickersPerPack": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "tradeRequiresConfirmation": { "type": "boolean" }
+      }
+    },
+    "duration": {
+      "type": "object",
+      "required": ["value", "unit"],
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "type": "string", "enum": ["seconds", "minutes", "hours"] }
+      }
+    }
+  }
+}
