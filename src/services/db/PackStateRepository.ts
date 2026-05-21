@@ -27,4 +27,13 @@ export const PackStateRepository = {
     };
     saveStore(store);
   },
+
+  async resetCooldown(now = new Date()): Promise<void> {
+    const store = loadStore();
+    store.pack_state = {
+      last_opened_at: null,
+      next_available_at: now.toISOString(),
+    };
+    saveStore(store);
+  },
 };

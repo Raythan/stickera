@@ -17,6 +17,7 @@
     "validate:structure:strict": "node scripts/validate-structure.mjs --strict",
     "validate:bundle": "node scripts/validate-bundle.mjs",
     "mvp:status": "node scripts/mvp-status.mjs",
+    "hash:admin": "node scripts/hash-admin-code.mjs",
     "validate": "npm run validate:structure && npm run validate:content && npm run validate:i18n && npm run validate:bundle",
     "test": "jest",
     "test:watch": "jest --watch"

@@ -53,4 +53,10 @@ export const TradeLogRepository = {
     }
     saveStore(store);
   },
+
+  async clearAll(): Promise<void> {
+    const store = loadStore();
+    store.trade_log = [];
+    saveStore(store);
+  },
 };

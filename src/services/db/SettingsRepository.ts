@@ -5,6 +5,7 @@ export const SETTINGS_KEYS = {
   locale: 'locale',
   onboardingDone: 'onboardingDone',
   appConfig: 'appConfig',
+  adminEnabled: 'adminEnabled',
 } as const;
 
 export const SettingsRepository = {

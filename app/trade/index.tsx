@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
@@ -26,11 +26,12 @@ export default function TradeHubScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   const { stickerIds, loading, reload: reloadTradable } = useTradableStickers();
-  const { confirmByOfferId, isConfirming } = useTradeConfirm();
+  const { confirmByOfferId, confirmByAck, isConfirming } = useTradeConfirm();
   const [recentTrades, setRecentTrades] = useState<TradeLogEntry[]>([]);
   const [pendingSent, setPendingSent] = useState<TradeLogEntry[]>([]);
   const [confirmError, setConfirmError] = useState<string | null>(null);
   const [confirmSuccess, setConfirmSuccess] = useState(false);
+  const [ackInput, setAckInput] = useState('');
 
   const reloadTrades = useCallback(async () => {
     const all = await TradeLogRepository.listRecent(20);
@@ -60,6 +61,20 @@ export default function TradeHubScreen() {
     },
     [confirmByOfferId, reloadTrades, reloadTradable],
   );
+
+  const handleConfirmAck = useCallback(async () => {
+    setConfirmError(null);
+    setConfirmSuccess(false);
+    const result = await confirmByAck(ackInput);
+    if (result.ok) {
+      setConfirmSuccess(true);
+      setAckInput('');
+      await reloadTrades();
+      await reloadTradable();
+    } else {
+      setConfirmError(result.reason);
+    }
+  }, [confirmByAck, ackInput, reloadTrades, reloadTradable]);
 
   return (
     <ScreenTemplate title={t('screens.trade.title')}>
@@ -93,6 +108,24 @@ export default function TradeHubScreen() {
           label={t('screens.trade.pastePayload')}
           variant="secondary"
           onPress={goAccept}
+        />
+      </View>
+
+      <View style={styles.section}>
+        <Text variant="bodyBold">{t('screens.trade.pasteAck')}</Text>
+        <TextInput
+          style={styles.ackInput}
+          value={ackInput}
+          onChangeText={setAckInput}
+          placeholder="ack…"
+          placeholderTextColor={theme.colors.textMuted}
+          multiline
+        />
+        <Button
+          label={t('screens.trade.confirmIncoming')}
+          size="sm"
+          onPress={() => void handleConfirmAck()}
+          disabled={isConfirming || !ackInput.trim()}
         />
       </View>
 
@@ -187,5 +220,16 @@ const styles = StyleSheet.create({
   },
   tradeId: {
     flex: 1,
+  },
+  ackInput: {
+    backgroundColor: theme.colors.background,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    padding: theme.spacing.sm,
+    color: theme.colors.text,
+    minHeight: 48,
+    marginBottom: theme.spacing.sm,
+    textAlignVertical: 'top',
   },
 });

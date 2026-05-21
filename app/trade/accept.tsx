@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
@@ -11,12 +11,28 @@ import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useTradeAccept } from '@/features/trade/useTradeAccept';
 import { theme } from '@/theme';
 
+function tradeErrorKey(error: string): string | null {
+  const known = [
+    'expired',
+    'insufficientDuplicate',
+    'insufficientWanted',
+    'invalidPayload',
+    'wantedNotInCatalog',
+    'offeredNotInCatalog',
+  ];
+  if (error === 'INVALID_TRADE_PAYLOAD') return 'errors.trade.invalidPayload';
+  if (known.includes(error)) return `errors.trade.${error}`;
+  return null;
+}
+
 export default function TradeAcceptScreen() {
   const { t } = useTranslation();
   const { p } = useLocalSearchParams<{ p?: string }>();
   const { decode, confirm, preview, isAccepting, error } = useTradeAccept();
   const [input, setInput] = useState('');
   const [success, setSuccess] = useState(false);
+  const [encodedAck, setEncodedAck] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (p) {
@@ -31,17 +47,39 @@ export default function TradeAcceptScreen() {
 
   const handleConfirm = useCallback(async () => {
     const result = await confirm();
-    if (result.ok) setSuccess(true);
+    if (result.ok) {
+      setSuccess(true);
+      setEncodedAck(result.encodedAck);
+    }
   }, [confirm]);
 
-  const errorKey = error ? `errors.trade.${error === 'INVALID_TRADE_PAYLOAD' ? 'invalidPayload' : error}` : null;
+  const handleCopyAck = useCallback(async () => {
+    if (!encodedAck || Platform.OS !== 'web' || !navigator.clipboard) return;
+    await navigator.clipboard.writeText(encodedAck);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }, [encodedAck]);
 
-  if (success) {
+  const errorKey = error ? tradeErrorKey(error) : null;
+
+  if (success && encodedAck) {
     return (
       <ScreenTemplate title={t('screens.trade.title')}>
         <Text variant="h2" color={theme.colors.success} style={styles.successText}>
           {t('screens.trade.success')}
         </Text>
+        <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+          {t('screens.trade.ackHint')}
+        </Text>
+        <Text variant="caption" numberOfLines={3} style={styles.ackPayload}>
+          {encodedAck}
+        </Text>
+        {Platform.OS === 'web' ? (
+          <Button
+            label={copied ? '✓' : t('screens.trade.copyAck')}
+            onPress={handleCopyAck}
+          />
+        ) : null}
       </ScreenTemplate>
     );
   }
@@ -65,7 +103,7 @@ export default function TradeAcceptScreen() {
       />
 
       <Button
-        label={t('screens.trade.confirm')}
+        label={t('screens.trade.previewOffer')}
         variant="secondary"
         onPress={handleDecode}
         disabled={!input.trim()}
@@ -102,6 +140,7 @@ export default function TradeAcceptScreen() {
 const styles = StyleSheet.create({
   hint: {
     marginBottom: theme.spacing.md,
+    textAlign: 'center',
   },
   input: {
     backgroundColor: theme.colors.surface,
@@ -125,5 +164,10 @@ const styles = StyleSheet.create({
   successText: {
     textAlign: 'center',
     marginTop: theme.spacing.xl,
+    marginBottom: theme.spacing.md,
+  },
+  ackPayload: {
+    textAlign: 'center',
+    marginBottom: theme.spacing.md,
   },
 });

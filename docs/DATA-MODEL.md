@@ -137,6 +137,7 @@ type UiStore = {
 | `locale` | `en` |
 | `contentVersion` | `2026.05.21` |
 | `onboardingDone` | `true` |
+| `adminEnabled` | `1` (dev admin mode; see [DEV-ADMIN.md](DEV-ADMIN.md)) |
 
 ## Migration policy
 

@@ -71,6 +71,15 @@ npm test
 npx tsc --noEmit
 ```
 
+## Modo admin (testes no celular)
+
+Para popular figurinhas e testar troca sem abrir muitos pacotes. Ver [docs/DEV-ADMIN.md](docs/DEV-ADMIN.md).
+
+1. Gere o hash: `node scripts/hash-admin-code.mjs "sua-frase-secreta"`
+2. Local: coloque `EXPO_PUBLIC_ADMIN_CODE_HASH=<hash>` no `.env` e reinicie o Expo
+3. GitHub Pages: adicione o secret **ADMIN_CODE_HASH** no repositório (mesmo hash) e faça deploy
+4. No app: **Settings** → digite a frase → **Ativar admin**
+
 ## Testar MVP (manual)
 
 1. Abra o PWA no telefone e use **Adicionar à tela inicial**.

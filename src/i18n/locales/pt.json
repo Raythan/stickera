@@ -56,8 +56,31 @@
       "enterOfferId": "Digite o ID da oferta para confirmar",
       "accepted": "Aceita",
       "sent": "Enviada",
-      "cancelled": "Cancelada"
+      "cancelled": "Cancelada",
+      "previewOffer": "Pré-visualizar troca",
+      "pasteAck": "Colar ack do parceiro",
+      "copyAck": "Copiar ack para o parceiro",
+      "ackHint": "Envie este ack para quem criou a oferta confirmar no aparelho dele"
     }
+  },
+  "admin": {
+    "unlockTitle": "Modo desenvolvedor",
+    "unlockHint": "Digite sua frase de desbloqueio (não fica salva no app).",
+    "unlockButton": "Ativar admin",
+    "unlockError": "Frase inválida ou admin não configurado no build.",
+    "notConfigured": "Desbloqueio admin não está configurado neste build.",
+    "toolsTitle": "Ferramentas admin",
+    "toolsHint": "Só para testes locais. Alterações ficam neste aparelho.",
+    "grantTradeKit": "Dar ×2 em todas (kit troca)",
+    "grantTradeKitDone": "×2 concedido em {{count}} figurinhas.",
+    "grantSticker": "Conceder",
+    "grantStickerDone": "Quantidade atualizada.",
+    "stickerIdPlaceholder": "album-id:01",
+    "resetPack": "Zerar cooldown do pacote",
+    "resetPackDone": "Pacote pronto para abrir.",
+    "clearTradeLog": "Limpar log de trocas",
+    "clearTradeLogDone": "Log de trocas limpo.",
+    "lock": "Bloquear modo admin"
   },
   "about": {
     "tagline": "MVP de álbum de figurinhas — offline-first, sem backend.",
@@ -80,7 +103,8 @@
       "insufficientDuplicate": "Você não tem repetidas suficientes da figurinha oferecida.",
       "invalidPayload": "Payload de troca inválido. Verifique e tente novamente.",
       "wantedNotInCatalog": "A figurinha desejada não está nos seus álbuns habilitados.",
-      "offeredNotInCatalog": "A figurinha oferecida não está nos seus álbuns habilitados."
+      "offeredNotInCatalog": "A figurinha oferecida não está nos seus álbuns habilitados.",
+      "insufficientWanted": "Você não tem a figurinha que daria nesta troca."
     }
   },
   "collection": {

@@ -56,8 +56,31 @@
       "enterOfferId": "Enter offer ID to confirm",
       "accepted": "Accepted",
       "sent": "Sent",
-      "cancelled": "Cancelled"
+      "cancelled": "Cancelled",
+      "previewOffer": "Preview trade",
+      "pasteAck": "Paste partner ack",
+      "copyAck": "Copy ack for partner",
+      "ackHint": "Send this ack to the offer creator so they can confirm on their device"
     }
+  },
+  "admin": {
+    "unlockTitle": "Developer mode",
+    "unlockHint": "Enter your unlock phrase (not stored in the app).",
+    "unlockButton": "Activate admin",
+    "unlockError": "Invalid phrase or admin not configured in build.",
+    "notConfigured": "Admin unlock is not configured for this build.",
+    "toolsTitle": "Admin tools",
+    "toolsHint": "Local testing only. Changes stay on this device.",
+    "grantTradeKit": "Grant ×2 on all stickers (trade kit)",
+    "grantTradeKitDone": "Granted ×2 on {{count}} stickers.",
+    "grantSticker": "Grant",
+    "grantStickerDone": "Sticker quantity updated.",
+    "stickerIdPlaceholder": "album-id:01",
+    "resetPack": "Reset pack cooldown",
+    "resetPackDone": "Pack is ready to open.",
+    "clearTradeLog": "Clear trade log",
+    "clearTradeLogDone": "Trade log cleared.",
+    "lock": "Lock admin mode"
   },
   "about": {
     "tagline": "Sticker album MVP — offline-first, no backend.",
@@ -80,7 +103,8 @@
       "insufficientDuplicate": "You don't have enough duplicates of the offered sticker.",
       "invalidPayload": "Invalid trade payload. Check and try again.",
       "wantedNotInCatalog": "The wanted sticker is not in your enabled albums.",
-      "offeredNotInCatalog": "The offered sticker is not in your enabled albums."
+      "offeredNotInCatalog": "The offered sticker is not in your enabled albums.",
+      "insufficientWanted": "You do not have the sticker you would give in this trade."
     }
   },
   "collection": {

@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 
 import type { CollectionRow, TradePayload } from '@/domain/types';
 
-import { validateTradePayload } from './validate';
+import { validateOfferAsAcceptor, validateOfferAsInitiator } from './validate';
 
 const now = new Date('2026-05-21T14:00:00Z');
 const future = '2026-05-21T14:15:00Z';
@@ -26,32 +26,38 @@ function makePayload(overrides?: Partial<TradePayload>): TradePayload {
   };
 }
 
-describe('validateTradePayload', () => {
+describe('validateOfferAsInitiator', () => {
   it('accepts valid offer', () => {
-    const result = validateTradePayload(makePayload(), collection, catalogIds, now);
-    expect(result.valid).toBe(true);
+    expect(validateOfferAsInitiator(makePayload(), collection, catalogIds, now).valid).toBe(true);
+  });
+
+  it('rejects insufficient duplicate on offered', () => {
+    const payload = makePayload({ offered: { stickerId: 'album:2', quantity: 1 } });
+    expect(validateOfferAsInitiator(payload, collection, catalogIds, now)).toEqual({
+      valid: false,
+      reason: 'insufficientDuplicate',
+    });
+  });
+});
+
+describe('validateOfferAsAcceptor', () => {
+  it('accepts when acceptor has wanted qty >= 1', () => {
+    const payload = makePayload({ wanted: { stickerId: 'album:2', quantity: 1 } });
+    expect(validateOfferAsAcceptor(payload, collection, catalogIds, now).valid).toBe(true);
+  });
+
+  it('rejects when acceptor lacks wanted sticker', () => {
+    const payload = makePayload({ wanted: { stickerId: 'album:3', quantity: 1 } });
+    expect(validateOfferAsAcceptor(payload, collection, catalogIds, now)).toEqual({
+      valid: false,
+      reason: 'insufficientWanted',
+    });
   });
 
   it('rejects expired offer', () => {
-    const result = validateTradePayload(makePayload({ expiresAt: past }), collection, catalogIds, now);
-    expect(result).toEqual({ valid: false, reason: 'expired' });
-  });
-
-  it('rejects insufficient duplicate (qty < 2)', () => {
-    const payload = makePayload({ offered: { stickerId: 'album:2', quantity: 1 } });
-    const result = validateTradePayload(payload, collection, catalogIds, now);
-    expect(result).toEqual({ valid: false, reason: 'insufficientDuplicate' });
-  });
-
-  it('rejects wanted sticker not in catalog', () => {
-    const payload = makePayload({ wanted: { stickerId: 'unknown:99', quantity: 1 } });
-    const result = validateTradePayload(payload, collection, catalogIds, now);
-    expect(result).toEqual({ valid: false, reason: 'wantedNotInCatalog' });
-  });
-
-  it('rejects offered sticker not in catalog', () => {
-    const payload = makePayload({ offered: { stickerId: 'unknown:99', quantity: 1 } });
-    const result = validateTradePayload(payload, collection, catalogIds, now);
-    expect(result).toEqual({ valid: false, reason: 'offeredNotInCatalog' });
+    expect(validateOfferAsAcceptor(makePayload({ expiresAt: past }), collection, catalogIds, now)).toEqual({
+      valid: false,
+      reason: 'expired',
+    });
   });
 });

@@ -72,6 +72,13 @@ Normative detail: [docs/PHASES/06-release.md](PHASES/06-release.md).
 - [x] PWA installable on mobile browsers
 - [x] README install instructions for contributors
 
+## Post-MVP / Dev tools
+
+See [DEV-ADMIN.md](DEV-ADMIN.md).
+
+- [x] Admin unlock (secret hash) + local test actions
+- [x] Trade role-based validation + TradeAck copy/paste
+
 ## Definition of done
 
 All Phase 0–6 items checked; [PRODUCT.md](PRODUCT.md) acceptance criteria met.

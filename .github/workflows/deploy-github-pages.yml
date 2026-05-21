@@ -41,6 +41,8 @@ jobs:
   build:
     needs: validate
     runs-on: ubuntu-latest
+    env:
+      ADMIN_CODE_HASH: ${{ secrets.ADMIN_CODE_HASH }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -49,6 +51,8 @@ jobs:
           cache: npm
       - run: npm ci || npm install
       - run: npm run build:web
+        env:
+          EXPO_PUBLIC_ADMIN_CODE_HASH: ${{ secrets.ADMIN_CODE_HASH }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

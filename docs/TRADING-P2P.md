@@ -58,14 +58,16 @@ Implement **(1)** with `TradeAck` payload:
 type TradeAck = { v: 1; offerId: string; acceptedAt: string };
 ```
 
-## Validation (both sides)
+## Validation (by role)
 
 ```typescript
-function validateOffer(payload: TradePayload, collection: Collection): ValidationResult;
-// - offered sticker quantity >= 1 (or 2 if requiring duplicate-out)
-// - wanted sticker exists in catalog
-// - not expired
-// - stickerIds exist in enabled albums
+function validateOfferAsInitiator(payload, collection, catalogIds): ValidationResult;
+// - offered sticker quantity >= 2 (duplicate to trade away)
+// - wanted in catalog; not expired
+
+function validateOfferAsAcceptor(payload, collection, catalogIds): ValidationResult;
+// - wanted sticker quantity >= 1 (acceptor gives wanted)
+// - offered in catalog; not expired
 ```
 
 ```typescript
