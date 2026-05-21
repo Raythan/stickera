@@ -5,7 +5,7 @@
   "description": "Offline sticker album — Expo mobile app",
   "main": "expo-router/entry",
   "scripts": {
-    "sync:assets": "node scripts/sync-content-to-assets.mjs && node scripts/create-assets.mjs",
+    "sync:assets": "node scripts/sync-content-to-assets.mjs && node scripts/create-assets.mjs && node scripts/sync-pwa-icons.mjs",
     "prestart": "npm run sync:assets",
     "preandroid": "npm run sync:assets",
     "preios": "npm run sync:assets",

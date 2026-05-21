@@ -53,6 +53,13 @@ if (fs.existsSync(albumsSrc)) {
   copyDir(albumsSrc, albumsDest);
 }
 
+const iconSrc = path.join(ROOT, 'assets', 'icon.png');
+const assetsDist = path.join(dist, 'assets');
+if (fs.existsSync(iconSrc)) {
+  fs.mkdirSync(assetsDist, { recursive: true });
+  fs.copyFileSync(iconSrc, path.join(assetsDist, 'icon.png'));
+}
+
 fs.writeFileSync(path.join(dist, '.nojekyll'), '');
 
 const indexHtml = path.join(dist, 'index.html');

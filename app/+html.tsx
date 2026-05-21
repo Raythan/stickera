@@ -14,10 +14,11 @@ export default function Root({ children }: PropsWithChildren) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
         />
         <meta name="theme-color" content="#E85D4C" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="manifest" href={`${baseUrl}/manifest.webmanifest`} />
-        <link rel="apple-touch-icon" href={`${baseUrl}/assets/icon.png`} />
+        <link rel="apple-touch-icon" href={`${baseUrl}/icon-192.png`} />
         <ScrollViewStyleReset />
       </head>
       <body>{children}</body>

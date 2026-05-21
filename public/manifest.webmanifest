@@ -10,13 +10,13 @@
   "theme_color": "#E85D4C",
   "icons": [
     {
-      "src": "/stickera/assets/icon.png",
+      "src": "/stickera/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/stickera/assets/icon.png",
+      "src": "/stickera/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

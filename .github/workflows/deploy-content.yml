@@ -1,26 +1,23 @@
-# Deploy content/ to Netlify when manifests or stickers change.
-# Requires NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID repository secrets.
-# See docs/DEPLOY-CONTENT.md
+# Optional: deploy content/ to Netlify (requires NETLIFY_* secrets).
+# PWA uses GitHub Pages — see deploy-github-pages.yml.
+# Manual only to avoid Node 20 action warnings on every push.
 
 name: Deploy content
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'content/**'
-      - 'netlify.toml'
-      - '.github/workflows/deploy-content.yml'
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
           cache: npm
       - run: npm ci || npm install
 
