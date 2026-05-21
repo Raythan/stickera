@@ -65,7 +65,19 @@
       "previewOffer": "Pré-visualizar troca",
       "pasteAck": "Colar ack do parceiro",
       "copyAck": "Copiar ack para o parceiro",
-      "ackHint": "Envie este ack para quem criou a oferta confirmar no aparelho dele"
+      "ackHint": "Envie este ack para quem criou a oferta confirmar no aparelho dele",
+      "yourOffers": "Suas ofertas",
+      "importedOffers": "Ofertas importadas",
+      "copyPayloadAgain": "Copiar payload de novo",
+      "copyPayloadAgainHint": "Payloads ficam salvos neste aparelho. Você pode copiar de novo enquanto não expirar.",
+      "copyAckAgain": "Copiar ack de novo",
+      "continueAccept": "Continuar",
+      "offerExpired": "Expirada",
+      "savedInTradeLog": "Salvo em Trocar — você pode copiar o payload de novo no hub de troca.",
+      "trustLimitNote": "Sem servidor, quem tiver o payload pode tentar aceitar. O app bloqueia reuso neste aparelho após concluir; confirme só um ack do parceiro.",
+      "registryOnline": "Proteção global de troca: online (um aceite por oferta no mundo)",
+      "registryOffline": "Registry configurado mas inacessível — só regras locais",
+      "registryNotConfigured": "Sem URL de registry neste build — só confiança local"
     }
   },
   "admin": {
@@ -111,7 +123,11 @@
       "offeredNotInCatalog": "A figurinha oferecida não está nos seus álbuns habilitados.",
       "insufficientWanted": "Você não tem a figurinha que daria nesta troca.",
       "tooManyStickers": "Muitas figurinhas selecionadas (máx. 100 por lado).",
-      "emptySelection": "Selecione pelo menos uma figurinha."
+      "emptySelection": "Selecione pelo menos uma figurinha.",
+      "alreadyUsedLocally": "Esta oferta já foi concluída neste aparelho.",
+      "ownOffer": "Você não pode aceitar sua própria oferta.",
+      "alreadyClaimedGlobally": "Esta oferta já foi aceita por outra pessoa (registry global).",
+      "registryError": "O registry recusou esta oferta. Tente de novo ou peça um novo payload."
     }
   },
   "collection": {

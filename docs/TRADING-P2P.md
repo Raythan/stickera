@@ -107,8 +107,37 @@ function applyTradeBundle(collection, giveIds, receiveIds): Collection;
 - Trades are between people you trust.
 - Editing local saves is possible; not a competitive game.
 
+### Re-copy tokens (local)
+
+- Initiator: `trade_log` stores `encoded_payload` for `status: sent` — hub **Copy payload again**.
+- Acceptor: on paste/decode, offer saved as `draft` with payload — copy or **Continue** before confirm.
+- After accept/confirm: `ack_encoded` stored — **Copy ack again** from hub/recent.
+
+### Anti-replay (this device only)
+
+- `consumed_trade_offers` in settings: `offerId` marked when a trade **completes** on this device (accept or initiator confirm).
+- Importing a consumed `offerId` → `OFFER_ALREADY_USED`.
+- Accepting your own sent offer → `OWN_OFFER`.
+
+**Without registry**, the same payload can still be pasted on **another person's phone** until expiry.
+
+### Optional global registry (ADR-002)
+
+Cloudflare Worker: [`workers/trade-registry/README.md`](../workers/trade-registry/README.md).
+
+| Env | `EXPO_PUBLIC_TRADE_REGISTRY_URL` (build-time) |
+| Client | [`TradeRegistryClient`](../src/services/trade/TradeRegistryClient.ts) |
+
+| Step | Who | Action |
+|------|-----|--------|
+| Create offer | Initiator | `POST /v1/offers/register` (best-effort; offline still works) |
+| Preview paste | Acceptor | `GET /v1/offers/:id` — block if `consumed` / `expired` |
+| Confirm | Acceptor | `POST /v1/offers/claim` — atomic global single accept |
+
+If registry URL unset or unreachable → local-only flow (no block on register miss; claim `unavailable` skips).
+
 ## Future (out of MVP)
 
 - Camera scanner
-- Backend / async negotiation
+- Async negotiation / edit offer
 - Bluetooth proximity

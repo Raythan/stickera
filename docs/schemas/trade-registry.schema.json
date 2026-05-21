@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stickera.dev/schemas/trade-registry.schema.json",
+  "title": "StickeraTradeRegistry",
+  "$defs": {
+    "registerRequest": {
+      "type": "object",
+      "required": ["offerId", "expiresAt"],
+      "additionalProperties": false,
+      "properties": {
+        "offerId": { "type": "string", "minLength": 8 },
+        "expiresAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "claimRequest": {
+      "type": "object",
+      "required": ["offerId"],
+      "additionalProperties": false,
+      "properties": {
+        "offerId": { "type": "string", "minLength": 8 }
+      }
+    },
+    "statusResponse": {
+      "type": "object",
+      "required": ["status", "offerId"],
+      "properties": {
+        "status": {
+          "enum": ["pending", "consumed", "expired", "not_found"]
+        },
+        "offerId": { "type": "string" },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "consumedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

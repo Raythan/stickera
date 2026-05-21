@@ -66,6 +66,9 @@ export default function TradeOfferScreen() {
             variant={copied ? 'ghost' : 'primary'}
           />
         </View>
+        <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+          {t('screens.trade.savedInTradeLog')}
+        </Text>
         <Text variant="caption" color={theme.colors.textMuted} style={styles.hint} numberOfLines={3}>
           {encoded}
         </Text>

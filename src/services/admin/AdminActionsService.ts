@@ -2,6 +2,7 @@ import { grantAllStickersQty, setStickerQuantity } from '@/domain/collection/gra
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { PackStateRepository } from '@/services/db/PackStateRepository';
+import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
@@ -31,5 +32,6 @@ export const AdminActionsService = {
 
   async clearTradeLog(): Promise<void> {
     await TradeLogRepository.clearAll();
+    await TradeConsumedRepository.clearAll();
   },
 };

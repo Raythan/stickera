@@ -27,6 +27,10 @@ function tradeErrorKey(error: string): string | null {
     'emptySelection',
   ];
   if (error === 'INVALID_TRADE_PAYLOAD') return 'errors.trade.invalidPayload';
+  if (error === 'OFFER_ALREADY_USED') return 'errors.trade.alreadyUsedLocally';
+  if (error === 'OWN_OFFER') return 'errors.trade.ownOffer';
+  if (error === 'OFFER_ALREADY_CLAIMED_GLOBALLY') return 'errors.trade.alreadyClaimedGlobally';
+  if (error === 'REGISTRY_ERROR') return 'errors.trade.registryError';
   if (known.includes(error)) return `errors.trade.${error}`;
   return null;
 }

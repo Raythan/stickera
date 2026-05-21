@@ -76,6 +76,7 @@ Use após editar manifests, locales ou antes de declarar uma fase concluída.
 | 5 | IDs existem no catálogo habilitado |
 | 6 | Ack **v2**: `acceptorIds` 1..100; iniciador aplica bundle com ack |
 | 7 | Initiador: cada ID oferecido com `quantity >= 2`; aceitador: cada `acceptorIds` com `quantity >= 2` |
+| 8 | Registry opcional: `register` + `claim`; offline se URL ausente ou rede falhar (ADR-002) |
 
 ---
 

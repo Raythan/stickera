@@ -13,6 +13,9 @@ export type StoreData = {
   trade_log: Array<{
     id: string;
     payload_json: string;
+    encoded_payload?: string;
+    ack_encoded?: string;
+    role?: string;
     status: string;
     created_at: string;
   }>;

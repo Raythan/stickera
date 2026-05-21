@@ -7,6 +7,7 @@ import type { TradePayloadV2 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
+import { registerOffer } from '@/services/trade/TradeRegistryClient';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
 export type TradeOfferResult =
@@ -56,9 +57,13 @@ export function useTradeOffer() {
         await TradeLogRepository.append({
           id: payload.offerId,
           payload_json: JSON.stringify(payload),
+          encoded_payload: encoded,
+          role: 'initiator',
           status: 'sent',
           created_at: new Date().toISOString(),
         });
+
+        void registerOffer(payload.offerId, payload.expiresAt);
 
         return { ok: true, payload, encoded };
       } catch (e) {

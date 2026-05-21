@@ -7,6 +7,7 @@ import {
 import { decodeTradeAck } from '@/domain/trade/ackCodec';
 import type { TradePayloadAny, TradePayloadV1 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
+import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 
 export type ConfirmResult =
@@ -37,12 +38,16 @@ async function applyInitiatorTrade(
     );
     await CollectionRepository.saveAll(updated);
     await TradeLogRepository.updateStatus(offerId, 'completed');
+    if (ackEncoded) await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+    await TradeConsumedRepository.markConsumed(offerId);
     return { ok: true };
   }
 
   const updated = applyTrade(collection, payload as TradePayloadV1, 'initiator');
   await CollectionRepository.saveAll(updated);
   await TradeLogRepository.updateStatus(offerId, 'completed');
+  if (ackEncoded) await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+  await TradeConsumedRepository.markConsumed(offerId);
   return { ok: true };
 }
 

@@ -18,6 +18,8 @@ const env = {
   EXPO_PUBLIC_BASE_URL: BASE,
   EXPO_PUBLIC_CONTENT_BASE_URL: SITE,
   EXPO_PUBLIC_ADMIN_CODE_HASH: process.env.EXPO_PUBLIC_ADMIN_CODE_HASH ?? process.env.ADMIN_CODE_HASH ?? '',
+  EXPO_PUBLIC_TRADE_REGISTRY_URL:
+    process.env.EXPO_PUBLIC_TRADE_REGISTRY_URL ?? process.env.TRADE_REGISTRY_URL ?? '',
 };
 
 console.log(`Building PWA for ${SITE} …`);

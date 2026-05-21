@@ -56,6 +56,7 @@ Navegação central para **Spec Driven Development (SDD)**.
 | ADR | Título |
 |-----|--------|
 | [decisions/001-expo-offline-mvp.md](decisions/001-expo-offline-mvp.md) | PWA sem backend |
+| [decisions/002-trade-registry-optional.md](decisions/002-trade-registry-optional.md) | Registry de troca opcional (Worker) |
 
 ## Cursor (fora de docs/)
 

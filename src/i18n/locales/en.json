@@ -65,7 +65,19 @@
       "previewOffer": "Preview trade",
       "pasteAck": "Paste partner ack",
       "copyAck": "Copy ack for partner",
-      "ackHint": "Send this ack to the offer creator so they can confirm on their device"
+      "ackHint": "Send this ack to the offer creator so they can confirm on their device",
+      "yourOffers": "Your offers",
+      "importedOffers": "Imported offers",
+      "copyPayloadAgain": "Copy payload again",
+      "copyPayloadAgainHint": "Payloads are saved on this device. You can copy again while not expired.",
+      "copyAckAgain": "Copy ack again",
+      "continueAccept": "Continue",
+      "offerExpired": "Expired",
+      "savedInTradeLog": "Saved in Trade — you can copy the payload again from the trade hub.",
+      "trustLimitNote": "Without a server, anyone with the payload can try to accept. This app blocks reuse on your device after a trade completes; confirm only one partner ack.",
+      "registryOnline": "Global trade protection: online (one accept per offer worldwide)",
+      "registryOffline": "Trade registry configured but unreachable — local rules only",
+      "registryNotConfigured": "No trade registry URL in this build — local trust only"
     }
   },
   "admin": {
@@ -111,7 +123,11 @@
       "offeredNotInCatalog": "The offered sticker is not in your enabled albums.",
       "insufficientWanted": "You do not have the sticker you would give in this trade.",
       "tooManyStickers": "Too many stickers selected (max 100 per side).",
-      "emptySelection": "Select at least one sticker."
+      "emptySelection": "Select at least one sticker.",
+      "alreadyUsedLocally": "This offer was already completed on this device.",
+      "ownOffer": "You cannot accept your own offer.",
+      "alreadyClaimedGlobally": "This offer was already accepted by someone else (global registry).",
+      "registryError": "Trade registry rejected this offer. Try again or ask for a new payload."
     }
   },
   "collection": {

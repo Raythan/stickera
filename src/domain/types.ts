@@ -124,6 +124,9 @@ export type TradableStickerItem = {
 export type TradeLogEntry = {
   id: string;
   payload_json: string;
+  encoded_payload?: string;
+  ack_encoded?: string;
+  role?: 'initiator' | 'acceptor';
   status: 'draft' | 'sent' | 'completed' | 'cancelled';
   created_at: string;
 };
