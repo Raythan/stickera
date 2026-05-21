@@ -4,6 +4,7 @@ export const SETTINGS_KEYS = {
   contentVersion: 'contentVersion',
   locale: 'locale',
   onboardingDone: 'onboardingDone',
+  appConfig: 'appConfig',
 } as const;
 
 export const SettingsRepository = {

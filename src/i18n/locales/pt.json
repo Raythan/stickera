@@ -9,7 +9,10 @@
     },
     "pack": {
       "title": "Abrir pacote",
-      "placeholder": "Abertura de pacotes na Fase 4. Timer e revelação ficarão aqui."
+      "openButton": "Abrir pacote",
+      "cooldown": "Próximo pacote em {{time}}",
+      "ready": "Pacote pronto!",
+      "revealTitle": "Você ganhou {{count}} figurinhas!"
     },
     "settings": {
       "title": "Configurações",
@@ -42,7 +45,12 @@
     "back": "Voltar"
   },
   "errors": {
-    "bootstrapFailed": "Não foi possível carregar o conteúdo dos álbuns. Verifique a conexão ou reinstale o app."
+    "bootstrapFailed": "Não foi possível carregar o conteúdo dos álbuns. Verifique a conexão ou reinstale o app.",
+    "pack": {
+      "notReady": "O pacote ainda não está pronto. Aguarde o cooldown.",
+      "poolTooSmall": "Figurinhas insuficientes no pool. Habilite mais álbuns ou aguarde atualizações.",
+      "noEnabledAlbums": "Nenhum álbum habilitado. Vá em Ajustes para habilitar pelo menos um."
+    }
   },
   "collection": {
     "quantity": "×{{count}}",
@@ -60,10 +68,23 @@
   },
   "albums": {
     "retroGames": {
-      "name": "Retro Games"
+      "name": "Jogos Retrô",
+      "stickers": {
+        "01": { "name": "Nine Top Games" },
+        "02": { "name": "Especial Antigo" },
+        "03": { "name": "Pac-Man & Top Gear" },
+        "04": { "name": "Zelda" },
+        "05": { "name": "Especial Retrô" }
+      }
     },
     "spaceExplorers": {
-      "name": "Exploradores do Espaço"
+      "name": "Exploradores do Espaço",
+      "stickers": {
+        "01": { "name": "Explorador Alfa" },
+        "02": { "name": "Explorador Beta" },
+        "03": { "name": "Explorador Gama" },
+        "04": { "name": "Explorador Delta" }
+      }
     },
     "worldCup2026": {
       "name": "Copa do Mundo FIFA 2026",

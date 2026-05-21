@@ -40,12 +40,12 @@ Lidos de `app-config` / `catalog.appConfig` — **não** constantes no código.
 
 ## Checklist de saída
 
-- [ ] Timer exibe tempo restante correto (en/pt)
-- [ ] Botão desabilitado durante cooldown
-- [ ] Pack com N stickers sem ID repetido no mesmo pack
-- [ ] `pack_state` atualizado após abrir
-- [ ] `collection` incrementa qty; `is_new` na primeira vez
-- [ ] Testes domain passando
+- [x] Timer exibe tempo restante correto (en/pt)
+- [x] Botão desabilitado durante cooldown
+- [x] Pack com N stickers sem ID repetido no mesmo pack
+- [x] `pack_state` atualizado após abrir
+- [x] `collection` incrementa qty; `is_new` na primeira vez
+- [x] Testes domain passando
 
 ## Anti-padrões
 

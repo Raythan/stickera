@@ -1,9 +1,40 @@
 {
   "id": "space-explorers",
-  "revision": 1,
+  "revision": 2,
   "frameStylePath": "frame.css",
-  "totalStickers": 12,
+  "totalStickers": 4,
+  "nameKey": "albums.spaceExplorers.name",
   "names": { "en": "Space Explorers", "pt": "Exploradores do Espaço" },
+  "coverImage": "stickers/01-space-explorer.jpeg",
   "packWeight": 1,
-  "stickers": []
+  "stickers": [
+    {
+      "id": "space-explorers:01",
+      "number": 1,
+      "rarity": "rare",
+      "nameKey": "albums.spaceExplorers.stickers.01.name",
+      "image": "stickers/01-space-explorer.jpeg"
+    },
+    {
+      "id": "space-explorers:02",
+      "number": 2,
+      "rarity": "uncommon",
+      "nameKey": "albums.spaceExplorers.stickers.02.name",
+      "image": "stickers/02-space-explorer.jpeg"
+    },
+    {
+      "id": "space-explorers:03",
+      "number": 3,
+      "rarity": "common",
+      "nameKey": "albums.spaceExplorers.stickers.03.name",
+      "image": "stickers/03-space-explorer.jpeg"
+    },
+    {
+      "id": "space-explorers:04",
+      "number": 4,
+      "rarity": "legendary",
+      "nameKey": "albums.spaceExplorers.stickers.04.name",
+      "image": "stickers/04-space-explorer.jpeg"
+    }
+  ]
 }

@@ -1,9 +1,47 @@
 {
   "id": "retro-games",
-  "revision": 1,
+  "revision": 2,
   "frameStylePath": "frame.css",
-  "totalStickers": 12,
+  "totalStickers": 5,
+  "nameKey": "albums.retroGames.name",
   "names": { "en": "Retro Games", "pt": "Jogos Retrô" },
+  "coverImage": "stickers/01-nine-top-games.jpeg",
   "packWeight": 1,
-  "stickers": []
+  "stickers": [
+    {
+      "id": "retro-games:01",
+      "number": 1,
+      "rarity": "rare",
+      "nameKey": "albums.retroGames.stickers.01.name",
+      "image": "stickers/01-nine-top-games.jpeg"
+    },
+    {
+      "id": "retro-games:02",
+      "number": 2,
+      "rarity": "uncommon",
+      "nameKey": "albums.retroGames.stickers.02.name",
+      "image": "stickers/02-special-old.jpeg"
+    },
+    {
+      "id": "retro-games:03",
+      "number": 3,
+      "rarity": "common",
+      "nameKey": "albums.retroGames.stickers.03.name",
+      "image": "stickers/03-packman-topgear.jpeg"
+    },
+    {
+      "id": "retro-games:04",
+      "number": 4,
+      "rarity": "legendary",
+      "nameKey": "albums.retroGames.stickers.04.name",
+      "image": "stickers/04-zelda.jpeg"
+    },
+    {
+      "id": "retro-games:05",
+      "number": 5,
+      "rarity": "uncommon",
+      "nameKey": "albums.retroGames.stickers.05.name",
+      "image": "stickers/05-special-old.jpeg"
+    }
+  ]
 }

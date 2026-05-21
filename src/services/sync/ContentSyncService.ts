@@ -3,7 +3,7 @@ import { parseAlbum } from '@/domain/validators/album';
 import { parseCatalog } from '@/domain/validators/catalog';
 import { AlbumRepository } from '@/services/db/AlbumRepository';
 import { PackStateRepository } from '@/services/db/PackStateRepository';
-import { SettingsRepository } from '@/services/db/SettingsRepository';
+import { SettingsRepository, SETTINGS_KEYS } from '@/services/db/SettingsRepository';
 import { getContentBaseUrl } from '@/config/contentBase';
 import { albumStickerUrl } from '@/services/content/paths';
 
@@ -57,6 +57,7 @@ async function applyCatalog(
   }
 
   await SettingsRepository.setContentVersion(catalog.version);
+  await SettingsRepository.set(SETTINGS_KEYS.appConfig, JSON.stringify(catalog.appConfig));
   return updated;
 }
 

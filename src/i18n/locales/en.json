@@ -9,7 +9,10 @@
     },
     "pack": {
       "title": "Open pack",
-      "placeholder": "Pack opening arrives in Phase 4. Timer and reveals will live here."
+      "openButton": "Open pack",
+      "cooldown": "Next pack in {{time}}",
+      "ready": "Pack ready!",
+      "revealTitle": "You got {{count}} stickers!"
     },
     "settings": {
       "title": "Settings",
@@ -42,7 +45,12 @@
     "back": "Back"
   },
   "errors": {
-    "bootstrapFailed": "Could not load album content. Check your connection or reinstall the app."
+    "bootstrapFailed": "Could not load album content. Check your connection or reinstall the app.",
+    "pack": {
+      "notReady": "Pack is not ready yet. Please wait for the cooldown.",
+      "poolTooSmall": "Not enough stickers in the pool. Enable more albums or wait for content updates.",
+      "noEnabledAlbums": "No albums enabled. Go to Settings to enable at least one album."
+    }
   },
   "collection": {
     "quantity": "×{{count}}",
@@ -60,10 +68,23 @@
   },
   "albums": {
     "retroGames": {
-      "name": "Retro Games"
+      "name": "Retro Games",
+      "stickers": {
+        "01": { "name": "Nine Top Games" },
+        "02": { "name": "Special Old" },
+        "03": { "name": "Pac-Man & Top Gear" },
+        "04": { "name": "Zelda" },
+        "05": { "name": "Retro Special" }
+      }
     },
     "spaceExplorers": {
-      "name": "Space Explorers"
+      "name": "Space Explorers",
+      "stickers": {
+        "01": { "name": "Explorer Alpha" },
+        "02": { "name": "Explorer Beta" },
+        "03": { "name": "Explorer Gamma" },
+        "04": { "name": "Explorer Delta" }
+      }
     },
     "worldCup2026": {
       "name": "FIFA World Cup 2026",

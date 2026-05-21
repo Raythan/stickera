@@ -1,6 +1,6 @@
 import type { CollectionRow } from '@/domain/types';
 
-import { loadStore } from './localStore';
+import { loadStore, saveStore } from './localStore';
 
 export type StickerCollectionEntry = {
   quantity: number;
@@ -37,5 +37,16 @@ export const CollectionRepository = {
       });
     }
     return map;
+  },
+
+  async getAllAsRows(): Promise<CollectionRow[]> {
+    const store = loadStore();
+    return store.collection;
+  },
+
+  async saveAll(rows: CollectionRow[]): Promise<void> {
+    const store = loadStore();
+    store.collection = rows;
+    saveStore(store);
   },
 };

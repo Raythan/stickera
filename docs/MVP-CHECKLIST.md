@@ -47,11 +47,11 @@ Normative detail: [docs/PHASES/03-collection.md](PHASES/03-collection.md).
 
 Normative detail: [docs/PHASES/04-packs.md](PHASES/04-packs.md).
 
-- [ ] Configurable cooldown (`app-config.json`)
-- [ ] Timer UI + `PackTimerService`
-- [ ] `drawStickers` domain tests
-- [ ] Pack open + `PackReveal` organism
-- [ ] Persist `pack_state`
+- [x] Configurable cooldown (`app-config.json`)
+- [x] Timer UI + `PackTimerService`
+- [x] `drawStickers` domain tests
+- [x] Pack open + `PackReveal` organism
+- [x] Persist `pack_state`
 
 ## Phase 5 — Trading
 

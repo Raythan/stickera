@@ -1,5 +1,5 @@
 {
-  "version": "2026.05.21.3",
+  "version": "2026.05.21.5",
   "baseUrl": "",
   "albums": [
     {
@@ -9,18 +9,18 @@
     },
     {
       "id": "retro-games",
-      "revision": 1,
+      "revision": 2,
       "manifestPath": "/albums/retro-games/album.json"
     },
     {
       "id": "space-explorers",
-      "revision": 1,
+      "revision": 2,
       "manifestPath": "/albums/space-explorers/album.json"
     }
   ],
   "appConfig": {
     "packCooldown": { "value": 4, "unit": "hours" },
-    "stickersPerPack": 5,
+    "stickersPerPack": 4,
     "tradeRequiresConfirmation": true
   }
 }

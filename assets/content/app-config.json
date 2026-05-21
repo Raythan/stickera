@@ -1,6 +1,6 @@
 {
   "packCooldown": { "value": 4, "unit": "hours" },
-  "stickersPerPack": 5,
+  "stickersPerPack": 4,
   "tradeRequiresConfirmation": true,
   "signature": {
     "authorName": "Your Name",
