@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
+import { HeaderHomeButton } from '@/components/molecules/HeaderHomeButton';
 import { theme } from '@/theme';
 
 import type { ScreenNavBarProps } from './ScreenNavBar.types';
@@ -22,11 +23,9 @@ export function ScreenNavBar({ title, showBack = true, showHome = true }: Screen
             accessibilityLabel={t('nav.back')}
             onPress={() => router.back()}
             style={styles.btn}
+            hitSlop={8}
           >
-            <Icon name="arrow-back" size={22} color={theme.colors.secondary} />
-            <Text variant="caption" color={theme.colors.secondary} style={styles.btnLabel}>
-              {t('nav.back')}
-            </Text>
+            <Icon name="arrow-back" size={24} color={theme.colors.secondary} />
           </Pressable>
         ) : (
           <View style={styles.sidePlaceholder} />
@@ -42,21 +41,7 @@ export function ScreenNavBar({ title, showBack = true, showHome = true }: Screen
       )}
 
       <View style={[styles.side, styles.sideEnd]}>
-        {showHome ? (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={t('nav.homeLong')}
-            onPress={() => router.replace('/(tabs)')}
-            style={[styles.btn, styles.btnEnd]}
-          >
-            <Text variant="caption" color={theme.colors.secondary} style={styles.btnLabel}>
-              {t('nav.homeLong')}
-            </Text>
-            <Icon name="home-outline" size={22} color={theme.colors.secondary} />
-          </Pressable>
-        ) : (
-          <View style={styles.sidePlaceholder} />
-        )}
+        {showHome ? <HeaderHomeButton /> : <View style={styles.sidePlaceholder} />}
       </View>
     </View>
   );
@@ -66,34 +51,25 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    minHeight: 48,
+    minHeight: 44,
     paddingVertical: theme.spacing.xs,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.colors.border,
     backgroundColor: theme.colors.background,
   },
   side: {
-    minWidth: 88,
-    maxWidth: '32%',
+    width: 48,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   sideEnd: {
     alignItems: 'flex-end',
   },
   sidePlaceholder: {
-    minWidth: 88,
+    width: 48,
   },
   btn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    paddingVertical: theme.spacing.xs,
-    paddingHorizontal: theme.spacing.xs,
-  },
-  btnEnd: {
-    justifyContent: 'flex-end',
-  },
-  btnLabel: {
-    flexShrink: 1,
+    padding: theme.spacing.xs,
   },
   title: {
     flex: 1,

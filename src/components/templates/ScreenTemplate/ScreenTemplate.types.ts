@@ -8,4 +8,6 @@ export type ScreenTemplateProps = {
   onRefresh?: () => void;
   showBack?: boolean;
   showHome?: boolean;
+  /** When false, no custom header (e.g. tab screens use Expo header). Default: derived from title/nav flags. */
+  showHeader?: boolean;
 };

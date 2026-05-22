@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
+import { HeaderHomeButton } from '@/components/molecules/HeaderHomeButton';
 import { theme } from '@/theme';
 
 export default function TabsLayout() {
@@ -18,12 +19,15 @@ export default function TabsLayout() {
         },
         headerStyle: { backgroundColor: theme.colors.background },
         headerTintColor: theme.colors.secondary,
+        headerTitleStyle: { fontWeight: '600' },
+        headerShadowVisible: false,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: t('tabs.home'),
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="albums-outline" size={size} color={color} />
           ),
@@ -33,6 +37,7 @@ export default function TabsLayout() {
         name="pack"
         options={{
           title: t('tabs.pack'),
+          headerRight: () => <HeaderHomeButton />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="gift-outline" size={size} color={color} />
           ),
@@ -42,6 +47,7 @@ export default function TabsLayout() {
         name="settings"
         options={{
           title: t('tabs.settings'),
+          headerRight: () => <HeaderHomeButton />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="settings-outline" size={size} color={color} />
           ),

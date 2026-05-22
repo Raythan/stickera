@@ -14,9 +14,11 @@ export function ScreenTemplate({
   onRefresh,
   showBack = true,
   showHome = true,
+  showHeader: showHeaderProp,
 }: ScreenTemplateProps) {
   const insets = useSafeAreaInsets();
-  const showHeader = showBack || showHome || !!title;
+  const showHeader =
+    showHeaderProp ?? (showBack || showHome || !!title);
 
   return (
     <View style={[styles.root, { paddingBottom: insets.bottom }]}>

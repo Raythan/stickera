@@ -69,7 +69,7 @@ export default function SettingsScreen() {
   }, [sync, reloadEnabled, loadVersion]);
 
   return (
-    <ScreenTemplate title={t('screens.settings.title')} showBack={false}>
+    <ScreenTemplate showBack={false} showHome={false} showHeader={false}>
       <View style={styles.section}>
         <Text variant="bodyBold">{t('screens.settings.syncAlbums')}</Text>
         <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
