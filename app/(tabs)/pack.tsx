@@ -43,7 +43,7 @@ export default function PackScreen() {
   }, []);
 
   return (
-    <ScreenTemplate title={t('screens.pack.title')}>
+    <ScreenTemplate title={t('screens.pack.title')} showBack={false}>
       {revealStickers ? (
         <PackReveal stickers={revealStickers} onDismiss={handleDismiss} />
       ) : (

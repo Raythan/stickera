@@ -2,7 +2,11 @@ import { describe, expect, it } from '@jest/globals';
 
 import type { TradeLogEntry } from '@/domain/types';
 
-import { encodedPayloadFromEntry, isTradePayloadExpired } from './tradeLogHelpers';
+import {
+  encodedPayloadFromEntry,
+  getTradeSidesFromEntry,
+  isTradePayloadExpired,
+} from './tradeLogHelpers';
 import { encodeTradePayload } from './codec';
 
 describe('tradeLogHelpers', () => {
@@ -30,5 +34,25 @@ describe('tradeLogHelpers', () => {
       created_at: '2026-01-01T00:00:00Z',
     };
     expect(encodedPayloadFromEntry(entry)).toBe(encodeTradePayload(payload));
+  });
+
+  it('getTradeSidesFromEntry for acceptor role', () => {
+    const entry = {
+      id: 'x',
+      payload_json: JSON.stringify({
+        v: 2,
+        offerId: 'o1',
+        offeredIds: ['album:1', 'album:2'],
+        expiresAt: '2099-01-01T00:00:00Z',
+      }),
+      counter_ids_json: JSON.stringify(['album:3']),
+      role: 'acceptor' as const,
+      status: 'completed' as const,
+      created_at: '2026-01-01T00:00:00Z',
+    };
+    expect(getTradeSidesFromEntry(entry)).toEqual({
+      gaveIds: ['album:3'],
+      receivedIds: ['album:1', 'album:2'],
+    });
   });
 });

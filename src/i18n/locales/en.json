@@ -77,8 +77,14 @@
       "trustLimitNote": "Without a server, anyone with the payload can try to accept. This app blocks reuse on your device after a trade completes; confirm only one partner ack.",
       "registryOnline": "Global trade protection: online (one accept per offer worldwide)",
       "registryOffline": "Trade registry configured but unreachable — local rules only",
-      "registryNotConfigured": "No trade registry URL in this build — local trust only"
+      "registryNotConfigured": "No trade registry URL in this build — local trust only",
+      "completedTrades": "Completed trades",
+      "completedTradesHint": "Review what you exchanged — codes are no longer shared after completion."
     }
+  },
+  "nav": {
+    "back": "Go back",
+    "home": "Home"
   },
   "admin": {
     "unlockTitle": "Developer mode",

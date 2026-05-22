@@ -77,8 +77,14 @@
       "trustLimitNote": "Sem servidor, quem tiver o payload pode tentar aceitar. O app bloqueia reuso neste aparelho após concluir; confirme só um ack do parceiro.",
       "registryOnline": "Proteção global de troca: online (um aceite por oferta no mundo)",
       "registryOffline": "Registry configurado mas inacessível — só regras locais",
-      "registryNotConfigured": "Sem URL de registry neste build — só confiança local"
+      "registryNotConfigured": "Sem URL de registry neste build — só confiança local",
+      "completedTrades": "Trocas concluídas",
+      "completedTradesHint": "Veja o que você trocou — códigos não são mais compartilhados após concluir."
     }
+  },
+  "nav": {
+    "back": "Voltar",
+    "home": "Início"
   },
   "admin": {
     "unlockTitle": "Modo desenvolvedor",

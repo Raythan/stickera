@@ -163,6 +163,7 @@ export function useTradeAccept() {
             payload_json: JSON.stringify(preview),
             encoded_payload: lastEncodedPayload ?? undefined,
             ack_encoded: encodedAck,
+            counter_ids_json: JSON.stringify(acceptorIds),
             role: 'acceptor',
             status: 'completed',
             created_at: new Date().toISOString(),
@@ -186,11 +187,13 @@ export function useTradeAccept() {
 
         const encodedAck = encodeTradeAck(createTradeAck(preview.offerId));
 
+        const counterIds = [preview.wanted.stickerId];
         await TradeLogRepository.upsertByOfferId({
           id: preview.offerId,
           payload_json: JSON.stringify(preview),
           encoded_payload: lastEncodedPayload ?? undefined,
           ack_encoded: encodedAck,
+          counter_ids_json: JSON.stringify(counterIds),
           role: 'acceptor',
           status: 'completed',
           created_at: new Date().toISOString(),

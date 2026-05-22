@@ -38,7 +38,10 @@ async function applyInitiatorTrade(
     );
     await CollectionRepository.saveAll(updated);
     await TradeLogRepository.updateStatus(offerId, 'completed');
-    if (ackEncoded) await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+    if (ackEncoded) {
+      await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+      await TradeLogRepository.saveCounterIds(offerId, ack.acceptorIds);
+    }
     await TradeConsumedRepository.markConsumed(offerId);
     return { ok: true };
   }
@@ -46,7 +49,12 @@ async function applyInitiatorTrade(
   const updated = applyTrade(collection, payload as TradePayloadV1, 'initiator');
   await CollectionRepository.saveAll(updated);
   await TradeLogRepository.updateStatus(offerId, 'completed');
-  if (ackEncoded) await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+  if (ackEncoded) {
+    await TradeLogRepository.saveInitiatorAck(offerId, ackEncoded);
+    await TradeLogRepository.saveCounterIds(offerId, [
+      (payload as TradePayloadV1).wanted.stickerId,
+    ]);
+  }
   await TradeConsumedRepository.markConsumed(offerId);
   return { ok: true };
 }

@@ -43,7 +43,12 @@ export default function HomeScreen() {
   );
 
   return (
-    <ScreenTemplate refreshing={refreshing || syncing} onRefresh={onRefresh}>
+    <ScreenTemplate
+      refreshing={refreshing || syncing}
+      onRefresh={onRefresh}
+      showBack={false}
+      showHome={false}
+    >
       <HomeHero
         title={t('screens.home.title')}
         subtitle={t('screens.home.subtitle')}

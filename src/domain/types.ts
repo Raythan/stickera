@@ -126,6 +126,8 @@ export type TradeLogEntry = {
   payload_json: string;
   encoded_payload?: string;
   ack_encoded?: string;
+  /** JSON string[] — stickers this user gave in the counter-offer */
+  counter_ids_json?: string;
   role?: 'initiator' | 'acceptor';
   status: 'draft' | 'sent' | 'completed' | 'cancelled';
   created_at: string;

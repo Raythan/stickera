@@ -2,6 +2,7 @@ import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Text } from '@/components/atoms/Text';
+import { ScreenNavBar } from '@/components/molecules/ScreenNavBar';
 import { theme } from '@/theme';
 
 import type { ScreenTemplateProps } from './ScreenTemplate.types';
@@ -12,6 +13,8 @@ export function ScreenTemplate({
   footer,
   refreshing = false,
   onRefresh,
+  showBack = true,
+  showHome = true,
 }: ScreenTemplateProps) {
   const insets = useSafeAreaInsets();
 
@@ -30,6 +33,7 @@ export function ScreenTemplate({
           ) : undefined
         }
       >
+        <ScreenNavBar showBack={showBack} showHome={showHome} />
         {title ? (
           <Text variant="h1" style={styles.title}>
             {title}

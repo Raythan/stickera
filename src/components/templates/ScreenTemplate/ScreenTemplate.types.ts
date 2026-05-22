@@ -6,4 +6,6 @@ export type ScreenTemplateProps = {
   footer?: ReactNode;
   refreshing?: boolean;
   onRefresh?: () => void;
+  showBack?: boolean;
+  showHome?: boolean;
 };

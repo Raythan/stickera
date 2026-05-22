@@ -10,6 +10,7 @@ function normalizeEntry(e: StoreData['trade_log'][number]): TradeLogEntry {
     payload_json: e.payload_json,
     encoded_payload: e.encoded_payload,
     ack_encoded: e.ack_encoded,
+    counter_ids_json: e.counter_ids_json,
     role: e.role as TradeLogEntry['role'],
     status: e.status as TradeLogEntry['status'],
     created_at: e.created_at,
@@ -31,6 +32,7 @@ export const TradeLogRepository = {
       payload_json: entry.payload_json,
       encoded_payload: entry.encoded_payload,
       ack_encoded: entry.ack_encoded,
+      counter_ids_json: entry.counter_ids_json,
       role: entry.role,
       status: entry.status,
       created_at: entry.created_at,
@@ -51,6 +53,7 @@ export const TradeLogRepository = {
       payload_json: entry.payload_json,
       encoded_payload: entry.encoded_payload,
       ack_encoded: entry.ack_encoded,
+      counter_ids_json: entry.counter_ids_json,
       role: entry.role,
       status: entry.status,
       created_at: entry.created_at,
@@ -62,6 +65,7 @@ export const TradeLogRepository = {
         created_at: prev.created_at,
         ack_encoded: row.ack_encoded ?? prev.ack_encoded,
         encoded_payload: row.encoded_payload ?? prev.encoded_payload,
+        counter_ids_json: row.counter_ids_json ?? prev.counter_ids_json,
       };
     } else {
       store.trade_log.push(row);
@@ -129,6 +133,24 @@ export const TradeLogRepository = {
 
   async saveInitiatorAck(offerId: string, ackEncoded: string): Promise<void> {
     await this.saveAck(offerId, ackEncoded);
+  },
+
+  async saveCounterIds(offerId: string, counterIds: string[]): Promise<void> {
+    const store = loadStore();
+    const idx = findIndexByOfferId(store.trade_log, offerId);
+    if (idx >= 0) {
+      store.trade_log[idx].counter_ids_json = JSON.stringify(counterIds);
+      saveStore(store);
+    }
+  },
+
+  async listCompleted(): Promise<TradeLogEntry[]> {
+    const store = loadStore();
+    return store.trade_log
+      .filter((e) => e.status === 'completed')
+      .slice()
+      .reverse()
+      .map(normalizeEntry);
   },
 
   async reencodePayload(offerId: string): Promise<string | null> {

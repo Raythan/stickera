@@ -15,6 +15,7 @@ export type StoreData = {
     payload_json: string;
     encoded_payload?: string;
     ack_encoded?: string;
+    counter_ids_json?: string;
     role?: string;
     status: string;
     created_at: string;

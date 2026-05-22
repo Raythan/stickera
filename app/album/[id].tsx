@@ -24,7 +24,7 @@ export default function AlbumDetailScreen() {
 
   if (!id) {
     return (
-      <ScreenTemplate title={t('common.error')}>
+      <ScreenTemplate title={t('common.error')} showBack showHome>
         <Text variant="body">{t('common.error')}</Text>
       </ScreenTemplate>
     );
@@ -38,7 +38,7 @@ export default function AlbumDetailScreen() {
   return (
     <>
       <Stack.Screen options={{ title }} />
-      <ScreenTemplate title={title}>
+      <ScreenTemplate title={title} showBack showHome>
         {manifest ? (
           <Text variant="caption" color={theme.colors.textMuted} style={styles.meta}>
             {t('screens.album.progress', {

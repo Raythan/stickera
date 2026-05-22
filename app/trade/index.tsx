@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
+import { TradeCompletedSummary } from '@/components/molecules/TradeCompletedSummary';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import {
@@ -31,21 +32,21 @@ export default function TradeHubScreen() {
   const { configured: registryConfigured, online: registryOnline } = useTradeRegistryHealth();
   const [sentOffers, setSentOffers] = useState<TradeLogEntry[]>([]);
   const [importedDrafts, setImportedDrafts] = useState<TradeLogEntry[]>([]);
-  const [recentTrades, setRecentTrades] = useState<TradeLogEntry[]>([]);
+  const [completedTrades, setCompletedTrades] = useState<TradeLogEntry[]>([]);
   const [confirmError, setConfirmError] = useState<string | null>(null);
   const [confirmSuccess, setConfirmSuccess] = useState(false);
   const [ackInput, setAckInput] = useState('');
 
   const reloadTrades = useCallback(async () => {
     await TradeConsumedRepository.syncFromTradeLog();
-    const [sent, drafts, recent] = await Promise.all([
+    const [sent, drafts, completed] = await Promise.all([
       TradeLogRepository.listSentOffers(),
       TradeLogRepository.listImportedDrafts(),
-      TradeLogRepository.listRecent(20),
+      TradeLogRepository.listCompleted(),
     ]);
     setSentOffers(sent);
     setImportedDrafts(drafts);
-    setRecentTrades(recent);
+    setCompletedTrades(completed);
   }, []);
 
   useEffect(() => {
@@ -63,14 +64,6 @@ export default function TradeHubScreen() {
       } catch {
         setConfirmError('INVALID_TRADE_PAYLOAD');
       }
-    },
-    [copyText],
-  );
-
-  const handleCopyAck = useCallback(
-    async (entry: TradeLogEntry) => {
-      if (!entry.ack_encoded) return;
-      await copyText(entry.ack_encoded, `ack-${entry.id}`);
     },
     [copyText],
   );
@@ -113,15 +106,14 @@ export default function TradeHubScreen() {
     }
   }, [confirmByAck, ackInput, reloadTrades, reloadTradable]);
 
-  const renderOfferRow = (entry: TradeLogEntry, actions: ReactNode) => {
+  const renderPendingRow = (entry: TradeLogEntry, actions: ReactNode) => {
     const offerId = getOfferIdFromPayloadJson(entry.payload_json);
     const expired = isTradePayloadExpired(entry.payload_json);
-    const rowId = entry.id;
     return (
-      <View key={rowId} style={styles.pendingRow}>
+      <View key={entry.id} style={styles.pendingRow}>
         <View style={styles.rowMeta}>
           <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
-            {offerId?.slice(0, 8) ?? rowId.slice(0, 8)}…
+            {offerId?.slice(0, 8) ?? entry.id.slice(0, 8)}…
           </Text>
           {expired ? (
             <Text variant="caption" color={theme.colors.error}>
@@ -199,7 +191,7 @@ export default function TradeHubScreen() {
             const offerId = getOfferIdFromPayloadJson(entry.payload_json);
             const payload = parsePayloadFromLog(entry.payload_json);
             const isV1 = payload?.v === 1;
-            return renderOfferRow(
+            return renderPendingRow(
               entry,
               <View style={styles.rowActions}>
                 <Button
@@ -235,7 +227,7 @@ export default function TradeHubScreen() {
         <View style={styles.section}>
           <Text variant="bodyBold">{t('screens.trade.importedOffers')}</Text>
           {importedDrafts.map((entry) =>
-            renderOfferRow(
+            renderPendingRow(
               entry,
               <View style={styles.rowActions}>
                 <Button
@@ -280,57 +272,23 @@ export default function TradeHubScreen() {
       </View>
 
       <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.trade.recentTrades')}</Text>
-        {recentTrades.length === 0 ? (
+        <Text variant="bodyBold">{t('screens.trade.completedTrades')}</Text>
+        <Text variant="caption" color={theme.colors.textMuted} style={styles.sectionHint}>
+          {t('screens.trade.completedTradesHint')}
+        </Text>
+        {completedTrades.length === 0 ? (
           <Text variant="caption" color={theme.colors.textMuted} style={styles.noTrades}>
             {t('screens.trade.noTrades')}
           </Text>
         ) : (
-          recentTrades.map((entry) => {
-            const offerId = getOfferIdFromPayloadJson(entry.payload_json);
-            const canCopyPayload =
-              entry.status === 'sent' || entry.status === 'draft';
-            const canCopyAck = Boolean(entry.ack_encoded);
-            return (
-              <View key={entry.id} style={styles.tradeRow}>
-                <View style={styles.rowMeta}>
-                  <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
-                    {(offerId ?? entry.id).slice(0, 8)}…
-                  </Text>
-                  <Text
-                    variant="caption"
-                    color={
-                      entry.status === 'completed' ? theme.colors.success : theme.colors.textMuted
-                    }
-                  >
-                    {entry.status}
-                  </Text>
-                </View>
-                <View style={styles.rowActions}>
-                  {canCopyPayload ? (
-                    <Button
-                      label={
-                        copiedId === `payload-${entry.id}` ? '✓' : t('screens.trade.copyPayloadAgain')
-                      }
-                      size="sm"
-                      variant="ghost"
-                      onPress={() => void handleCopyPayload(entry)}
-                    />
-                  ) : null}
-                  {canCopyAck ? (
-                    <Button
-                      label={
-                        copiedId === `ack-${entry.id}` ? '✓' : t('screens.trade.copyAckAgain')
-                      }
-                      size="sm"
-                      variant="ghost"
-                      onPress={() => void handleCopyAck(entry)}
-                    />
-                  ) : null}
-                </View>
-              </View>
-            );
-          })
+          completedTrades.map((entry) => (
+            <View key={entry.id} style={styles.completedCard}>
+              <Text variant="caption" color={theme.colors.success} style={styles.completedLabel}>
+                {t('screens.trade.accepted')}
+              </Text>
+              <TradeCompletedSummary entry={entry} />
+            </View>
+          ))
         )}
       </View>
     </ScreenTemplate>
@@ -373,14 +331,14 @@ const styles = StyleSheet.create({
   noTrades: {
     marginTop: theme.spacing.sm,
   },
-  tradeRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: theme.spacing.sm,
-    paddingVertical: theme.spacing.sm,
+  completedCard: {
+    paddingVertical: theme.spacing.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: theme.colors.border,
+    gap: theme.spacing.sm,
+  },
+  completedLabel: {
+    marginBottom: theme.spacing.xs,
   },
   pendingRow: {
     flexDirection: 'row',
