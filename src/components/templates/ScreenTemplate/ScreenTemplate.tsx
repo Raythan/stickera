@@ -2,9 +2,44 @@ import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ScreenNavBar } from '@/components/molecules/ScreenNavBar';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { ScreenTemplateProps } from './ScreenTemplate.types';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.background,
+    },
+    headerWrap: {
+      backgroundColor: theme.colors.headerBackground,
+      paddingHorizontal: theme.spacing.sm,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.headerBorder,
+      shadowColor: theme.colors.shadow,
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.12,
+      shadowRadius: 4,
+      elevation: 4,
+      zIndex: 10,
+    },
+    scroll: {
+      flex: 1,
+    },
+    scrollContent: {
+      paddingHorizontal: theme.spacing.lg,
+      paddingTop: theme.spacing.md,
+      paddingBottom: theme.spacing.xl,
+    },
+    footer: {
+      paddingHorizontal: theme.spacing.lg,
+      paddingBottom: theme.spacing.md,
+    },
+  });
+}
 
 export function ScreenTemplate({
   title,
@@ -18,6 +53,8 @@ export function ScreenTemplate({
   showHeader: showHeaderProp,
 }: ScreenTemplateProps) {
   const insets = useSafeAreaInsets();
+  const theme = useTheme();
+  const styles = useThemedStyles(createStyles);
   const showHeader =
     showHeaderProp ?? (showBack || showHome || showLocale || !!title);
 
@@ -55,27 +92,3 @@ export function ScreenTemplate({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: theme.colors.background,
-  },
-  headerWrap: {
-    backgroundColor: theme.colors.background,
-    paddingHorizontal: theme.spacing.sm,
-    zIndex: 10,
-  },
-  scroll: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingHorizontal: theme.spacing.lg,
-    paddingTop: theme.spacing.md,
-    paddingBottom: theme.spacing.xl,
-  },
-  footer: {
-    paddingHorizontal: theme.spacing.lg,
-    paddingBottom: theme.spacing.md,
-  },
-});

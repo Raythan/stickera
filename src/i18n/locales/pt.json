@@ -29,7 +29,13 @@
       "language": "Idioma",
       "languageHint": "Inglês e português disponíveis no MVP.",
       "enabledAlbums": "Álbuns no pool de pacotes",
-      "enabledAlbumsHint": "Álbuns desativados não entram ao abrir pacotes (Fase 4)."
+      "enabledAlbumsHint": "Álbuns desativados não entram ao abrir pacotes (Fase 4).",
+      "theme": "Tema de cores",
+      "themeHint": "Cabeçalho e destaques mudam; sua coleção não muda.",
+      "themeLight": "Claro",
+      "themeDark": "Escuro",
+      "themeBloom": "Roxo",
+      "themeOcean": "Azul"
     },
     "about": {
       "title": "Sobre"
@@ -50,7 +56,8 @@
       "youGive": "Você dá",
       "youReceive": "Você recebe",
       "pendingIncoming": "Pendente — confirme quando seu parceiro completar",
-      "noDuplicates": "Sem repetidas para trocar. Abra mais pacotes!",
+      "noDuplicates": "Sem repetidas para trocar.",
+      "noDuplicatesHint": "Abra mais pacotes para juntar repetidas e trocar com amigos.",
       "selectOffered": "Selecione uma repetida para oferecer",
       "selectOfferedVisual": "Toque nas repetidas que você oferece",
       "selectCounterOffer": "Toque nas repetidas que você devolve",
@@ -155,6 +162,7 @@
   "tabs": {
     "home": "Álbuns",
     "pack": "Pacote",
+    "trade": "Trocar",
     "settings": "Ajustes"
   },
   "preview": {

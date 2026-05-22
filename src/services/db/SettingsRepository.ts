@@ -7,6 +7,7 @@ export const SETTINGS_KEYS = {
   appConfig: 'appConfig',
   adminEnabled: 'adminEnabled',
   profileId: 'profileId',
+  themeId: 'themeId',
 } as const;
 
 export const SettingsRepository = {

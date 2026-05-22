@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Icon } from '@/components/atoms/Icon';
 import { HeaderLocaleMenu } from '@/components/molecules/HeaderLocaleMenu';
 import { HeaderNavActions } from '@/components/molecules/HeaderNavActions';
-import { theme } from '@/theme';
+import { useTheme } from '@/theme';
 
 export default function TabsLayout() {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
     <Tabs
@@ -18,10 +19,14 @@ export default function TabsLayout() {
           backgroundColor: theme.colors.surface,
           borderTopColor: theme.colors.border,
         },
-        headerStyle: { backgroundColor: theme.colors.background },
+        headerStyle: {
+          backgroundColor: theme.colors.headerBackground,
+          borderBottomWidth: 1,
+          borderBottomColor: theme.colors.headerBorder,
+        },
         headerTintColor: theme.colors.secondary,
-        headerTitleStyle: { fontWeight: '600' },
-        headerShadowVisible: false,
+        headerTitleStyle: { fontWeight: '600', color: theme.colors.text },
+        headerShadowVisible: true,
       }}
     >
       <Tabs.Screen
@@ -41,6 +46,16 @@ export default function TabsLayout() {
           headerRight: () => <HeaderNavActions />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="gift-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="trade"
+        options={{
+          title: t('tabs.trade'),
+          headerRight: () => <HeaderNavActions />,
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="swap-horizontal-outline" size={size} color={color} />
           ),
         }}
       />

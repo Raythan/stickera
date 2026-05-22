@@ -29,7 +29,13 @@
       "language": "Language",
       "languageHint": "English and Portuguese are available in the MVP.",
       "enabledAlbums": "Albums in pack pool",
-      "enabledAlbumsHint": "Disabled albums are excluded when you open packs (Phase 4)."
+      "enabledAlbumsHint": "Disabled albums are excluded when you open packs (Phase 4).",
+      "theme": "Color theme",
+      "themeHint": "Header and accents change; your collection is unchanged.",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeBloom": "Bloom",
+      "themeOcean": "Ocean"
     },
     "about": {
       "title": "About"
@@ -50,7 +56,8 @@
       "youGive": "You give",
       "youReceive": "You receive",
       "pendingIncoming": "Pending — confirm when your partner completes",
-      "noDuplicates": "No duplicates to trade yet. Open more packs!",
+      "noDuplicates": "No duplicates to trade yet.",
+      "noDuplicatesHint": "Open more packs to collect repeats you can trade with friends.",
       "selectOffered": "Select a duplicate to offer",
       "selectOfferedVisual": "Tap duplicates you are offering",
       "selectCounterOffer": "Tap duplicates you give in return",
@@ -155,6 +162,7 @@
   "tabs": {
     "home": "Albums",
     "pack": "Pack",
+    "trade": "Trade",
     "settings": "Settings"
   },
   "preview": {

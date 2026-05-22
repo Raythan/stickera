@@ -1,7 +1,12 @@
-import { colors } from './colors';
-import { spacing } from './spacing';
-import { typography } from './typography';
+import { defaultTheme } from './presets';
 
-export const theme = { colors, spacing, typography } as const;
+/** @deprecated Prefer useTheme() — kept for gradual migration */
+export const theme = defaultTheme;
 
-export type Theme = typeof theme;
+export { spacing } from './spacing';
+export { typography } from './typography';
+export type { AppTheme, ColorTokens, ThemeId } from './presets';
+export { THEME_PRESETS, buildTheme, defaultTheme } from './presets';
+export { ThemeProvider, useTheme, persistThemeId } from './ThemeContext';
+export { useThemeStore } from './themeStore';
+export { useThemedStyles } from './useThemedStyles';

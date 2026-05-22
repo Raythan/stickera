@@ -6,9 +6,51 @@ import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { HeaderLocaleMenu } from '@/components/molecules/HeaderLocaleMenu';
 import { HeaderHomeButton } from '@/components/molecules/HeaderHomeButton';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { ScreenNavBarProps } from './ScreenNavBar.types';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      minHeight: 44,
+      paddingVertical: theme.spacing.xs,
+    },
+    side: {
+      width: 48,
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+    sideEnd: {
+      alignItems: 'flex-end',
+      width: 96,
+    },
+    actions: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: theme.spacing.xs,
+    },
+    sidePlaceholder: {
+      width: 48,
+    },
+    btn: {
+      padding: theme.spacing.xs,
+    },
+    title: {
+      flex: 1,
+      textAlign: 'center',
+      marginHorizontal: theme.spacing.xs,
+      color: theme.colors.text,
+    },
+    titleSpacer: {
+      flex: 1,
+    },
+  });
+}
 
 export function ScreenNavBar({
   title,
@@ -18,6 +60,8 @@ export function ScreenNavBar({
 }: ScreenNavBarProps) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const canGoBack = router.canGoBack();
 
   return (
@@ -31,7 +75,7 @@ export function ScreenNavBar({
             style={styles.btn}
             hitSlop={8}
           >
-            <Icon name="arrow-back" size={24} color={theme.colors.secondary} />
+            <Icon name="arrow-back" size={24} color={colors.secondary} />
           </Pressable>
         ) : (
           <View style={styles.sidePlaceholder} />
@@ -59,43 +103,3 @@ export function ScreenNavBar({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    minHeight: 44,
-    paddingVertical: theme.spacing.xs,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.background,
-  },
-  side: {
-    width: 48,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  sideEnd: {
-    alignItems: 'flex-end',
-    width: 96,
-  },
-  actions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing.xs,
-  },
-  sidePlaceholder: {
-    width: 48,
-  },
-  btn: {
-    padding: theme.spacing.xs,
-  },
-  title: {
-    flex: 1,
-    textAlign: 'center',
-    marginHorizontal: theme.spacing.xs,
-  },
-  titleSpacer: {
-    flex: 1,
-  },
-});
