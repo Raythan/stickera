@@ -9,6 +9,7 @@ import { TradeQrDisplay } from '@/components/molecules/TradeQrDisplay';
 import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { QR_RECOMMENDED_MAX_STICKERS } from '@/domain/trade/constants';
+import { formatTradeError } from '@/features/trade/tradeErrorKey';
 import { useTradableStickerItems } from '@/features/trade/useTradableStickerItems';
 import { useTradeOffer } from '@/features/trade/useTradeOffer';
 import type { AppTheme } from '@/theme';
@@ -24,6 +25,10 @@ function createStyles(theme: AppTheme) {
       marginTop: theme.spacing.md,
       textAlign: 'center',
     },
+    error: {
+      marginBottom: theme.spacing.md,
+      textAlign: 'center',
+    },
   });
 }
 
@@ -37,6 +42,7 @@ export default function TradeOfferScreen() {
   const [encoded, setEncoded] = useState<string | null>(null);
   const [offerCount, setOfferCount] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [offerError, setOfferError] = useState<string | null>(null);
 
   const toggleId = useCallback((id: string) => {
     setSelectedIds((prev) =>
@@ -48,10 +54,13 @@ export default function TradeOfferScreen() {
 
   const handleCreate = useCallback(async () => {
     if (selectedIds.length === 0) return;
+    setOfferError(null);
     const result = await createOffer({ offeredIds: selectedIds });
     if (result.ok) {
       setEncoded(result.encoded);
       setOfferCount(result.payload.offeredIds.length);
+    } else {
+      setOfferError(result.reason);
     }
   }, [selectedIds, createOffer]);
 
@@ -105,6 +114,11 @@ export default function TradeOfferScreen() {
           />
           {selectedIds.length > 0 ? (
             <TradeBundlePreview items={selectedItems} />
+          ) : null}
+          {offerError ? (
+            <Text variant="caption" color={colors.error} style={styles.error}>
+              {formatTradeError(t, offerError)}
+            </Text>
           ) : null}
           <Button
             label={t('screens.trade.createOffer')}

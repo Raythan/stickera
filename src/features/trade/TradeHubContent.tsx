@@ -9,6 +9,7 @@ import { Text } from '@/components/atoms/Text';
 import { TradeCompletedSummary } from '@/components/molecules/TradeCompletedSummary';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
 import { TradePendingOfferPreview } from '@/components/molecules/TradePendingOfferPreview';
+import { TradeAcceptPanel } from '@/components/organisms/TradeAcceptPanel';
 import {
   encodedPayloadFromEntry,
   getOfferIdFromPayloadJson,
@@ -16,6 +17,7 @@ import {
   parsePayloadFromLog,
 } from '@/domain/trade/tradeLogHelpers';
 import type { TradeLogEntry } from '@/domain/types';
+import { formatTradeError } from '@/features/trade/tradeErrorKey';
 import { useCopyTradeToken } from '@/features/trade/useCopyTradeToken';
 import { useTradableStickers } from '@/features/trade/useTradableStickers';
 import { useTradeConfirm } from '@/features/trade/useTradeConfirm';
@@ -25,6 +27,10 @@ import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import type { AppTheme } from '@/theme';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
+
+export type TradeHubContentProps = {
+  initialEncoded?: string;
+};
 
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
@@ -66,8 +72,18 @@ function createStyles(theme: AppTheme) {
       borderWidth: 1,
       borderColor: theme.colors.border,
     },
+    sectionHeaderRow: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      gap: theme.spacing.sm,
+      marginBottom: theme.spacing.xs,
+    },
+    sectionHeaderText: {
+      flex: 1,
+      gap: theme.spacing.xs,
+    },
     sectionHint: {
-      marginTop: theme.spacing.xs,
       marginBottom: theme.spacing.sm,
     },
     noTrades: {
@@ -118,10 +134,21 @@ function createStyles(theme: AppTheme) {
       marginBottom: theme.spacing.sm,
       textAlignVertical: 'top',
     },
+    historyHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: theme.spacing.sm,
+      flexWrap: 'wrap',
+    },
+    historyTitleBlock: {
+      flex: 1,
+      minWidth: 120,
+    },
   });
 }
 
-export function TradeHubContent() {
+export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const { colors } = useTheme();
@@ -136,6 +163,11 @@ export function TradeHubContent() {
   const [confirmError, setConfirmError] = useState<string | null>(null);
   const [confirmSuccess, setConfirmSuccess] = useState(false);
   const [ackInput, setAckInput] = useState('');
+  const [acceptPanelExpanded, setAcceptPanelExpanded] = useState(Boolean(initialEncoded));
+  const [acceptInitialEncoded, setAcceptInitialEncoded] = useState<string | undefined>(
+    initialEncoded,
+  );
+  const [historyExpanded, setHistoryExpanded] = useState(false);
 
   const reloadTrades = useCallback(async () => {
     await TradeConsumedRepository.syncFromTradeLog();
@@ -153,8 +185,19 @@ export function TradeHubContent() {
     void reloadTrades();
   }, [reloadTrades]);
 
+  useEffect(() => {
+    if (initialEncoded?.trim()) {
+      setAcceptInitialEncoded(initialEncoded.trim());
+      setAcceptPanelExpanded(true);
+    }
+  }, [initialEncoded]);
+
   const goOffer = useCallback(() => router.push('/(tabs)/trade/offer'), [router]);
-  const goAccept = useCallback(() => router.push('/(tabs)/trade/accept'), [router]);
+
+  const handleTradeCompleted = useCallback(async () => {
+    await reloadTrades();
+    await reloadTradable();
+  }, [reloadTrades, reloadTradable]);
 
   const handleCopyPayload = useCallback(
     async (entry: TradeLogEntry) => {
@@ -168,16 +211,11 @@ export function TradeHubContent() {
     [copyText],
   );
 
-  const handleContinueDraft = useCallback(
-    (entry: TradeLogEntry) => {
-      if (!entry.encoded_payload) return;
-      router.push({
-        pathname: '/(tabs)/trade/accept',
-        params: { p: entry.encoded_payload },
-      });
-    },
-    [router],
-  );
+  const handleContinueDraft = useCallback((entry: TradeLogEntry) => {
+    if (!entry.encoded_payload) return;
+    setAcceptInitialEncoded(entry.encoded_payload);
+    setAcceptPanelExpanded(true);
+  }, []);
 
   const handleConfirm = useCallback(
     async (offerId: string) => {
@@ -280,7 +318,7 @@ export function TradeHubContent() {
 
       {confirmError ? (
         <Text variant="caption" color={colors.error} style={styles.banner}>
-          {confirmError}
+          {formatTradeError(t, confirmError)}
         </Text>
       ) : null}
 
@@ -290,18 +328,38 @@ export function TradeHubContent() {
           onPress={goOffer}
           disabled={loading || stickerIds.length === 0}
         />
-        <Button
-          label={t('screens.trade.pastePayload')}
-          variant="secondary"
-          onPress={goAccept}
-        />
+      </View>
+
+      <View style={styles.section}>
+        <View style={styles.sectionHeaderRow}>
+          <View style={styles.sectionHeaderText}>
+            <Text variant="bodyBold">{t('screens.trade.roleAcceptorTitle')}</Text>
+            <Text variant="caption" color={colors.textMuted}>
+              {t('screens.trade.roleAcceptorHint')}
+            </Text>
+          </View>
+          {!acceptPanelExpanded ? (
+            <Button
+              label={t('screens.trade.roleAcceptorExpand')}
+              size="sm"
+              variant="secondary"
+              onPress={() => setAcceptPanelExpanded(true)}
+            />
+          ) : null}
+        </View>
+        {acceptPanelExpanded ? (
+          <TradeAcceptPanel
+            initialEncoded={acceptInitialEncoded}
+            onTradeCompleted={handleTradeCompleted}
+          />
+        ) : null}
       </View>
 
       {sentOffers.length > 0 ? (
         <View style={styles.section}>
           <Text variant="bodyBold">{t('screens.trade.yourOffers')}</Text>
           <Text variant="caption" color={colors.textMuted} style={styles.sectionHint}>
-            {t('screens.trade.copyPayloadAgainHint')}
+            {t('screens.trade.yourOffersHint')}
           </Text>
           {sentOffers.map((entry) => {
             const offerId = getOfferIdFromPayloadJson(entry.payload_json);
@@ -330,7 +388,7 @@ export function TradeHubContent() {
                   />
                 ) : (
                   <Text variant="caption" color={colors.textMuted}>
-                    {t('screens.trade.pasteAck')}
+                    {t('screens.trade.waitingPartnerAck')}
                   </Text>
                 )}
               </View>,
@@ -370,7 +428,10 @@ export function TradeHubContent() {
       ) : null}
 
       <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.trade.pasteAck')}</Text>
+        <Text variant="bodyBold">{t('screens.trade.roleInitiatorAckTitle')}</Text>
+        <Text variant="caption" color={colors.textMuted} style={styles.sectionHint}>
+          {t('screens.trade.roleInitiatorAckHint')}
+        </Text>
         <TextInput
           style={styles.ackInput}
           value={ackInput}
@@ -388,24 +449,43 @@ export function TradeHubContent() {
       </View>
 
       <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.trade.completedTrades')}</Text>
-        <Text variant="caption" color={colors.textMuted} style={styles.sectionHint}>
-          {t('screens.trade.completedTradesHint')}
-        </Text>
-        {completedTrades.length === 0 ? (
-          <Text variant="caption" color={colors.textMuted} style={styles.noTrades}>
-            {t('screens.trade.noTrades')}
-          </Text>
-        ) : (
-          completedTrades.map((entry) => (
-            <View key={entry.id} style={styles.completedCard}>
-              <Text variant="caption" color={colors.success} style={styles.completedLabel}>
-                {t('screens.trade.accepted')}
-              </Text>
-              <TradeCompletedSummary entry={entry} />
-            </View>
-          ))
-        )}
+        <View style={styles.historyHeader}>
+          <View style={styles.historyTitleBlock}>
+            <Text variant="bodyBold">{t('screens.trade.completedTrades')}</Text>
+            <Text variant="caption" color={colors.textMuted}>
+              {completedTrades.length === 0
+                ? t('screens.trade.noTrades')
+                : t('screens.trade.historyCount', { count: completedTrades.length })}
+            </Text>
+          </View>
+          {completedTrades.length > 0 ? (
+            <Button
+              label={
+                historyExpanded
+                  ? t('screens.trade.hideHistory')
+                  : t('screens.trade.viewHistory')
+              }
+              size="sm"
+              variant="ghost"
+              onPress={() => setHistoryExpanded((v) => !v)}
+            />
+          ) : null}
+        </View>
+        {historyExpanded && completedTrades.length > 0 ? (
+          <>
+            <Text variant="caption" color={colors.textMuted} style={styles.sectionHint}>
+              {t('screens.trade.completedTradesHint')}
+            </Text>
+            {completedTrades.map((entry) => (
+              <View key={entry.id} style={styles.completedCard}>
+                <Text variant="caption" color={colors.success} style={styles.completedLabel}>
+                  {t('screens.trade.accepted')}
+                </Text>
+                <TradeCompletedSummary entry={entry} />
+              </View>
+            ))}
+          </>
+        ) : null}
       </View>
     </>
   );

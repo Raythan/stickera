@@ -20,13 +20,6 @@
     },
     "settings": {
       "title": "Settings",
-      "syncAlbums": "Update albums",
-      "syncHint": "Pull catalog and album files from CDN (or use bundled content offline).",
-      "syncHintHeader": "When a newer catalog is available, use the download icon in the top bar (left of language).",
-      "syncButton": "Sync now",
-      "syncing": "Syncing…",
-      "syncDone": "{{count}} album(s) updated",
-      "contentVersion": "Content version: {{version}}",
       "language": "Language",
       "languageHint": "English and Portuguese are available in the MVP.",
       "enabledAlbums": "Albums in pack pool",
@@ -39,7 +32,8 @@
       "themeOcean": "Ocean"
     },
     "about": {
-      "title": "About"
+      "title": "About",
+      "contentVersion": "Content version: {{version}}"
     },
     "album": {
       "progress": "{{owned}} / {{total}}",
@@ -67,7 +61,17 @@
       "useCopyNotQr": "Large offer — copy the payload instead of QR",
       "selectWanted": "Select a sticker you want",
       "offerReady": "Your offer is ready",
-      "pasteHint": "Paste or enter a trade payload from your partner",
+      "roleAcceptorTitle": "I received an offer",
+      "roleAcceptorHint": "Paste the code your partner sent, pick what you give back, and confirm.",
+      "roleAcceptorExpand": "I have a partner's code",
+      "roleInitiatorAckTitle": "Finish my offer",
+      "roleInitiatorAckHint": "After your partner confirms, paste their return code here.",
+      "yourOffersHint": "Send this code to your partner — they use \"I received an offer\" above.",
+      "waitingPartnerAck": "Waiting for partner — use Finish my offer below when they send their code.",
+      "viewHistory": "View details",
+      "hideHistory": "Hide",
+      "historyCount": "{{count}} completed trade(s)",
+      "pasteHint": "Paste or enter the trade code from your partner",
       "recentTrades": "Recent trades",
       "noTrades": "No trades yet",
       "enterOfferId": "Enter offer ID to confirm",
@@ -77,8 +81,8 @@
       "previewOffer": "Preview trade",
       "pasteAck": "Paste partner ack",
       "copyAck": "Copy ack for partner",
-      "ackHint": "Send this ack to the offer creator so they can confirm on their device",
-      "yourOffers": "Your offers",
+      "ackHint": "Send this code to whoever created the offer — they paste it under Finish my offer.",
+      "yourOffers": "Offers you sent",
       "importedOffers": "Imported offers",
       "copyPayloadAgain": "Copy payload again",
       "copyPayloadAgainHint": "Payloads are saved on this device. You can copy again while not expired.",
@@ -156,7 +160,7 @@
       "alreadyClaimedGlobally": "This offer was already accepted by someone else (global registry).",
       "registryError": "Trade registry rejected this offer. Try again or ask for a new payload.",
       "contentVersionMismatch": "Content versions do not match. Sync the same catalog on both devices, then create a new offer.",
-      "contentVersionRequired": "Sync album content before trading (Settings shows your content version)."
+      "contentVersionRequired": "Download the latest catalog (header icon) before trading."
     }
   },
   "collection": {

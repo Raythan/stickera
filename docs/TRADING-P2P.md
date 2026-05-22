@@ -142,6 +142,10 @@ Cloudflare Worker: [`workers/trade-registry/README.md`](../workers/trade-registr
 
 If registry URL unset or unreachable → local-only flow (no block on register miss; claim `unavailable` skips).
 
+## In-app UI (Trade tab)
+
+The **Trade** tab is a single hub: **Create offer** opens the offer builder; **I received an offer** (acceptor) pastes the partner code inline; **Offers you sent** + **Finish my offer** (initiator) paste the partner return code; completed trades appear only after **View details**.
+
 ## Future (out of MVP)
 
 - Async negotiation / edit offer

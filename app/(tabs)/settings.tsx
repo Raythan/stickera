@@ -1,15 +1,15 @@
 import { useRouter } from 'expo-router';
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/atoms/Button';
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { AdminToolsPanel } from '@/components/molecules/AdminToolsPanel';
 import { ThemePicker } from '@/components/molecules/ThemePicker';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAdminMode } from '@/features/admin/useAdminMode';
-import { SettingsRepository } from '@/services/db/SettingsRepository';
 import type { AppTheme } from '@/theme';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
@@ -27,12 +27,6 @@ function createStyles(theme: AppTheme) {
     hint: {
       marginTop: theme.spacing.xs,
       marginBottom: theme.spacing.md,
-    },
-    version: {
-      marginBottom: theme.spacing.sm,
-    },
-    result: {
-      marginTop: theme.spacing.sm,
     },
     aboutRow: {
       flexDirection: 'row',
@@ -69,33 +63,12 @@ export default function SettingsScreen() {
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
   const { enabled: adminEnabled, configured, unlockError, unlock, lock } = useAdminMode();
-  const [contentVersion, setContentVersion] = useState<string | null>(null);
   const [adminCode, setAdminCode] = useState('');
-
-  const loadVersion = useCallback(async () => {
-    setContentVersion(await SettingsRepository.getContentVersion());
-  }, []);
-
-  useEffect(() => {
-    void loadVersion();
-  }, [loadVersion]);
 
   return (
     <ScreenTemplate showBack={false} showHome={false} showHeader={false}>
       <View style={styles.section}>
         <ThemePicker />
-      </View>
-
-      <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.settings.syncAlbums')}</Text>
-        <Text variant="caption" color={colors.textMuted} style={styles.hint}>
-          {t('screens.settings.syncHintHeader')}
-        </Text>
-        {contentVersion ? (
-          <Text variant="caption" color={colors.textMuted} style={styles.version}>
-            {t('screens.settings.contentVersion', { version: contentVersion })}
-          </Text>
-        ) : null}
       </View>
 
       <Pressable

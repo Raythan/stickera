@@ -1,17 +1,17 @@
 import { Redirect, useLocalSearchParams } from 'expo-router';
 
-/** Deep link / legacy path → tab trade accept */
+/** Legacy path → trade hub with optional payload param */
 export default function TradeAcceptRedirect() {
   const { p } = useLocalSearchParams<{ p?: string }>();
   if (p) {
     return (
       <Redirect
         href={{
-          pathname: '/(tabs)/trade/accept',
+          pathname: '/(tabs)/trade',
           params: { p },
         }}
       />
     );
   }
-  return <Redirect href="/(tabs)/trade/accept" />;
+  return <Redirect href="/(tabs)/trade" />;
 }

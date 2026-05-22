@@ -20,13 +20,6 @@
     },
     "settings": {
       "title": "Configurações",
-      "syncAlbums": "Atualizar álbuns",
-      "syncHint": "Baixa catálogo e arquivos do CDN (ou usa o bundle offline).",
-      "syncHintHeader": "Quando houver catálogo mais novo, use o ícone de download na barra superior (à esquerda do idioma).",
-      "syncButton": "Sincronizar agora",
-      "syncing": "Sincronizando…",
-      "syncDone": "{{count}} álbum(ns) atualizado(s)",
-      "contentVersion": "Versão do conteúdo: {{version}}",
       "language": "Idioma",
       "languageHint": "Inglês e português disponíveis no MVP.",
       "enabledAlbums": "Álbuns no pool de pacotes",
@@ -39,7 +32,8 @@
       "themeOcean": "Azul"
     },
     "about": {
-      "title": "Sobre"
+      "title": "Sobre",
+      "contentVersion": "Versão do conteúdo: {{version}}"
     },
     "album": {
       "progress": "{{owned}} / {{total}}",
@@ -67,7 +61,17 @@
       "useCopyNotQr": "Oferta grande — copie o payload em vez do QR",
       "selectWanted": "Selecione uma figurinha que você quer",
       "offerReady": "Sua oferta está pronta",
-      "pasteHint": "Cole ou digite o payload de troca do seu parceiro",
+      "roleAcceptorTitle": "Recebi uma oferta",
+      "roleAcceptorHint": "Cole o código que seu parceiro enviou, escolha o que você dá em troca e confirme.",
+      "roleAcceptorExpand": "Tenho o código do parceiro",
+      "roleInitiatorAckTitle": "Finalizar minha oferta",
+      "roleInitiatorAckHint": "Depois que seu parceiro confirmar, cole aqui o código de volta dele.",
+      "yourOffersHint": "Envie este código ao parceiro — ele usa \"Recebi uma oferta\" acima.",
+      "waitingPartnerAck": "Aguardando o parceiro — use Finalizar minha oferta abaixo quando ele enviar o código.",
+      "viewHistory": "Ver detalhes",
+      "hideHistory": "Ocultar",
+      "historyCount": "{{count}} troca(s) concluída(s)",
+      "pasteHint": "Cole ou digite o código de troca do seu parceiro",
       "recentTrades": "Trocas recentes",
       "noTrades": "Nenhuma troca ainda",
       "enterOfferId": "Digite o ID da oferta para confirmar",
@@ -77,8 +81,8 @@
       "previewOffer": "Pré-visualizar troca",
       "pasteAck": "Colar ack do parceiro",
       "copyAck": "Copiar ack para o parceiro",
-      "ackHint": "Envie este ack para quem criou a oferta confirmar no aparelho dele",
-      "yourOffers": "Suas ofertas",
+      "ackHint": "Envie este código para quem criou a oferta — ele cola em Finalizar minha oferta.",
+      "yourOffers": "Ofertas que você enviou",
       "importedOffers": "Ofertas importadas",
       "copyPayloadAgain": "Copiar payload de novo",
       "copyPayloadAgainHint": "Payloads ficam salvos neste aparelho. Você pode copiar de novo enquanto não expirar.",
@@ -156,7 +160,7 @@
       "alreadyClaimedGlobally": "Esta oferta já foi aceita por outra pessoa (registry global).",
       "registryError": "O registry recusou esta oferta. Tente de novo ou peça um novo payload.",
       "contentVersionMismatch": "As versões de conteúdo não coincidem. Sincronize o mesmo catálogo nos dois aparelhos e crie uma nova oferta.",
-      "contentVersionRequired": "Sincronize o conteúdo dos álbuns antes de trocar (Ajustes mostra a versão do conteúdo)."
+      "contentVersionRequired": "Baixe o catálogo mais recente (ícone no topo) antes de trocar."
     }
   },
   "collection": {
