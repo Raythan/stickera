@@ -11,7 +11,9 @@ import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { usePackCooldown } from '@/features/packs/usePackCooldown';
 import { usePackOpen } from '@/features/packs/usePackOpen';
 import type { StickerDef } from '@/domain/types';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 const ERROR_KEYS: Record<string, string> = {
   cooldown: 'errors.pack.notReady',
@@ -19,8 +21,30 @@ const ERROR_KEYS: Record<string, string> = {
   noEnabledAlbums: 'errors.pack.noEnabledAlbums',
 };
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    content: {
+      backgroundColor: theme.colors.surface,
+      borderRadius: 16,
+      padding: theme.spacing.xl,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      alignItems: 'center',
+      gap: theme.spacing.lg,
+    },
+    iconWrap: {
+      marginBottom: theme.spacing.sm,
+    },
+    error: {
+      textAlign: 'center',
+    },
+  });
+}
+
 export default function PackScreen() {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const { canOpen, pendingPacks, maxPacks, formattedTime, refresh } = usePackCooldown();
   const { openPack, isOpening } = usePackOpen();
   const [revealStickers, setRevealStickers] = useState<StickerDef[] | null>(null);
@@ -49,7 +73,7 @@ export default function PackScreen() {
       ) : (
         <View style={styles.content}>
           <View style={styles.iconWrap}>
-            <Icon name="gift-outline" size={64} color={theme.colors.primary} />
+            <Icon name="gift-outline" size={64} color={colors.primary} />
           </View>
           <TimerBadge
             canOpen={canOpen}
@@ -58,7 +82,7 @@ export default function PackScreen() {
             formattedTime={formattedTime}
           />
           {error ? (
-            <Text variant="caption" color={theme.colors.error} style={styles.error}>
+            <Text variant="caption" color={colors.error} style={styles.error}>
               {error}
             </Text>
           ) : null}
@@ -72,21 +96,3 @@ export default function PackScreen() {
     </ScreenTemplate>
   );
 }
-
-const styles = StyleSheet.create({
-  content: {
-    backgroundColor: theme.colors.surface,
-    borderRadius: 16,
-    padding: theme.spacing.xl,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    alignItems: 'center',
-    gap: theme.spacing.lg,
-  },
-  iconWrap: {
-    marginBottom: theme.spacing.sm,
-  },
-  error: {
-    textAlign: 'center',
-  },
-});

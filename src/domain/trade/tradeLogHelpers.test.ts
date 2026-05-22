@@ -16,6 +16,7 @@ describe('tradeLogHelpers', () => {
       offerId: 'x',
       offeredIds: ['a:1'],
       expiresAt: '2020-01-01T00:00:00Z',
+      contentVersion: '2026.05.22.5',
     });
     expect(isTradePayloadExpired(json, new Date('2026-01-01'))).toBe(true);
   });
@@ -26,6 +27,7 @@ describe('tradeLogHelpers', () => {
       offerId: '550e8400-e29b-41d4-a716-446655440099',
       offeredIds: ['album:1'],
       expiresAt: '2099-01-01T00:00:00Z',
+      contentVersion: '2026.05.22.5',
     };
     const entry: TradeLogEntry = {
       id: payload.offerId,
@@ -44,6 +46,7 @@ describe('tradeLogHelpers', () => {
         offerId: 'o1',
         offeredIds: ['album:1', 'album:2'],
         expiresAt: '2099-01-01T00:00:00Z',
+        contentVersion: '2026.05.22.5',
       }),
       counter_ids_json: JSON.stringify(['album:3']),
       role: 'acceptor' as const,

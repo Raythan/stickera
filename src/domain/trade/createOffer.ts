@@ -18,6 +18,7 @@ export function createTradePayloadV2(opts: {
   offeredIds: string[];
   fromDisplayName?: string;
   fromProfileId?: string;
+  contentVersion: string;
   ttlMinutes?: number;
   now?: Date;
 }): TradePayloadV2 {
@@ -28,6 +29,8 @@ export function createTradePayloadV2(opts: {
   const now = opts.now ?? new Date();
   const ttl = (opts.ttlMinutes ?? TRADE_TTL_MINUTES) * 60_000;
 
+  if (!opts.contentVersion?.trim()) throw new Error('CONTENT_VERSION_REQUIRED');
+
   return {
     v: 2,
     offerId: generateUUID(),
@@ -35,6 +38,7 @@ export function createTradePayloadV2(opts: {
     fromProfileId: opts.fromProfileId,
     offeredIds: unique,
     expiresAt: new Date(now.getTime() + ttl).toISOString(),
+    contentVersion: opts.contentVersion.trim(),
   };
 }
 

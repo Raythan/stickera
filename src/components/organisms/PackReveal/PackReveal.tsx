@@ -8,7 +8,8 @@ import { Image } from '@/components/atoms/Image';
 import { Text } from '@/components/atoms/Text';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { PackRevealProps } from './PackReveal.types';
 
@@ -19,8 +20,56 @@ const RARITY_VARIANT: Record<string, 'default' | 'accent' | 'muted'> = {
   common: 'muted',
 };
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.surface,
+      borderRadius: 16,
+      padding: theme.spacing.lg,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      alignItems: 'center',
+    },
+    title: {
+      marginBottom: theme.spacing.lg,
+      textAlign: 'center',
+    },
+    scroll: {
+      gap: theme.spacing.md,
+      paddingBottom: theme.spacing.md,
+    },
+    card: {
+      width: 120,
+      alignItems: 'center',
+    },
+    artWrap: {
+      width: 100,
+      height: 130,
+      borderRadius: 8,
+      overflow: 'hidden',
+      backgroundColor: theme.colors.stickerPlaceholder,
+    },
+    art: {
+      width: '100%',
+      height: '100%',
+    },
+    artPlaceholder: {
+      flex: 1,
+      backgroundColor: theme.colors.stickerPlaceholder,
+    },
+    rarityWrap: {
+      marginTop: theme.spacing.xs,
+    },
+    stickerName: {
+      marginTop: theme.spacing.xs,
+      textAlign: 'center',
+    },
+  });
+}
+
 export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
   const { t } = useTranslation();
+  const styles = useThemedStyles(createStyles);
   const [artUris, setArtUris] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -39,7 +88,9 @@ export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
       }
     }
     void loadArts();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [stickers]);
 
   return (
@@ -58,7 +109,10 @@ export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
               {artUris[sticker.id] ? (
                 <Image
                   source={{ uri: artUris[sticker.id] }}
-                  accessibilityLabel={resolveContentLabel(sticker.nameKey ?? sticker.id, sticker.names)}
+                  accessibilityLabel={resolveContentLabel(
+                    sticker.nameKey ?? sticker.id,
+                    sticker.names,
+                  )}
                   style={styles.art}
                 />
               ) : (
@@ -80,48 +134,3 @@ export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.colors.surface,
-    borderRadius: 16,
-    padding: theme.spacing.lg,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    alignItems: 'center',
-  },
-  title: {
-    marginBottom: theme.spacing.lg,
-    textAlign: 'center',
-  },
-  scroll: {
-    gap: theme.spacing.md,
-    paddingBottom: theme.spacing.md,
-  },
-  card: {
-    width: 120,
-    alignItems: 'center',
-  },
-  artWrap: {
-    width: 100,
-    height: 130,
-    borderRadius: 8,
-    overflow: 'hidden',
-    backgroundColor: theme.colors.stickerPlaceholder,
-  },
-  art: {
-    width: '100%',
-    height: '100%',
-  },
-  artPlaceholder: {
-    flex: 1,
-    backgroundColor: theme.colors.stickerPlaceholder,
-  },
-  rarityWrap: {
-    marginTop: theme.spacing.xs,
-  },
-  stickerName: {
-    marginTop: theme.spacing.xs,
-    textAlign: 'center',
-  },
-});

@@ -10,10 +10,11 @@ import { useAlbumProgress } from '@/features/collection/useAlbumProgress';
 import { useAlbums } from '@/features/collection/useAlbums';
 import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
 import { useContentSync } from '@/features/sync/useContentSync';
-import { theme } from '@/theme';
+import { useTheme } from '@/theme/ThemeContext';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
+  const { colors, spacing } = useTheme();
   const router = useRouter();
   const { albums, loading, reload } = useAlbums();
   const { getOwned, reload: reloadProgress } = useAlbumProgress(albums);
@@ -70,11 +71,11 @@ export default function HomeScreen() {
         packLabel={t('screens.home.openPack')}
         onOpenPack={() => router.push('/pack')}
       />
-      <Text variant="caption" color={theme.colors.textMuted} style={{ marginBottom: theme.spacing.md }}>
+      <Text variant="caption" color={colors.textMuted} style={{ marginBottom: spacing.md }}>
         {t('screens.home.packPoolHint')}
       </Text>
       {loading && albums.length === 0 ? (
-        <Text variant="body" color={theme.colors.textMuted}>
+        <Text variant="body" color={colors.textMuted}>
           {t('common.loading')}
         </Text>
       ) : null}

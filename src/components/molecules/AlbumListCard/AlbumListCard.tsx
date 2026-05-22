@@ -9,9 +9,46 @@ import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { AlbumListCardProps } from './AlbumListCard.types';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    card: {
+      flex: 1,
+      minWidth: 150,
+      maxWidth: '48%',
+      backgroundColor: theme.colors.surface,
+      borderRadius: 16,
+      padding: theme.spacing.md,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+    },
+    title: {
+      marginBottom: theme.spacing.xs,
+    },
+    preview: {
+      marginTop: theme.spacing.md,
+      marginBottom: theme.spacing.sm,
+      alignItems: 'center',
+      minHeight: 160,
+      justifyContent: 'center',
+    },
+    poolRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: theme.spacing.xs,
+      gap: theme.spacing.sm,
+    },
+    poolLabel: {
+      flex: 1,
+    },
+  });
+}
 
 export function AlbumListCard({
   album,
@@ -22,6 +59,8 @@ export function AlbumListCard({
   onPress,
 }: AlbumListCardProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const { manifest } = useAlbumManifest(album.id);
   const title = manifest
     ? resolveContentLabel(manifest.nameKey ?? album.name_key, manifest.names)
@@ -53,7 +92,7 @@ export function AlbumListCard({
       <Text variant="bodyBold" style={styles.title}>
         {title}
       </Text>
-      <Text variant="caption" color={theme.colors.textMuted}>
+      <Text variant="caption" color={colors.textMuted}>
         {t('screens.album.progress', { owned, total })}
       </Text>
       <Pressable
@@ -62,9 +101,9 @@ export function AlbumListCard({
         onPress={onPress}
         style={styles.preview}
       >
-        {loading ? <ActivityIndicator color={theme.colors.primary} /> : null}
+        {loading ? <ActivityIndicator color={colors.primary} /> : null}
         {error ? (
-          <Text variant="caption" color={theme.colors.error}>
+          <Text variant="caption" color={colors.error}>
             {error}
           </Text>
         ) : null}
@@ -77,14 +116,14 @@ export function AlbumListCard({
         onPress={() => onTogglePackPool(album.id, !packPoolEnabled)}
         style={styles.poolRow}
       >
-        <Text variant="caption" color={theme.colors.textMuted} style={styles.poolLabel}>
+        <Text variant="caption" color={colors.textMuted} style={styles.poolLabel}>
           {t('screens.home.packPoolToggle')}
         </Text>
         <Switch
           value={packPoolEnabled}
           onValueChange={(value) => onTogglePackPool(album.id, value)}
-          trackColor={{ false: theme.colors.border, true: theme.colors.primary }}
-          thumbColor={theme.colors.surface}
+          trackColor={{ false: colors.border, true: colors.primary }}
+          thumbColor={colors.surface}
         />
       </Pressable>
       <Button
@@ -96,36 +135,3 @@ export function AlbumListCard({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    minWidth: 150,
-    maxWidth: '48%',
-    backgroundColor: theme.colors.surface,
-    borderRadius: 16,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  title: {
-    marginBottom: theme.spacing.xs,
-  },
-  preview: {
-    marginTop: theme.spacing.md,
-    marginBottom: theme.spacing.sm,
-    alignItems: 'center',
-    minHeight: 160,
-    justifyContent: 'center',
-  },
-  poolRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: theme.spacing.xs,
-    gap: theme.spacing.sm,
-  },
-  poolLabel: {
-    flex: 1,
-  },
-});

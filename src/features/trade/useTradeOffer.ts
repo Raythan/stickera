@@ -5,6 +5,7 @@ import { createTradePayloadV2 } from '@/domain/trade/createOffer';
 import { validateInitiatorOfferIds } from '@/domain/trade/validate';
 import type { TradePayloadV2 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
+import { SettingsRepository } from '@/services/db/SettingsRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { ProfileService } from '@/services/profile/ProfileService';
@@ -37,10 +38,15 @@ export function useTradeOffer() {
       setIsCreating(true);
       try {
         const fromProfileId = await ProfileService.getOrCreateProfileId();
+        const contentVersion = await SettingsRepository.getContentVersion();
+        if (!contentVersion) {
+          return { ok: false, reason: 'CONTENT_VERSION_REQUIRED' };
+        }
         const payload = createTradePayloadV2({
           offeredIds: opts.offeredIds,
           fromDisplayName: opts.fromDisplayName,
           fromProfileId,
+          contentVersion,
         });
 
         const collection = await CollectionRepository.getAllAsRows();

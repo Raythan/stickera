@@ -1,11 +1,34 @@
-import { Pressable, StyleSheet, Switch, View } from 'react-native';
+import { Pressable, StyleSheet, Switch } from 'react-native';
 
 import { Text } from '@/components/atoms/Text';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { EnableAlbumToggleProps } from './EnableAlbumToggle.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: theme.spacing.sm,
+      gap: theme.spacing.md,
+    },
+    pressed: {
+      opacity: 0.9,
+    },
+    label: {
+      flex: 1,
+    },
+  });
+}
+
 export function EnableAlbumToggle({ albumId, title, enabled, onToggle }: EnableAlbumToggleProps) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
+
   return (
     <Pressable
       accessibilityRole="switch"
@@ -20,25 +43,9 @@ export function EnableAlbumToggle({ albumId, title, enabled, onToggle }: EnableA
       <Switch
         value={enabled}
         onValueChange={(value) => onToggle(albumId, value)}
-        trackColor={{ false: theme.colors.border, true: theme.colors.primary }}
-        thumbColor={theme.colors.surface}
+        trackColor={{ false: colors.border, true: colors.primary }}
+        thumbColor={colors.surface}
       />
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: theme.spacing.sm,
-    gap: theme.spacing.md,
-  },
-  pressed: {
-    opacity: 0.9,
-  },
-  label: {
-    flex: 1,
-  },
-});

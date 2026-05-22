@@ -1,11 +1,25 @@
 import { StyleSheet, View } from 'react-native';
 
 import { AlbumListCard } from '@/components/molecules/AlbumListCard';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { AlbumGridProps } from './AlbumGrid.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    grid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: theme.spacing.md,
+      justifyContent: 'space-between',
+    },
+  });
+}
+
 export function AlbumGrid({ items }: AlbumGridProps) {
+  const styles = useThemedStyles(createStyles);
+
   return (
     <View style={styles.grid}>
       {items.map((item) => (
@@ -22,12 +36,3 @@ export function AlbumGrid({ items }: AlbumGridProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing.md,
-    justifyContent: 'space-between',
-  },
-});

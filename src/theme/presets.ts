@@ -74,11 +74,11 @@ const darkColors: ColorTokens = {
 };
 
 const bloomColors: ColorTokens = {
-  background: '#FAF5FC',
+  background: '#F5EDFA',
   surface: '#FFFFFF',
-  surfaceMuted: '#F3E8F8',
-  headerBackground: '#FFFFFF',
-  headerBorder: '#E9D5F5',
+  surfaceMuted: '#E9D5F5',
+  headerBackground: '#F3E8F8',
+  headerBorder: '#D8B4E8',
   primary: '#A855F7',
   primaryPressed: '#9333EA',
   secondary: '#831843',
@@ -95,11 +95,11 @@ const bloomColors: ColorTokens = {
 };
 
 const oceanColors: ColorTokens = {
-  background: '#EFF6FC',
+  background: '#E8F4FC',
   surface: '#FFFFFF',
   surfaceMuted: '#DBEAFE',
-  headerBackground: '#FFFFFF',
-  headerBorder: '#BFDBFE',
+  headerBackground: '#DBEAFE',
+  headerBorder: '#93C5FD',
   primary: '#2563EB',
   primaryPressed: '#1D4ED8',
   secondary: '#0C4A6E',

@@ -69,6 +69,8 @@ update local contentVersion
 
 Content is deployed alongside the PWA in `dist/` (GitHub Pages). On first load, the app fetches `catalog.json` from the same origin and registers album metadata in localStorage.
 
+When `catalog.version` on the server is newer than `settings.contentVersion`, a **download** icon appears in the tab header (left of the language menu) to sync albums without opening Settings.
+
 Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md).
 
 ## Asset guidelines

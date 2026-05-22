@@ -17,6 +17,7 @@ const payloadV2: TradePayloadV2 = {
   offerId: '550e8400-e29b-41d4-a716-446655440001',
   offeredIds: ['album:1', 'album:3'],
   expiresAt: '2026-12-31T23:59:59Z',
+  contentVersion: '2026.05.22.5',
 };
 
 describe('trade payload codec', () => {

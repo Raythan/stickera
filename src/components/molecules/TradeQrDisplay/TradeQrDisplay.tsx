@@ -3,11 +3,39 @@ import { useEffect, useState } from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/atoms/Text';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradeQrDisplayProps } from './TradeQrDisplay.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      marginVertical: theme.spacing.md,
+    },
+    qr: {
+      width: 200,
+      height: 200,
+      borderRadius: 8,
+    },
+    fallback: {
+      width: 200,
+      height: 200,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: theme.colors.surfaceMuted,
+      borderRadius: 8,
+      alignSelf: 'center',
+      marginVertical: theme.spacing.md,
+    },
+  });
+}
+
 export function TradeQrDisplay({ payload }: TradeQrDisplayProps) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const [dataUrl, setDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -20,7 +48,9 @@ export function TradeQrDisplay({ payload }: TradeQrDisplayProps) {
   if (!dataUrl) {
     return (
       <View style={styles.fallback}>
-        <Text variant="caption" color={theme.colors.textMuted}>QR</Text>
+        <Text variant="caption" color={colors.textMuted}>
+          QR
+        </Text>
       </View>
     );
   }
@@ -31,25 +61,3 @@ export function TradeQrDisplay({ payload }: TradeQrDisplayProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    marginVertical: theme.spacing.md,
-  },
-  qr: {
-    width: 200,
-    height: 200,
-    borderRadius: 8,
-  },
-  fallback: {
-    width: 200,
-    height: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.surfaceMuted,
-    borderRadius: 8,
-    alignSelf: 'center',
-    marginVertical: theme.spacing.md,
-  },
-});

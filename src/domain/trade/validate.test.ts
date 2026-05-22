@@ -7,6 +7,7 @@ import {
   validateInitiatorOfferIds,
   validateOfferAsAcceptor,
   validateOfferAsInitiator,
+  validateTradeContentVersion,
 } from './validate';
 
 const now = new Date('2026-05-21T14:00:00Z');
@@ -49,19 +50,19 @@ describe('validateOfferAsInitiator', () => {
 describe('validateOfferAsAcceptor', () => {
   it('accepts when acceptor has wanted qty >= 1', () => {
     const payload = makePayload({ wanted: { stickerId: 'album:2', quantity: 1 } });
-    expect(validateOfferAsAcceptor(payload, collection, catalogIds, now).valid).toBe(true);
+    expect(validateOfferAsAcceptor(payload, collection, catalogIds, null, now).valid).toBe(true);
   });
 
   it('rejects when acceptor lacks wanted sticker', () => {
     const payload = makePayload({ wanted: { stickerId: 'album:4', quantity: 1 } });
-    expect(validateOfferAsAcceptor(payload, collection, catalogIds, now)).toEqual({
+    expect(validateOfferAsAcceptor(payload, collection, catalogIds, null, now)).toEqual({
       valid: false,
       reason: 'insufficientWanted',
     });
   });
 
   it('rejects expired offer', () => {
-    expect(validateOfferAsAcceptor(makePayload({ expiresAt: past }), collection, catalogIds, now)).toEqual({
+    expect(validateOfferAsAcceptor(makePayload({ expiresAt: past }), collection, catalogIds, null, now)).toEqual({
       valid: false,
       reason: 'expired',
     });
@@ -96,18 +97,57 @@ describe('validateAcceptorCounterIds (v2)', () => {
     offerId: 'v2-offer',
     offeredIds: ['album:1'],
     expiresAt: future,
+    contentVersion: '2026.05.22.5',
   };
 
   it('accepts valid counter-offer', () => {
     expect(
-      validateAcceptorCounterIds(payloadV2, ['album:3'], collection, catalogIds, now).valid,
+      validateAcceptorCounterIds(
+        payloadV2,
+        ['album:3'],
+        collection,
+        catalogIds,
+        '2026.05.22.5',
+        now,
+      ).valid,
     ).toBe(true);
   });
 
   it('rejects when acceptor lacks duplicate', () => {
-    expect(validateAcceptorCounterIds(payloadV2, ['album:2'], collection, catalogIds, now)).toEqual({
+    expect(
+      validateAcceptorCounterIds(payloadV2, ['album:2'], collection, catalogIds, '2026.05.22.5', now),
+    ).toEqual({
       valid: false,
       reason: 'insufficientDuplicate',
+    });
+  });
+});
+
+describe('validateTradeContentVersion', () => {
+  const payloadV2 = {
+    v: 2 as const,
+    offerId: 'v2-offer',
+    offeredIds: ['album:1'],
+    expiresAt: future,
+    contentVersion: '2026.05.22.5',
+  };
+
+  it('accepts matching versions', () => {
+    expect(validateTradeContentVersion(payloadV2, '2026.05.22.5').valid).toBe(true);
+  });
+
+  it('rejects mismatch', () => {
+    expect(validateTradeContentVersion(payloadV2, '2026.05.22.4')).toEqual({
+      valid: false,
+      reason: 'contentVersionMismatch',
+    });
+  });
+
+  it('rejects missing contentVersion on v2', () => {
+    const legacy = { ...payloadV2, contentVersion: undefined as unknown as string };
+    expect(validateTradeContentVersion(legacy, '2026.05.22.5')).toEqual({
+      valid: false,
+      reason: 'contentVersionMismatch',
     });
   });
 });

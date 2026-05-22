@@ -7,12 +7,22 @@ import { getInitiatorOfferedIds } from '@/domain/trade/payloadHelpers';
 import { parsePayloadFromLog } from '@/domain/trade/tradeLogHelpers';
 import type { TradableStickerItem } from '@/domain/types';
 import { resolveStickerItemsByIds } from '@/features/trade/tradableStickerItems';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradePendingOfferPreviewProps } from './TradePendingOfferPreview.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      marginBottom: theme.spacing.sm,
+    },
+  });
+}
+
 export function TradePendingOfferPreview({ payloadJson, title }: TradePendingOfferPreviewProps) {
   const { t } = useTranslation();
+  const styles = useThemedStyles(createStyles);
   const [items, setItems] = useState<TradableStickerItem[]>([]);
 
   useEffect(() => {
@@ -36,9 +46,3 @@ export function TradePendingOfferPreview({ payloadJson, title }: TradePendingOff
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    marginBottom: theme.spacing.sm,
-  },
-});

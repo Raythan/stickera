@@ -1,3 +1,4 @@
+import { catalogVersionsMatch } from '@/domain/catalog/compareCatalogVersion';
 import type { CollectionRow, TradePayloadAny } from '@/domain/types';
 
 import { MAX_TRADE_STICKERS_PER_SIDE } from './constants';
@@ -14,8 +15,24 @@ export type TradeValidationResult =
         | 'wantedNotInCatalog'
         | 'offeredNotInCatalog'
         | 'tooManyStickers'
-        | 'emptySelection';
+        | 'emptySelection'
+        | 'contentVersionMismatch';
     };
+
+export function validateTradeContentVersion(
+  payload: TradePayloadAny,
+  localContentVersion: string | null,
+): TradeValidationResult {
+  if (payload.v !== 2) return { valid: true };
+  const remote = payload.contentVersion;
+  if (!remote || !localContentVersion) {
+    return { valid: false, reason: 'contentVersionMismatch' };
+  }
+  if (!catalogVersionsMatch(remote, localContentVersion)) {
+    return { valid: false, reason: 'contentVersionMismatch' };
+  }
+  return { valid: true };
+}
 
 function checkExpiryAndCatalog(
   stickerIds: string[],
@@ -66,8 +83,12 @@ export function validateAcceptorCounterIds(
   acceptorIds: string[],
   collection: CollectionRow[],
   catalogStickerIds: Set<string>,
+  localContentVersion: string | null = null,
   now = new Date(),
 ): TradeValidationResult {
+  const versionCheck = validateTradeContentVersion(payload, localContentVersion);
+  if (!versionCheck.valid) return versionCheck;
+
   const unique = [...new Set(acceptorIds)];
   if (unique.length === 0) return { valid: false, reason: 'emptySelection' };
   if (unique.length > MAX_TRADE_STICKERS_PER_SIDE) return { valid: false, reason: 'tooManyStickers' };
@@ -131,8 +152,12 @@ export function validateOfferAsAcceptor(
   payload: TradePayloadAny,
   collection: CollectionRow[],
   catalogStickerIds: Set<string>,
+  localContentVersion: string | null = null,
   now = new Date(),
 ): TradeValidationResult {
+  const versionCheck = validateTradeContentVersion(payload, localContentVersion);
+  if (!versionCheck.valid) return versionCheck;
+
   if (payload.v === 2) {
     return { valid: false, reason: 'emptySelection' };
   }

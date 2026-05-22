@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { StickerFramePreviewProps } from './StickerFramePreview.types';
 
@@ -44,11 +45,30 @@ function buildFrameHtml(frameCss: string, artUri?: string | null): string {
 </html>`;
 }
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      width: 120,
+      height: 160,
+      borderRadius: 8,
+      overflow: 'hidden',
+      backgroundColor: theme.colors.stickerPlaceholder,
+    },
+    iframe: {
+      width: '100%',
+      height: '100%',
+      borderWidth: 0,
+      backgroundColor: 'transparent',
+    },
+  });
+}
+
 export function StickerFramePreview({
   frameCss,
   artUri,
   accessibilityLabel = 'Sticker frame preview',
 }: StickerFramePreviewProps) {
+  const styles = useThemedStyles(createStyles);
   const html = useMemo(() => buildFrameHtml(frameCss, artUri), [frameCss, artUri]);
 
   return (
@@ -62,19 +82,3 @@ export function StickerFramePreview({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    width: 120,
-    height: 160,
-    borderRadius: 8,
-    overflow: 'hidden',
-    backgroundColor: theme.colors.stickerPlaceholder,
-  },
-  iframe: {
-    width: '100%',
-    height: '100%',
-    borderWidth: 0,
-    backgroundColor: 'transparent',
-  },
-});

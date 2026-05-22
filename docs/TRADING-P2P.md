@@ -24,6 +24,7 @@ type TradePayloadV2 = {
   offeredIds: string[]; // 1..100, unique
   expiresAt: string; // ISO, +5 min default
   fromProfileId?: string; // device profile stamp for pack-bank bonus
+  contentVersion: string; // catalog.version on offer device — must match acceptor
 };
 ```
 

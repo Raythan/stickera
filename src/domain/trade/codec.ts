@@ -39,6 +39,10 @@ function parsePayloadV2(data: Record<string, unknown>): TradePayloadV2 {
   for (const id of offeredIds) {
     if (typeof id !== 'string' || id.length < 3) throw new Error('INVALID_TRADE_PAYLOAD');
   }
+  const contentVersion = data.contentVersion;
+  if (typeof contentVersion !== 'string' || contentVersion.length < 1) {
+    throw new Error('INVALID_TRADE_PAYLOAD');
+  }
   return data as TradePayloadV2;
 }
 

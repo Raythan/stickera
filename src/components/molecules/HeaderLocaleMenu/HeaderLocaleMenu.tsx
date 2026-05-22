@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
 import { useLocale } from '@/features/ui/useLocale';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 type LocaleOption = { code: 'en' | 'pt'; flag: string; label: string };
 
@@ -13,8 +15,62 @@ const OPTIONS: LocaleOption[] = [
   { code: 'pt', flag: '🇧🇷', label: 'Português' },
 ];
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    trigger: {
+      padding: theme.spacing.xs,
+    },
+    flag: {
+      fontSize: 22,
+      lineHeight: 26,
+    },
+    backdrop: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.25)',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-end',
+      paddingTop: 56,
+      paddingRight: theme.spacing.md,
+    },
+    menu: {
+      backgroundColor: theme.colors.surface,
+      borderRadius: 12,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      paddingVertical: theme.spacing.sm,
+      minWidth: 160,
+      shadowColor: '#000',
+      shadowOpacity: 0.12,
+      shadowRadius: 8,
+      elevation: 4,
+    },
+    menuTitle: {
+      paddingHorizontal: theme.spacing.md,
+      paddingBottom: theme.spacing.xs,
+    },
+    option: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: theme.spacing.sm,
+      paddingHorizontal: theme.spacing.md,
+      paddingVertical: theme.spacing.sm,
+    },
+    optionActive: {
+      backgroundColor: theme.colors.surfaceMuted,
+    },
+    optionPressed: {
+      opacity: 0.85,
+    },
+    optionFlag: {
+      fontSize: 20,
+    },
+  });
+}
+
 export function HeaderLocaleMenu() {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const { locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
 
@@ -43,7 +99,7 @@ export function HeaderLocaleMenu() {
       <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
         <Pressable style={styles.backdrop} onPress={() => setOpen(false)}>
           <View style={styles.menu}>
-            <Text variant="caption" color={theme.colors.textMuted} style={styles.menuTitle}>
+            <Text variant="caption" color={colors.textMuted} style={styles.menuTitle}>
               {t('nav.languageMenu')}
             </Text>
             {OPTIONS.map((opt) => (
@@ -59,7 +115,7 @@ export function HeaderLocaleMenu() {
                 ]}
               >
                 <Text style={styles.optionFlag}>{opt.flag}</Text>
-                <Text variant="body" color={locale === opt.code ? theme.colors.primary : undefined}>
+                <Text variant="body" color={locale === opt.code ? colors.primary : colors.text}>
                   {opt.label}
                 </Text>
               </Pressable>
@@ -70,53 +126,3 @@ export function HeaderLocaleMenu() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  trigger: {
-    padding: theme.spacing.xs,
-  },
-  flag: {
-    fontSize: 22,
-    lineHeight: 26,
-  },
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.25)',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end',
-    paddingTop: 56,
-    paddingRight: theme.spacing.md,
-  },
-  menu: {
-    backgroundColor: theme.colors.surface,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    paddingVertical: theme.spacing.sm,
-    minWidth: 160,
-    shadowColor: '#000',
-    shadowOpacity: 0.12,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  menuTitle: {
-    paddingHorizontal: theme.spacing.md,
-    paddingBottom: theme.spacing.xs,
-  },
-  option: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: theme.spacing.sm,
-    paddingHorizontal: theme.spacing.md,
-    paddingVertical: theme.spacing.sm,
-  },
-  optionActive: {
-    backgroundColor: theme.colors.surfaceMuted,
-  },
-  optionPressed: {
-    opacity: 0.85,
-  },
-  optionFlag: {
-    fontSize: 20,
-  },
-});

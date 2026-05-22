@@ -1,9 +1,29 @@
 import { Image as RNImage, View, StyleSheet, type ImageStyle, type StyleProp } from 'react-native';
 
 import { Icon } from '@/components/atoms/Icon';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { ImageProps } from './Image.types';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    image: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 8,
+    },
+    placeholder: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 8,
+      backgroundColor: theme.colors.stickerPlaceholder,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+}
 
 export function Image({
   source,
@@ -12,6 +32,9 @@ export function Image({
   placeholder = false,
   error = false,
 }: ImageProps) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
+
   if (error || placeholder || !source) {
     return (
       <View
@@ -22,7 +45,7 @@ export function Image({
         <Icon
           name={error ? 'alert-circle-outline' : 'image-outline'}
           size={32}
-          color={theme.colors.textMuted}
+          color={colors.textMuted}
         />
       </View>
     );
@@ -31,25 +54,9 @@ export function Image({
   return (
     <RNImage
       source={source}
-      style={[styles.image, style]}
+      style={[styles.image, style as StyleProp<ImageStyle>]}
       accessibilityLabel={accessibilityLabel}
       resizeMode="cover"
     />
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 8,
-  },
-  placeholder: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 8,
-    backgroundColor: theme.colors.stickerPlaceholder,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

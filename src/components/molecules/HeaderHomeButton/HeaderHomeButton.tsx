@@ -3,10 +3,22 @@ import { Pressable, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    btn: {
+      padding: theme.spacing.xs,
+    },
+  });
+}
 
 export function HeaderHomeButton() {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const router = useRouter();
 
   return (
@@ -17,13 +29,7 @@ export function HeaderHomeButton() {
       style={styles.btn}
       hitSlop={8}
     >
-      <Icon name="home-outline" size={24} color={theme.colors.secondary} />
+      <Icon name="home-outline" size={24} color={colors.secondary} />
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  btn: {
-    padding: theme.spacing.xs,
-  },
-});

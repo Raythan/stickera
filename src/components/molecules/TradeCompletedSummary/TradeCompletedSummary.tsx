@@ -7,12 +7,24 @@ import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { getTradeSidesFromEntry } from '@/domain/trade/tradeLogHelpers';
 import type { TradableStickerItem } from '@/domain/types';
 import { resolveStickerItemsByIds } from '@/features/trade/tradableStickerItems';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradeCompletedSummaryProps } from './TradeCompletedSummary.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      gap: theme.spacing.sm,
+    },
+  });
+}
+
 export function TradeCompletedSummary({ entry }: TradeCompletedSummaryProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const [gaveItems, setGaveItems] = useState<TradableStickerItem[]>([]);
   const [receivedItems, setReceivedItems] = useState<TradableStickerItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +50,7 @@ export function TradeCompletedSummary({ entry }: TradeCompletedSummaryProps) {
 
   if (loading) {
     return (
-      <Text variant="caption" color={theme.colors.textMuted}>
+      <Text variant="caption" color={colors.textMuted}>
         {t('common.loading')}
       </Text>
     );
@@ -51,9 +63,3 @@ export function TradeCompletedSummary({ entry }: TradeCompletedSummaryProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    gap: theme.spacing.sm,
-  },
-});

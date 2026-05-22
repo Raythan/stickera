@@ -37,12 +37,11 @@ function createStyles(theme: AppTheme) {
       flexGrow: 1,
     },
     chipSelected: {
-      borderColor: theme.colors.primary,
       backgroundColor: theme.colors.surfaceMuted,
     },
     chipIdle: {
       borderColor: theme.colors.border,
-      backgroundColor: theme.colors.background,
+      backgroundColor: theme.colors.surface,
     },
     swatch: {
       width: 20,
@@ -76,7 +75,11 @@ export function ThemePicker() {
               accessibilityRole="button"
               accessibilityState={{ selected }}
               onPress={() => void persistThemeId(id)}
-              style={[styles.chip, selected ? styles.chipSelected : styles.chipIdle]}
+              style={[
+                styles.chip,
+                selected ? styles.chipSelected : styles.chipIdle,
+                { borderColor: selected ? preset.primary : theme.colors.border },
+              ]}
             >
               <View
                 style={[
@@ -87,7 +90,9 @@ export function ThemePicker() {
                   },
                 ]}
               />
-              <Text variant="label">{t(LABEL_KEYS[id])}</Text>
+              <Text variant="label" color={theme.colors.text}>
+                {t(LABEL_KEYS[id])}
+              </Text>
             </Pressable>
           );
         })}

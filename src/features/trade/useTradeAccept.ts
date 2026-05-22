@@ -10,12 +10,14 @@ import { getInitiatorOfferedIds } from '@/domain/trade/payloadHelpers';
 import {
   validateAcceptorCounterIds,
   validateOfferAsAcceptor,
+  validateTradeContentVersion,
 } from '@/domain/trade/validate';
 import type { TradePayloadAny } from '@/domain/types';
 import { AppConfigService } from '@/services/config/AppConfigService';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
+import { SettingsRepository } from '@/services/db/SettingsRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { ProfileService } from '@/services/profile/ProfileService';
 import {
@@ -59,6 +61,14 @@ export function useTradeAccept() {
       try {
         const trimmed = encoded.trim();
         const payload = decodeTradePayload(trimmed);
+        const localContentVersion = await SettingsRepository.getContentVersion();
+        const versionCheck = validateTradeContentVersion(payload, localContentVersion);
+        if (!versionCheck.valid) {
+          setError('contentVersionMismatch');
+          setPreview(null);
+          setLastEncodedPayload(null);
+          return;
+        }
 
         if (await TradeConsumedRepository.isConsumed(payload.offerId)) {
           setError('OFFER_ALREADY_USED');
@@ -139,6 +149,7 @@ export function useTradeAccept() {
 
         const collection = await CollectionRepository.getAllAsRows();
         const catalogIds = await buildCatalogStickerIds();
+        const localContentVersion = await SettingsRepository.getContentVersion();
 
         if (preview.v === 2) {
           const validation = validateAcceptorCounterIds(
@@ -146,6 +157,7 @@ export function useTradeAccept() {
             acceptorIds,
             collection,
             catalogIds,
+            localContentVersion,
           );
           if (!validation.valid) {
             setError(validation.reason);
@@ -184,7 +196,12 @@ export function useTradeAccept() {
           return result;
         }
 
-        const validation = validateOfferAsAcceptor(preview, collection, catalogIds);
+        const validation = validateOfferAsAcceptor(
+          preview,
+          collection,
+          catalogIds,
+          localContentVersion,
+        );
         if (!validation.valid) {
           setError(validation.reason);
           return { ok: false, reason: validation.reason };

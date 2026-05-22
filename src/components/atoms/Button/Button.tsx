@@ -1,9 +1,48 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 
 import { Text } from '@/components/atoms/Text';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { ButtonProps } from './Button.types';
+
+function createStyles(theme: AppTheme) {
+  return {
+    base: {
+      alignItems: 'center' as const,
+      justifyContent: 'center' as const,
+      borderRadius: 12,
+    },
+    sm: {
+      paddingVertical: theme.spacing.sm,
+      paddingHorizontal: theme.spacing.md,
+      minHeight: 36,
+    },
+    md: {
+      paddingVertical: theme.spacing.md,
+      paddingHorizontal: theme.spacing.lg,
+      minHeight: 48,
+    },
+    primary: {
+      backgroundColor: theme.colors.primary,
+    },
+    secondary: {
+      backgroundColor: theme.colors.secondary,
+    },
+    ghost: {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: theme.colors.secondary,
+    },
+    pressed: {
+      opacity: 0.88,
+    },
+    disabled: {
+      opacity: 0.45,
+    },
+  };
+}
 
 export function Button({
   label,
@@ -12,6 +51,11 @@ export function Button({
   variant = 'primary',
   size = 'md',
 }: ButtonProps) {
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
+  const labelColor =
+    variant === 'ghost' ? colors.secondary : colors.textInverse;
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -27,47 +71,9 @@ export function Button({
         disabled && styles.disabled,
       ]}
     >
-      <Text
-        variant="bodyBold"
-        color={variant === 'ghost' ? theme.colors.secondary : theme.colors.textInverse}
-      >
+      <Text variant="bodyBold" color={labelColor}>
         {label}
       </Text>
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 12,
-  },
-  sm: {
-    paddingVertical: theme.spacing.sm,
-    paddingHorizontal: theme.spacing.md,
-    minHeight: 36,
-  },
-  md: {
-    paddingVertical: theme.spacing.md,
-    paddingHorizontal: theme.spacing.lg,
-    minHeight: 48,
-  },
-  primary: {
-    backgroundColor: theme.colors.primary,
-  },
-  secondary: {
-    backgroundColor: theme.colors.secondary,
-  },
-  ghost: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: theme.colors.secondary,
-  },
-  pressed: {
-    opacity: 0.88,
-  },
-  disabled: {
-    opacity: 0.45,
-  },
-});

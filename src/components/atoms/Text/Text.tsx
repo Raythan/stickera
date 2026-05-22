@@ -1,19 +1,23 @@
 import { Text as RNText, StyleSheet } from 'react-native';
 
-import { theme } from '@/theme';
+import { defaultTheme } from '@/theme';
+import { useTheme } from '@/theme/ThemeContext';
 
 import type { TextProps } from './Text.types';
 
 export function Text({
   children,
   variant = 'body',
-  color = theme.colors.text,
+  color,
   style,
   numberOfLines,
 }: TextProps) {
+  const { colors } = useTheme();
+  const resolvedColor = color ?? colors.text;
+
   return (
     <RNText
-      style={[styles[variant], { color }, style]}
+      style={[styles[variant], { color: resolvedColor }, style]}
       numberOfLines={numberOfLines}
     >
       {children}
@@ -22,10 +26,10 @@ export function Text({
 }
 
 const styles = StyleSheet.create({
-  h1: theme.typography.h1,
-  h2: theme.typography.h2,
-  body: theme.typography.body,
-  bodyBold: theme.typography.bodyBold,
-  caption: theme.typography.caption,
-  label: theme.typography.label,
+  h1: defaultTheme.typography.h1,
+  h2: defaultTheme.typography.h2,
+  body: defaultTheme.typography.body,
+  bodyBold: defaultTheme.typography.bodyBold,
+  caption: defaultTheme.typography.caption,
+  label: defaultTheme.typography.label,
 });

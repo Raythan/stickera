@@ -1,16 +1,14 @@
 import { useRouter } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/components/atoms/Button';
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { AdminToolsPanel } from '@/components/molecules/AdminToolsPanel';
 import { ThemePicker } from '@/components/molecules/ThemePicker';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAdminMode } from '@/features/admin/useAdminMode';
-import { useContentSync } from '@/features/sync/useContentSync';
 import { SettingsRepository } from '@/services/db/SettingsRepository';
 import type { AppTheme } from '@/theme';
 import { useTheme } from '@/theme/ThemeContext';
@@ -70,7 +68,6 @@ export default function SettingsScreen() {
   const router = useRouter();
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
-  const { sync, syncing, lastResult } = useContentSync();
   const { enabled: adminEnabled, configured, unlockError, unlock, lock } = useAdminMode();
   const [contentVersion, setContentVersion] = useState<string | null>(null);
   const [adminCode, setAdminCode] = useState('');
@@ -81,12 +78,7 @@ export default function SettingsScreen() {
 
   useEffect(() => {
     void loadVersion();
-  }, [loadVersion, lastResult]);
-
-  const onSync = useCallback(async () => {
-    await sync();
-    await loadVersion();
-  }, [sync, loadVersion]);
+  }, [loadVersion]);
 
   return (
     <ScreenTemplate showBack={false} showHome={false} showHeader={false}>
@@ -97,21 +89,11 @@ export default function SettingsScreen() {
       <View style={styles.section}>
         <Text variant="bodyBold">{t('screens.settings.syncAlbums')}</Text>
         <Text variant="caption" color={colors.textMuted} style={styles.hint}>
-          {t('screens.settings.syncHint')}
+          {t('screens.settings.syncHintHeader')}
         </Text>
         {contentVersion ? (
           <Text variant="caption" color={colors.textMuted} style={styles.version}>
             {t('screens.settings.contentVersion', { version: contentVersion })}
-          </Text>
-        ) : null}
-        <Button
-          label={syncing ? t('screens.settings.syncing') : t('screens.settings.syncButton')}
-          onPress={onSync}
-          disabled={syncing}
-        />
-        {lastResult?.albumsUpdated ? (
-          <Text variant="caption" color={colors.success} style={styles.result}>
-            {t('screens.settings.syncDone', { count: lastResult.albumsUpdated })}
           </Text>
         ) : null}
       </View>
@@ -122,11 +104,7 @@ export default function SettingsScreen() {
         style={({ pressed }) => [styles.aboutRow, pressed && styles.pressed]}
       >
         <Text variant="bodyBold">{t('screens.about.title')}</Text>
-        {syncing ? (
-          <ActivityIndicator color={colors.primary} />
-        ) : (
-          <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-        )}
+        <Icon name="chevron-forward" size={20} color={colors.textMuted} />
       </Pressable>
 
       <View style={styles.section}>

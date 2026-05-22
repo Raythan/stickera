@@ -22,6 +22,7 @@
       "title": "Settings",
       "syncAlbums": "Update albums",
       "syncHint": "Pull catalog and album files from CDN (or use bundled content offline).",
+      "syncHintHeader": "When a newer catalog is available, use the download icon in the top bar (left of language).",
       "syncButton": "Sync now",
       "syncing": "Syncing…",
       "syncDone": "{{count}} album(s) updated",
@@ -103,7 +104,8 @@
     "back": "Back",
     "home": "Home",
     "homeLong": "Back to home",
-    "languageMenu": "Language"
+    "languageMenu": "Language",
+    "syncUpdate": "Download catalog update"
   },
   "admin": {
     "unlockTitle": "Developer mode",
@@ -152,7 +154,9 @@
       "alreadyUsedLocally": "This offer was already completed on this device.",
       "ownOffer": "You cannot accept your own offer.",
       "alreadyClaimedGlobally": "This offer was already accepted by someone else (global registry).",
-      "registryError": "Trade registry rejected this offer. Try again or ask for a new payload."
+      "registryError": "Trade registry rejected this offer. Try again or ask for a new payload.",
+      "contentVersionMismatch": "Content versions do not match. Sync the same catalog on both devices, then create a new offer.",
+      "contentVersionRequired": "Sync album content before trading (Settings shows your content version)."
     }
   },
   "collection": {

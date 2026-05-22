@@ -22,6 +22,7 @@
       "title": "Configurações",
       "syncAlbums": "Atualizar álbuns",
       "syncHint": "Baixa catálogo e arquivos do CDN (ou usa o bundle offline).",
+      "syncHintHeader": "Quando houver catálogo mais novo, use o ícone de download na barra superior (à esquerda do idioma).",
       "syncButton": "Sincronizar agora",
       "syncing": "Sincronizando…",
       "syncDone": "{{count}} álbum(ns) atualizado(s)",
@@ -103,7 +104,8 @@
     "back": "Voltar",
     "home": "Início",
     "homeLong": "Voltar para o início",
-    "languageMenu": "Idioma"
+    "languageMenu": "Idioma",
+    "syncUpdate": "Baixar atualização do catálogo"
   },
   "admin": {
     "unlockTitle": "Modo desenvolvedor",
@@ -152,7 +154,9 @@
       "alreadyUsedLocally": "Esta oferta já foi concluída neste aparelho.",
       "ownOffer": "Você não pode aceitar sua própria oferta.",
       "alreadyClaimedGlobally": "Esta oferta já foi aceita por outra pessoa (registry global).",
-      "registryError": "O registry recusou esta oferta. Tente de novo ou peça um novo payload."
+      "registryError": "O registry recusou esta oferta. Tente de novo ou peça um novo payload.",
+      "contentVersionMismatch": "As versões de conteúdo não coincidem. Sincronize o mesmo catálogo nos dois aparelhos e crie uma nova oferta.",
+      "contentVersionRequired": "Sincronize o conteúdo dos álbuns antes de trocar (Ajustes mostra a versão do conteúdo)."
     }
   },
   "collection": {

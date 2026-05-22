@@ -4,14 +4,38 @@ import { Platform, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradeQrScannerProps } from './TradeQrScanner.types';
 
 const SCANNER_ELEMENT_ID = 'stickera-trade-qr-scanner';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      alignItems: 'center',
+      marginVertical: theme.spacing.md,
+    },
+    reader: {
+      width: 280,
+      height: 280,
+      borderRadius: 12,
+      overflow: 'hidden',
+      backgroundColor: theme.colors.surfaceMuted,
+    },
+    hint: {
+      marginTop: theme.spacing.sm,
+      textAlign: 'center',
+    },
+  });
+}
+
 export function TradeQrScanner({ onScan, active = true }: TradeQrScannerProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const scannerRef = useRef<Html5Qrcode | null>(null);
   const onScanRef = useRef(onScan);
   const [cameraError, setCameraError] = useState(false);
@@ -62,7 +86,7 @@ export function TradeQrScanner({ onScan, active = true }: TradeQrScannerProps) {
 
   if (Platform.OS !== 'web') {
     return (
-      <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+      <Text variant="caption" color={colors.textMuted} style={styles.hint}>
         {t('screens.trade.scanNotAvailable')}
       </Text>
     );
@@ -72,7 +96,7 @@ export function TradeQrScanner({ onScan, active = true }: TradeQrScannerProps) {
 
   if (cameraError) {
     return (
-      <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+      <Text variant="caption" color={colors.textMuted} style={styles.hint}>
         {t('screens.trade.scanCameraUnavailable')}
       </Text>
     );
@@ -81,27 +105,9 @@ export function TradeQrScanner({ onScan, active = true }: TradeQrScannerProps) {
   return (
     <View style={styles.wrap}>
       <View nativeID={SCANNER_ELEMENT_ID} style={styles.reader} />
-      <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
+      <Text variant="caption" color={colors.textMuted} style={styles.hint}>
         {t('screens.trade.scanHint')}
       </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    alignItems: 'center',
-    marginVertical: theme.spacing.md,
-  },
-  reader: {
-    width: 280,
-    height: 280,
-    borderRadius: 12,
-    overflow: 'hidden',
-    backgroundColor: theme.colors.surfaceMuted,
-  },
-  hint: {
-    marginTop: theme.spacing.sm,
-    textAlign: 'center',
-  },
-});

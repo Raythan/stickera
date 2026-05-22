@@ -4,9 +4,44 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '@/components/atoms/Text';
 import { StickerCard } from '@/components/molecules/StickerCard';
 import { MAX_TRADE_STICKERS_PER_SIDE } from '@/domain/trade/constants';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradeStickerSelectGridProps } from './TradeStickerSelectGrid.types';
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      marginBottom: theme.spacing.lg,
+    },
+    label: {
+      marginBottom: theme.spacing.xs,
+    },
+    count: {
+      marginBottom: theme.spacing.sm,
+    },
+    grid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: 16,
+      justifyContent: 'center',
+    },
+    cell: {
+      borderRadius: 12,
+      padding: 4,
+      borderWidth: 2,
+      borderColor: 'transparent',
+    },
+    cellSelected: {
+      borderColor: theme.colors.primary,
+      backgroundColor: theme.colors.surface,
+    },
+    cellDisabled: {
+      opacity: 0.45,
+    },
+  });
+}
 
 export function TradeStickerSelectGrid({
   items,
@@ -16,6 +51,8 @@ export function TradeStickerSelectGrid({
   maxSelection = MAX_TRADE_STICKERS_PER_SIDE,
 }: TradeStickerSelectGridProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const selectedSet = new Set(selectedIds);
 
   return (
@@ -23,7 +60,7 @@ export function TradeStickerSelectGrid({
       <Text variant="bodyBold" style={styles.label}>
         {label}
       </Text>
-      <Text variant="caption" color={theme.colors.textMuted} style={styles.count}>
+      <Text variant="caption" color={colors.textMuted} style={styles.count}>
         {t('screens.trade.selectedCount', { count: selectedIds.length, max: maxSelection })}
       </Text>
       <View style={styles.grid}>
@@ -56,34 +93,3 @@ export function TradeStickerSelectGrid({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    marginBottom: theme.spacing.lg,
-  },
-  label: {
-    marginBottom: theme.spacing.xs,
-  },
-  count: {
-    marginBottom: theme.spacing.sm,
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 16,
-    justifyContent: 'center',
-  },
-  cell: {
-    borderRadius: 12,
-    padding: 4,
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  cellSelected: {
-    borderColor: theme.colors.primary,
-    backgroundColor: theme.colors.surface,
-  },
-  cellDisabled: {
-    opacity: 0.45,
-  },
-});

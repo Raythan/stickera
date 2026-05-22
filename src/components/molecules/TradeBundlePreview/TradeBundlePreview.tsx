@@ -2,11 +2,32 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/atoms/Text';
 import { StickerCard } from '@/components/molecules/StickerCard';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { TradeBundlePreviewProps } from './TradeBundlePreview.types';
 
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      marginVertical: theme.spacing.md,
+    },
+    title: {
+      marginBottom: theme.spacing.sm,
+    },
+    row: {
+      gap: theme.spacing.md,
+      paddingVertical: theme.spacing.xs,
+    },
+    card: {
+      opacity: 1,
+    },
+  });
+}
+
 export function TradeBundlePreview({ items, title }: TradeBundlePreviewProps) {
+  const styles = useThemedStyles(createStyles);
+
   if (items.length === 0) return null;
 
   return (
@@ -33,19 +54,3 @@ export function TradeBundlePreview({ items, title }: TradeBundlePreviewProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    marginVertical: theme.spacing.md,
-  },
-  title: {
-    marginBottom: theme.spacing.sm,
-  },
-  row: {
-    gap: theme.spacing.md,
-    paddingVertical: theme.spacing.xs,
-  },
-  card: {
-    opacity: 1,
-  },
-});

@@ -100,6 +100,8 @@ export type TradePayloadV2 = {
   fromProfileId?: string;
   offeredIds: string[];
   expiresAt: string;
+  /** catalog.version on device when offer was created */
+  contentVersion: string;
 };
 
 export type TradePayloadAny = TradePayloadV1 | TradePayloadV2;

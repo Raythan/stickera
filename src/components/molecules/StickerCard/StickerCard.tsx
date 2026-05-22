@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Badge } from '@/components/atoms/Badge';
 import { Text } from '@/components/atoms/Text';
 import { StickerFramePreview } from '@/components/molecules/StickerFramePreview';
-import { theme } from '@/theme';
+import type { AppTheme } from '@/theme/presets';
+import { useTheme } from '@/theme/ThemeContext';
+import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { StickerCardProps } from './StickerCard.types';
 
@@ -14,6 +16,30 @@ const RARITY_VARIANT: Record<string, 'default' | 'accent' | 'muted'> = {
   uncommon: 'muted',
   common: 'muted',
 };
+
+function createStyles(theme: AppTheme) {
+  return StyleSheet.create({
+    wrap: {
+      width: 120,
+      alignItems: 'center',
+    },
+    meta: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: theme.spacing.xs,
+      justifyContent: 'center',
+      marginTop: theme.spacing.xs,
+    },
+    name: {
+      marginTop: theme.spacing.xs,
+      textAlign: 'center',
+    },
+    qty: {
+      marginTop: 2,
+      textAlign: 'center',
+    },
+  });
+}
 
 export function StickerCard({
   name,
@@ -25,6 +51,8 @@ export function StickerCard({
   onPress,
 }: StickerCardProps) {
   const { t } = useTranslation();
+  const { colors } = useTheme();
+  const styles = useThemedStyles(createStyles);
   const owned = quantity > 0;
 
   const content = (
@@ -43,14 +71,14 @@ export function StickerCard({
       <Text
         variant="caption"
         style={styles.name}
-        color={owned ? theme.colors.text : theme.colors.textMuted}
+        color={owned ? colors.text : colors.textMuted}
         numberOfLines={2}
       >
         {name}
       </Text>
       <Text
         variant="caption"
-        color={owned ? theme.colors.primary : theme.colors.textMuted}
+        color={owned ? colors.primary : colors.textMuted}
         style={styles.qty}
       >
         {t('collection.quantity', { count: quantity })}
@@ -66,25 +94,3 @@ export function StickerCard({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  wrap: {
-    width: 120,
-    alignItems: 'center',
-  },
-  meta: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing.xs,
-    justifyContent: 'center',
-    marginTop: theme.spacing.xs,
-  },
-  name: {
-    marginTop: theme.spacing.xs,
-    textAlign: 'center',
-  },
-  qty: {
-    marginTop: 2,
-    textAlign: 'center',
-  },
-});

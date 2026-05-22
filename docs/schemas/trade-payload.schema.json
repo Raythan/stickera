@@ -31,13 +31,14 @@
     },
     "payloadV2": {
       "type": "object",
-      "required": ["v", "offerId", "offeredIds", "expiresAt"],
+      "required": ["v", "offerId", "offeredIds", "expiresAt", "contentVersion"],
       "additionalProperties": false,
       "properties": {
         "v": { "const": 2 },
         "offerId": { "type": "string", "format": "uuid" },
         "fromDisplayName": { "type": "string", "maxLength": 40 },
         "fromProfileId": { "type": "string", "minLength": 8 },
+        "contentVersion": { "type": "string", "minLength": 1 },
         "offeredIds": {
           "type": "array",
           "minItems": 1,
