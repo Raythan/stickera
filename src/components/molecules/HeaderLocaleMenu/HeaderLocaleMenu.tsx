@@ -2,27 +2,28 @@ import { useCallback, useState } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { FlagIcon } from '@/components/atoms/FlagIcon';
+import type { FlagLocale } from '@/components/atoms/FlagIcon';
 import { Text } from '@/components/atoms/Text';
 import { useLocale } from '@/features/ui/useLocale';
 import type { AppTheme } from '@/theme/presets';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
 
-type LocaleOption = { code: 'en' | 'pt'; flag: string; label: string };
+type LocaleOption = { code: FlagLocale; labelKey: string };
 
 const OPTIONS: LocaleOption[] = [
-  { code: 'en', flag: '🇺🇸', label: 'English' },
-  { code: 'pt', flag: '🇧🇷', label: 'Português' },
+  { code: 'en', labelKey: 'nav.languageEn' },
+  { code: 'pt', labelKey: 'nav.languagePt' },
 ];
+
+const FLAG_TRIGGER_SIZE = 28;
+const FLAG_MENU_SIZE = 24;
 
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
     trigger: {
       padding: theme.spacing.xs,
-    },
-    flag: {
-      fontSize: 22,
-      lineHeight: 26,
     },
     backdrop: {
       flex: 1,
@@ -61,9 +62,6 @@ function createStyles(theme: AppTheme) {
     optionPressed: {
       opacity: 0.85,
     },
-    optionFlag: {
-      fontSize: 20,
-    },
   });
 }
 
@@ -77,7 +75,7 @@ export function HeaderLocaleMenu() {
   const current = OPTIONS.find((o) => o.code === locale) ?? OPTIONS[0];
 
   const pick = useCallback(
-    (code: 'en' | 'pt') => {
+    (code: FlagLocale) => {
       setLocale(code);
       setOpen(false);
     },
@@ -88,12 +86,12 @@ export function HeaderLocaleMenu() {
     <>
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={t('nav.languageMenu')}
+        accessibilityLabel={t(current.labelKey)}
         onPress={() => setOpen(true)}
         style={styles.trigger}
         hitSlop={8}
       >
-        <Text style={styles.flag}>{current.flag}</Text>
+        <FlagIcon locale={current.code} size={FLAG_TRIGGER_SIZE} />
       </Pressable>
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
@@ -106,6 +104,7 @@ export function HeaderLocaleMenu() {
               <Pressable
                 key={opt.code}
                 accessibilityRole="button"
+                accessibilityLabel={t(opt.labelKey)}
                 accessibilityState={{ selected: locale === opt.code }}
                 onPress={() => pick(opt.code)}
                 style={({ pressed }) => [
@@ -114,9 +113,9 @@ export function HeaderLocaleMenu() {
                   pressed && styles.optionPressed,
                 ]}
               >
-                <Text style={styles.optionFlag}>{opt.flag}</Text>
+                <FlagIcon locale={opt.code} size={FLAG_MENU_SIZE} />
                 <Text variant="body" color={locale === opt.code ? colors.primary : colors.text}>
-                  {opt.label}
+                  {t(opt.labelKey)}
                 </Text>
               </Pressable>
             ))}

@@ -7,4 +7,6 @@ export type ButtonProps = {
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  /** Stretch to parent width (e.g. mobile section actions). */
+  fullWidth?: boolean;
 };

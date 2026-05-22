@@ -10,3 +10,4 @@ export { THEME_PRESETS, buildTheme, defaultTheme } from './presets';
 export { ThemeProvider, useTheme, persistThemeId } from './ThemeContext';
 export { useThemeStore } from './themeStore';
 export { useThemedStyles } from './useThemedStyles';
+export { NARROW_MAX_WIDTH, useIsNarrowLayout } from './useLayoutBreakpoint';

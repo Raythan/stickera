@@ -41,6 +41,10 @@ function createStyles(theme: AppTheme) {
     disabled: {
       opacity: 0.45,
     },
+    fullWidth: {
+      alignSelf: 'stretch',
+      width: '100%',
+    },
   };
 }
 
@@ -50,6 +54,7 @@ export function Button({
   disabled = false,
   variant = 'primary',
   size = 'md',
+  fullWidth = false,
 }: ButtonProps) {
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
@@ -69,6 +74,7 @@ export function Button({
         styles[variant],
         pressed && !disabled && styles.pressed,
         disabled && styles.disabled,
+        fullWidth && styles.fullWidth,
       ]}
     >
       <Text variant="bodyBold" color={labelColor}>

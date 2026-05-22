@@ -5,6 +5,7 @@ import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import type { AppTheme } from '@/theme/presets';
 import { useTheme } from '@/theme/ThemeContext';
+import { useIsNarrowLayout } from '@/theme/useLayoutBreakpoint';
 import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { HomeHeroProps } from './HomeHero.types';
@@ -40,19 +41,20 @@ function createStyles(theme: AppTheme) {
 export function HomeHero({ title, subtitle, packLabel, onOpenPack }: HomeHeroProps) {
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
+  const narrow = useIsNarrowLayout();
 
   return (
     <View style={styles.wrap}>
       <View style={styles.iconCircle}>
         <Icon name="albums" size={28} color={colors.primary} />
       </View>
-      <Text variant="h1" style={styles.title}>
+      <Text variant={narrow ? 'h2' : 'h1'} style={styles.title}>
         {title}
       </Text>
       <Text variant="body" color={colors.textMuted} style={styles.subtitle}>
         {subtitle}
       </Text>
-      <Button label={packLabel} onPress={onOpenPack} variant="primary" />
+      <Button label={packLabel} onPress={onOpenPack} variant="primary" fullWidth />
     </View>
   );
 }

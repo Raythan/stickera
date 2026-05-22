@@ -21,7 +21,6 @@ import { formatTradeError } from '@/features/trade/tradeErrorKey';
 import { useCopyTradeToken } from '@/features/trade/useCopyTradeToken';
 import { useTradableStickers } from '@/features/trade/useTradableStickers';
 import { useTradeConfirm } from '@/features/trade/useTradeConfirm';
-import { useTradeRegistryHealth } from '@/features/trade/useTradeRegistryHealth';
 import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import type { AppTheme } from '@/theme';
@@ -48,14 +47,6 @@ function createStyles(theme: AppTheme) {
     emptyText: {
       textAlign: 'center',
     },
-    trustNote: {
-      textAlign: 'center',
-      marginBottom: theme.spacing.sm,
-    },
-    registryBadge: {
-      textAlign: 'center',
-      marginBottom: theme.spacing.md,
-    },
     banner: {
       textAlign: 'center',
       marginBottom: theme.spacing.md,
@@ -72,16 +63,9 @@ function createStyles(theme: AppTheme) {
       borderWidth: 1,
       borderColor: theme.colors.border,
     },
-    sectionHeaderRow: {
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-      justifyContent: 'space-between',
+    sectionHeaderCol: {
       gap: theme.spacing.sm,
-      marginBottom: theme.spacing.xs,
-    },
-    sectionHeaderText: {
-      flex: 1,
-      gap: theme.spacing.xs,
+      marginBottom: theme.spacing.sm,
     },
     sectionHint: {
       marginBottom: theme.spacing.sm,
@@ -156,7 +140,6 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
   const { stickerIds, loading, reload: reloadTradable } = useTradableStickers();
   const { confirmByOfferId, confirmByAck, isConfirming } = useTradeConfirm();
   const { copyText, copiedId } = useCopyTradeToken();
-  const { configured: registryConfigured, online: registryOnline } = useTradeRegistryHealth();
   const [sentOffers, setSentOffers] = useState<TradeLogEntry[]>([]);
   const [importedDrafts, setImportedDrafts] = useState<TradeLogEntry[]>([]);
   const [completedTrades, setCompletedTrades] = useState<TradeLogEntry[]>([]);
@@ -290,26 +273,6 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
     <>
       <TradeDisclaimer />
 
-      <Text variant="caption" color={colors.textMuted} style={styles.trustNote}>
-        {t('screens.trade.trustLimitNote')}
-      </Text>
-
-      {registryConfigured ? (
-        <Text
-          variant="caption"
-          color={registryOnline ? colors.success : colors.textMuted}
-          style={styles.registryBadge}
-        >
-          {registryOnline
-            ? t('screens.trade.registryOnline')
-            : t('screens.trade.registryOffline')}
-        </Text>
-      ) : (
-        <Text variant="caption" color={colors.textMuted} style={styles.registryBadge}>
-          {t('screens.trade.registryNotConfigured')}
-        </Text>
-      )}
-
       {confirmSuccess ? (
         <Text variant="body" color={colors.success} style={styles.banner}>
           {t('screens.trade.success')}
@@ -327,22 +290,21 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
           label={t('screens.trade.createOffer')}
           onPress={goOffer}
           disabled={loading || stickerIds.length === 0}
+          fullWidth
         />
       </View>
 
       <View style={styles.section}>
-        <View style={styles.sectionHeaderRow}>
-          <View style={styles.sectionHeaderText}>
-            <Text variant="bodyBold">{t('screens.trade.roleAcceptorTitle')}</Text>
-            <Text variant="caption" color={colors.textMuted}>
-              {t('screens.trade.roleAcceptorHint')}
-            </Text>
-          </View>
+        <View style={styles.sectionHeaderCol}>
+          <Text variant="bodyBold">{t('screens.trade.roleAcceptorTitle')}</Text>
+          <Text variant="caption" color={colors.textMuted}>
+            {t('screens.trade.roleAcceptorHint')}
+          </Text>
           {!acceptPanelExpanded ? (
             <Button
               label={t('screens.trade.roleAcceptorExpand')}
-              size="sm"
               variant="secondary"
+              fullWidth
               onPress={() => setAcceptPanelExpanded(true)}
             />
           ) : null}

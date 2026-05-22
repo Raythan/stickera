@@ -6,6 +6,7 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { TradeQrDisplay } from '@/components/molecules/TradeQrDisplay';
+import { ScreenBackLink } from '@/components/molecules/ScreenBackLink';
 import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { QR_RECOMMENDED_MAX_STICKERS } from '@/domain/trade/constants';
@@ -73,10 +74,18 @@ export default function TradeOfferScreen() {
     }
   }, [encoded]);
 
+  const screenProps = {
+    showHeader: false as const,
+    showBack: false as const,
+    showHome: false as const,
+    showLocale: false as const,
+  };
+
   if (encoded) {
     const showQr = offerCount <= QR_RECOMMENDED_MAX_STICKERS;
     return (
-      <ScreenTemplate title={t('screens.trade.offerReady')}>
+      <ScreenTemplate {...screenProps}>
+        <ScreenBackLink title={t('screens.trade.offerReady')} />
         <TradeBundlePreview items={selectedItems} title={t('screens.trade.youGive')} />
         {showQr ? <TradeQrDisplay payload={encoded} /> : null}
         {!showQr ? (
@@ -99,7 +108,8 @@ export default function TradeOfferScreen() {
   }
 
   return (
-    <ScreenTemplate title={t('screens.trade.createOffer')}>
+    <ScreenTemplate {...screenProps}>
+      <ScreenBackLink title={t('screens.trade.createOffer')} />
       {loading ? (
         <Text variant="body" color={colors.textMuted}>
           {t('common.loading')}

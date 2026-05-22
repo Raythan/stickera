@@ -18,9 +18,7 @@ import type { AlbumListCardProps } from './AlbumListCard.types';
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
     card: {
-      flex: 1,
-      minWidth: 150,
-      maxWidth: '48%',
+      width: '100%',
       backgroundColor: theme.colors.surface,
       borderRadius: 16,
       padding: theme.spacing.md,
@@ -46,6 +44,7 @@ function createStyles(theme: AppTheme) {
     },
     poolLabel: {
       flex: 1,
+      flexShrink: 1,
     },
   });
 }
