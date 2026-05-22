@@ -8,6 +8,7 @@ import type { AlbumStickerGridProps } from './AlbumStickerGrid.types';
 
 export function AlbumStickerGrid({
   album,
+  stickers,
   frameCss,
   getStickerName,
   getCollectionEntry,
@@ -18,7 +19,7 @@ export function AlbumStickerGrid({
     let cancelled = false;
     async function load() {
       const entries = await Promise.all(
-        album.stickers.map(async (sticker) => {
+        stickers.map(async (sticker) => {
           if (!sticker.image) return [sticker.id, ''] as const;
           const uri = await resolveStickerArtUri(album.id, sticker.image);
           return [sticker.id, uri] as const;
@@ -32,11 +33,11 @@ export function AlbumStickerGrid({
     return () => {
       cancelled = true;
     };
-  }, [album]);
+  }, [album.id, stickers]);
 
   return (
     <View style={styles.grid}>
-      {album.stickers.map((sticker) => {
+      {stickers.map((sticker) => {
         const entry = getCollectionEntry(sticker.id);
         return (
           <StickerCard

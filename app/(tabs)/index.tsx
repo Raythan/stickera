@@ -4,11 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
 import { AlbumGrid } from '@/components/organisms/AlbumGrid';
+import { CollectionListToolbar } from '@/components/organisms/CollectionListToolbar';
 import { HomeHero } from '@/components/organisms/HomeHero';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
+import { useCollectionListControls } from '@/features/collection/useCollectionListControls';
 import { useAlbumProgress } from '@/features/collection/useAlbumProgress';
 import { useAlbums } from '@/features/collection/useAlbums';
 import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
+import { usePageSizePreference } from '@/features/collection/usePageSizePreference';
 import { useContentSync } from '@/features/sync/useContentSync';
 import { useTheme } from '@/theme/ThemeContext';
 
@@ -21,6 +24,8 @@ export default function HomeScreen() {
   const { items: enabledItems, reload: reloadEnabled, toggle: togglePackPool } =
     useEnabledAlbums();
   const { sync, syncing } = useContentSync();
+  const { pageSize, setPageSize, options: pageSizeOptions, ready: pageSizeReady } =
+    usePageSizePreference('albums');
   const [refreshing, setRefreshing] = useState(false);
 
   const enabledByAlbumId = useMemo(() => {
@@ -30,6 +35,18 @@ export default function HomeScreen() {
     }
     return map;
   }, [enabledItems]);
+
+  const getAlbumSearchText = useCallback(
+    (album: (typeof albums)[0]) => `${album.id} ${album.name_key}`,
+    [],
+  );
+
+  const list = useCollectionListControls({
+    items: albums,
+    pageSize: pageSizeReady ? pageSize : albums.length || 1,
+    getSearchText: getAlbumSearchText,
+    enableOwnershipFilter: false,
+  });
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -43,9 +60,25 @@ export default function HomeScreen() {
     }
   }, [sync, reload, reloadProgress, reloadEnabled]);
 
+  const toolbarLabels = useMemo(
+    () => ({
+      itemCount: t('screens.collection.itemCount', { count: list.total }),
+      pageOf: t('screens.collection.pageOf', {
+        page: list.page,
+        totalPages: list.totalPages,
+      }),
+      prev: t('screens.collection.prev'),
+      next: t('screens.collection.next'),
+      filterAll: t('screens.collection.filterAll'),
+      filterOwned: t('screens.collection.filterOwned'),
+      filterMissing: t('screens.collection.filterMissing'),
+    }),
+    [t, list.total, list.page, list.totalPages],
+  );
+
   const gridItems = useMemo(
     () =>
-      albums.map((album) => ({
+      list.visibleItems.map((album) => ({
         album,
         owned: getOwned(album.id),
         total: album.total_stickers,
@@ -54,7 +87,7 @@ export default function HomeScreen() {
         onPress: () =>
           router.push({ pathname: '/album/[id]', params: { id: album.id } }),
       })),
-    [albums, getOwned, router, enabledByAlbumId, togglePackPool],
+    [list.visibleItems, getOwned, router, enabledByAlbumId, togglePackPool],
   );
 
   return (
@@ -74,12 +107,34 @@ export default function HomeScreen() {
       <Text variant="caption" color={colors.textMuted} style={{ marginBottom: spacing.md }}>
         {t('screens.home.packPoolHint')}
       </Text>
+      {pageSizeReady && albums.length > 0 ? (
+        <CollectionListToolbar
+          search={list.search}
+          onSearchChange={list.setSearch}
+          searchPlaceholder={t('screens.collection.searchPlaceholderAlbums')}
+          pageSize={pageSize}
+          pageSizeOptions={pageSizeOptions}
+          onPageSizeChange={setPageSize}
+          pageSizeLabel={t('screens.collection.pageSizeAlbums')}
+          page={list.page}
+          totalPages={list.totalPages}
+          total={list.total}
+          onPrevPage={() => list.setPage(list.page - 1)}
+          onNextPage={() => list.setPage(list.page + 1)}
+          labels={toolbarLabels}
+        />
+      ) : null}
       {loading && albums.length === 0 ? (
         <Text variant="body" color={colors.textMuted}>
           {t('common.loading')}
         </Text>
       ) : null}
-      <AlbumGrid items={gridItems} />
+      {!loading && albums.length > 0 && !list.hasResults ? (
+        <Text variant="body" color={colors.textMuted}>
+          {t('screens.collection.noResults')}
+        </Text>
+      ) : null}
+      {list.hasResults ? <AlbumGrid items={gridItems} /> : null}
     </ScreenTemplate>
   );
 }

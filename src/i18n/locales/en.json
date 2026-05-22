@@ -39,6 +39,20 @@
       "progress": "{{owned}} / {{total}}",
       "openAlbum": "View album"
     },
+    "collection": {
+      "searchPlaceholderAlbums": "Search albums…",
+      "searchPlaceholderStickers": "Search stickers…",
+      "filterAll": "All",
+      "filterOwned": "Owned",
+      "filterMissing": "Missing",
+      "pageSizeAlbums": "Albums per page",
+      "pageSizeStickers": "Stickers per page",
+      "pageOf": "Page {{page}} of {{totalPages}}",
+      "itemCount": "{{count}} items",
+      "noResults": "No results for this search or filter.",
+      "prev": "Previous",
+      "next": "Next"
+    },
     "trade": {
       "title": "Trade duplicates",
       "createOffer": "Create offer",

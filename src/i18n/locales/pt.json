@@ -39,6 +39,20 @@
       "progress": "{{owned}} / {{total}}",
       "openAlbum": "Ver álbum"
     },
+    "collection": {
+      "searchPlaceholderAlbums": "Buscar álbuns…",
+      "searchPlaceholderStickers": "Buscar figurinhas…",
+      "filterAll": "Todas",
+      "filterOwned": "Tenho",
+      "filterMissing": "Falta",
+      "pageSizeAlbums": "Álbuns por página",
+      "pageSizeStickers": "Figurinhas por página",
+      "pageOf": "Página {{page}} de {{totalPages}}",
+      "itemCount": "{{count}} itens",
+      "noResults": "Nenhum resultado para esta busca ou filtro.",
+      "prev": "Anterior",
+      "next": "Próxima"
+    },
     "trade": {
       "title": "Trocar repetidas",
       "createOffer": "Criar oferta",

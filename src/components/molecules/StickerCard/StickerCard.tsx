@@ -23,6 +23,24 @@ function createStyles(theme: AppTheme) {
       width: 120,
       alignItems: 'center',
     },
+    frameWrap: {
+      position: 'relative',
+      width: 120,
+    },
+    qtyOverlay: {
+      position: 'absolute',
+      right: 2,
+      top: 72,
+      minWidth: 28,
+      paddingHorizontal: theme.spacing.xs,
+      paddingVertical: 2,
+      borderRadius: 10,
+      backgroundColor: theme.colors.surface,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     meta: {
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -32,10 +50,6 @@ function createStyles(theme: AppTheme) {
     },
     name: {
       marginTop: theme.spacing.xs,
-      textAlign: 'center',
-    },
-    qty: {
-      marginTop: 2,
       textAlign: 'center',
     },
   });
@@ -58,7 +72,17 @@ export function StickerCard({
   const content = (
     <View style={styles.wrap}>
       {frameCss ? (
-        <StickerFramePreview frameCss={frameCss} artUri={imageUri} accessibilityLabel={name} />
+        <View style={styles.frameWrap}>
+          <StickerFramePreview frameCss={frameCss} artUri={imageUri} accessibilityLabel={name} />
+          <View style={styles.qtyOverlay}>
+            <Text
+              variant="caption"
+              color={owned ? colors.primary : colors.textMuted}
+            >
+              {t('collection.quantity', { count: quantity })}
+            </Text>
+          </View>
+        </View>
       ) : null}
       <View style={styles.meta}>
         {isNew && owned ? (
@@ -75,13 +99,6 @@ export function StickerCard({
         numberOfLines={2}
       >
         {name}
-      </Text>
-      <Text
-        variant="caption"
-        color={owned ? colors.primary : colors.textMuted}
-        style={styles.qty}
-      >
-        {t('collection.quantity', { count: quantity })}
       </Text>
     </View>
   );

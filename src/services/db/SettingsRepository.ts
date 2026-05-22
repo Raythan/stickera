@@ -8,6 +8,18 @@ export const SETTINGS_KEYS = {
   adminEnabled: 'adminEnabled',
   profileId: 'profileId',
   themeId: 'themeId',
+  albumListPageSize: 'albumListPageSize',
+  stickerGridPageSize: 'stickerGridPageSize',
+} as const;
+
+export const PAGE_SIZE_OPTIONS = {
+  albums: [4, 6, 8] as const,
+  stickers: [12, 24, 48] as const,
+} as const;
+
+export const DEFAULT_PAGE_SIZE = {
+  albums: 6,
+  stickers: 24,
 } as const;
 
 export const SettingsRepository = {
