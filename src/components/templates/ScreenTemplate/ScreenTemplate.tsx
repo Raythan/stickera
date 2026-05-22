@@ -14,17 +14,23 @@ export function ScreenTemplate({
   onRefresh,
   showBack = true,
   showHome = true,
+  showLocale = true,
   showHeader: showHeaderProp,
 }: ScreenTemplateProps) {
   const insets = useSafeAreaInsets();
   const showHeader =
-    showHeaderProp ?? (showBack || showHome || !!title);
+    showHeaderProp ?? (showBack || showHome || showLocale || !!title);
 
   return (
     <View style={[styles.root, { paddingBottom: insets.bottom }]}>
       {showHeader ? (
         <View style={[styles.headerWrap, { paddingTop: insets.top }]}>
-          <ScreenNavBar title={title} showBack={showBack} showHome={showHome} />
+          <ScreenNavBar
+            title={title}
+            showBack={showBack}
+            showHome={showHome}
+            showLocale={showLocale}
+          />
         </View>
       ) : (
         <View style={{ height: insets.top, backgroundColor: theme.colors.background }} />

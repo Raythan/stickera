@@ -1,0 +1,1 @@
+export { HeaderLocaleMenu } from './HeaderLocaleMenu';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Switch, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
@@ -13,7 +13,14 @@ import { theme } from '@/theme';
 
 import type { AlbumListCardProps } from './AlbumListCard.types';
 
-export function AlbumListCard({ album, owned, total, onPress }: AlbumListCardProps) {
+export function AlbumListCard({
+  album,
+  owned,
+  total,
+  packPoolEnabled,
+  onTogglePackPool,
+  onPress,
+}: AlbumListCardProps) {
   const { t } = useTranslation();
   const { manifest } = useAlbumManifest(album.id);
   const title = manifest
@@ -63,6 +70,23 @@ export function AlbumListCard({ album, owned, total, onPress }: AlbumListCardPro
         ) : null}
         {css ? <StickerFramePreview frameCss={css} artUri={artUri} /> : null}
       </Pressable>
+      <Pressable
+        accessibilityRole="switch"
+        accessibilityState={{ checked: packPoolEnabled }}
+        accessibilityLabel={t('screens.home.packPoolToggle')}
+        onPress={() => onTogglePackPool(album.id, !packPoolEnabled)}
+        style={styles.poolRow}
+      >
+        <Text variant="caption" color={theme.colors.textMuted} style={styles.poolLabel}>
+          {t('screens.home.packPoolToggle')}
+        </Text>
+        <Switch
+          value={packPoolEnabled}
+          onValueChange={(value) => onTogglePackPool(album.id, value)}
+          trackColor={{ false: theme.colors.border, true: theme.colors.primary }}
+          thumbColor={theme.colors.surface}
+        />
+      </Pressable>
       <Button
         label={t('screens.album.openAlbum')}
         variant="ghost"
@@ -93,5 +117,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 160,
     justifyContent: 'center',
+  },
+  poolRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: theme.spacing.xs,
+    gap: theme.spacing.sm,
+  },
+  poolLabel: {
+    flex: 1,
   },
 });

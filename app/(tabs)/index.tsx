@@ -8,6 +8,7 @@ import { HomeHero } from '@/components/organisms/HomeHero';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAlbumProgress } from '@/features/collection/useAlbumProgress';
 import { useAlbums } from '@/features/collection/useAlbums';
+import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
 import { useContentSync } from '@/features/sync/useContentSync';
 import { theme } from '@/theme';
 
@@ -16,8 +17,18 @@ export default function HomeScreen() {
   const router = useRouter();
   const { albums, loading, reload } = useAlbums();
   const { getOwned, reload: reloadProgress } = useAlbumProgress(albums);
+  const { items: enabledItems, reload: reloadEnabled, toggle: togglePackPool } =
+    useEnabledAlbums();
   const { sync, syncing } = useContentSync();
   const [refreshing, setRefreshing] = useState(false);
+
+  const enabledByAlbumId = useMemo(() => {
+    const map = new Map<string, boolean>();
+    for (const item of enabledItems) {
+      map.set(item.album.id, item.enabled);
+    }
+    return map;
+  }, [enabledItems]);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
@@ -25,10 +36,11 @@ export default function HomeScreen() {
       await sync();
       await reload();
       await reloadProgress();
+      await reloadEnabled();
     } finally {
       setRefreshing(false);
     }
-  }, [sync, reload, reloadProgress]);
+  }, [sync, reload, reloadProgress, reloadEnabled]);
 
   const gridItems = useMemo(
     () =>
@@ -36,10 +48,12 @@ export default function HomeScreen() {
         album,
         owned: getOwned(album.id),
         total: album.total_stickers,
+        packPoolEnabled: enabledByAlbumId.get(album.id) ?? true,
+        onTogglePackPool: togglePackPool,
         onPress: () =>
           router.push({ pathname: '/album/[id]', params: { id: album.id } }),
       })),
-    [albums, getOwned, router],
+    [albums, getOwned, router, enabledByAlbumId, togglePackPool],
   );
 
   return (
@@ -48,6 +62,7 @@ export default function HomeScreen() {
       onRefresh={onRefresh}
       showBack={false}
       showHome={false}
+      showHeader={false}
     >
       <HomeHero
         title={t('screens.home.title')}
@@ -56,7 +71,7 @@ export default function HomeScreen() {
         onOpenPack={() => router.push('/pack')}
       />
       <Text variant="caption" color={theme.colors.textMuted} style={{ marginBottom: theme.spacing.md }}>
-        {t('screens.home.framePreviewHint')}
+        {t('screens.home.packPoolHint')}
       </Text>
       {loading && albums.length === 0 ? (
         <Text variant="body" color={theme.colors.textMuted}>

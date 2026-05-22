@@ -5,6 +5,8 @@
       "subtitle": "Collect stickers, open timed packs, trade duplicates.",
       "comingSoon": "Albums sync in Phase 2",
       "framePreviewHint": "Each album has its own frame.css — art loads on top later (lazy).",
+      "packPoolHint": "Toggle each album to include or exclude it when opening packs.",
+      "packPoolToggle": "In pack pool",
       "openPack": "Open pack"
     },
     "pack": {
@@ -93,7 +95,8 @@
   "nav": {
     "back": "Back",
     "home": "Home",
-    "homeLong": "Back to home"
+    "homeLong": "Back to home",
+    "languageMenu": "Language"
   },
   "admin": {
     "unlockTitle": "Developer mode",
@@ -128,7 +131,7 @@
     "pack": {
       "notReady": "Pack is not ready yet. Please wait for the cooldown.",
       "poolTooSmall": "Not enough stickers in the pool. Enable more albums or wait for content updates.",
-      "noEnabledAlbums": "No albums enabled. Go to Settings to enable at least one album."
+      "noEnabledAlbums": "No albums in the pack pool. Enable at least one album on the home screen."
     },
     "trade": {
       "expired": "This offer has expired.",

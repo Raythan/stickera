@@ -7,49 +7,16 @@ import { Button } from '@/components/atoms/Button';
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { AdminToolsPanel } from '@/components/molecules/AdminToolsPanel';
-import { EnableAlbumToggle } from '@/components/molecules/EnableAlbumToggle';
 import { useAdminMode } from '@/features/admin/useAdminMode';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
-import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
-import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { useContentSync } from '@/features/sync/useContentSync';
-import { useLocale } from '@/features/ui/useLocale';
-import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { SettingsRepository } from '@/services/db/SettingsRepository';
 import { theme } from '@/theme';
-
-function EnabledAlbumRow({
-  albumId,
-  nameKey,
-  enabled,
-  onToggle,
-}: {
-  albumId: string;
-  nameKey: string;
-  enabled: boolean;
-  onToggle: (id: string, value: boolean) => void;
-}) {
-  const { manifest } = useAlbumManifest(albumId);
-  const title = manifest
-    ? resolveContentLabel(manifest.nameKey ?? nameKey, manifest.names)
-    : nameKey;
-
-  return (
-    <EnableAlbumToggle
-      albumId={albumId}
-      title={title}
-      enabled={enabled}
-      onToggle={onToggle}
-    />
-  );
-}
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { locale, setLocale } = useLocale();
   const { sync, syncing, lastResult } = useContentSync();
-  const { items, reload: reloadEnabled, toggle } = useEnabledAlbums();
   const { enabled: adminEnabled, configured, unlockError, unlock, lock } = useAdminMode();
   const [contentVersion, setContentVersion] = useState<string | null>(null);
   const [adminCode, setAdminCode] = useState('');
@@ -64,9 +31,8 @@ export default function SettingsScreen() {
 
   const onSync = useCallback(async () => {
     await sync();
-    await reloadEnabled();
     await loadVersion();
-  }, [sync, reloadEnabled, loadVersion]);
+  }, [sync, loadVersion]);
 
   return (
     <ScreenTemplate showBack={false} showHome={false} showHeader={false}>
@@ -90,43 +56,6 @@ export default function SettingsScreen() {
             {t('screens.settings.syncDone', { count: lastResult.albumsUpdated })}
           </Text>
         ) : null}
-      </View>
-
-      <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.settings.enabledAlbums')}</Text>
-        <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
-          {t('screens.settings.enabledAlbumsHint')}
-        </Text>
-        {items.map(({ album, enabled }) => (
-          <EnabledAlbumRow
-            key={album.id}
-            albumId={album.id}
-            nameKey={album.name_key}
-            enabled={enabled}
-            onToggle={toggle}
-          />
-        ))}
-      </View>
-
-      <View style={styles.section}>
-        <Text variant="bodyBold">{t('screens.settings.language')}</Text>
-        <Text variant="caption" color={theme.colors.textMuted} style={styles.hint}>
-          {t('screens.settings.languageHint')}
-        </Text>
-        <View style={styles.row}>
-          <Button
-            label="English"
-            variant={locale === 'en' ? 'primary' : 'ghost'}
-            size="sm"
-            onPress={() => setLocale('en')}
-          />
-          <Button
-            label="Português"
-            variant={locale === 'pt' ? 'primary' : 'ghost'}
-            size="sm"
-            onPress={() => setLocale('pt')}
-          />
-        </View>
       </View>
 
       <Pressable
@@ -207,10 +136,6 @@ const styles = StyleSheet.create({
   result: {
     marginTop: theme.spacing.sm,
   },
-  row: {
-    flexDirection: 'row',
-    gap: theme.spacing.sm,
-  },
   aboutRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -218,6 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.surface,
     borderRadius: 16,
     padding: theme.spacing.lg,
+    marginBottom: theme.spacing.lg,
     borderWidth: 1,
     borderColor: theme.colors.border,
   },

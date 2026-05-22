@@ -1,14 +1,17 @@
 import { Stack, useLocalSearchParams } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
+import { EnableAlbumToggle } from '@/components/molecules/EnableAlbumToggle';
 import { AlbumStickerGrid } from '@/components/organisms/AlbumStickerGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAlbumCollection } from '@/features/collection/useAlbumCollection';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
+import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { theme } from '@/theme';
 
 export default function AlbumDetailScreen() {
@@ -30,6 +33,19 @@ export default function AlbumDetailScreen() {
     );
   }
 
+  const [packPoolEnabled, setPackPoolEnabled] = useState(true);
+
+  useEffect(() => {
+    if (!id) return;
+    void EnabledAlbumRepository.isEnabled(id).then(setPackPoolEnabled);
+  }, [id]);
+
+  const onTogglePackPool = useCallback(async (_albumId: string, enabled: boolean) => {
+    if (!id) return;
+    await EnabledAlbumRepository.setEnabled(id, enabled);
+    setPackPoolEnabled(enabled);
+  }, [id]);
+
   const loading = manifestLoading || frameLoading || collectionLoading;
   const title = manifest
     ? resolveContentLabel(manifest.nameKey ?? id, manifest.names)
@@ -40,12 +56,22 @@ export default function AlbumDetailScreen() {
       <Stack.Screen options={{ title }} />
       <ScreenTemplate title={title} showBack showHome>
         {manifest ? (
-          <Text variant="caption" color={theme.colors.textMuted} style={styles.meta}>
-            {t('screens.album.progress', {
-              owned: ownedCount,
-              total: manifest.totalStickers,
-            })}
-          </Text>
+          <>
+            <Text variant="caption" color={theme.colors.textMuted} style={styles.meta}>
+              {t('screens.album.progress', {
+                owned: ownedCount,
+                total: manifest.totalStickers,
+              })}
+            </Text>
+            <View style={styles.poolSection}>
+              <EnableAlbumToggle
+                albumId={id}
+                title={t('screens.home.packPoolToggle')}
+                enabled={packPoolEnabled}
+                onToggle={onTogglePackPool}
+              />
+            </View>
+          </>
         ) : null}
         {loading ? (
           <View style={styles.center}>
@@ -82,7 +108,15 @@ export default function AlbumDetailScreen() {
 
 const styles = StyleSheet.create({
   meta: {
+    marginBottom: theme.spacing.sm,
+  },
+  poolSection: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: 12,
+    paddingHorizontal: theme.spacing.md,
     marginBottom: theme.spacing.lg,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
   },
   center: {
     padding: theme.spacing.xl,

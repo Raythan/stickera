@@ -14,6 +14,8 @@ export function AlbumGrid({ items }: AlbumGridProps) {
           album={item.album}
           owned={item.owned}
           total={item.total}
+          packPoolEnabled={item.packPoolEnabled}
+          onTogglePackPool={item.onTogglePackPool}
           onPress={item.onPress}
         />
       ))}

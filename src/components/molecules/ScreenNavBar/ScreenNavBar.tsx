@@ -4,12 +4,18 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
+import { HeaderLocaleMenu } from '@/components/molecules/HeaderLocaleMenu';
 import { HeaderHomeButton } from '@/components/molecules/HeaderHomeButton';
 import { theme } from '@/theme';
 
 import type { ScreenNavBarProps } from './ScreenNavBar.types';
 
-export function ScreenNavBar({ title, showBack = true, showHome = true }: ScreenNavBarProps) {
+export function ScreenNavBar({
+  title,
+  showBack = true,
+  showHome = true,
+  showLocale = true,
+}: ScreenNavBarProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const canGoBack = router.canGoBack();
@@ -41,7 +47,14 @@ export function ScreenNavBar({ title, showBack = true, showHome = true }: Screen
       )}
 
       <View style={[styles.side, styles.sideEnd]}>
-        {showHome ? <HeaderHomeButton /> : <View style={styles.sidePlaceholder} />}
+        {showLocale || showHome ? (
+          <View style={styles.actions}>
+            {showLocale ? <HeaderLocaleMenu /> : null}
+            {showHome ? <HeaderHomeButton /> : null}
+          </View>
+        ) : (
+          <View style={styles.sidePlaceholder} />
+        )}
       </View>
     </View>
   );
@@ -64,6 +77,12 @@ const styles = StyleSheet.create({
   },
   sideEnd: {
     alignItems: 'flex-end',
+    width: 96,
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.spacing.xs,
   },
   sidePlaceholder: {
     width: 48,

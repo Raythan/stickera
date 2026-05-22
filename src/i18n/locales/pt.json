@@ -5,6 +5,8 @@
       "subtitle": "Colecione figurinhas, abra pacotes temporizados e troque repetidas.",
       "comingSoon": "Sincronização de álbuns na Fase 2",
       "framePreviewHint": "Cada álbum tem seu frame.css — a arte entra por cima depois (lazy).",
+      "packPoolHint": "Ative ou desative cada álbum para incluir ou não ao abrir pacotes.",
+      "packPoolToggle": "No pool de pacotes",
       "openPack": "Abrir pacote"
     },
     "pack": {
@@ -93,7 +95,8 @@
   "nav": {
     "back": "Voltar",
     "home": "Início",
-    "homeLong": "Voltar para o início"
+    "homeLong": "Voltar para o início",
+    "languageMenu": "Idioma"
   },
   "admin": {
     "unlockTitle": "Modo desenvolvedor",
@@ -128,7 +131,7 @@
     "pack": {
       "notReady": "O pacote ainda não está pronto. Aguarde o cooldown.",
       "poolTooSmall": "Figurinhas insuficientes no pool. Habilite mais álbuns ou aguarde atualizações.",
-      "noEnabledAlbums": "Nenhum álbum habilitado. Vá em Ajustes para habilitar pelo menos um."
+      "noEnabledAlbums": "Nenhum álbum no pool de pacotes. Ative pelo menos um álbum na tela inicial."
     },
     "trade": {
       "expired": "Esta oferta expirou.",
