@@ -16,7 +16,7 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 |----------|--------|
 | `AlbumGrid` | Lista álbuns (paginada) |
 | `AlbumDetail` | Grid figurinhas + qty |
-| `StickerCard` | molecule; medalha de raridade + qty ×N central na moldura |
+| `StickerCard` | molecule; medalha de raridade + qty ×N à direita da moldura |
 | `RarityMedalIcon` | atom; cor por tier (`src/theme/rarity.ts`) |
 | `CollectionListToolbar` | busca, filtro posse, page size, paginação |
 | `AlbumListCard` | toggle pool por álbum na home |
@@ -64,7 +64,7 @@ screens.settings.themeLight|Dark|Bloom|Ocean
 - [x] Rotas usam `ScreenTemplate`
 - [x] Busca + paginação na home (álbuns)
 - [x] Busca + filtro posse + paginação no detalhe do álbum
-- [x] Medalha de raridade + contador ×N central na moldura (sem badge textual de raridade)
+- [x] Medalha de raridade + contador ×N à direita da moldura (sem badge textual de raridade)
 - [x] `frame.css` com modificadores `--common` … `--legendary` e `--locked`
 
 ## Anti-padrões

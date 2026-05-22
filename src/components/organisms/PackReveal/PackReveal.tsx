@@ -120,7 +120,6 @@ export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
                 <RarityMedalIcon
                   rarity={sticker.rarity}
                   owned
-                  size={22}
                   accessibilityLabel={t(RARITY_I18N_KEY[sticker.rarity])}
                 />
               </View>

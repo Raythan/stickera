@@ -27,13 +27,15 @@ function createStyles(theme: AppTheme) {
     },
     overlayStack: {
       position: 'absolute',
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
+      right: 2,
       alignItems: 'center',
-      justifyContent: 'center',
       gap: 2,
+    },
+    overlayStackWithMedal: {
+      top: 50,
+    },
+    overlayStackQtyOnly: {
+      top: 72,
     },
     qtyPill: {
       minWidth: 28,
@@ -89,7 +91,13 @@ export function StickerCard({
             rarity={rarityTier}
             owned={owned}
           />
-          <View style={[styles.overlayStack, !owned && styles.overlayMuted]}>
+          <View
+            style={[
+              styles.overlayStack,
+              rarityTier ? styles.overlayStackWithMedal : styles.overlayStackQtyOnly,
+              !owned && styles.overlayMuted,
+            ]}
+          >
             {rarityTier ? (
               <RarityMedalIcon
                 rarity={rarityTier}

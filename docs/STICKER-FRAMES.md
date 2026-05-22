@@ -62,7 +62,7 @@ Copiar de [`content/templates/rarity-modifiers.css`](../content/templates/rarity
 | `.sticker-frame--legendary` | `rarity: legendary` | Borda `#F4B942` + glow dourado |
 | `.sticker-frame--locked` | `quantity === 0` | Opacidade baixa + grayscale na moldura e arte |
 
-Cores alinhadas a `src/theme/rarity.ts` e ao atom `RarityMedalIcon` (medalha acima do contador ×N no centro da moldura).
+Cores alinhadas a `src/theme/rarity.ts` (`RARITY_TONES`: fill, border, icon) e ao atom `RarityMedalIcon` — medalha em círculo preenchido acima do contador ×N à direita da moldura.
 
 ### Exemplo mínimo
 
