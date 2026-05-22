@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+/** Keep in sync with docs/schemas/album.schema.json → sticker.image pattern */
+export const STICKER_IMAGE_PATH_RE = /^stickers\/.+\.(png|jpg|jpeg|gif|webp)$/i;
+
 const namesSchema = z
   .object({
     en: z.string().min(1),
@@ -14,10 +17,7 @@ const stickerSchema = z
     number: z.number().int().min(1),
     nameKey: z.string().startsWith('albums.').optional(),
     names: namesSchema.optional(),
-    image: z
-      .string()
-      .regex(/^stickers\/.+\.(png|jpg|jpeg|gif)$/i)
-      .optional(),
+    image: z.string().regex(STICKER_IMAGE_PATH_RE).optional(),
     rarity: z.enum(['common', 'uncommon', 'rare', 'legendary']).optional(),
   })
   .refine((s) => Boolean(s.nameKey || s.names), {

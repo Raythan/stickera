@@ -49,6 +49,21 @@ describe('albumSchema', () => {
     expect(safeParseAlbum(rest).success).toBe(false);
   });
 
+  it('accepts webp sticker image path', () => {
+    const album = parseAlbum({
+      ...validAlbum,
+      stickers: [
+        {
+          id: 'fruits:040',
+          number: 40,
+          names: { en: 'Atemoya 05', pt: 'Atemoia 05' },
+          image: 'stickers/040-atemoia-05.webp',
+        },
+      ],
+    });
+    expect(album.stickers[0]?.image).toBe('stickers/040-atemoia-05.webp');
+  });
+
   it('rejects invalid image path', () => {
     const result = safeParseAlbum({
       ...validAlbum,

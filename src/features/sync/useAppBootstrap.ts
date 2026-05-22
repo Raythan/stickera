@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { formatBootstrapError } from '@/features/sync/formatBootstrapError';
 import { clearAlbumManifestCache } from '@/services/content/AlbumManifestStore';
 import { ContentSyncService } from '@/services/sync/ContentSyncService';
 
@@ -28,7 +29,7 @@ export function useAppBootstrap() {
     } catch (e) {
       setState({
         ready: true,
-        error: e instanceof Error ? e.message : 'BOOTSTRAP_ERROR',
+        error: formatBootstrapError(e),
         catalogVersion: null,
       });
     }
