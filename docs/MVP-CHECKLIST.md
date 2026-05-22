@@ -78,6 +78,10 @@ See [DEV-ADMIN.md](DEV-ADMIN.md).
 
 - [x] Admin unlock (secret hash) + local test actions
 - [x] Trade role-based validation + TradeAck copy/paste
+- [x] Trade QR scanner (web) + pending offer preview on hub
+- [x] Content CLI: `content:scaffold`, `content:sync-manifests`, `content:build`
+- [x] Trade registry CI (optional `deploy-trade-registry.yml`)
+- [x] Portfolio: README demo, PWA-AUDIT, MANUAL-TEST-TRADE
 
 ## Definition of done
 

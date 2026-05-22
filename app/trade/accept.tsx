@@ -7,6 +7,7 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
+import { TradeQrScanner } from '@/components/molecules/TradeQrScanner';
 import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { resolveStickerItemsByIds } from '@/features/trade/tradableStickerItems';
@@ -46,6 +47,7 @@ export default function TradeAcceptScreen() {
   const [copied, setCopied] = useState(false);
   const [partnerItems, setPartnerItems] = useState<TradableStickerItem[]>([]);
   const [selectedAcceptorIds, setSelectedAcceptorIds] = useState<string[]>([]);
+  const [inputMode, setInputMode] = useState<'paste' | 'scan'>('paste');
 
   const isV2 = preview?.v === 2;
 
@@ -76,6 +78,16 @@ export default function TradeAcceptScreen() {
       decode(input.trim());
     }
   }, [input, decode]);
+
+  const handleScan = useCallback(
+    (decoded: string) => {
+      setInputMode('paste');
+      setInput(decoded);
+      setSelectedAcceptorIds([]);
+      decode(decoded);
+    },
+    [decode],
+  );
 
   const handleConfirm = useCallback(async () => {
     const result = await confirm(isV2 ? selectedAcceptorIds : []);
@@ -127,22 +139,45 @@ export default function TradeAcceptScreen() {
         {t('screens.trade.pasteHint')}
       </Text>
 
-      <TextInput
-        style={styles.input}
-        value={input}
-        onChangeText={setInput}
-        placeholder="eyJ2IjoyLC..."
-        placeholderTextColor={theme.colors.textMuted}
-        multiline
-        numberOfLines={3}
-      />
+      <View style={styles.modeRow}>
+        <Button
+          label={t('screens.trade.inputModePaste')}
+          size="sm"
+          variant={inputMode === 'paste' ? 'primary' : 'secondary'}
+          onPress={() => setInputMode('paste')}
+        />
+        {Platform.OS === 'web' ? (
+          <Button
+            label={t('screens.trade.inputModeScan')}
+            size="sm"
+            variant={inputMode === 'scan' ? 'primary' : 'secondary'}
+            onPress={() => setInputMode('scan')}
+          />
+        ) : null}
+      </View>
 
-      <Button
-        label={t('screens.trade.previewOffer')}
-        variant="secondary"
-        onPress={handleDecode}
-        disabled={!input.trim()}
-      />
+      {inputMode === 'scan' && Platform.OS === 'web' ? (
+        <TradeQrScanner active={!preview} onScan={handleScan} />
+      ) : (
+        <>
+          <TextInput
+            style={styles.input}
+            value={input}
+            onChangeText={setInput}
+            placeholder="eyJ2IjoyLC..."
+            placeholderTextColor={theme.colors.textMuted}
+            multiline
+            numberOfLines={3}
+          />
+
+          <Button
+            label={t('screens.trade.previewOffer')}
+            variant="secondary"
+            onPress={handleDecode}
+            disabled={!input.trim()}
+          />
+        </>
+      )}
 
       {error ? (
         <Text variant="caption" color={theme.colors.error} style={styles.error}>
@@ -201,6 +236,12 @@ const styles = StyleSheet.create({
   hint: {
     marginBottom: theme.spacing.md,
     textAlign: 'center',
+  },
+  modeRow: {
+    flexDirection: 'row',
+    gap: theme.spacing.sm,
+    justifyContent: 'center',
+    marginBottom: theme.spacing.md,
   },
   input: {
     backgroundColor: theme.colors.surface,

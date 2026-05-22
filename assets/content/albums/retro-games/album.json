@@ -4,7 +4,10 @@
   "frameStylePath": "frame.css",
   "totalStickers": 5,
   "nameKey": "albums.retroGames.name",
-  "names": { "en": "Retro Games", "pt": "Jogos Retrô" },
+  "names": {
+    "en": "Retro Games",
+    "pt": "Jogos Retrô"
+  },
   "coverImage": "stickers/01-nine-top-games.jpeg",
   "packWeight": 1,
   "stickers": [

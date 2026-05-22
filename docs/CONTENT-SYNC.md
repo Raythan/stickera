@@ -83,10 +83,14 @@ Deploy steps: [DEPLOY-CONTENT.md](DEPLOY-CONTENT.md).
 
 **No new `.tsx` files** — only `content/` (see [content/README.md](../content/README.md)):
 
-1. Create `content/albums/{id}/` with `album.json`, `frame.css`, optional `stickers/`.
-2. Use `names: { en, pt }` in `album.json` for album and sticker titles (or legacy `nameKey` + `src/i18n`).
-3. Register in `content/catalog.json` and bump `catalog.version` (+ album `revision` when assets change).
-4. Push → GitHub Pages / CDN → users sync on open or pull-to-refresh.
+1. **Scaffold** (new album): `npm run content:scaffold -- <album-id> [--title-en "..."] [--title-pt "..."]`
+2. Drop images in `content/albums/<id>/stickers/`.
+3. **Sync manifests** from files: `npm run content:sync-manifests` (merge; preserves `rarity` / `names` for existing `image` paths).
+4. **Full build**: `npm run content:build` → sync manifests + `sync:assets` + `validate:content`.
+5. Edit titles in `album.json` if needed; bump `revision` happens automatically when sticker list changes (or `--bump-revision`).
+6. Push → GitHub Pages / CDN → users sync on open or pull-to-refresh.
+
+Use `names: { en, pt }` in `album.json` (or legacy `nameKey` + `src/i18n`). `frame.css` defaults from `content/templates/default-frame.css`; customize per album.
 
 `assets/content/` is a build mirror (`npm run sync:assets`); edit `content/` only.
 

@@ -5,6 +5,9 @@
   "description": "Offline sticker album — PWA",
   "main": "expo-router/entry",
   "scripts": {
+    "content:scaffold": "node scripts/content-scaffold.mjs",
+    "content:sync-manifests": "node scripts/content-sync-manifests.mjs",
+    "content:build": "node scripts/content-build.mjs",
     "sync:assets": "node scripts/sync-content-to-assets.mjs && node scripts/create-assets.mjs && node scripts/sync-pwa-icons.mjs",
     "prestart": "npm run sync:assets",
     "start": "expo start --web",
@@ -27,6 +30,7 @@
     "expo": "~52.0.46",
     "expo-router": "~4.0.20",
     "expo-status-bar": "~2.0.1",
+    "html5-qrcode": "^2.3.8",
     "i18next": "^24.2.3",
     "qrcode": "^1.5.4",
     "react": "18.3.1",

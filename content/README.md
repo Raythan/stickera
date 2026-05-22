@@ -6,14 +6,27 @@ A pasta `assets/content/` é **gerada automaticamente** (`npm run sync:assets` /
 
 ## Novo álbum (checklist)
 
+### Com CLI (recomendado)
+
+```bash
+npm run content:scaffold -- meu-album --title-en "My Album" --title-pt "Meu Álbum"
+# Coloque imagens em content/albums/meu-album/stickers/
+npm run content:build
+```
+
+| Comando | Função |
+|---------|--------|
+| `content:scaffold` | Pasta, `frame.css` (template), `album.json` vazio, entrada no `catalog.json` |
+| `content:sync-manifests` | Gera/atualiza entradas em `album.json` a partir dos arquivos em `stickers/` |
+| `content:build` | `sync-manifests` + `sync:assets` + `validate:content` |
+
+Flags: `--dry-run`, `--force` (scaffold), `--album <id>`, `--bump-revision`.
+
+### Manual
+
 1. Crie `content/albums/{album-id}/` (slug: `a-z`, `0-9`, hífens).
-2. Coloque:
-   - `album.json` — manifest do álbum
-   - `frame.css` — moldura (obrigatório)
-   - `stickers/` — imagens referenciadas em `album.json` (opcional no início)
-3. Registre em `content/catalog.json` → array `albums[]` com `id`, `revision`, `manifestPath`.
-4. Aumente `catalog.version` (ex.: data `2026.05.22.1`) para o app sincronizar.
-5. Se o álbum tiver figurinhas novas, aumente também `revision` do álbum.
+2. Coloque `album.json`, `frame.css`, `stickers/`.
+3. Registre em `content/catalog.json` e aumente `catalog.version`.
 
 ## `album.json` (mínimo)
 
@@ -49,6 +62,8 @@ Deploy PWA/CDN: push em `main` → GitHub Pages. Ver [docs/DEPLOY-CONTENT.md](..
 ## Validar
 
 ```bash
-npm run validate:content
+npm run content:build    # ou só validate:content
 npm run validate:bundle
 ```
+
+Template de moldura: [`templates/default-frame.css`](templates/default-frame.css).

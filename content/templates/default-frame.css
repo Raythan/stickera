@@ -1,0 +1,23 @@
+/**
+ * Default album frame — copy via `npm run content:scaffold`
+ * Contract: .sticker-frame + .sticker-art (see docs/STICKER-FRAMES.md)
+ */
+.sticker-frame {
+  width: 120px;
+  height: 160px;
+  box-sizing: border-box;
+  border: 3px solid #1b4d5c;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f7f3ed 0%, #ede8df 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sticker-art {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  border-radius: 6px;
+}

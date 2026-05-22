@@ -79,12 +79,19 @@
       "registryOffline": "Registry configurado mas inacessível — só regras locais",
       "registryNotConfigured": "Sem URL de registry neste build — só confiança local",
       "completedTrades": "Trocas concluídas",
-      "completedTradesHint": "Veja o que você trocou — códigos não são mais compartilhados após concluir."
+      "completedTradesHint": "Veja o que você trocou — códigos não são mais compartilhados após concluir.",
+      "pendingOfferPreview": "Figurinhas oferecidas",
+      "inputModePaste": "Colar",
+      "inputModeScan": "Escanear QR",
+      "scanHint": "Aponte a câmera para o QR de troca do parceiro",
+      "scanCameraUnavailable": "Câmera indisponível — cole o payload manualmente",
+      "scanNotAvailable": "Leitura de QR só no app web"
     }
   },
   "nav": {
     "back": "Voltar",
-    "home": "Início"
+    "home": "Início",
+    "homeLong": "Voltar para o início"
   },
   "admin": {
     "unlockTitle": "Modo desenvolvedor",

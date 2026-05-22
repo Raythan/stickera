@@ -25,13 +25,13 @@ export default function RootLayout() {
             }}
           >
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="album/[id]" options={{ title: '' }} />
-            <Stack.Screen name="trade/index" options={{ title: '' }} />
-            <Stack.Screen name="trade/offer" options={{ title: '' }} />
-            <Stack.Screen name="trade/accept" options={{ title: '' }} />
+            <Stack.Screen name="album/[id]" options={{ headerShown: false }} />
+            <Stack.Screen name="trade/index" options={{ headerShown: false }} />
+            <Stack.Screen name="trade/offer" options={{ headerShown: false }} />
+            <Stack.Screen name="trade/accept" options={{ headerShown: false }} />
             <Stack.Screen
               name="about"
-              options={{ presentation: 'modal', title: '' }}
+              options={{ presentation: 'modal', headerShown: false }}
             />
           </Stack>
         </AppBootstrapGate>

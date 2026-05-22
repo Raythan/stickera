@@ -1,7 +1,6 @@
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Text } from '@/components/atoms/Text';
 import { ScreenNavBar } from '@/components/molecules/ScreenNavBar';
 import { theme } from '@/theme';
 
@@ -17,11 +16,20 @@ export function ScreenTemplate({
   showHome = true,
 }: ScreenTemplateProps) {
   const insets = useSafeAreaInsets();
+  const showHeader = showBack || showHome || !!title;
 
   return (
-    <View style={[styles.root, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+    <View style={[styles.root, { paddingBottom: insets.bottom }]}>
+      {showHeader ? (
+        <View style={[styles.headerWrap, { paddingTop: insets.top }]}>
+          <ScreenNavBar title={title} showBack={showBack} showHome={showHome} />
+        </View>
+      ) : (
+        <View style={{ height: insets.top, backgroundColor: theme.colors.background }} />
+      )}
       <ScrollView
-        contentContainerStyle={styles.scroll}
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
         refreshControl={
           onRefresh ? (
@@ -33,12 +41,6 @@ export function ScreenTemplate({
           ) : undefined
         }
       >
-        <ScreenNavBar showBack={showBack} showHome={showHome} />
-        {title ? (
-          <Text variant="h1" style={styles.title}>
-            {title}
-          </Text>
-        ) : null}
         {children}
       </ScrollView>
       {footer ? <View style={styles.footer}>{footer}</View> : null}
@@ -51,12 +53,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
   },
-  scroll: {
-    paddingHorizontal: theme.spacing.lg,
-    paddingBottom: theme.spacing.xl,
+  headerWrap: {
+    backgroundColor: theme.colors.background,
+    paddingHorizontal: theme.spacing.sm,
+    zIndex: 10,
   },
-  title: {
-    marginBottom: theme.spacing.lg,
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: theme.spacing.lg,
+    paddingTop: theme.spacing.md,
+    paddingBottom: theme.spacing.xl,
   },
   footer: {
     paddingHorizontal: theme.spacing.lg,

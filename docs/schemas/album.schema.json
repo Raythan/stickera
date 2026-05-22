@@ -3,7 +3,7 @@
   "$id": "https://stickera.dev/schemas/album.schema.json",
   "title": "StickeraAlbum",
   "type": "object",
-  "required": ["id", "revision", "frameStylePath", "totalStickers", "nameKey", "stickers"],
+  "required": ["id", "revision", "frameStylePath", "totalStickers", "stickers"],
   "additionalProperties": false,
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
@@ -15,6 +15,14 @@
     },
     "totalStickers": { "type": "integer", "minimum": 1 },
     "nameKey": { "type": "string", "pattern": "^albums\\." },
+    "names": {
+      "type": "object",
+      "description": "Inline en/pt labels; alternative to nameKey (preferred for new albums).",
+      "properties": {
+        "en": { "type": "string" },
+        "pt": { "type": "string" }
+      }
+    },
     "coverImage": { "type": "string" },
     "packWeight": { "type": "number", "exclusiveMinimum": 0 },
     "stickers": {
@@ -25,13 +33,20 @@
   "$defs": {
     "sticker": {
       "type": "object",
-      "required": ["id", "number", "nameKey"],
+      "required": ["id", "number"],
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string" },
         "number": { "type": "integer", "minimum": 1 },
         "rarity": { "type": "string", "enum": ["common", "uncommon", "rare", "legendary"] },
         "nameKey": { "type": "string", "pattern": "^albums\\." },
+        "names": {
+          "type": "object",
+          "properties": {
+            "en": { "type": "string" },
+            "pt": { "type": "string" }
+          }
+        },
         "image": {
           "type": "string",
           "pattern": "^stickers\\/.+\\.(png|jpg|jpeg|gif)$"

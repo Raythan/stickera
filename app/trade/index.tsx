@@ -7,6 +7,7 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { TradeCompletedSummary } from '@/components/molecules/TradeCompletedSummary';
 import { TradeDisclaimer } from '@/components/molecules/TradeDisclaimer';
+import { TradePendingOfferPreview } from '@/components/molecules/TradePendingOfferPreview';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import {
   encodedPayloadFromEntry,
@@ -111,17 +112,20 @@ export default function TradeHubScreen() {
     const expired = isTradePayloadExpired(entry.payload_json);
     return (
       <View key={entry.id} style={styles.pendingRow}>
-        <View style={styles.rowMeta}>
-          <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
-            {offerId?.slice(0, 8) ?? entry.id.slice(0, 8)}…
-          </Text>
-          {expired ? (
-            <Text variant="caption" color={theme.colors.error}>
-              {t('screens.trade.offerExpired')}
+        <TradePendingOfferPreview payloadJson={entry.payload_json} />
+        <View style={styles.pendingFooter}>
+          <View style={styles.rowMeta}>
+            <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
+              {offerId?.slice(0, 8) ?? entry.id.slice(0, 8)}…
             </Text>
-          ) : null}
+            {expired ? (
+              <Text variant="caption" color={theme.colors.error}>
+                {t('screens.trade.offerExpired')}
+              </Text>
+            ) : null}
+          </View>
+          {actions}
         </View>
-        {actions}
       </View>
     );
   };
@@ -341,13 +345,16 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.xs,
   },
   pendingRow: {
+    paddingVertical: theme.spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: theme.colors.border,
+    gap: theme.spacing.xs,
+  },
+  pendingFooter: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: theme.spacing.sm,
-    paddingVertical: theme.spacing.sm,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border,
   },
   rowMeta: {
     flex: 1,

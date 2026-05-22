@@ -40,6 +40,13 @@ MVP publicável como vitrine profissional: About, branding, PWA instalável via 
 - About vazia ou com placeholder "Your Name" em produção
 - Publicar sem `catalog.version` coerente
 
+## Pós-MVP (entregue / referência)
+
+- [x] README demo + stack summary
+- [x] PWA audit doc ([PWA-AUDIT.md](../PWA-AUDIT.md))
+- [x] Trade E2E manual ([MANUAL-TEST-TRADE.md](../MANUAL-TEST-TRADE.md))
+- [x] Content CLI (`npm run content:scaffold` / `content:build`)
+
 ## Pós-MVP (fora do cerco atual)
 
 - Push notifications cooldown

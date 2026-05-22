@@ -41,6 +41,28 @@
 
 Cada álbum em `content/albums/{id}/` tem `frame.css` (molde) e `stickers/` para artes (png, jpg, jpeg, gif). Ver [docs/STICKER-FRAMES.md](docs/STICKER-FRAMES.md).
 
+```bash
+npm run content:scaffold -- meu-album --title-en "My Album" --title-pt "Meu Álbum"
+# add images to content/albums/meu-album/stickers/
+npm run content:build
+```
+
+Ver [content/README.md](content/README.md).
+
+## Demo
+
+**Live PWA:** [https://raythan.github.io/stickera/](https://raythan.github.io/stickera/)
+
+| Flow | What to try |
+|------|-------------|
+| Album | Open an album, view sticker frames (CSS per album) |
+| Pack | Wait cooldown → open pack → collect stickers |
+| Trade | Settings → trade duplicates → offer → partner scans QR or pastes → confirm |
+
+**Stack:** Expo (web export) · Expo Router · TypeScript · Zustand · localStorage · i18n (en/pt) · static `content/` on GitHub Pages · optional Cloudflare trade registry.
+
+PWA audit checklist: [docs/PWA-AUDIT.md](docs/PWA-AUDIT.md). Trade E2E: [docs/MANUAL-TEST-TRADE.md](docs/MANUAL-TEST-TRADE.md).
+
 ## PWA (GitHub Pages)
 
 **https://raythan.github.io/stickera/** — abra no navegador do telefone e use **Adicionar à tela inicial**.

@@ -79,12 +79,19 @@
       "registryOffline": "Trade registry configured but unreachable — local rules only",
       "registryNotConfigured": "No trade registry URL in this build — local trust only",
       "completedTrades": "Completed trades",
-      "completedTradesHint": "Review what you exchanged — codes are no longer shared after completion."
+      "completedTradesHint": "Review what you exchanged — codes are no longer shared after completion.",
+      "pendingOfferPreview": "Offered stickers",
+      "inputModePaste": "Paste",
+      "inputModeScan": "Scan QR",
+      "scanHint": "Point the camera at your partner's trade QR",
+      "scanCameraUnavailable": "Camera unavailable — paste the payload instead",
+      "scanNotAvailable": "QR scan is only available in the web app"
     }
   },
   "nav": {
-    "back": "Go back",
-    "home": "Home"
+    "back": "Back",
+    "home": "Home",
+    "homeLong": "Back to home"
   },
   "admin": {
     "unlockTitle": "Developer mode",

@@ -94,9 +94,12 @@ function applyTradeBundle(collection, giveIds, receiveIds): Collection;
 |--------|------------|
 | Trade hub | Pending sent + ack confirm |
 | Create offer | `TradeStickerSelectGrid` — offer only |
-| Accept | `TradeBundlePreview` (partner) + grid (counter-offer) |
+| Accept | `TradeBundlePreview` (partner) + grid (counter-offer); **QR scanner** (web) or paste |
+| Trade hub | `TradeBundlePreview` on pending sent/imported offers |
 
-**QR:** recommended when `offeredIds.length <= 8`; larger bundles — copy payload (QR/deep link may fail).
+**QR display:** recommended when `offeredIds.length <= 8`; larger bundles — copy payload (QR/deep link may fail).
+
+**QR scanner (accept screen, web/PWA):** `TradeQrScanner` uses `html5-qrcode` + camera permission. Toggle **Paste** / **Scan**; decoded token fills the same field as manual paste. If `getUserMedia` is unavailable (some desktops), user stays on paste. Deep link `?p=` still works without camera.
 
 ## Deep link
 
@@ -138,6 +141,6 @@ If registry URL unset or unreachable → local-only flow (no block on register m
 
 ## Future (out of MVP)
 
-- Camera scanner
 - Async negotiation / edit offer
 - Bluetooth proximity
+- Native camera scanner (non-web builds)

@@ -14,28 +14,40 @@
       "id": "world-cup-2026:01",
       "number": 1,
       "rarity": "legendary",
-      "names": { "en": "Neymar", "pt": "Neymar" },
+      "names": {
+        "en": "Neymar",
+        "pt": "Neymar"
+      },
       "image": "stickers/01-neymar.jpeg"
     },
     {
       "id": "world-cup-2026:02",
       "number": 2,
       "rarity": "rare",
-      "names": { "en": "Vinícius Jr.", "pt": "Vinícius Jr." },
+      "names": {
+        "en": "Vinícius Jr.",
+        "pt": "Vinícius Jr."
+      },
       "image": "stickers/02-vinicius-junior.jpeg"
     },
     {
       "id": "world-cup-2026:03",
       "number": 3,
       "rarity": "rare",
-      "names": { "en": "Raphinha", "pt": "Raphinha" },
+      "names": {
+        "en": "Raphinha",
+        "pt": "Raphinha"
+      },
       "image": "stickers/03-raphinha.jpeg"
     },
     {
       "id": "world-cup-2026:04",
       "number": 4,
       "rarity": "uncommon",
-      "names": { "en": "Endrick", "pt": "Endrick" },
+      "names": {
+        "en": "Endrick",
+        "pt": "Endrick"
+      },
       "image": "stickers/04-endrick.jpeg"
     }
   ]

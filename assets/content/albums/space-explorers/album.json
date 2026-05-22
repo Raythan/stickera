@@ -4,7 +4,10 @@
   "frameStylePath": "frame.css",
   "totalStickers": 4,
   "nameKey": "albums.spaceExplorers.name",
-  "names": { "en": "Space Explorers", "pt": "Exploradores do Espaço" },
+  "names": {
+    "en": "Space Explorers",
+    "pt": "Exploradores do Espaço"
+  },
   "coverImage": "stickers/01-space-explorer.jpeg",
   "packWeight": 1,
   "stickers": [
