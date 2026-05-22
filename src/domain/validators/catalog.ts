@@ -13,6 +13,8 @@ const albumRefSchema = z.object({
 
 const appConfigSchema = z.object({
   packCooldown: durationSchema,
+  packMaxAccumulation: z.number().int().min(1).max(99).optional(),
+  packBonusPerUniqueTrade: z.number().int().min(0).max(50).optional(),
   stickersPerPack: z.number().int().min(1).max(50),
   tradeRequiresConfirmation: z.boolean().optional(),
   signature: z

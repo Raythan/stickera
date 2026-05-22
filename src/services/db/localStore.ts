@@ -1,7 +1,7 @@
-import type { AlbumRow, CollectionRow } from '@/domain/types';
+import type { AlbumRow, CollectionRow, PackBankState } from '@/domain/types';
 
 const STORAGE_KEY = 'stickera_db_v1';
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 export type StoreData = {
   schemaVersion: number;
@@ -9,7 +9,8 @@ export type StoreData = {
   albums: AlbumRow[];
   enabled_albums: Record<string, boolean>;
   collection: CollectionRow[];
-  pack_state: { last_opened_at: string | null; next_available_at: string | null };
+  pack_state: PackBankState;
+  trade_partners: string[];
   trade_log: Array<{
     id: string;
     payload_json: string;
@@ -22,16 +23,61 @@ export type StoreData = {
   }>;
 };
 
+type LegacyPackState = {
+  last_opened_at: string | null;
+  next_available_at: string | null;
+};
+
+function isLegacyPackState(ps: unknown): ps is LegacyPackState {
+  return (
+    typeof ps === 'object' &&
+    ps !== null &&
+    'next_available_at' in ps &&
+    !('pending_packs' in ps)
+  );
+}
+
+function migratePackState(legacy: LegacyPackState, now: Date): PackBankState {
+  const ready =
+    !legacy.next_available_at || now >= new Date(legacy.next_available_at);
+  return {
+    pending_packs: ready ? 1 : 0,
+    last_accrued_at: now.toISOString(),
+    last_opened_at: legacy.last_opened_at,
+  };
+}
+
 function defaultStore(): StoreData {
+  const now = new Date();
   return {
     schemaVersion: SCHEMA_VERSION,
     settings: {},
     albums: [],
     enabled_albums: {},
     collection: [],
-    pack_state: { last_opened_at: null, next_available_at: null },
+    pack_state: {
+      pending_packs: 5,
+      last_accrued_at: now.toISOString(),
+      last_opened_at: null,
+    },
+    trade_partners: [],
     trade_log: [],
   };
+}
+
+function migrateStore(data: StoreData): StoreData {
+  const now = new Date();
+  if (isLegacyPackState(data.pack_state)) {
+    data.pack_state = migratePackState(data.pack_state, now);
+  }
+  if (!Array.isArray(data.trade_partners)) {
+    data.trade_partners = [];
+  }
+  if (typeof data.pack_state.pending_packs !== 'number') {
+    data.pack_state = defaultStore().pack_state;
+  }
+  data.schemaVersion = SCHEMA_VERSION;
+  return data;
 }
 
 export function loadStore(): StoreData {
@@ -40,7 +86,13 @@ export function loadStore(): StoreData {
     if (!raw) return defaultStore();
     const data = JSON.parse(raw) as StoreData;
     if (!data.schemaVersion) return defaultStore();
-    return data;
+    const needsMigrate =
+      data.schemaVersion < SCHEMA_VERSION ||
+      isLegacyPackState(data.pack_state) ||
+      !Array.isArray(data.trade_partners);
+    const migrated = migrateStore(data);
+    if (needsMigrate) saveStore(migrated);
+    return migrated;
   } catch {
     return defaultStore();
   }

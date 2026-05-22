@@ -22,7 +22,8 @@ type TradePayloadV2 = {
   offerId: string;
   fromDisplayName?: string;
   offeredIds: string[]; // 1..100, unique
-  expiresAt: string; // ISO, +15 min default
+  expiresAt: string; // ISO, +5 min default
+  fromProfileId?: string; // device profile stamp for pack-bank bonus
 };
 ```
 
@@ -47,6 +48,7 @@ type TradeAckV2 = {
   offerId: string;
   acceptedAt: string;
   acceptorIds: string[]; // 1..100, what acceptor gave
+  acceptorProfileId?: string;
 };
 
 type TradeAckV1 = { v: 1; offerId: string; acceptedAt: string };

@@ -34,7 +34,7 @@ flowchart LR
 | Area | Behavior |
 |------|----------|
 | Album catalog | User enables which albums to pull from; metadata from static manifest |
-| Pack timer | One pack per interval; `hours` / `minutes` / `seconds` from config |
+| Pack bank | Packs accrue every interval (default 1h) up to `packMaxAccumulation` (default 5); each unique trade partner adds `packBonusPerUniqueTrade` extra slot |
 | Pack open | Draw **N** stickers without replacement from enabled albums' pools |
 | Collection | Per-sticker quantity; mark "new" on first obtain |
 | Duplicates | Quantity > 1 enables trade offers |
@@ -56,7 +56,9 @@ flowchart LR
 
 ```json
 {
-  "packCooldown": { "value": 4, "unit": "hours" },
+  "packCooldown": { "value": 1, "unit": "hours" },
+  "packMaxAccumulation": 5,
+  "packBonusPerUniqueTrade": 1,
   "stickersPerPack": 5,
   "tradeRequiresConfirmation": true,
   "signature": {

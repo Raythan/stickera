@@ -1,6 +1,6 @@
 import type { TradePayloadV2 } from '@/domain/types';
 
-import { MAX_TRADE_STICKERS_PER_SIDE } from './constants';
+import { MAX_TRADE_STICKERS_PER_SIDE, TRADE_TTL_MINUTES } from './constants';
 
 let counter = 0;
 
@@ -17,6 +17,7 @@ function generateUUID(): string {
 export function createTradePayloadV2(opts: {
   offeredIds: string[];
   fromDisplayName?: string;
+  fromProfileId?: string;
   ttlMinutes?: number;
   now?: Date;
 }): TradePayloadV2 {
@@ -25,12 +26,13 @@ export function createTradePayloadV2(opts: {
   if (unique.length > MAX_TRADE_STICKERS_PER_SIDE) throw new Error('TRADE_TOO_MANY_STICKERS');
 
   const now = opts.now ?? new Date();
-  const ttl = (opts.ttlMinutes ?? 15) * 60_000;
+  const ttl = (opts.ttlMinutes ?? TRADE_TTL_MINUTES) * 60_000;
 
   return {
     v: 2,
     offerId: generateUUID(),
     fromDisplayName: opts.fromDisplayName,
+    fromProfileId: opts.fromProfileId,
     offeredIds: unique,
     expiresAt: new Date(now.getTime() + ttl).toISOString(),
   };
@@ -41,16 +43,18 @@ export function createTradePayload(opts: {
   offeredStickerId: string;
   wantedStickerId: string;
   fromDisplayName?: string;
+  fromProfileId?: string;
   ttlMinutes?: number;
   now?: Date;
 }) {
   const now = opts.now ?? new Date();
-  const ttl = (opts.ttlMinutes ?? 15) * 60_000;
+  const ttl = (opts.ttlMinutes ?? TRADE_TTL_MINUTES) * 60_000;
 
   return {
     v: 1 as const,
     offerId: generateUUID(),
     fromDisplayName: opts.fromDisplayName,
+    fromProfileId: opts.fromProfileId,
     offered: { stickerId: opts.offeredStickerId, quantity: 1 as const },
     wanted: { stickerId: opts.wantedStickerId, quantity: 1 as const },
     expiresAt: new Date(now.getTime() + ttl).toISOString(),

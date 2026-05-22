@@ -7,6 +7,7 @@ import type { TradePayloadV2 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
+import { ProfileService } from '@/services/profile/ProfileService';
 import { registerOffer } from '@/services/trade/TradeRegistryClient';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
@@ -35,9 +36,11 @@ export function useTradeOffer() {
     }): Promise<TradeOfferResult> => {
       setIsCreating(true);
       try {
+        const fromProfileId = await ProfileService.getOrCreateProfileId();
         const payload = createTradePayloadV2({
           offeredIds: opts.offeredIds,
           fromDisplayName: opts.fromDisplayName,
+          fromProfileId,
         });
 
         const collection = await CollectionRepository.getAllAsRows();

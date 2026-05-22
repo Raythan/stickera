@@ -17,7 +17,9 @@ beforeEach(() => {
 describe('localStore', () => {
   it('returns default store when nothing is persisted', () => {
     const store = loadStore();
-    expect(store.schemaVersion).toBe(1);
+    expect(store.schemaVersion).toBe(2);
+    expect(store.trade_partners).toEqual([]);
+    expect(store.pack_state.pending_packs).toBe(5);
     expect(store.albums).toEqual([]);
     expect(store.settings).toEqual({});
   });

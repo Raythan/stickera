@@ -14,6 +14,10 @@ export type CatalogAlbumRef = {
 export type AppConfig = {
   packCooldown: PackCooldown;
   stickersPerPack: number;
+  /** Max packs that can accumulate (default 5). */
+  packMaxAccumulation?: number;
+  /** Extra max pack slot per unique trade partner (default 1). */
+  packBonusPerUniqueTrade?: number;
   tradeRequiresConfirmation?: boolean;
   signature?: {
     authorName: string;
@@ -82,6 +86,8 @@ export type TradePayloadV1 = {
   v: 1;
   offerId: string;
   fromDisplayName?: string;
+  /** Stable device profile id for trade-partner stamps. */
+  fromProfileId?: string;
   offered: TradeSide;
   wanted: TradeSide;
   expiresAt: string;
@@ -91,6 +97,7 @@ export type TradePayloadV2 = {
   v: 2;
   offerId: string;
   fromDisplayName?: string;
+  fromProfileId?: string;
   offeredIds: string[];
   expiresAt: string;
 };
@@ -104,6 +111,13 @@ export type TradeAckV2 = {
   offerId: string;
   acceptedAt: string;
   acceptorIds: string[];
+  acceptorProfileId?: string;
+};
+
+export type PackBankState = {
+  pending_packs: number;
+  last_accrued_at: string | null;
+  last_opened_at: string | null;
 };
 
 export type TradeAckAny = TradeAckV1 | TradeAckV2;

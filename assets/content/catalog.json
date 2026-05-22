@@ -19,7 +19,9 @@
     }
   ],
   "appConfig": {
-    "packCooldown": { "value": 4, "unit": "hours" },
+    "packCooldown": { "value": 1, "unit": "hours" },
+    "packMaxAccumulation": 5,
+    "packBonusPerUniqueTrade": 1,
     "stickersPerPack": 4,
     "tradeRequiresConfirmation": true,
     "signature": {

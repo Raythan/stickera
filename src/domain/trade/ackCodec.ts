@@ -46,9 +46,16 @@ export function createTradeAckV1(offerId: string, now = new Date()): TradeAckV1 
 export function createTradeAckV2(
   offerId: string,
   acceptorIds: string[],
-  now = new Date(),
+  opts?: { acceptorProfileId?: string; now?: Date },
 ): TradeAckV2 {
-  return { v: 2, offerId, acceptedAt: now.toISOString(), acceptorIds };
+  const now = opts?.now ?? new Date();
+  return {
+    v: 2,
+    offerId,
+    acceptedAt: now.toISOString(),
+    acceptorIds,
+    acceptorProfileId: opts?.acceptorProfileId,
+  };
 }
 
 /** @deprecated Use createTradeAckV1 */

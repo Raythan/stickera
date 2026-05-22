@@ -2,7 +2,6 @@ import { useCallback, useState } from 'react';
 
 import { applyPackResults } from '@/domain/collection/applyPackResults';
 import type { StickerDef } from '@/domain/types';
-import { AppConfigService } from '@/services/config/AppConfigService';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { PackPoolService } from '@/services/pack/PackPoolService';
 import { PackTimerService } from '@/services/pack/PackTimerService';
@@ -26,8 +25,7 @@ export function usePackOpen() {
       const updatedRows = applyPackResults(currentRows, stickers);
       await CollectionRepository.saveAll(updatedRows);
 
-      const config = await AppConfigService.getAppConfig();
-      await PackTimerService.recordOpen(config.packCooldown);
+      await PackTimerService.recordOpen();
 
       return { ok: true, stickers };
     } catch (e) {

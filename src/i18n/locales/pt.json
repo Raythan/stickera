@@ -11,6 +11,8 @@
       "title": "Abrir pacote",
       "openButton": "Abrir pacote",
       "cooldown": "Próximo pacote em {{time}}",
+      "waitingAccrual": "Próximo pacote acumula em {{time}}",
+      "bank": "{{pending}} / {{max}} pacotes guardados",
       "ready": "Pacote pronto!",
       "revealTitle": "Você ganhou {{count}} figurinhas!"
     },

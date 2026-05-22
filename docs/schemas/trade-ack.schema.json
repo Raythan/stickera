@@ -31,7 +31,8 @@
           "maxItems": 100,
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 3 }
-        }
+        },
+        "acceptorProfileId": { "type": "string", "minLength": 8 }
       }
     }
   }

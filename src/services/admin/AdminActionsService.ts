@@ -1,7 +1,8 @@
 import { grantAllStickersQty, setStickerQuantity } from '@/domain/collection/grantStickers';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
-import { PackStateRepository } from '@/services/db/PackStateRepository';
+import { AppConfigService } from '@/services/config/AppConfigService';
+import { PackAccumulationService } from '@/services/pack/PackAccumulationService';
 import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
@@ -27,7 +28,8 @@ export const AdminActionsService = {
   },
 
   async resetPackCooldown(): Promise<void> {
-    await PackStateRepository.resetCooldown();
+    const config = await AppConfigService.getAppConfig();
+    await PackAccumulationService.fillToCapacity(config);
   },
 
   async clearTradeLog(): Promise<void> {

@@ -1,23 +1,27 @@
-import { nextAvailableAt } from '@/domain/pack/cooldown';
-import type { PackCooldown } from '@/domain/types';
-import { PackStateRepository } from '@/services/db/PackStateRepository';
+import { AppConfigService } from '@/services/config/AppConfigService';
+
+import { PackAccumulationService } from './PackAccumulationService';
 
 export const PackTimerService = {
   async canOpen(now = new Date()): Promise<boolean> {
-    const state = await PackStateRepository.getState();
-    if (!state.next_available_at) return true;
-    return now >= new Date(state.next_available_at);
+    const config = await AppConfigService.getAppConfig();
+    const snap = await PackAccumulationService.getSnapshot(config, now);
+    return snap.canOpen;
   },
 
   async getRemainingMs(now = new Date()): Promise<number> {
-    const state = await PackStateRepository.getState();
-    if (!state.next_available_at) return 0;
-    const diff = new Date(state.next_available_at).getTime() - now.getTime();
-    return Math.max(0, diff);
+    const config = await AppConfigService.getAppConfig();
+    const snap = await PackAccumulationService.getSnapshot(config, now);
+    return snap.msUntilNext;
   },
 
-  async recordOpen(cooldown: PackCooldown, now = new Date()): Promise<void> {
-    const next = nextAvailableAt(now, cooldown);
-    await PackStateRepository.recordOpen(now, next);
+  async getPackBankSnapshot(now = new Date()) {
+    const config = await AppConfigService.getAppConfig();
+    return PackAccumulationService.getSnapshot(config, now);
+  },
+
+  async recordOpen(now = new Date()): Promise<void> {
+    const config = await AppConfigService.getAppConfig();
+    await PackAccumulationService.consumeOne(config, now);
   },
 };

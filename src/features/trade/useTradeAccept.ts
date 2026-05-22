@@ -17,6 +17,11 @@ import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
+import { ProfileService } from '@/services/profile/ProfileService';
+import {
+  registerPartnerFromAck,
+  registerPartnerFromPayload,
+} from '@/services/trade/registerTradePartnerFromPayload';
 import { claimOffer, getOfferStatus } from '@/services/trade/TradeRegistryClient';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
@@ -154,9 +159,12 @@ export function useTradeAccept() {
           );
           await CollectionRepository.saveAll(updated);
 
+          const acceptorProfileId = await ProfileService.getOrCreateProfileId();
           const encodedAck = encodeTradeAck(
-            createTradeAckV2(preview.offerId, acceptorIds),
+            createTradeAckV2(preview.offerId, acceptorIds, { acceptorProfileId }),
           );
+
+          await registerPartnerFromPayload(preview);
 
           await TradeLogRepository.upsertByOfferId({
             id: preview.offerId,
@@ -186,6 +194,8 @@ export function useTradeAccept() {
         await CollectionRepository.saveAll(updated);
 
         const encodedAck = encodeTradeAck(createTradeAck(preview.offerId));
+
+        await registerPartnerFromPayload(preview);
 
         const counterIds = [preview.wanted.stickerId];
         await TradeLogRepository.upsertByOfferId({

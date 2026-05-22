@@ -11,6 +11,8 @@
       "title": "Open pack",
       "openButton": "Open pack",
       "cooldown": "Next pack in {{time}}",
+      "waitingAccrual": "Next pack accumulates in {{time}}",
+      "bank": "{{pending}} / {{max}} packs stored",
       "ready": "Pack ready!",
       "revealTitle": "You got {{count}} stickers!"
     },

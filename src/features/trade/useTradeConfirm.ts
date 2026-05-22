@@ -9,6 +9,10 @@ import type { TradePayloadAny, TradePayloadV1 } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
 import { TradeConsumedRepository } from '@/services/db/TradeConsumedRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
+import {
+  registerPartnerFromAck,
+  registerPartnerFromPayload,
+} from '@/services/trade/registerTradePartnerFromPayload';
 
 export type ConfirmResult =
   | { ok: true }
@@ -43,6 +47,8 @@ async function applyInitiatorTrade(
       await TradeLogRepository.saveCounterIds(offerId, ack.acceptorIds);
     }
     await TradeConsumedRepository.markConsumed(offerId);
+    await registerPartnerFromPayload(payload);
+    await registerPartnerFromAck(ack);
     return { ok: true };
   }
 
@@ -56,6 +62,7 @@ async function applyInitiatorTrade(
     ]);
   }
   await TradeConsumedRepository.markConsumed(offerId);
+  await registerPartnerFromPayload(payload);
   return { ok: true };
 }
 

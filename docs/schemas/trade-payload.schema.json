@@ -37,6 +37,7 @@
         "v": { "const": 2 },
         "offerId": { "type": "string", "format": "uuid" },
         "fromDisplayName": { "type": "string", "maxLength": 40 },
+        "fromProfileId": { "type": "string", "minLength": 8 },
         "offeredIds": {
           "type": "array",
           "minItems": 1,

@@ -21,7 +21,7 @@ const ERROR_KEYS: Record<string, string> = {
 
 export default function PackScreen() {
   const { t } = useTranslation();
-  const { canOpen, formattedTime, refresh } = usePackCooldown();
+  const { canOpen, pendingPacks, maxPacks, formattedTime, refresh } = usePackCooldown();
   const { openPack, isOpening } = usePackOpen();
   const [revealStickers, setRevealStickers] = useState<StickerDef[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +51,12 @@ export default function PackScreen() {
           <View style={styles.iconWrap}>
             <Icon name="gift-outline" size={64} color={theme.colors.primary} />
           </View>
-          <TimerBadge canOpen={canOpen} formattedTime={formattedTime} />
+          <TimerBadge
+            canOpen={canOpen}
+            pendingPacks={pendingPacks}
+            maxPacks={maxPacks}
+            formattedTime={formattedTime}
+          />
           {error ? (
             <Text variant="caption" color={theme.colors.error} style={styles.error}>
               {error}

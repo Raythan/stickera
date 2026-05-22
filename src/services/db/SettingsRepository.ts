@@ -6,6 +6,7 @@ export const SETTINGS_KEYS = {
   onboardingDone: 'onboardingDone',
   appConfig: 'appConfig',
   adminEnabled: 'adminEnabled',
+  profileId: 'profileId',
 } as const;
 
 export const SettingsRepository = {

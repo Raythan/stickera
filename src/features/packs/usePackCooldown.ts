@@ -12,16 +12,19 @@ function formatMs(ms: number): string {
 
 export function usePackCooldown() {
   const [canOpen, setCanOpen] = useState(false);
+  const [pendingPacks, setPendingPacks] = useState(0);
+  const [maxPacks, setMaxPacks] = useState(5);
   const [remainingMs, setRemainingMs] = useState(0);
   const [formattedTime, setFormattedTime] = useState('00:00:00');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const tick = useCallback(async () => {
-    const ready = await PackTimerService.canOpen();
-    const ms = await PackTimerService.getRemainingMs();
-    setCanOpen(ready);
-    setRemainingMs(ms);
-    setFormattedTime(formatMs(ms));
+    const snap = await PackTimerService.getPackBankSnapshot();
+    setCanOpen(snap.canOpen);
+    setPendingPacks(snap.pendingPacks);
+    setMaxPacks(snap.capacity);
+    setRemainingMs(snap.msUntilNext);
+    setFormattedTime(formatMs(snap.msUntilNext));
   }, []);
 
   useEffect(() => {
@@ -32,5 +35,5 @@ export function usePackCooldown() {
     };
   }, [tick]);
 
-  return { canOpen, remainingMs, formattedTime, refresh: tick };
-}
+  return { canOpen, pendingPacks, maxPacks, remainingMs, formattedTime, refresh: tick };
+};

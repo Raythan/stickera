@@ -1,38 +1,30 @@
-import { loadStore, saveStore } from './localStore';
+import type { PackBankState } from '@/domain/types';
 
-export type PackState = {
-  last_opened_at: string | null;
-  next_available_at: string | null;
-};
+import { loadStore, saveStore } from './localStore';
 
 export const PackStateRepository = {
   async ensureInitialized(): Promise<void> {
-    const store = loadStore();
-    if (!store.pack_state) {
-      store.pack_state = { last_opened_at: null, next_available_at: null };
-      saveStore(store);
-    }
+    await PackStateRepository.getState();
   },
 
-  async getState(): Promise<PackState> {
+  async getState(): Promise<PackBankState> {
     const store = loadStore();
     return store.pack_state;
   },
 
-  async recordOpen(openedAt: Date, nextAvailableAt: Date): Promise<void> {
+  async saveState(state: PackBankState): Promise<void> {
     const store = loadStore();
-    store.pack_state = {
-      last_opened_at: openedAt.toISOString(),
-      next_available_at: nextAvailableAt.toISOString(),
-    };
+    store.pack_state = state;
     saveStore(store);
   },
 
   async resetCooldown(now = new Date()): Promise<void> {
     const store = loadStore();
+    const capacity = 5 + (store.trade_partners?.length ?? 0);
     store.pack_state = {
+      pending_packs: capacity,
+      last_accrued_at: now.toISOString(),
       last_opened_at: null,
-      next_available_at: now.toISOString(),
     };
     saveStore(store);
   },
