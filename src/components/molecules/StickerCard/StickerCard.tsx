@@ -2,20 +2,15 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Badge } from '@/components/atoms/Badge';
+import { RarityMedalIcon } from '@/components/atoms/RarityMedalIcon';
 import { Text } from '@/components/atoms/Text';
 import { StickerFramePreview } from '@/components/molecules/StickerFramePreview';
+import { isStickerRarity, RARITY_I18N_KEY } from '@/theme/rarity';
 import type { AppTheme } from '@/theme/presets';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { StickerCardProps } from './StickerCard.types';
-
-const RARITY_VARIANT: Record<string, 'default' | 'accent' | 'muted'> = {
-  legendary: 'accent',
-  rare: 'default',
-  uncommon: 'muted',
-  common: 'muted',
-};
 
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
@@ -27,10 +22,20 @@ function createStyles(theme: AppTheme) {
       position: 'relative',
       width: 120,
     },
-    qtyOverlay: {
+    frameLocked: {
+      opacity: 0.42,
+    },
+    overlayStack: {
       position: 'absolute',
-      right: 2,
-      top: 72,
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 2,
+    },
+    qtyPill: {
       minWidth: 28,
       paddingHorizontal: theme.spacing.xs,
       paddingVertical: 2,
@@ -40,6 +45,9 @@ function createStyles(theme: AppTheme) {
       borderColor: theme.colors.border,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    overlayMuted: {
+      opacity: 0.5,
     },
     meta: {
       flexDirection: 'row',
@@ -68,28 +76,41 @@ export function StickerCard({
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
   const owned = quantity > 0;
+  const rarityTier = rarity && isStickerRarity(rarity) ? rarity : undefined;
 
   const content = (
     <View style={styles.wrap}>
       {frameCss ? (
-        <View style={styles.frameWrap}>
-          <StickerFramePreview frameCss={frameCss} artUri={imageUri} accessibilityLabel={name} />
-          <View style={styles.qtyOverlay}>
-            <Text
-              variant="caption"
-              color={owned ? colors.primary : colors.textMuted}
-            >
-              {t('collection.quantity', { count: quantity })}
-            </Text>
+        <View style={[styles.frameWrap, !owned && styles.frameLocked]}>
+          <StickerFramePreview
+            frameCss={frameCss}
+            artUri={imageUri}
+            accessibilityLabel={name}
+            rarity={rarityTier}
+            owned={owned}
+          />
+          <View style={[styles.overlayStack, !owned && styles.overlayMuted]}>
+            {rarityTier ? (
+              <RarityMedalIcon
+                rarity={rarityTier}
+                owned={owned}
+                accessibilityLabel={t(RARITY_I18N_KEY[rarityTier])}
+              />
+            ) : null}
+            <View style={styles.qtyPill}>
+              <Text
+                variant="caption"
+                color={owned ? colors.primary : colors.textMuted}
+              >
+                {t('collection.quantity', { count: quantity })}
+              </Text>
+            </View>
           </View>
         </View>
       ) : null}
       <View style={styles.meta}>
         {isNew && owned ? (
           <Badge label={t('collection.new')} variant="accent" />
-        ) : null}
-        {rarity ? (
-          <Badge label={rarity} variant={RARITY_VARIANT[rarity] ?? 'muted'} />
         ) : null}
       </View>
       <Text

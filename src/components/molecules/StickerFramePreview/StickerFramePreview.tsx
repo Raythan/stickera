@@ -4,12 +4,31 @@ import { StyleSheet, View } from 'react-native';
 import type { AppTheme } from '@/theme/presets';
 import { useThemedStyles } from '@/theme/useThemedStyles';
 
+import { isStickerRarity } from '@/theme/rarity';
+
 import type { StickerFramePreviewProps } from './StickerFramePreview.types';
 
-function buildFrameHtml(frameCss: string, artUri?: string | null): string {
+function buildFrameClassNames(rarity?: string, owned = true): string {
+  const classes = ['sticker-frame'];
+  if (rarity && isStickerRarity(rarity)) {
+    classes.push(`sticker-frame--${rarity}`);
+  }
+  if (!owned) {
+    classes.push('sticker-frame--locked');
+  }
+  return classes.join(' ');
+}
+
+function buildFrameHtml(
+  frameCss: string,
+  artUri?: string | null,
+  rarity?: string,
+  owned = true,
+): string {
   const artTag = artUri
     ? `<img class="sticker-art" src="${artUri}" alt="" />`
     : '<div class="sticker-art-placeholder">★</div>';
+  const frameClass = buildFrameClassNames(rarity, owned);
 
   return `<!DOCTYPE html>
 <html>
@@ -40,7 +59,7 @@ function buildFrameHtml(frameCss: string, artUri?: string | null): string {
 </style>
 </head>
 <body>
-  <div class="sticker-frame">${artTag}</div>
+  <div class="${frameClass}">${artTag}</div>
 </body>
 </html>`;
 }
@@ -67,9 +86,14 @@ export function StickerFramePreview({
   frameCss,
   artUri,
   accessibilityLabel = 'Sticker frame preview',
+  rarity,
+  owned = true,
 }: StickerFramePreviewProps) {
   const styles = useThemedStyles(createStyles);
-  const html = useMemo(() => buildFrameHtml(frameCss, artUri), [frameCss, artUri]);
+  const html = useMemo(
+    () => buildFrameHtml(frameCss, artUri, rarity, owned),
+    [frameCss, artUri, rarity, owned],
+  );
 
   return (
     <View style={styles.wrap} accessibilityLabel={accessibilityLabel}>

@@ -50,7 +50,19 @@ Classes **obrigatórias** (o runtime injeta HTML com esses nomes):
 | `.sticker-frame` | `div` | Caixa / moldura (tamanho, borda, fundo, `border-radius`) |
 | `.sticker-art` | `img` | Arte; `object-fit`, margens internas, opcional `filter` |
 
-Classes extras livres (ex.: `.sticker-frame--rare`) desde que não quebrem o layout base.
+### Modificadores de raridade e bloqueio (obrigatório no template)
+
+Copiar de [`content/templates/rarity-modifiers.css`](../content/templates/rarity-modifiers.css) no final de cada `frame.css`. O app injeta as classes no `div.sticker-frame` conforme `sticker.rarity` e posse (`quantity > 0`).
+
+| Classe | Quando | Efeito |
+|--------|--------|--------|
+| `.sticker-frame--common` | `rarity: common` | Borda `#8B9199` |
+| `.sticker-frame--uncommon` | `rarity: uncommon` | Borda `#3D8B6E` + glow leve |
+| `.sticker-frame--rare` | `rarity: rare` | Borda `#2A6B7D` + glow |
+| `.sticker-frame--legendary` | `rarity: legendary` | Borda `#F4B942` + glow dourado |
+| `.sticker-frame--locked` | `quantity === 0` | Opacidade baixa + grayscale na moldura e arte |
+
+Cores alinhadas a `src/theme/rarity.ts` e ao atom `RarityMedalIcon` (medalha acima do contador ×N no centro da moldura).
 
 ### Exemplo mínimo
 

@@ -16,7 +16,8 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 |----------|--------|
 | `AlbumGrid` | Lista álbuns (paginada) |
 | `AlbumDetail` | Grid figurinhas + qty |
-| `StickerCard` | molecule; qty ×N na moldura |
+| `StickerCard` | molecule; medalha de raridade + qty ×N central na moldura |
+| `RarityMedalIcon` | atom; cor por tier (`src/theme/rarity.ts`) |
 | `CollectionListToolbar` | busca, filtro posse, page size, paginação |
 | `AlbumListCard` | toggle pool por álbum na home |
 
@@ -48,6 +49,7 @@ screens.home.packPoolToggle
 screens.album.progress
 collection.quantity
 collection.new
+collection.rarity.*
 screens.collection.*
 nav.languageMenu
 screens.settings.themeLight|Dark|Bloom|Ocean
@@ -57,12 +59,13 @@ screens.settings.themeLight|Dark|Bloom|Ocean
 
 - [x] Grid carrega offline
 - [x] Toggle persiste em `enabled_albums`
-- [x] Detalhe mostra qty 0 cinza / owned color
+- [x] Figurinha não possuída: moldura `--locked` + medalha/contador apagados; ao obter, volta ao normal
 - [x] Troca de idioma re-renderiza `nameKey`
 - [x] Rotas usam `ScreenTemplate`
 - [x] Busca + paginação na home (álbuns)
 - [x] Busca + filtro posse + paginação no detalhe do álbum
-- [x] Contador ×N sobreposto à direita da moldura
+- [x] Medalha de raridade + contador ×N central na moldura (sem badge textual de raridade)
+- [x] `frame.css` com modificadores `--common` … `--legendary` e `--locked`
 
 ## Anti-padrões
 

@@ -24,3 +24,35 @@
   border-radius: 12px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
 }
+
+/**
+ * Rarity + locked modifiers — append to every album frame.css.
+ * Colors match src/theme/rarity.ts (RarityMedalIcon).
+ */
+.sticker-frame--common {
+  border-color: #8b9199 !important;
+}
+
+.sticker-frame--uncommon {
+  border-color: #3d8b6e !important;
+  box-shadow: 0 0 0 1px rgba(61, 139, 110, 0.35);
+}
+
+.sticker-frame--rare {
+  border-color: #2a6b7d !important;
+  box-shadow: 0 0 8px rgba(42, 107, 125, 0.45);
+}
+
+.sticker-frame--legendary {
+  border-color: #f4b942 !important;
+  box-shadow: 0 0 10px rgba(244, 185, 66, 0.55);
+}
+
+.sticker-frame--locked {
+  opacity: 0.38;
+  filter: grayscale(0.85);
+}
+
+.sticker-frame--locked .sticker-art {
+  opacity: 0.5;
+}

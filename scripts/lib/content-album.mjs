@@ -7,6 +7,7 @@ export const CONTENT = path.join(ROOT, 'content');
 export const ALBUMS_DIR = path.join(CONTENT, 'albums');
 export const CATALOG_PATH = path.join(CONTENT, 'catalog.json');
 export const DEFAULT_FRAME = path.join(CONTENT, 'templates', 'default-frame.css');
+export const RARITY_MODIFIERS = path.join(CONTENT, 'templates', 'rarity-modifiers.css');
 
 const IMAGE_EXT = /\.(png|jpe?g|gif|webp)$/i;
 const ALBUM_ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -206,7 +207,11 @@ export function copyDefaultFrame(destPath, force, dryRun) {
     return true;
   }
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  fs.copyFileSync(DEFAULT_FRAME, destPath);
+  const base = fs.readFileSync(DEFAULT_FRAME, 'utf8');
+  const modifiers = fs.existsSync(RARITY_MODIFIERS)
+    ? `\n${fs.readFileSync(RARITY_MODIFIERS, 'utf8')}`
+    : '';
+  fs.writeFileSync(destPath, base.includes('sticker-frame--common') ? base : `${base}${modifiers}`);
   console.log(`✅ frame.css → ${path.relative(ROOT, destPath)}`);
   return true;
 }
