@@ -49,7 +49,7 @@
         },
         "image": {
           "type": "string",
-          "pattern": "^stickers\\/.+\\.(png|jpg|jpeg|gif)$"
+          "pattern": "^stickers\\/.+\\.(png|jpg|jpeg|gif|webp)$"
         }
       }
     }

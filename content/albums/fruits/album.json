@@ -1,0 +1,2394 @@
+{
+  "id": "fruits",
+  "revision": 2,
+  "frameStylePath": "frame.css",
+  "totalStickers": 238,
+  "names": {
+    "en": "Brazilian Fruits",
+    "pt": "Frutas Brasileiras"
+  },
+  "coverImage": "stickers/001-abacate-01.jpg",
+  "packWeight": 1,
+  "stickers": [
+    {
+      "id": "fruits:01",
+      "number": 1,
+      "names": {
+        "en": "Avocado 01",
+        "pt": "Abacate 01"
+      },
+      "image": "stickers/001-abacate-01.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:02",
+      "number": 2,
+      "names": {
+        "en": "Avocado 02",
+        "pt": "Abacate 02"
+      },
+      "image": "stickers/002-abacate-02.jpeg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:03",
+      "number": 3,
+      "names": {
+        "en": "Avocado 03",
+        "pt": "Abacate 03"
+      },
+      "image": "stickers/003-abacate-03.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:04",
+      "number": 4,
+      "names": {
+        "en": "Avocado 04",
+        "pt": "Abacate 04"
+      },
+      "image": "stickers/004-abacate-04.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:05",
+      "number": 5,
+      "names": {
+        "en": "Avocado 05",
+        "pt": "Abacate 05"
+      },
+      "image": "stickers/005-abacate-05.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:06",
+      "number": 6,
+      "names": {
+        "en": "Pineapple 01",
+        "pt": "Abacaxi 01"
+      },
+      "image": "stickers/006-abacaxi-01.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:07",
+      "number": 7,
+      "names": {
+        "en": "Pineapple 02",
+        "pt": "Abacaxi 02"
+      },
+      "image": "stickers/007-abacaxi-02.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:08",
+      "number": 8,
+      "names": {
+        "en": "Pineapple 03",
+        "pt": "Abacaxi 03"
+      },
+      "image": "stickers/008-abacaxi-03.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:09",
+      "number": 9,
+      "names": {
+        "en": "Pineapple 04",
+        "pt": "Abacaxi 04"
+      },
+      "image": "stickers/009-abacaxi-04.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:10",
+      "number": 10,
+      "names": {
+        "en": "Pineapple 05",
+        "pt": "Abacaxi 05"
+      },
+      "image": "stickers/010-abacaxi-05.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "fruits:11",
+      "number": 11,
+      "names": {
+        "en": "Açaí 01",
+        "pt": "Açaí 01"
+      },
+      "image": "stickers/011-acai-01.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:12",
+      "number": 12,
+      "names": {
+        "en": "Açaí 02",
+        "pt": "Açaí 02"
+      },
+      "image": "stickers/012-acai-02.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:13",
+      "number": 13,
+      "names": {
+        "en": "Açaí 03",
+        "pt": "Açaí 03"
+      },
+      "image": "stickers/013-acai-03.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:14",
+      "number": 14,
+      "names": {
+        "en": "Açaí 04",
+        "pt": "Açaí 04"
+      },
+      "image": "stickers/014-acai-04.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:15",
+      "number": 15,
+      "names": {
+        "en": "Açaí 05",
+        "pt": "Açaí 05"
+      },
+      "image": "stickers/015-acai-05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:16",
+      "number": 16,
+      "names": {
+        "en": "Barbados cherry 01",
+        "pt": "Acerola 01"
+      },
+      "image": "stickers/016-acerola-01.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:17",
+      "number": 17,
+      "names": {
+        "en": "Barbados cherry 02",
+        "pt": "Acerola 02"
+      },
+      "image": "stickers/017-acerola-02.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:18",
+      "number": 18,
+      "names": {
+        "en": "Barbados cherry 03",
+        "pt": "Acerola 03"
+      },
+      "image": "stickers/018-acerola-03.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:19",
+      "number": 19,
+      "names": {
+        "en": "Barbados cherry 04",
+        "pt": "Acerola 04"
+      },
+      "image": "stickers/019-acerola-04.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:20",
+      "number": 20,
+      "names": {
+        "en": "Barbados cherry 05",
+        "pt": "Acerola 05"
+      },
+      "image": "stickers/020-acerola-05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:21",
+      "number": 21,
+      "names": {
+        "en": "Plum 01",
+        "pt": "Ameixa 01"
+      },
+      "image": "stickers/021-ameixa-01.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:22",
+      "number": 22,
+      "names": {
+        "en": "Plum 02",
+        "pt": "Ameixa 02"
+      },
+      "image": "stickers/022-ameixa-02.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:23",
+      "number": 23,
+      "names": {
+        "en": "Plum 03",
+        "pt": "Ameixa 03"
+      },
+      "image": "stickers/023-ameixa-03.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:24",
+      "number": 24,
+      "names": {
+        "en": "Plum 04",
+        "pt": "Ameixa 04"
+      },
+      "image": "stickers/024-ameixa-04.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:25",
+      "number": 25,
+      "names": {
+        "en": "Plum 05",
+        "pt": "Ameixa 05"
+      },
+      "image": "stickers/025-ameixa-05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:26",
+      "number": 26,
+      "names": {
+        "en": "Blackberry 01",
+        "pt": "Amora 01"
+      },
+      "image": "stickers/026-amora-01.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:27",
+      "number": 27,
+      "names": {
+        "en": "Blackberry 02",
+        "pt": "Amora 02"
+      },
+      "image": "stickers/027-amora-02.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:28",
+      "number": 28,
+      "names": {
+        "en": "Blackberry 03",
+        "pt": "Amora 03"
+      },
+      "image": "stickers/028-amora-03.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:29",
+      "number": 29,
+      "names": {
+        "en": "Blackberry 04",
+        "pt": "Amora 04"
+      },
+      "image": "stickers/029-amora-04.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "fruits:30",
+      "number": 30,
+      "names": {
+        "en": "Blackberry 05",
+        "pt": "Amora 05"
+      },
+      "image": "stickers/030-amora-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:31",
+      "number": 31,
+      "names": {
+        "en": "Araticum 01",
+        "pt": "Araticum 01"
+      },
+      "image": "stickers/031-araticum-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:32",
+      "number": 32,
+      "names": {
+        "en": "Araticum 02",
+        "pt": "Araticum 02"
+      },
+      "image": "stickers/032-araticum-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:33",
+      "number": 33,
+      "names": {
+        "en": "Araticum 03",
+        "pt": "Araticum 03"
+      },
+      "image": "stickers/033-araticum-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:34",
+      "number": 34,
+      "names": {
+        "en": "Araticum 04",
+        "pt": "Araticum 04"
+      },
+      "image": "stickers/034-araticum-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:35",
+      "number": 35,
+      "names": {
+        "en": "Araticum 05",
+        "pt": "Araticum 05"
+      },
+      "image": "stickers/035-araticum-05.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:36",
+      "number": 36,
+      "names": {
+        "en": "Atemoya 01",
+        "pt": "Atemoia 01"
+      },
+      "image": "stickers/036-atemoia-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:37",
+      "number": 37,
+      "names": {
+        "en": "Atemoya 02",
+        "pt": "Atemoia 02"
+      },
+      "image": "stickers/037-atemoia-02.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:38",
+      "number": 38,
+      "names": {
+        "en": "Atemoya 03",
+        "pt": "Atemoia 03"
+      },
+      "image": "stickers/038-atemoia-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:39",
+      "number": 39,
+      "names": {
+        "en": "Atemoya 04",
+        "pt": "Atemoia 04"
+      },
+      "image": "stickers/039-atemoia-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:40",
+      "number": 40,
+      "names": {
+        "en": "Atemoya 05",
+        "pt": "Atemoia 05"
+      },
+      "image": "stickers/040-atemoia-05.webp",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:41",
+      "number": 41,
+      "names": {
+        "en": "Bacuri 01",
+        "pt": "Bacuri 01"
+      },
+      "image": "stickers/041-bacuri-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:42",
+      "number": 42,
+      "names": {
+        "en": "Bacuri 02",
+        "pt": "Bacuri 02"
+      },
+      "image": "stickers/042-bacuri-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:43",
+      "number": 43,
+      "names": {
+        "en": "Bacuri 03",
+        "pt": "Bacuri 03"
+      },
+      "image": "stickers/043-bacuri-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:44",
+      "number": 44,
+      "names": {
+        "en": "Bacuri 04",
+        "pt": "Bacuri 04"
+      },
+      "image": "stickers/044-bacuri-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:45",
+      "number": 45,
+      "names": {
+        "en": "Bacuri 05",
+        "pt": "Bacuri 05"
+      },
+      "image": "stickers/045-bacuri-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:46",
+      "number": 46,
+      "names": {
+        "en": "Banana 01",
+        "pt": "Banana 01"
+      },
+      "image": "stickers/046-banana-01.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:47",
+      "number": 47,
+      "names": {
+        "en": "Banana 02",
+        "pt": "Banana 02"
+      },
+      "image": "stickers/047-banana-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:48",
+      "number": 48,
+      "names": {
+        "en": "Banana 03",
+        "pt": "Banana 03"
+      },
+      "image": "stickers/048-banana-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:49",
+      "number": 49,
+      "names": {
+        "en": "Banana 04",
+        "pt": "Banana 04"
+      },
+      "image": "stickers/049-banana-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:50",
+      "number": 50,
+      "names": {
+        "en": "Banana 05",
+        "pt": "Banana 05"
+      },
+      "image": "stickers/050-banana-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:51",
+      "number": 51,
+      "names": {
+        "en": "Buriti 01",
+        "pt": "Buriti 01"
+      },
+      "image": "stickers/051-buriti-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:52",
+      "number": 52,
+      "names": {
+        "en": "Buriti 02",
+        "pt": "Buriti 02"
+      },
+      "image": "stickers/052-buriti-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:53",
+      "number": 53,
+      "names": {
+        "en": "Buriti 03",
+        "pt": "Buriti 03"
+      },
+      "image": "stickers/053-buriti-03.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:54",
+      "number": 54,
+      "names": {
+        "en": "Buriti 04",
+        "pt": "Buriti 04"
+      },
+      "image": "stickers/054-buriti-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:55",
+      "number": 55,
+      "names": {
+        "en": "Buriti 05",
+        "pt": "Buriti 05"
+      },
+      "image": "stickers/055-buriti-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:56",
+      "number": 56,
+      "names": {
+        "en": "Cacao fruit 01",
+        "pt": "Cacau 01"
+      },
+      "image": "stickers/056-cacau-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:57",
+      "number": 57,
+      "names": {
+        "en": "Cacao fruit 02",
+        "pt": "Cacau 02"
+      },
+      "image": "stickers/057-cacau-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:58",
+      "number": 58,
+      "names": {
+        "en": "Cacao fruit 03",
+        "pt": "Cacau 03"
+      },
+      "image": "stickers/058-cacau-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:59",
+      "number": 59,
+      "names": {
+        "en": "Cacao fruit 04",
+        "pt": "Cacau 04"
+      },
+      "image": "stickers/059-cacau-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:60",
+      "number": 60,
+      "names": {
+        "en": "Cacao fruit 05",
+        "pt": "Cacau 05"
+      },
+      "image": "stickers/060-cacau-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:61",
+      "number": 61,
+      "names": {
+        "en": "Cagaita 01",
+        "pt": "Cagaita 01"
+      },
+      "image": "stickers/061-cagaita-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:62",
+      "number": 62,
+      "names": {
+        "en": "Cagaita 02",
+        "pt": "Cagaita 02"
+      },
+      "image": "stickers/062-cagaita-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:63",
+      "number": 63,
+      "names": {
+        "en": "Cagaita 03",
+        "pt": "Cagaita 03"
+      },
+      "image": "stickers/063-cagaita-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:64",
+      "number": 64,
+      "names": {
+        "en": "Cagaita 04",
+        "pt": "Cagaita 04"
+      },
+      "image": "stickers/064-cagaita-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:65",
+      "number": 65,
+      "names": {
+        "en": "Cagaita 05",
+        "pt": "Cagaita 05"
+      },
+      "image": "stickers/065-cagaita-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:66",
+      "number": 66,
+      "names": {
+        "en": "Cashew fruit 01",
+        "pt": "Caju 01"
+      },
+      "image": "stickers/066-caju-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:67",
+      "number": 67,
+      "names": {
+        "en": "Cashew fruit 02",
+        "pt": "Caju 02"
+      },
+      "image": "stickers/067-caju-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:68",
+      "number": 68,
+      "names": {
+        "en": "Cashew fruit 03",
+        "pt": "Caju 03"
+      },
+      "image": "stickers/068-caju-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:69",
+      "number": 69,
+      "names": {
+        "en": "Cashew fruit 04",
+        "pt": "Caju 04"
+      },
+      "image": "stickers/069-caju-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:70",
+      "number": 70,
+      "names": {
+        "en": "Cashew fruit 05",
+        "pt": "Caju 05"
+      },
+      "image": "stickers/070-caju-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:71",
+      "number": 71,
+      "names": {
+        "en": "Persimmon 01",
+        "pt": "Caqui 01"
+      },
+      "image": "stickers/071-caqui-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:72",
+      "number": 72,
+      "names": {
+        "en": "Persimmon 02",
+        "pt": "Caqui 02"
+      },
+      "image": "stickers/072-caqui-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:73",
+      "number": 73,
+      "names": {
+        "en": "Persimmon 03",
+        "pt": "Caqui 03"
+      },
+      "image": "stickers/073-caqui-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:74",
+      "number": 74,
+      "names": {
+        "en": "Persimmon 04",
+        "pt": "Caqui 04"
+      },
+      "image": "stickers/074-caqui-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:75",
+      "number": 75,
+      "names": {
+        "en": "Persimmon 05",
+        "pt": "Caqui 05"
+      },
+      "image": "stickers/075-caqui-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:76",
+      "number": 76,
+      "names": {
+        "en": "Star fruit 01",
+        "pt": "Carambola 01"
+      },
+      "image": "stickers/076-carambola-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:77",
+      "number": 77,
+      "names": {
+        "en": "Star fruit 02",
+        "pt": "Carambola 02"
+      },
+      "image": "stickers/077-carambola-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:78",
+      "number": 78,
+      "names": {
+        "en": "Star fruit 03",
+        "pt": "Carambola 03"
+      },
+      "image": "stickers/078-carambola-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:79",
+      "number": 79,
+      "names": {
+        "en": "Star fruit 04",
+        "pt": "Carambola 04"
+      },
+      "image": "stickers/079-carambola-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:80",
+      "number": 80,
+      "names": {
+        "en": "Star fruit 05",
+        "pt": "Carambola 05"
+      },
+      "image": "stickers/080-carambola-05.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:81",
+      "number": 81,
+      "names": {
+        "en": "Cherry 01",
+        "pt": "Cereja 01"
+      },
+      "image": "stickers/081-cereja-01.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:82",
+      "number": 82,
+      "names": {
+        "en": "Cherry 02",
+        "pt": "Cereja 02"
+      },
+      "image": "stickers/082-cereja-02.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:83",
+      "number": 83,
+      "names": {
+        "en": "Cherry 03",
+        "pt": "Cereja 03"
+      },
+      "image": "stickers/083-cereja-03.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:84",
+      "number": 84,
+      "names": {
+        "en": "Cherry 04",
+        "pt": "Cereja 04"
+      },
+      "image": "stickers/084-cereja-04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fruits:85",
+      "number": 85,
+      "names": {
+        "en": "Cherry 05",
+        "pt": "Cereja 05"
+      },
+      "image": "stickers/085-cereja-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:86",
+      "number": 86,
+      "names": {
+        "en": "Citron 01",
+        "pt": "Cidra 01"
+      },
+      "image": "stickers/086-cidra-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:87",
+      "number": 87,
+      "names": {
+        "en": "Citron 02",
+        "pt": "Cidra 02"
+      },
+      "image": "stickers/087-cidra-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:88",
+      "number": 88,
+      "names": {
+        "en": "Citron 03",
+        "pt": "Cidra 03"
+      },
+      "image": "stickers/088-cidra-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:89",
+      "number": 89,
+      "names": {
+        "en": "Citron 04",
+        "pt": "Cidra 04"
+      },
+      "image": "stickers/089-cidra-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:90",
+      "number": 90,
+      "names": {
+        "en": "Citron 05",
+        "pt": "Cidra 05"
+      },
+      "image": "stickers/090-cidra-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:91",
+      "number": 91,
+      "names": {
+        "en": "Cupuaçu 01",
+        "pt": "Cupuaçu 01"
+      },
+      "image": "stickers/091-cupuacu-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:92",
+      "number": 92,
+      "names": {
+        "en": "Cupuaçu 02",
+        "pt": "Cupuaçu 02"
+      },
+      "image": "stickers/092-cupuacu-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:93",
+      "number": 93,
+      "names": {
+        "en": "Cupuaçu 03",
+        "pt": "Cupuaçu 03"
+      },
+      "image": "stickers/093-cupuacu-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:94",
+      "number": 94,
+      "names": {
+        "en": "Cupuaçu 04",
+        "pt": "Cupuaçu 04"
+      },
+      "image": "stickers/094-cupuacu-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:95",
+      "number": 95,
+      "names": {
+        "en": "Cupuaçu 05",
+        "pt": "Cupuaçu 05"
+      },
+      "image": "stickers/095-cupuacu-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:96",
+      "number": 96,
+      "names": {
+        "en": "Apricot 02",
+        "pt": "Damasco 02"
+      },
+      "image": "stickers/096-damasco-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:97",
+      "number": 97,
+      "names": {
+        "en": "Apricot 03",
+        "pt": "Damasco 03"
+      },
+      "image": "stickers/097-damasco-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:98",
+      "number": 98,
+      "names": {
+        "en": "Apricot 04",
+        "pt": "Damasco 04"
+      },
+      "image": "stickers/098-damasco-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:99",
+      "number": 99,
+      "names": {
+        "en": "Apricot 05",
+        "pt": "Damasco 05"
+      },
+      "image": "stickers/099-damasco-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:100",
+      "number": 100,
+      "names": {
+        "en": "Fig 01",
+        "pt": "Figo 01"
+      },
+      "image": "stickers/100-figo-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:101",
+      "number": 101,
+      "names": {
+        "en": "Fig 02",
+        "pt": "Figo 02"
+      },
+      "image": "stickers/101-figo-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:102",
+      "number": 102,
+      "names": {
+        "en": "Fig 03",
+        "pt": "Figo 03"
+      },
+      "image": "stickers/102-figo-03.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:103",
+      "number": 103,
+      "names": {
+        "en": "Fig 04",
+        "pt": "Figo 04"
+      },
+      "image": "stickers/103-figo-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:104",
+      "number": 104,
+      "names": {
+        "en": "Raspberry 01",
+        "pt": "Framboesa 01"
+      },
+      "image": "stickers/104-framboesa-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:105",
+      "number": 105,
+      "names": {
+        "en": "Raspberry 02",
+        "pt": "Framboesa 02"
+      },
+      "image": "stickers/105-framboesa-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:106",
+      "number": 106,
+      "names": {
+        "en": "Raspberry 03",
+        "pt": "Framboesa 03"
+      },
+      "image": "stickers/106-framboesa-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:107",
+      "number": 107,
+      "names": {
+        "en": "Raspberry 04",
+        "pt": "Framboesa 04"
+      },
+      "image": "stickers/107-framboesa-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:108",
+      "number": 108,
+      "names": {
+        "en": "Raspberry 05",
+        "pt": "Framboesa 05"
+      },
+      "image": "stickers/108-framboesa-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:109",
+      "number": 109,
+      "names": {
+        "en": "Breadfruit 01",
+        "pt": "Fruta-pão 01"
+      },
+      "image": "stickers/109-fruta-pao-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:110",
+      "number": 110,
+      "names": {
+        "en": "Breadfruit 02",
+        "pt": "Fruta-pão 02"
+      },
+      "image": "stickers/110-fruta-pao-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:111",
+      "number": 111,
+      "names": {
+        "en": "Breadfruit 03",
+        "pt": "Fruta-pão 03"
+      },
+      "image": "stickers/111-fruta-pao-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:112",
+      "number": 112,
+      "names": {
+        "en": "Breadfruit 04",
+        "pt": "Fruta-pão 04"
+      },
+      "image": "stickers/112-fruta-pao-04.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:113",
+      "number": 113,
+      "names": {
+        "en": "Breadfruit 05",
+        "pt": "Fruta-pão 05"
+      },
+      "image": "stickers/113-fruta-pao-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:114",
+      "number": 114,
+      "names": {
+        "en": "Guava 01",
+        "pt": "Goiaba 01"
+      },
+      "image": "stickers/114-goiaba-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:115",
+      "number": 115,
+      "names": {
+        "en": "Guava 02",
+        "pt": "Goiaba 02"
+      },
+      "image": "stickers/115-goiaba-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:116",
+      "number": 116,
+      "names": {
+        "en": "Guava 03",
+        "pt": "Goiaba 03"
+      },
+      "image": "stickers/116-goiaba-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:117",
+      "number": 117,
+      "names": {
+        "en": "Guava 04",
+        "pt": "Goiaba 04"
+      },
+      "image": "stickers/117-goiaba-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:118",
+      "number": 118,
+      "names": {
+        "en": "Guava 05",
+        "pt": "Goiaba 05"
+      },
+      "image": "stickers/118-goiaba-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:119",
+      "number": 119,
+      "names": {
+        "en": "Soursop 01",
+        "pt": "Graviola 01"
+      },
+      "image": "stickers/119-graviola-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:120",
+      "number": 120,
+      "names": {
+        "en": "Soursop 02",
+        "pt": "Graviola 02"
+      },
+      "image": "stickers/120-graviola-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:121",
+      "number": 121,
+      "names": {
+        "en": "Soursop 03",
+        "pt": "Graviola 03"
+      },
+      "image": "stickers/121-graviola-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:122",
+      "number": 122,
+      "names": {
+        "en": "Soursop 04",
+        "pt": "Graviola 04"
+      },
+      "image": "stickers/122-graviola-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:123",
+      "number": 123,
+      "names": {
+        "en": "Soursop 05",
+        "pt": "Graviola 05"
+      },
+      "image": "stickers/123-graviola-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:124",
+      "number": 124,
+      "names": {
+        "en": "Gooseberry 01",
+        "pt": "Groselha 01"
+      },
+      "image": "stickers/124-groselha-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:125",
+      "number": 125,
+      "names": {
+        "en": "Gooseberry 02",
+        "pt": "Groselha 02"
+      },
+      "image": "stickers/125-groselha-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:126",
+      "number": 126,
+      "names": {
+        "en": "Gooseberry 03",
+        "pt": "Groselha 03"
+      },
+      "image": "stickers/126-groselha-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:127",
+      "number": 127,
+      "names": {
+        "en": "Gooseberry 04",
+        "pt": "Groselha 04"
+      },
+      "image": "stickers/127-groselha-04.jpeg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:128",
+      "number": 128,
+      "names": {
+        "en": "Gooseberry 05",
+        "pt": "Groselha 05"
+      },
+      "image": "stickers/128-groselha-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:129",
+      "number": 129,
+      "names": {
+        "en": "Guaraná 01",
+        "pt": "Guaraná 01"
+      },
+      "image": "stickers/129-guarana-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:130",
+      "number": 130,
+      "names": {
+        "en": "Guaraná 02",
+        "pt": "Guaraná 02"
+      },
+      "image": "stickers/130-guarana-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:131",
+      "number": 131,
+      "names": {
+        "en": "Guaraná 03",
+        "pt": "Guaraná 03"
+      },
+      "image": "stickers/131-guarana-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:132",
+      "number": 132,
+      "names": {
+        "en": "Guaraná 04",
+        "pt": "Guaraná 04"
+      },
+      "image": "stickers/132-guarana-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:133",
+      "number": 133,
+      "names": {
+        "en": "Guaraná 05",
+        "pt": "Guaraná 05"
+      },
+      "image": "stickers/133-guarana-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:134",
+      "number": 134,
+      "names": {
+        "en": "Jabuticaba 01",
+        "pt": "Jabuticaba 01"
+      },
+      "image": "stickers/134-jabuticaba-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:135",
+      "number": 135,
+      "names": {
+        "en": "Jabuticaba 02",
+        "pt": "Jabuticaba 02"
+      },
+      "image": "stickers/135-jabuticaba-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:136",
+      "number": 136,
+      "names": {
+        "en": "Jabuticaba 03",
+        "pt": "Jabuticaba 03"
+      },
+      "image": "stickers/136-jabuticaba-03.webp",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:137",
+      "number": 137,
+      "names": {
+        "en": "Jabuticaba 04",
+        "pt": "Jabuticaba 04"
+      },
+      "image": "stickers/137-jabuticaba-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:138",
+      "number": 138,
+      "names": {
+        "en": "Jabuticaba 05",
+        "pt": "Jabuticaba 05"
+      },
+      "image": "stickers/138-jabuticaba-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:139",
+      "number": 139,
+      "names": {
+        "en": "Jackfruit 01",
+        "pt": "Jaca 01"
+      },
+      "image": "stickers/139-jaca-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:140",
+      "number": 140,
+      "names": {
+        "en": "Jackfruit 02",
+        "pt": "Jaca 02"
+      },
+      "image": "stickers/140-jaca-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:141",
+      "number": 141,
+      "names": {
+        "en": "Jackfruit 03",
+        "pt": "Jaca 03"
+      },
+      "image": "stickers/141-jaca-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:142",
+      "number": 142,
+      "names": {
+        "en": "Jackfruit 04",
+        "pt": "Jaca 04"
+      },
+      "image": "stickers/142-jaca-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:143",
+      "number": 143,
+      "names": {
+        "en": "Jackfruit 05",
+        "pt": "Jaca 05"
+      },
+      "image": "stickers/143-jaca-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:144",
+      "number": 144,
+      "names": {
+        "en": "Rose apple 01",
+        "pt": "Jambo 01"
+      },
+      "image": "stickers/144-jambo-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:145",
+      "number": 145,
+      "names": {
+        "en": "Rose apple 02",
+        "pt": "Jambo 02"
+      },
+      "image": "stickers/145-jambo-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:146",
+      "number": 146,
+      "names": {
+        "en": "Rose apple 03",
+        "pt": "Jambo 03"
+      },
+      "image": "stickers/146-jambo-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:147",
+      "number": 147,
+      "names": {
+        "en": "Rose apple 04",
+        "pt": "Jambo 04"
+      },
+      "image": "stickers/147-jambo-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:148",
+      "number": 148,
+      "names": {
+        "en": "Rose apple 05",
+        "pt": "Jambo 05"
+      },
+      "image": "stickers/148-jambo-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:149",
+      "number": 149,
+      "names": {
+        "en": "Jambolan 01",
+        "pt": "Jambolão 01"
+      },
+      "image": "stickers/149-jambolao-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:150",
+      "number": 150,
+      "names": {
+        "en": "Jambolan 02",
+        "pt": "Jambolão 02"
+      },
+      "image": "stickers/150-jambolao-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:151",
+      "number": 151,
+      "names": {
+        "en": "Jambolan 03",
+        "pt": "Jambolão 03"
+      },
+      "image": "stickers/151-jambolao-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:152",
+      "number": 152,
+      "names": {
+        "en": "Jambolan 04",
+        "pt": "Jambolão 04"
+      },
+      "image": "stickers/152-jambolao-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:153",
+      "number": 153,
+      "names": {
+        "en": "Jambolan 05",
+        "pt": "Jambolão 05"
+      },
+      "image": "stickers/153-jambolao-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:154",
+      "number": 154,
+      "names": {
+        "en": "Jaracatiá 01",
+        "pt": "Jaracatiá 01"
+      },
+      "image": "stickers/154-jaracatia-01.jpeg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:155",
+      "number": 155,
+      "names": {
+        "en": "Jaracatiá 02",
+        "pt": "Jaracatiá 02"
+      },
+      "image": "stickers/155-jaracatia-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:156",
+      "number": 156,
+      "names": {
+        "en": "Jaracatiá 03",
+        "pt": "Jaracatiá 03"
+      },
+      "image": "stickers/156-jaracatia-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:157",
+      "number": 157,
+      "names": {
+        "en": "Jaracatiá 04",
+        "pt": "Jaracatiá 04"
+      },
+      "image": "stickers/157-jaracatia-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:158",
+      "number": 158,
+      "names": {
+        "en": "Jaracatiá 05",
+        "pt": "Jaracatiá 05"
+      },
+      "image": "stickers/158-jaracatia-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:159",
+      "number": 159,
+      "names": {
+        "en": "Kiwi 01",
+        "pt": "Kiwi 01"
+      },
+      "image": "stickers/159-kiwi-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:160",
+      "number": 160,
+      "names": {
+        "en": "Kiwi 02",
+        "pt": "Kiwi 02"
+      },
+      "image": "stickers/160-kiwi-02.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:161",
+      "number": 161,
+      "names": {
+        "en": "Kiwi 03",
+        "pt": "Kiwi 03"
+      },
+      "image": "stickers/161-kiwi-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:162",
+      "number": 162,
+      "names": {
+        "en": "Kiwi 04",
+        "pt": "Kiwi 04"
+      },
+      "image": "stickers/162-kiwi-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:163",
+      "number": 163,
+      "names": {
+        "en": "Kiwi 05",
+        "pt": "Kiwi 05"
+      },
+      "image": "stickers/163-kiwi-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:164",
+      "number": 164,
+      "names": {
+        "en": "Orange 01",
+        "pt": "Laranja 01"
+      },
+      "image": "stickers/164-laranja-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:165",
+      "number": 165,
+      "names": {
+        "en": "Orange 02",
+        "pt": "Laranja 02"
+      },
+      "image": "stickers/165-laranja-02.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:166",
+      "number": 166,
+      "names": {
+        "en": "Orange 03",
+        "pt": "Laranja 03"
+      },
+      "image": "stickers/166-laranja-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:167",
+      "number": 167,
+      "names": {
+        "en": "Orange 04",
+        "pt": "Laranja 04"
+      },
+      "image": "stickers/167-laranja-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:168",
+      "number": 168,
+      "names": {
+        "en": "Orange 05",
+        "pt": "Laranja 05"
+      },
+      "image": "stickers/168-laranja-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:169",
+      "number": 169,
+      "names": {
+        "en": "Lychee 01",
+        "pt": "Lichia 01"
+      },
+      "image": "stickers/169-lichia-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:170",
+      "number": 170,
+      "names": {
+        "en": "Lychee 02",
+        "pt": "Lichia 02"
+      },
+      "image": "stickers/170-lichia-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:171",
+      "number": 171,
+      "names": {
+        "en": "Lychee 03",
+        "pt": "Lichia 03"
+      },
+      "image": "stickers/171-lichia-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:172",
+      "number": 172,
+      "names": {
+        "en": "Lychee 04",
+        "pt": "Lichia 04"
+      },
+      "image": "stickers/172-lichia-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:173",
+      "number": 173,
+      "names": {
+        "en": "Lychee 05",
+        "pt": "Lichia 05"
+      },
+      "image": "stickers/173-lichia-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:174",
+      "number": 174,
+      "names": {
+        "en": "Lime 01",
+        "pt": "Limão 01"
+      },
+      "image": "stickers/174-limao-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:175",
+      "number": 175,
+      "names": {
+        "en": "Lime 02",
+        "pt": "Limão 02"
+      },
+      "image": "stickers/175-limao-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:176",
+      "number": 176,
+      "names": {
+        "en": "Lime 03",
+        "pt": "Limão 03"
+      },
+      "image": "stickers/176-limao-03.webp",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:177",
+      "number": 177,
+      "names": {
+        "en": "Lime 04",
+        "pt": "Limão 04"
+      },
+      "image": "stickers/177-limao-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:178",
+      "number": 178,
+      "names": {
+        "en": "Lime 05",
+        "pt": "Limão 05"
+      },
+      "image": "stickers/178-limao-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:179",
+      "number": 179,
+      "names": {
+        "en": "Apple 01",
+        "pt": "Maçã 01"
+      },
+      "image": "stickers/179-maca-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:180",
+      "number": 180,
+      "names": {
+        "en": "Apple 02",
+        "pt": "Maçã 02"
+      },
+      "image": "stickers/180-maca-02.webp",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:181",
+      "number": 181,
+      "names": {
+        "en": "Apple 03",
+        "pt": "Maçã 03"
+      },
+      "image": "stickers/181-maca-03.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:182",
+      "number": 182,
+      "names": {
+        "en": "Apple 04",
+        "pt": "Maçã 04"
+      },
+      "image": "stickers/182-maca-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:183",
+      "number": 183,
+      "names": {
+        "en": "Apple 05",
+        "pt": "Maçã 05"
+      },
+      "image": "stickers/183-maca-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:184",
+      "number": 184,
+      "names": {
+        "en": "Papaya 01",
+        "pt": "Mamão 01"
+      },
+      "image": "stickers/184-mamao-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:185",
+      "number": 185,
+      "names": {
+        "en": "Papaya 02",
+        "pt": "Mamão 02"
+      },
+      "image": "stickers/185-mamao-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:186",
+      "number": 186,
+      "names": {
+        "en": "Papaya 03",
+        "pt": "Mamão 03"
+      },
+      "image": "stickers/186-mamao-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:187",
+      "number": 187,
+      "names": {
+        "en": "Papaya 04",
+        "pt": "Mamão 04"
+      },
+      "image": "stickers/187-mamao-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:188",
+      "number": 188,
+      "names": {
+        "en": "Papaya 05",
+        "pt": "Mamão 05"
+      },
+      "image": "stickers/188-mamao-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:189",
+      "number": 189,
+      "names": {
+        "en": "Mangaba 01",
+        "pt": "Mangaba 01"
+      },
+      "image": "stickers/189-mangaba-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:190",
+      "number": 190,
+      "names": {
+        "en": "Mangaba 02",
+        "pt": "Mangaba 02"
+      },
+      "image": "stickers/190-mangaba-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:191",
+      "number": 191,
+      "names": {
+        "en": "Mangaba 03",
+        "pt": "Mangaba 03"
+      },
+      "image": "stickers/191-mangaba-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:192",
+      "number": 192,
+      "names": {
+        "en": "Mangaba 04",
+        "pt": "Mangaba 04"
+      },
+      "image": "stickers/192-mangaba-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:193",
+      "number": 193,
+      "names": {
+        "en": "Mangaba 05",
+        "pt": "Mangaba 05"
+      },
+      "image": "stickers/193-mangaba-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:194",
+      "number": 194,
+      "names": {
+        "en": "Passion fruit 01",
+        "pt": "Maracujá 01"
+      },
+      "image": "stickers/194-maracuja-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:195",
+      "number": 195,
+      "names": {
+        "en": "Passion fruit 02",
+        "pt": "Maracujá 02"
+      },
+      "image": "stickers/195-maracuja-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:196",
+      "number": 196,
+      "names": {
+        "en": "Passion fruit 03",
+        "pt": "Maracujá 03"
+      },
+      "image": "stickers/196-maracuja-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:197",
+      "number": 197,
+      "names": {
+        "en": "Passion fruit 04",
+        "pt": "Maracujá 04"
+      },
+      "image": "stickers/197-maracuja-04.png",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:198",
+      "number": 198,
+      "names": {
+        "en": "Passion fruit 05",
+        "pt": "Maracujá 05"
+      },
+      "image": "stickers/198-maracuja-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:199",
+      "number": 199,
+      "names": {
+        "en": "Watermelon 01",
+        "pt": "Melancia 01"
+      },
+      "image": "stickers/199-melancia-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:200",
+      "number": 200,
+      "names": {
+        "en": "Watermelon 02",
+        "pt": "Melancia 02"
+      },
+      "image": "stickers/200-melancia-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:201",
+      "number": 201,
+      "names": {
+        "en": "Watermelon 03",
+        "pt": "Melancia 03"
+      },
+      "image": "stickers/201-melancia-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:202",
+      "number": 202,
+      "names": {
+        "en": "Watermelon 04",
+        "pt": "Melancia 04"
+      },
+      "image": "stickers/202-melancia-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:203",
+      "number": 203,
+      "names": {
+        "en": "Watermelon 05",
+        "pt": "Melancia 05"
+      },
+      "image": "stickers/203-melancia-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:204",
+      "number": 204,
+      "names": {
+        "en": "Melon 01",
+        "pt": "Melão 01"
+      },
+      "image": "stickers/204-melao-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:205",
+      "number": 205,
+      "names": {
+        "en": "Melon 02",
+        "pt": "Melão 02"
+      },
+      "image": "stickers/205-melao-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:206",
+      "number": 206,
+      "names": {
+        "en": "Melon 03",
+        "pt": "Melão 03"
+      },
+      "image": "stickers/206-melao-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:207",
+      "number": 207,
+      "names": {
+        "en": "Melon 04",
+        "pt": "Melão 04"
+      },
+      "image": "stickers/207-melao-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:208",
+      "number": 208,
+      "names": {
+        "en": "Melon 05",
+        "pt": "Melão 05"
+      },
+      "image": "stickers/208-melao-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:209",
+      "number": 209,
+      "names": {
+        "en": "Blueberry 01",
+        "pt": "Mirtilo 01"
+      },
+      "image": "stickers/209-mirtilo-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:210",
+      "number": 210,
+      "names": {
+        "en": "Blueberry 02",
+        "pt": "Mirtilo 02"
+      },
+      "image": "stickers/210-mirtilo-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:211",
+      "number": 211,
+      "names": {
+        "en": "Blueberry 03",
+        "pt": "Mirtilo 03"
+      },
+      "image": "stickers/211-mirtilo-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:212",
+      "number": 212,
+      "names": {
+        "en": "Blueberry 04",
+        "pt": "Mirtilo 04"
+      },
+      "image": "stickers/212-mirtilo-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:213",
+      "number": 213,
+      "names": {
+        "en": "Blueberry 05",
+        "pt": "Mirtilo 05"
+      },
+      "image": "stickers/213-mirtilo-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:214",
+      "number": 214,
+      "names": {
+        "en": "Strawberry 01",
+        "pt": "Morango 01"
+      },
+      "image": "stickers/214-morango-01.jpeg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:215",
+      "number": 215,
+      "names": {
+        "en": "Strawberry 02",
+        "pt": "Morango 02"
+      },
+      "image": "stickers/215-morango-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:216",
+      "number": 216,
+      "names": {
+        "en": "Strawberry 03",
+        "pt": "Morango 03"
+      },
+      "image": "stickers/216-morango-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:217",
+      "number": 217,
+      "names": {
+        "en": "Strawberry 04",
+        "pt": "Morango 04"
+      },
+      "image": "stickers/217-morango-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:218",
+      "number": 218,
+      "names": {
+        "en": "Strawberry 05",
+        "pt": "Morango 05"
+      },
+      "image": "stickers/218-morango-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:219",
+      "number": 219,
+      "names": {
+        "en": "Nectarine 01",
+        "pt": "Nectarina 01"
+      },
+      "image": "stickers/219-nectarina-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:220",
+      "number": 220,
+      "names": {
+        "en": "Nectarine 02",
+        "pt": "Nectarina 02"
+      },
+      "image": "stickers/220-nectarina-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:221",
+      "number": 221,
+      "names": {
+        "en": "Nectarine 03",
+        "pt": "Nectarina 03"
+      },
+      "image": "stickers/221-nectarina-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:222",
+      "number": 222,
+      "names": {
+        "en": "Nectarine 04",
+        "pt": "Nectarina 04"
+      },
+      "image": "stickers/222-nectarina-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:223",
+      "number": 223,
+      "names": {
+        "en": "Nectarine 05",
+        "pt": "Nectarina 05"
+      },
+      "image": "stickers/223-nectarina-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:224",
+      "number": 224,
+      "names": {
+        "en": "Loquat 01",
+        "pt": "Nêspera 01"
+      },
+      "image": "stickers/224-nespera-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:225",
+      "number": 225,
+      "names": {
+        "en": "Loquat 02",
+        "pt": "Nêspera 02"
+      },
+      "image": "stickers/225-nespera-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:226",
+      "number": 226,
+      "names": {
+        "en": "Loquat 03",
+        "pt": "Nêspera 03"
+      },
+      "image": "stickers/226-nespera-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:227",
+      "number": 227,
+      "names": {
+        "en": "Loquat 04",
+        "pt": "Nêspera 04"
+      },
+      "image": "stickers/227-nespera-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:228",
+      "number": 228,
+      "names": {
+        "en": "Loquat 05",
+        "pt": "Nêspera 05"
+      },
+      "image": "stickers/228-nespera-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:229",
+      "number": 229,
+      "names": {
+        "en": "Pequi 01",
+        "pt": "Pequi 01"
+      },
+      "image": "stickers/229-pequi-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:230",
+      "number": 230,
+      "names": {
+        "en": "Pequi 02",
+        "pt": "Pequi 02"
+      },
+      "image": "stickers/230-pequi-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:231",
+      "number": 231,
+      "names": {
+        "en": "Pequi 03",
+        "pt": "Pequi 03"
+      },
+      "image": "stickers/231-pequi-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:232",
+      "number": 232,
+      "names": {
+        "en": "Pequi 04",
+        "pt": "Pequi 04"
+      },
+      "image": "stickers/232-pequi-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:233",
+      "number": 233,
+      "names": {
+        "en": "Pequi 05",
+        "pt": "Pequi 05"
+      },
+      "image": "stickers/233-pequi-05.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:234",
+      "number": 234,
+      "names": {
+        "en": "Pear 01",
+        "pt": "Pêra 01"
+      },
+      "image": "stickers/234-pera-01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:235",
+      "number": 235,
+      "names": {
+        "en": "Pear 02",
+        "pt": "Pêra 02"
+      },
+      "image": "stickers/235-pera-02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:236",
+      "number": 236,
+      "names": {
+        "en": "Pear 03",
+        "pt": "Pêra 03"
+      },
+      "image": "stickers/236-pera-03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:237",
+      "number": 237,
+      "names": {
+        "en": "Pear 04",
+        "pt": "Pêra 04"
+      },
+      "image": "stickers/237-pera-04.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "fruits:238",
+      "number": 238,
+      "names": {
+        "en": "Pear 05",
+        "pt": "Pêra 05"
+      },
+      "image": "stickers/238-pera-05.jpg",
+      "rarity": "common"
+    }
+  ]
+}

@@ -67,3 +67,22 @@ npm run validate:bundle
 ```
 
 Template de moldura: [`templates/default-frame.css`](templates/default-frame.css).
+
+## Imagens auxiliares (`imgdl.py`)
+
+Busca e baixa fotos por palavra-chave (útil para rascunhar `stickers/`). Rode **no álbum**, apontando para o script em `content/`:
+
+```bash
+cd content/albums/fruits
+pip install -U ddgs requests
+python ../../imgdl.py "Banana;Maçã" "5" 1.5 12
+```
+
+| Arg | Significado |
+|-----|-------------|
+| 1 | Termos (`;` ou `|`) |
+| 2 | Quantidade (`5` = todos; `3\|4` = por termo) |
+| 3 | Delay entre downloads (s) |
+| 4 | Delay entre **buscas** (s) — use **10–15** em listas grandes |
+
+Se aparecer `Ratelimit`, o script espera e tenta de novo; arquivos já baixados são ignorados na próxima execução.

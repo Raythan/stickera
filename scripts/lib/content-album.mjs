@@ -8,7 +8,7 @@ export const ALBUMS_DIR = path.join(CONTENT, 'albums');
 export const CATALOG_PATH = path.join(CONTENT, 'catalog.json');
 export const DEFAULT_FRAME = path.join(CONTENT, 'templates', 'default-frame.css');
 
-const IMAGE_EXT = /\.(png|jpe?g|gif)$/i;
+const IMAGE_EXT = /\.(png|jpe?g|gif|webp)$/i;
 const ALBUM_ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 export function parseArgs(argv) {

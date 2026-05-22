@@ -1,5 +1,5 @@
 {
-  "version": "2026.05.21.7",
+  "version": "2026.05.22.4",
   "baseUrl": "",
   "albums": [
     {
@@ -16,10 +16,18 @@
       "id": "space-explorers",
       "revision": 2,
       "manifestPath": "/albums/space-explorers/album.json"
+    },
+    {
+      "id": "fruits",
+      "revision": 2,
+      "manifestPath": "/albums/fruits/album.json"
     }
   ],
   "appConfig": {
-    "packCooldown": { "value": 1, "unit": "hours" },
+    "packCooldown": {
+      "value": 1,
+      "unit": "hours"
+    },
     "packMaxAccumulation": 5,
     "packBonusPerUniqueTrade": 1,
     "stickersPerPack": 4,

@@ -17,6 +17,7 @@ function copyDir(src, dest) {
     const s = path.join(src, name);
     const d = path.join(dest, name);
     if (fs.statSync(s).isDirectory()) {
+      if (name === '_source') continue;
       copyDir(s, d);
     } else if (/\.(css|json|png|jpe?g|gif|webp)$/i.test(name)) {
       fs.copyFileSync(s, d);

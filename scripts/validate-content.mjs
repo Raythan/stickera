@@ -38,7 +38,7 @@ function validateCatalog(catalog) {
   }
 }
 
-const IMAGE_EXT = /\.(png|jpg|jpeg|gif)$/i;
+const IMAGE_EXT = /\.(png|jpg|jpeg|gif|webp)$/i;
 
 function hasNames(obj) {
   return obj?.names && (obj.names.en || obj.names.pt);
