@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
-import { HeaderLocaleMenu } from '@/components/molecules/HeaderLocaleMenu';
-import { HeaderHomeButton } from '@/components/molecules/HeaderHomeButton';
+import { HeaderToolbar } from '@/components/molecules/HeaderToolbar';
 import type { AppTheme } from '@/theme';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
@@ -27,12 +26,8 @@ function createStyles(theme: AppTheme) {
     },
     sideEnd: {
       alignItems: 'flex-end',
-      width: 96,
-    },
-    actions: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: theme.spacing.xs,
+      minWidth: 48,
+      flexShrink: 0,
     },
     sidePlaceholder: {
       width: 48,
@@ -63,6 +58,7 @@ export function ScreenNavBar({
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
   const canGoBack = router.canGoBack();
+  const showToolbar = showLocale || showHome;
 
   return (
     <View style={styles.header}>
@@ -91,11 +87,12 @@ export function ScreenNavBar({
       )}
 
       <View style={[styles.side, styles.sideEnd]}>
-        {showLocale || showHome ? (
-          <View style={styles.actions}>
-            {showLocale ? <HeaderLocaleMenu /> : null}
-            {showHome ? <HeaderHomeButton /> : null}
-          </View>
+        {showToolbar ? (
+          <HeaderToolbar
+            showSync={false}
+            showHome={showHome}
+            showLocale={showLocale}
+          />
         ) : (
           <View style={styles.sidePlaceholder} />
         )}

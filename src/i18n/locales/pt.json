@@ -109,6 +109,8 @@
     "home": "Início",
     "homeLong": "Voltar para o início",
     "languageMenu": "Idioma",
+    "themeMenu": "Tema de cores",
+    "about": "Sobre",
     "syncUpdate": "Baixar atualização do catálogo"
   },
   "admin": {

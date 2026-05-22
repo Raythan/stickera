@@ -109,6 +109,8 @@
     "home": "Home",
     "homeLong": "Back to home",
     "languageMenu": "Language",
+    "themeMenu": "Color theme",
+    "about": "About",
     "syncUpdate": "Download catalog update"
   },
   "admin": {

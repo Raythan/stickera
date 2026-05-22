@@ -1,13 +1,10 @@
-import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
-import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
 import { AdminToolsPanel } from '@/components/molecules/AdminToolsPanel';
-import { ThemePicker } from '@/components/molecules/ThemePicker';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAdminMode } from '@/features/admin/useAdminMode';
 import type { AppTheme } from '@/theme';
@@ -28,20 +25,6 @@ function createStyles(theme: AppTheme) {
       marginTop: theme.spacing.xs,
       marginBottom: theme.spacing.md,
     },
-    aboutRow: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      backgroundColor: theme.colors.surface,
-      borderRadius: 16,
-      padding: theme.spacing.lg,
-      marginBottom: theme.spacing.lg,
-      borderWidth: 1,
-      borderColor: theme.colors.border,
-    },
-    pressed: {
-      opacity: 0.9,
-    },
     codeInput: {
       backgroundColor: theme.colors.background,
       borderRadius: 8,
@@ -59,7 +42,6 @@ function createStyles(theme: AppTheme) {
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
-  const router = useRouter();
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
   const { enabled: adminEnabled, configured, unlockError, unlock, lock } = useAdminMode();
@@ -67,19 +49,6 @@ export default function SettingsScreen() {
 
   return (
     <ScreenTemplate showBack={false} showHome={false} showHeader={false}>
-      <View style={styles.section}>
-        <ThemePicker />
-      </View>
-
-      <Pressable
-        accessibilityRole="button"
-        onPress={() => router.push('/about')}
-        style={({ pressed }) => [styles.aboutRow, pressed && styles.pressed]}
-      >
-        <Text variant="bodyBold">{t('screens.about.title')}</Text>
-        <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-      </Pressable>
-
       <View style={styles.section}>
         <Text variant="bodyBold">{t('admin.unlockTitle')}</Text>
         <Text variant="caption" color={colors.textMuted} style={styles.hint}>
