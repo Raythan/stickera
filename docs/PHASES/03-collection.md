@@ -18,13 +18,13 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 | `AlbumDetail` | Grid figurinhas + qty |
 | `StickerCard` | molecule; qty ×N na moldura |
 | `CollectionListToolbar` | busca, filtro posse, page size, paginação |
-| `EnableAlbumToggle` | molecule settings |
+| `AlbumListCard` | toggle pool por álbum na home |
 
 ## Rotas
 
-- `app/index.tsx` — home álbuns
-- `app/album/[id].tsx`
-- `app/settings.tsx` — toggles álbuns + idioma
+- `app/(tabs)/index.tsx` — home álbuns (busca, paginação, toggle pool)
+- `app/album/[id].tsx` — detalhe (busca, filtro posse, paginação)
+- `app/(tabs)/settings.tsx` — admin unlock (idioma/tema/sync no `HeaderMenu`)
 
 ## Skills
 
@@ -44,11 +44,13 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 
 ```
 screens.home.title
+screens.home.packPoolToggle
 screens.album.progress
-screens.settings.enabledAlbums
 collection.quantity
 collection.new
 screens.collection.*
+nav.languageMenu
+screens.settings.themeLight|Dark|Bloom|Ocean
 ```
 
 ## Checklist de saída

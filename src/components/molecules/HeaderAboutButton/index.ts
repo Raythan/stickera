@@ -1,1 +1,0 @@
-export { HeaderAboutButton } from './HeaderAboutButton';

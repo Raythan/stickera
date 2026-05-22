@@ -1,4 +1,4 @@
-export type HeaderToolbarProps = {
+export type HeaderMenuProps = {
   showHome?: boolean;
   showSync?: boolean;
   showTheme?: boolean;

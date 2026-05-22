@@ -59,8 +59,9 @@ Chaves obrigatórias antes de sair da fase 1:
 
 ```
 screens.home.title
-screens.settings.title
-screens.settings.language
+nav.languageMenu
+nav.themeMenu
+screens.settings.themeLight|Dark|Bloom|Ocean
 screens.about.title
 common.loading
 common.error

@@ -7,7 +7,7 @@ import { FlagIcon } from '@/components/atoms/FlagIcon';
 import type { FlagLocale } from '@/components/atoms/FlagIcon';
 import { Icon } from '@/components/atoms/Icon';
 import { Text } from '@/components/atoms/Text';
-import type { HeaderToolbarProps } from '@/components/molecules/HeaderToolbar/HeaderToolbar.types';
+import type { HeaderMenuProps } from './HeaderMenu.types';
 import { useCatalogUpdateAvailable } from '@/features/sync/useCatalogUpdateAvailable';
 import { useLocale } from '@/features/ui/useLocale';
 import { THEME_PRESETS, type AppTheme, type ThemeId } from '@/theme/presets';
@@ -100,7 +100,7 @@ export function HeaderMenu({
   showTheme = true,
   showAbout = true,
   showLocale = true,
-}: HeaderToolbarProps) {
+}: HeaderMenuProps) {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);

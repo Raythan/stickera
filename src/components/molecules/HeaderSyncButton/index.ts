@@ -1,1 +1,0 @@
-export { HeaderSyncButton } from './HeaderSyncButton';

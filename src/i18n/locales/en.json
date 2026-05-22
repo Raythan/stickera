@@ -4,7 +4,6 @@
       "title": "My Albums",
       "subtitle": "Collect stickers, open timed packs, trade duplicates.",
       "comingSoon": "Albums sync in Phase 2",
-      "framePreviewHint": "Each album has its own frame.css — art loads on top later (lazy).",
       "packPoolHint": "Toggle each album to include or exclude it when opening packs.",
       "packPoolToggle": "In pack pool",
       "openPack": "Open pack"
@@ -19,13 +18,6 @@
       "revealTitle": "You got {{count}} stickers!"
     },
     "settings": {
-      "title": "Settings",
-      "language": "Language",
-      "languageHint": "English and Portuguese are available in the MVP.",
-      "enabledAlbums": "Albums in pack pool",
-      "enabledAlbumsHint": "Disabled albums are excluded when you open packs (Phase 4).",
-      "theme": "Color theme",
-      "themeHint": "Header and accents change; your collection is unchanged.",
       "themeLight": "Light",
       "themeDark": "Dark",
       "themeBloom": "Bloom",
@@ -54,9 +46,7 @@
       "next": "Next"
     },
     "trade": {
-      "title": "Trade duplicates",
       "createOffer": "Create offer",
-      "pastePayload": "Paste trade payload",
       "copyPayload": "Copy payload",
       "confirm": "Confirm trade",
       "confirmIncoming": "Confirm incoming trade",
@@ -64,16 +54,13 @@
       "success": "Trade completed!",
       "youGive": "You give",
       "youReceive": "You receive",
-      "pendingIncoming": "Pending — confirm when your partner completes",
       "noDuplicates": "No duplicates to trade yet.",
       "noDuplicatesHint": "Open more packs to collect repeats you can trade with friends.",
-      "selectOffered": "Select a duplicate to offer",
       "selectOfferedVisual": "Tap duplicates you are offering",
       "selectCounterOffer": "Tap duplicates you give in return",
       "partnerOffers": "Partner offers",
       "selectedCount": "{{count}} selected (max {{max}})",
       "useCopyNotQr": "Large offer — copy the payload instead of QR",
-      "selectWanted": "Select a sticker you want",
       "offerReady": "Your offer is ready",
       "roleAcceptorTitle": "I received an offer",
       "roleAcceptorHint": "Paste the code your partner sent, pick what you give back, and confirm.",
@@ -85,22 +72,14 @@
       "viewHistory": "View details",
       "hideHistory": "Hide",
       "historyCount": "{{count}} completed trade(s)",
-      "pasteHint": "Paste or enter the trade code from your partner",
-      "recentTrades": "Recent trades",
       "noTrades": "No trades yet",
-      "enterOfferId": "Enter offer ID to confirm",
       "accepted": "Accepted",
-      "sent": "Sent",
-      "cancelled": "Cancelled",
       "previewOffer": "Preview trade",
-      "pasteAck": "Paste partner ack",
       "copyAck": "Copy ack for partner",
       "ackHint": "Send this code to whoever created the offer — they paste it under Finish my offer.",
       "yourOffers": "Offers you sent",
       "importedOffers": "Imported offers",
       "copyPayloadAgain": "Copy payload again",
-      "copyPayloadAgainHint": "Payloads are saved on this device. You can copy again while not expired.",
-      "copyAckAgain": "Copy ack again",
       "continueAccept": "Continue",
       "offerExpired": "Expired",
       "savedInTradeLog": "Saved in Trade — you can copy the payload again from the trade hub.",
@@ -188,11 +167,6 @@
     "packReady": "pack available to open",
     "trade": "Trade",
     "settings": "Settings"
-  },
-  "preview": {
-    "albumName": "Space Explorers",
-    "albumProgress": "0 / 12",
-    "badgeNew": "Preview"
   },
   "albums": {
     "retroGames": {

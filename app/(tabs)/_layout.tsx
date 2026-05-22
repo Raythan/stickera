@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
-import { HeaderToolbar } from '@/components/molecules/HeaderToolbar';
+import { HeaderMenu } from '@/components/molecules/HeaderMenu';
 import { PackTabBarIcon } from '@/components/molecules/PackTabBarIcon';
 import { usePackCooldown } from '@/features/packs/usePackCooldown';
 import { useTheme } from '@/theme';
@@ -35,7 +35,7 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: t('tabs.home'),
-          headerRight: () => <HeaderToolbar showHome={false} />,
+          headerRight: () => <HeaderMenu showHome={false} />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="albums-outline" size={size} color={color} />
           ),
@@ -48,7 +48,7 @@ export default function TabsLayout() {
           tabBarAccessibilityLabel: canOpen
             ? `${t('tabs.pack')}, ${t('tabs.packReady')}`
             : t('tabs.pack'),
-          headerRight: () => <HeaderToolbar />,
+          headerRight: () => <HeaderMenu />,
           tabBarIcon: ({ color, size }) => (
             <PackTabBarIcon color={color} size={size} showBadge={canOpen} />
           ),
@@ -58,7 +58,7 @@ export default function TabsLayout() {
         name="trade"
         options={{
           title: t('tabs.trade'),
-          headerRight: () => <HeaderToolbar />,
+          headerRight: () => <HeaderMenu />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="swap-horizontal-outline" size={size} color={color} />
           ),
@@ -68,7 +68,7 @@ export default function TabsLayout() {
         name="settings"
         options={{
           title: t('tabs.settings'),
-          headerRight: () => <HeaderToolbar />,
+          headerRight: () => <HeaderMenu />,
           tabBarIcon: ({ color, size }) => (
             <Icon name="settings-outline" size={size} color={color} />
           ),

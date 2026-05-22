@@ -4,7 +4,6 @@
       "title": "Meus álbuns",
       "subtitle": "Colecione figurinhas, abra pacotes temporizados e troque repetidas.",
       "comingSoon": "Sincronização de álbuns na Fase 2",
-      "framePreviewHint": "Cada álbum tem seu frame.css — a arte entra por cima depois (lazy).",
       "packPoolHint": "Ative ou desative cada álbum para incluir ou não ao abrir pacotes.",
       "packPoolToggle": "No pool de pacotes",
       "openPack": "Abrir pacote"
@@ -19,13 +18,6 @@
       "revealTitle": "Você ganhou {{count}} figurinhas!"
     },
     "settings": {
-      "title": "Configurações",
-      "language": "Idioma",
-      "languageHint": "Inglês e português disponíveis no MVP.",
-      "enabledAlbums": "Álbuns no pool de pacotes",
-      "enabledAlbumsHint": "Álbuns desativados não entram ao abrir pacotes (Fase 4).",
-      "theme": "Tema de cores",
-      "themeHint": "Cabeçalho e destaques mudam; sua coleção não muda.",
       "themeLight": "Claro",
       "themeDark": "Escuro",
       "themeBloom": "Roxo",
@@ -54,9 +46,7 @@
       "next": "Próxima"
     },
     "trade": {
-      "title": "Trocar repetidas",
       "createOffer": "Criar oferta",
-      "pastePayload": "Colar payload de troca",
       "copyPayload": "Copiar payload",
       "confirm": "Confirmar troca",
       "confirmIncoming": "Confirmar troca recebida",
@@ -64,16 +54,13 @@
       "success": "Troca concluída!",
       "youGive": "Você dá",
       "youReceive": "Você recebe",
-      "pendingIncoming": "Pendente — confirme quando seu parceiro completar",
       "noDuplicates": "Sem repetidas para trocar.",
       "noDuplicatesHint": "Abra mais pacotes para juntar repetidas e trocar com amigos.",
-      "selectOffered": "Selecione uma repetida para oferecer",
       "selectOfferedVisual": "Toque nas repetidas que você oferece",
       "selectCounterOffer": "Toque nas repetidas que você devolve",
       "partnerOffers": "O parceiro oferece",
       "selectedCount": "{{count}} selecionadas (máx. {{max}})",
       "useCopyNotQr": "Oferta grande — copie o payload em vez do QR",
-      "selectWanted": "Selecione uma figurinha que você quer",
       "offerReady": "Sua oferta está pronta",
       "roleAcceptorTitle": "Recebi uma oferta",
       "roleAcceptorHint": "Cole o código que seu parceiro enviou, escolha o que você dá em troca e confirme.",
@@ -85,22 +72,14 @@
       "viewHistory": "Ver detalhes",
       "hideHistory": "Ocultar",
       "historyCount": "{{count}} troca(s) concluída(s)",
-      "pasteHint": "Cole ou digite o código de troca do seu parceiro",
-      "recentTrades": "Trocas recentes",
       "noTrades": "Nenhuma troca ainda",
-      "enterOfferId": "Digite o ID da oferta para confirmar",
       "accepted": "Aceita",
-      "sent": "Enviada",
-      "cancelled": "Cancelada",
       "previewOffer": "Pré-visualizar troca",
-      "pasteAck": "Colar ack do parceiro",
       "copyAck": "Copiar ack para o parceiro",
       "ackHint": "Envie este código para quem criou a oferta — ele cola em Finalizar minha oferta.",
       "yourOffers": "Ofertas que você enviou",
       "importedOffers": "Ofertas importadas",
       "copyPayloadAgain": "Copiar payload de novo",
-      "copyPayloadAgainHint": "Payloads ficam salvos neste aparelho. Você pode copiar de novo enquanto não expirar.",
-      "copyAckAgain": "Copiar ack de novo",
       "continueAccept": "Continuar",
       "offerExpired": "Expirada",
       "savedInTradeLog": "Salvo em Trocar — você pode copiar o payload de novo no hub de troca.",
@@ -188,11 +167,6 @@
     "packReady": "pacote disponível para abrir",
     "trade": "Trocar",
     "settings": "Ajustes"
-  },
-  "preview": {
-    "albumName": "Exploradores do Espaço",
-    "albumProgress": "0 / 12",
-    "badgeNew": "Prévia"
   },
   "albums": {
     "retroGames": {

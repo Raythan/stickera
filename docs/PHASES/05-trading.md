@@ -24,23 +24,24 @@ Schema: [trade-payload.schema.json](../schemas/trade-payload.schema.json).
 
 ## UI
 
-| Rota | Organism |
-|------|----------|
-| `app/trade/index.tsx` | `TradeHub` |
-| `app/trade/offer.tsx` | `TradeOfferForm`, `TradeQrDisplay` |
-| `app/trade/accept.tsx` | `TradeScanner`, `TradePreview` |
+| Rota | Implementação |
+|------|----------------|
+| `app/(tabs)/trade/index.tsx` | `TradeHubContent` (hub: criar oferta, aceitar, ack, histórico) |
+| `app/(tabs)/trade/offer.tsx` | `TradeOfferScreen` + `TradeStickerSelectGrid` |
+| Aceitar no hub | `TradeAcceptPanel` (colar payload, QR via `TradeQrScanner`, preview) |
+| `app/trade/*` | Redirects legado → `/(tabs)/trade/*` (deep links) |
 
 ## i18n (mínimo)
 
 ```
-trade.title
-trade.createOffer
-trade.scanQr
-trade.confirm
-trade.disclaimer
-trade.success
-errors.trade.expired
-errors.trade.insufficientDuplicate
+screens.trade.createOffer
+screens.trade.roleAcceptor*
+screens.trade.roleInitiatorAck*
+screens.trade.inputModePaste|Scan
+screens.trade.confirm
+screens.trade.disclaimer
+screens.trade.success
+errors.trade.*
 ```
 
 ## Checklist de saída

@@ -1,1 +1,0 @@
-export { HeaderHomeButton } from './HeaderHomeButton';
