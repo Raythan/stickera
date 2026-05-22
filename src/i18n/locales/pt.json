@@ -102,6 +102,7 @@
   },
   "nav": {
     "back": "Voltar",
+    "menu": "Menu",
     "home": "Início",
     "homeLong": "Voltar para o início",
     "languageMenu": "Idioma",

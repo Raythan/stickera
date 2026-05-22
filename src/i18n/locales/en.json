@@ -102,6 +102,7 @@
   },
   "nav": {
     "back": "Back",
+    "menu": "Menu",
     "home": "Home",
     "homeLong": "Back to home",
     "languageMenu": "Language",
