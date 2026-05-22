@@ -171,6 +171,7 @@
   "tabs": {
     "home": "Albums",
     "pack": "Pack",
+    "packReady": "pack available to open",
     "trade": "Trade",
     "settings": "Settings"
   },

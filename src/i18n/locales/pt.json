@@ -171,6 +171,7 @@
   "tabs": {
     "home": "Álbuns",
     "pack": "Pacote",
+    "packReady": "pacote disponível para abrir",
     "trade": "Trocar",
     "settings": "Ajustes"
   },

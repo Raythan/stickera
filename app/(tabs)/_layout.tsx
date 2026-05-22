@@ -3,11 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon } from '@/components/atoms/Icon';
 import { HeaderToolbar } from '@/components/molecules/HeaderToolbar';
+import { PackTabBarIcon } from '@/components/molecules/PackTabBarIcon';
+import { usePackCooldown } from '@/features/packs/usePackCooldown';
 import { useTheme } from '@/theme';
 
 export default function TabsLayout() {
   const { t } = useTranslation();
   const theme = useTheme();
+  const { canOpen } = usePackCooldown();
 
   return (
     <Tabs
@@ -42,9 +45,12 @@ export default function TabsLayout() {
         name="pack"
         options={{
           title: t('tabs.pack'),
+          tabBarAccessibilityLabel: canOpen
+            ? `${t('tabs.pack')}, ${t('tabs.packReady')}`
+            : t('tabs.pack'),
           headerRight: () => <HeaderToolbar />,
           tabBarIcon: ({ color, size }) => (
-            <Icon name="gift-outline" size={size} color={color} />
+            <PackTabBarIcon color={color} size={size} showBadge={canOpen} />
           ),
         }}
       />
