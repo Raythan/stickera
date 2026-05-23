@@ -13,7 +13,6 @@ import { TradeAcceptPanel } from '@/components/organisms/TradeAcceptPanel';
 import {
   encodedPayloadFromEntry,
   getOfferIdFromPayloadJson,
-  isTradePayloadExpired,
 } from '@/domain/trade/tradeLogHelpers';
 import type { TradeLogEntry } from '@/domain/types';
 import { formatTradeError } from '@/features/trade/tradeErrorKey';
@@ -137,6 +136,7 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
   const [registryOk, setRegistryOk] = useState<boolean | null>(null);
 
   const reloadTrades = useCallback(async () => {
+    await TradeLogRepository.archiveStaleSentOffers();
     const [sent, completed] = await Promise.all([
       TradeLogRepository.listSentOffers(),
       TradeLogRepository.listCompleted(),
@@ -190,7 +190,6 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
 
   const renderPendingRow = (entry: TradeLogEntry, actions: ReactNode) => {
     const offerId = getOfferIdFromPayloadJson(entry.payload_json);
-    const expired = isTradePayloadExpired(entry.payload_json);
     return (
       <View key={entry.id} style={styles.pendingRow}>
         <TradePendingOfferPreview payloadJson={entry.payload_json} />
@@ -199,15 +198,9 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
             <Text variant="caption" numberOfLines={1} style={styles.tradeId}>
               {offerId?.slice(0, 8) ?? entry.id.slice(0, 8)}…
             </Text>
-            {expired ? (
-              <Text variant="caption" color={colors.error}>
-                {t('screens.trade.offerExpired')}
-              </Text>
-            ) : (
-              <Text variant="caption" color={colors.textMuted}>
-                {t('screens.trade.waitingPartnerClaim')}
-              </Text>
-            )}
+            <Text variant="caption" color={colors.textMuted}>
+              {t('screens.trade.waitingPartnerClaim')}
+            </Text>
           </View>
           {actions}
         </View>
@@ -297,7 +290,6 @@ export function TradeHubContent({ initialEncoded }: TradeHubContentProps) {
                   size="sm"
                   variant="secondary"
                   onPress={() => void handleCopyPayload(entry)}
-                  disabled={isTradePayloadExpired(entry.payload_json)}
                 />
               </View>,
             ),

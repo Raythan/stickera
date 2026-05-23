@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { applyGiftAsInitiator } from '@/domain/trade/apply';
 import { getInitiatorOfferedIds } from '@/domain/trade/payloadHelpers';
+import { isTradePayloadExpired } from '@/domain/trade/tradeLogHelpers';
 import { validateInitiatorOfferIds } from '@/domain/trade/validate';
 import type { TradeLogEntry, TradePayloadAny } from '@/domain/types';
 import { CollectionRepository } from '@/services/db/CollectionRepository';
@@ -38,13 +39,25 @@ async function syncOneSentOffer(entry: TradeLogEntry): Promise<boolean> {
 
   if (payload.v !== 2) return false;
 
+  if (isTradePayloadExpired(entry.payload_json)) {
+    await TradeLogRepository.updateStatus(payload.offerId, 'cancelled');
+    return true;
+  }
+
   if (await TradeConsumedRepository.isConsumed(payload.offerId)) {
     await TradeLogRepository.updateStatus(payload.offerId, 'completed');
-    return false;
+    return true;
   }
 
   const statusResult = await getOfferStatus(payload.offerId);
-  if (!statusResult.ok || statusResult.status !== 'consumed') {
+  if (!statusResult.ok) {
+    return false;
+  }
+  if (statusResult.status === 'expired') {
+    await TradeLogRepository.updateStatus(payload.offerId, 'cancelled');
+    return true;
+  }
+  if (statusResult.status !== 'consumed') {
     return false;
   }
 
@@ -82,13 +95,13 @@ export function useTradeInitiatorSync(enabled: boolean, onSynced?: () => void) {
     if (!isTradeRegistryConfigured()) return;
     setSyncing(true);
     try {
+      let needsReload = await TradeLogRepository.archiveStaleSentOffers();
       const sent = await TradeLogRepository.listSentOffers();
-      let anyApplied = false;
       for (const entry of sent) {
-        const applied = await syncOneSentOffer(entry);
-        if (applied) anyApplied = true;
+        const changed = await syncOneSentOffer(entry);
+        if (changed) needsReload = true;
       }
-      if (anyApplied) {
+      if (needsReload) {
         onSyncedRef.current?.();
       }
     } finally {

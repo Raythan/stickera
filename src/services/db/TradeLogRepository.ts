@@ -1,8 +1,12 @@
 import { encodeTradePayload } from '@/domain/trade/codec';
-import { getOfferIdFromPayloadJson } from '@/domain/trade/tradeLogHelpers';
+import {
+  getOfferIdFromPayloadJson,
+  isTradePayloadExpired,
+} from '@/domain/trade/tradeLogHelpers';
 import type { TradeLogEntry } from '@/domain/types';
 
 import { loadStore, saveStore, type StoreData } from './localStore';
+import { TradeConsumedRepository } from './TradeConsumedRepository';
 
 function normalizeEntry(e: StoreData['trade_log'][number]): TradeLogEntry {
   return {
@@ -82,10 +86,41 @@ export const TradeLogRepository = {
       .map(normalizeEntry);
   },
 
+  /** Move consumed/expired initiator offers out of the pending sent list. */
+  async archiveStaleSentOffers(): Promise<boolean> {
+    const store = loadStore();
+    let changed = false;
+
+    for (const row of store.trade_log) {
+      if (row.status !== 'sent' || row.role !== 'initiator') continue;
+      const offerId = getOfferIdFromPayloadJson(row.payload_json);
+      if (!offerId) continue;
+
+      if (await TradeConsumedRepository.isConsumed(offerId)) {
+        row.status = 'completed';
+        changed = true;
+        continue;
+      }
+
+      if (isTradePayloadExpired(row.payload_json)) {
+        row.status = 'cancelled';
+        changed = true;
+      }
+    }
+
+    if (changed) saveStore(store);
+    return changed;
+  },
+
   async listSentOffers(): Promise<TradeLogEntry[]> {
     const store = loadStore();
     return store.trade_log
-      .filter((e) => e.status === 'sent' && e.role === 'initiator')
+      .filter(
+        (e) =>
+          e.status === 'sent' &&
+          e.role === 'initiator' &&
+          !isTradePayloadExpired(e.payload_json),
+      )
       .slice()
       .reverse()
       .map(normalizeEntry);
