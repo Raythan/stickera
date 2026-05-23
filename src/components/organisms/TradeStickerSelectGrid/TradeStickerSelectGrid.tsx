@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/components/atoms/Text';
+import { PeekCarousel } from '@/components/molecules/PeekCarousel';
 import { StickerCard } from '@/components/molecules/StickerCard';
 import { MAX_TRADE_STICKERS_PER_SIDE } from '@/domain/trade/constants';
 import type { AppTheme } from '@/theme/presets';
@@ -20,12 +21,6 @@ function createStyles(theme: AppTheme) {
     },
     count: {
       marginBottom: theme.spacing.sm,
-    },
-    grid: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      gap: 16,
-      justifyContent: 'center',
     },
     cell: {
       borderRadius: 12,
@@ -63,13 +58,14 @@ export function TradeStickerSelectGrid({
       <Text variant="caption" color={colors.textMuted} style={styles.count}>
         {t('screens.trade.selectedCount', { count: selectedIds.length, max: maxSelection })}
       </Text>
-      <View style={styles.grid}>
-        {items.map((item) => {
+      <PeekCarousel
+        data={items}
+        keyExtractor={(item) => item.stickerId}
+        renderItem={(item) => {
           const selected = selectedSet.has(item.stickerId);
           const atMax = selectedIds.length >= maxSelection && !selected;
           return (
             <Pressable
-              key={item.stickerId}
               accessibilityRole="button"
               accessibilityState={{ selected }}
               onPress={() => {
@@ -88,8 +84,8 @@ export function TradeStickerSelectGrid({
               />
             </Pressable>
           );
-        })}
-      </View>
+        }}
+      />
     </View>
   );
 }

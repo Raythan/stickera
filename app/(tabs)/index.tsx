@@ -11,7 +11,6 @@ import { useCollectionListControls } from '@/features/collection/useCollectionLi
 import { useAlbumProgress } from '@/features/collection/useAlbumProgress';
 import { useAlbums } from '@/features/collection/useAlbums';
 import { useEnabledAlbums } from '@/features/collection/useEnabledAlbums';
-import { usePageSizePreference } from '@/features/collection/usePageSizePreference';
 import { useContentSync } from '@/features/sync/useContentSync';
 import { useTheme } from '@/theme/ThemeContext';
 
@@ -24,8 +23,6 @@ export default function HomeScreen() {
   const { items: enabledItems, reload: reloadEnabled, toggle: togglePackPool } =
     useEnabledAlbums();
   const { sync, syncing } = useContentSync();
-  const { pageSize, setPageSize, options: pageSizeOptions, ready: pageSizeReady } =
-    usePageSizePreference('albums');
   const [refreshing, setRefreshing] = useState(false);
 
   const enabledByAlbumId = useMemo(() => {
@@ -43,7 +40,6 @@ export default function HomeScreen() {
 
   const list = useCollectionListControls({
     items: albums,
-    pageSize: pageSizeReady ? pageSize : albums.length || 1,
     getSearchText: getAlbumSearchText,
     enableOwnershipFilter: false,
   });
@@ -63,17 +59,11 @@ export default function HomeScreen() {
   const toolbarLabels = useMemo(
     () => ({
       itemCount: t('screens.collection.itemCount', { count: list.total }),
-      pageOf: t('screens.collection.pageOf', {
-        page: list.page,
-        totalPages: list.totalPages,
-      }),
-      prev: t('screens.collection.prev'),
-      next: t('screens.collection.next'),
       filterAll: t('screens.collection.filterAll'),
       filterOwned: t('screens.collection.filterOwned'),
       filterMissing: t('screens.collection.filterMissing'),
     }),
-    [t, list.total, list.page, list.totalPages],
+    [t, list.total],
   );
 
   const gridItems = useMemo(
@@ -107,20 +97,12 @@ export default function HomeScreen() {
       <Text variant="caption" color={colors.textMuted} style={{ marginBottom: spacing.md }}>
         {t('screens.home.packPoolHint')}
       </Text>
-      {pageSizeReady && albums.length > 0 ? (
+      {albums.length > 0 ? (
         <CollectionListToolbar
           search={list.search}
           onSearchChange={list.setSearch}
           searchPlaceholder={t('screens.collection.searchPlaceholderAlbums')}
-          pageSize={pageSize}
-          pageSizeOptions={pageSizeOptions}
-          onPageSizeChange={setPageSize}
-          pageSizeLabel={t('screens.collection.pageSizeAlbums')}
-          page={list.page}
-          totalPages={list.totalPages}
           total={list.total}
-          onPrevPage={() => list.setPage(list.page - 1)}
-          onNextPage={() => list.setPage(list.page + 1)}
           labels={toolbarLabels}
         />
       ) : null}

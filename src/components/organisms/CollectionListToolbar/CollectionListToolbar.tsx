@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { Text } from '@/components/atoms/Text';
 import { OwnershipFilter } from '@/components/molecules/OwnershipFilter';
 import { PageSizeSelect } from '@/components/molecules/PageSizeSelect';
 import { PaginationControls } from '@/components/molecules/PaginationControls';
@@ -31,21 +32,15 @@ export function CollectionListToolbar({
   search,
   onSearchChange,
   searchPlaceholder,
-  pageSize,
-  pageSizeOptions,
-  onPageSizeChange,
-  pageSizeLabel,
-  page,
-  totalPages,
   total,
-  onPrevPage,
-  onNextPage,
   labels,
+  pagination,
   showOwnershipFilter = false,
   ownershipFilter = 'all',
   onOwnershipFilterChange,
 }: CollectionListToolbarProps) {
   const theme = useTheme();
+  const { colors } = theme;
   const narrow = useIsNarrowLayout();
   const styles = useMemo(() => createStyles(theme, narrow), [theme, narrow]);
 
@@ -67,25 +62,33 @@ export function CollectionListToolbar({
           }}
         />
       ) : null}
-      <View style={styles.row}>
-        <PageSizeSelect
-          label={pageSizeLabel}
-          value={pageSize}
-          options={pageSizeOptions}
-          onChange={onPageSizeChange}
-        />
-      </View>
-      <PaginationControls
-        page={page}
-        totalPages={totalPages}
-        total={total}
-        itemCountLabel={labels.itemCount}
-        pageOfLabel={labels.pageOf}
-        prevLabel={labels.prev}
-        nextLabel={labels.next}
-        onPrev={onPrevPage}
-        onNext={onNextPage}
-      />
+      {pagination ? (
+        <>
+          <View style={styles.row}>
+            <PageSizeSelect
+              label={pagination.pageSizeLabel}
+              value={pagination.pageSize}
+              options={pagination.pageSizeOptions}
+              onChange={pagination.onPageSizeChange}
+            />
+          </View>
+          <PaginationControls
+            page={pagination.page}
+            totalPages={pagination.totalPages}
+            total={total}
+            itemCountLabel={labels.itemCount}
+            pageOfLabel={labels.pageOf ?? ''}
+            prevLabel={labels.prev ?? ''}
+            nextLabel={labels.next ?? ''}
+            onPrev={pagination.onPrevPage}
+            onNext={pagination.onNextPage}
+          />
+        </>
+      ) : (
+        <Text variant="caption" color={colors.textMuted}>
+          {labels.itemCount}
+        </Text>
+      )}
     </View>
   );
 }

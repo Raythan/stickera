@@ -1,6 +1,7 @@
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Text } from '@/components/atoms/Text';
+import { PeekCarousel } from '@/components/molecules/PeekCarousel';
 import { StickerCard } from '@/components/molecules/StickerCard';
 import type { AppTheme } from '@/theme/presets';
 import { useThemedStyles } from '@/theme/useThemedStyles';
@@ -14,13 +15,6 @@ function createStyles(theme: AppTheme) {
     },
     title: {
       marginBottom: theme.spacing.sm,
-    },
-    row: {
-      gap: theme.spacing.md,
-      paddingVertical: theme.spacing.xs,
-    },
-    card: {
-      opacity: 1,
     },
   });
 }
@@ -37,20 +31,21 @@ export function TradeBundlePreview({ items, title }: TradeBundlePreviewProps) {
           {title}
         </Text>
       ) : null}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.row}>
-        {items.map((item) => (
-          <View key={item.stickerId} style={styles.card}>
-            <StickerCard
-              stickerId={item.stickerId}
-              name={item.name}
-              imageUri={item.imageUri}
-              frameCss={item.frameCss}
-              quantity={item.quantity}
-              rarity={item.rarity}
-            />
-          </View>
-        ))}
-      </ScrollView>
+      <PeekCarousel
+        data={items}
+        keyExtractor={(item) => item.stickerId}
+        loop={items.length >= 2}
+        renderItem={(item) => (
+          <StickerCard
+            stickerId={item.stickerId}
+            name={item.name}
+            imageUri={item.imageUri}
+            frameCss={item.frameCss}
+            quantity={item.quantity}
+            rarity={item.rarity}
+          />
+        )}
+      />
     </View>
   );
 }

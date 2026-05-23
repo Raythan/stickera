@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
 
+import { PeekCarousel } from '@/components/molecules/PeekCarousel';
 import { StickerCard } from '@/components/molecules/StickerCard';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
 
@@ -36,12 +36,13 @@ export function AlbumStickerGrid({
   }, [album.id, stickers]);
 
   return (
-    <View style={styles.grid}>
-      {stickers.map((sticker) => {
+    <PeekCarousel
+      data={stickers}
+      keyExtractor={(sticker) => sticker.id}
+      renderItem={(sticker) => {
         const entry = getCollectionEntry(sticker.id);
         return (
           <StickerCard
-            key={sticker.id}
             stickerId={sticker.id}
             name={getStickerName(sticker)}
             frameCss={frameCss}
@@ -51,16 +52,7 @@ export function AlbumStickerGrid({
             rarity={sticker.rarity}
           />
         );
-      })}
-    </View>
+      }}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 20,
-    justifyContent: 'center',
-  },
-});

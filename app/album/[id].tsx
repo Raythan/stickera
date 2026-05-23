@@ -13,7 +13,6 @@ import { useMarkAlbumViewed } from '@/features/collection/useMarkAlbumViewed';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { useCollectionListControls } from '@/features/collection/useCollectionListControls';
-import { usePageSizePreference } from '@/features/collection/usePageSizePreference';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import type { AppTheme } from '@/theme/presets';
@@ -48,8 +47,6 @@ export default function AlbumDetailScreen() {
   const { manifest, loading: manifestLoading, error: manifestError } = useAlbumManifest(id);
   const { ownedCount, getEntry, loading: collectionLoading, reload } = useAlbumCollection(id);
   useMarkAlbumViewed(id, reload);
-  const { pageSize, setPageSize, options: pageSizeOptions, ready: pageSizeReady } =
-    usePageSizePreference('stickers');
   const framePath = manifest?.frameStylePath ?? 'frame.css';
   const { css, loading: frameLoading, error: frameError } = useAlbumFramePreview(
     id ?? null,
@@ -66,7 +63,6 @@ export default function AlbumDetailScreen() {
 
   const list = useCollectionListControls({
     items: stickers,
-    pageSize: pageSizeReady ? pageSize : stickers.length || 1,
     getSearchText: (sticker) => `${getStickerName(sticker)} ${sticker.id}`,
     isOwned: (sticker) => getEntry(sticker.id).quantity > 0,
     enableOwnershipFilter: true,
@@ -75,17 +71,11 @@ export default function AlbumDetailScreen() {
   const toolbarLabels = useMemo(
     () => ({
       itemCount: t('screens.collection.itemCount', { count: list.total }),
-      pageOf: t('screens.collection.pageOf', {
-        page: list.page,
-        totalPages: list.totalPages,
-      }),
-      prev: t('screens.collection.prev'),
-      next: t('screens.collection.next'),
       filterAll: t('screens.collection.filterAll'),
       filterOwned: t('screens.collection.filterOwned'),
       filterMissing: t('screens.collection.filterMissing'),
     }),
-    [t, list.total, list.page, list.totalPages],
+    [t, list.total],
   );
 
   if (!id) {
@@ -146,20 +136,12 @@ export default function AlbumDetailScreen() {
             {manifestError ?? frameError}
           </Text>
         ) : null}
-        {manifest && stickers.length > 0 && pageSizeReady && !loading ? (
+        {manifest && stickers.length > 0 && !loading ? (
           <CollectionListToolbar
             search={list.search}
             onSearchChange={list.setSearch}
             searchPlaceholder={t('screens.collection.searchPlaceholderStickers')}
-            pageSize={pageSize}
-            pageSizeOptions={pageSizeOptions}
-            onPageSizeChange={setPageSize}
-            pageSizeLabel={t('screens.collection.pageSizeStickers')}
-            page={list.page}
-            totalPages={list.totalPages}
             total={list.total}
-            onPrevPage={() => list.setPage(list.page - 1)}
-            onNextPage={() => list.setPage(list.page + 1)}
             labels={toolbarLabels}
             showOwnershipFilter
             ownershipFilter={list.ownershipFilter}

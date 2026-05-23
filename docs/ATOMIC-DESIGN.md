@@ -31,6 +31,31 @@ Exception: `LocalizedText` atom wraps `Text` + `t()` if you standardize one atom
 - May use `useTranslation` for static molecule copy.
 - No direct localStorage / Zustand — receive data via props.
 
+#### `PeekCarousel` (`src/components/molecules/PeekCarousel/`)
+
+Horizontal infinite carousel (Netflix-style peek). Used by album/sticker organisms, pack reveal, and trade previews.
+
+| Prop | Role |
+|------|------|
+| `data` | Items to show |
+| `keyExtractor` | Stable React keys |
+| `renderItem` | `(item, { index, scale, focused }) => ReactNode` |
+| `loop` | Default `true` when `data.length >= 2` |
+| `itemGap` | Spacing between cells (`theme.spacing.md`) |
+
+**Layout profiles** (`useIsNarrowLayout`, breakpoint 480px):
+
+| Profile | `itemStride` | Focused (scale 1.0) | Peeks (scale 0.8) |
+|---------|--------------|---------------------|-------------------|
+| narrow | `viewportWidth / 2` | 1 centered | half of prev/next |
+| wide | `viewportWidth / 4` | 3 centered | half at each edge |
+
+- Snap: `snapToInterval` = stride + gap; web `scroll-snap` via `Platform.OS === 'web'`.
+- Loop: triple buffer `[...data, ...data, ...data]`; reindex on momentum end via `useInfiniteCarouselOffset`.
+- 0 items → render nothing; 1 item → centered, no loop.
+- Scale via `Animated` + `onScroll`; wrap children in `Animated.View` with `transform: [{ scale }]`.
+- `nestedScrollEnabled` inside vertical `ScreenTemplate`.
+
 ### Organisms (`src/components/organisms/`)
 
 - Full sections: `AlbumGrid`, `PackRevealCarousel`, `TradeOfferSummary`.

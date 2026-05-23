@@ -9,18 +9,21 @@ import {
 
 export type UseCollectionListControlsOptions<T> = {
   items: T[];
-  pageSize: number;
   getSearchText: (item: T) => string;
   isOwned?: (item: T) => boolean;
   enableOwnershipFilter?: boolean;
+  /** When true, slices `visibleItems` by page. Default false (carousel shows all filtered). */
+  paginate?: boolean;
+  pageSize?: number;
 };
 
 export function useCollectionListControls<T>({
   items,
-  pageSize,
   getSearchText,
   isOwned,
   enableOwnershipFilter = false,
+  paginate: usePagination = false,
+  pageSize = 24,
 }: UseCollectionListControlsOptions<T>) {
   const [search, setSearch] = useState('');
   const [ownershipFilter, setOwnershipFilter] = useState<OwnershipFilter>('all');
@@ -28,7 +31,7 @@ export function useCollectionListControls<T>({
 
   useEffect(() => {
     setPage(1);
-  }, [search, ownershipFilter, pageSize, items.length]);
+  }, [search, ownershipFilter, pageSize, items.length, usePagination]);
 
   const filtered = useMemo(() => {
     let list = items;
@@ -39,26 +42,31 @@ export function useCollectionListControls<T>({
   }, [items, search, ownershipFilter, enableOwnershipFilter, isOwned, getSearchText]);
 
   const pagination = useMemo(
-    () => paginate(filtered, page, pageSize),
-    [filtered, page, pageSize],
+    () => (usePagination ? paginate(filtered, page, pageSize) : null),
+    [filtered, page, pageSize, usePagination],
   );
 
   useEffect(() => {
+    if (!usePagination || !pagination) return;
     if (page > pagination.totalPages) {
       setPage(pagination.totalPages);
     }
-  }, [page, pagination.totalPages]);
+  }, [page, pagination, usePagination]);
+
+  const visibleItems = usePagination && pagination ? pagination.items : filtered;
+  const total = usePagination && pagination ? pagination.total : filtered.length;
 
   return {
     search,
     setSearch,
     ownershipFilter,
     setOwnershipFilter,
-    page: pagination.page,
+    page: pagination?.page ?? 1,
     setPage,
-    visibleItems: pagination.items,
-    total: pagination.total,
-    totalPages: pagination.totalPages,
-    hasResults: pagination.total > 0,
+    visibleItems,
+    total,
+    totalPages: pagination?.totalPages ?? 1,
+    hasResults: total > 0,
+    paginate: usePagination,
   };
 }

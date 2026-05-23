@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/atoms/Button';
 import { RarityMedalIcon } from '@/components/atoms/RarityMedalIcon';
 import { Image } from '@/components/atoms/Image';
 import { Text } from '@/components/atoms/Text';
+import { PeekCarousel } from '@/components/molecules/PeekCarousel';
 import { resolveContentLabel } from '@/i18n/resolveContentLabel';
 import { resolveStickerArtUri } from '@/services/content/AlbumStickerArtUri';
 import type { AppTheme } from '@/theme/presets';
@@ -29,12 +30,12 @@ function createStyles(theme: AppTheme) {
       marginBottom: theme.spacing.lg,
       textAlign: 'center',
     },
-    scroll: {
-      gap: theme.spacing.md,
-      paddingBottom: theme.spacing.md,
+    carousel: {
+      width: '100%',
+      marginBottom: theme.spacing.md,
     },
     card: {
-      width: 120,
+      width: '100%',
       alignItems: 'center',
     },
     artWrap: {
@@ -94,42 +95,42 @@ export function PackReveal({ stickers, onDismiss }: PackRevealProps) {
       <Text variant="bodyBold" style={styles.title}>
         {t('screens.pack.revealTitle', { count: stickers.length })}
       </Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.scroll}
-      >
-        {stickers.map((sticker) => (
-          <View key={sticker.id} style={styles.card}>
-            <View style={styles.artWrap}>
-              {artUris[sticker.id] ? (
-                <Image
-                  source={{ uri: artUris[sticker.id] }}
-                  accessibilityLabel={resolveContentLabel(
-                    sticker.nameKey ?? sticker.id,
-                    sticker.names,
-                  )}
-                  style={styles.art}
-                />
-              ) : (
-                <View style={styles.artPlaceholder} />
-              )}
-            </View>
-            {sticker.rarity && isStickerRarity(sticker.rarity) ? (
-              <View style={styles.rarityWrap}>
-                <RarityMedalIcon
-                  rarity={sticker.rarity}
-                  owned
-                  accessibilityLabel={t(RARITY_I18N_KEY[sticker.rarity])}
-                />
+      <View style={styles.carousel}>
+        <PeekCarousel
+          data={stickers}
+          keyExtractor={(sticker) => sticker.id}
+          renderItem={(sticker) => (
+            <View style={styles.card}>
+              <View style={styles.artWrap}>
+                {artUris[sticker.id] ? (
+                  <Image
+                    source={{ uri: artUris[sticker.id] }}
+                    accessibilityLabel={resolveContentLabel(
+                      sticker.nameKey ?? sticker.id,
+                      sticker.names,
+                    )}
+                    style={styles.art}
+                  />
+                ) : (
+                  <View style={styles.artPlaceholder} />
+                )}
               </View>
-            ) : null}
-            <Text variant="caption" style={styles.stickerName} numberOfLines={2}>
-              {resolveContentLabel(sticker.nameKey ?? sticker.id, sticker.names)}
-            </Text>
-          </View>
-        ))}
-      </ScrollView>
+              {sticker.rarity && isStickerRarity(sticker.rarity) ? (
+                <View style={styles.rarityWrap}>
+                  <RarityMedalIcon
+                    rarity={sticker.rarity}
+                    owned
+                    accessibilityLabel={t(RARITY_I18N_KEY[sticker.rarity])}
+                  />
+                </View>
+              ) : null}
+              <Text variant="caption" style={styles.stickerName} numberOfLines={2}>
+                {resolveContentLabel(sticker.nameKey ?? sticker.id, sticker.names)}
+              </Text>
+            </View>
+          )}
+        />
+      </View>
       <Button label={t('common.back')} variant="ghost" onPress={onDismiss} />
     </View>
   );
