@@ -16,7 +16,7 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 |----------|--------|
 | `AlbumGrid` | Carrossel horizontal de álbuns (`PeekCarousel`) |
 | `AlbumStickerGrid` | Carrossel de figurinhas + qty |
-| `PeekCarousel` | molecule; peek Netflix, loop infinito, perfis narrow/wide |
+| `PeekCarousel` | molecule; peek Netflix, lista linear, perfis narrow/wide |
 | `StickerCard` | molecule; medalha de raridade + qty ×N à direita da moldura |
 | `RarityMedalIcon` | atom; cor por tier (`src/theme/rarity.ts`) |
 | `CollectionListToolbar` | busca, contagem; filtro posse no detalhe (sem paginação) |
@@ -40,7 +40,7 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 - Progresso: `owned / totalStickers` do manifest
 - Home: busca por nome do álbum; carrossel percorre **todos** os resultados filtrados
 - Detalhe do álbum: busca por nome/id da figurinha, filtro `all|owned|missing`; carrossel sem paginação
-- `PeekCarousel`: janela virtual 5 slots + índice lógico (loop ilimitado); snap ao centro ao soltar; narrow/wide com peeks 80%; wide: setas chevron sem texto
+- `PeekCarousel`: `FlatList` linear (início→fim); snap ao centro ao soltar; narrow/wide com peeks 80%; wide: setas chevron sem texto
 - Lógica de lista: `src/domain/collection/listQuery.ts` + `useCollectionListControls` (`paginate: false`)
 
 ## i18n novas chaves (mínimo)

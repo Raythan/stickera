@@ -34,7 +34,6 @@ export function TradeBundlePreview({ items, title }: TradeBundlePreviewProps) {
       <PeekCarousel
         data={items}
         keyExtractor={(item) => item.stickerId}
-        loop={items.length >= 2}
         renderItem={(item) => (
           <StickerCard
             stickerId={item.stickerId}

@@ -33,14 +33,13 @@ Exception: `LocalizedText` atom wraps `Text` + `t()` if you standardize one atom
 
 #### `PeekCarousel` (`src/components/molecules/PeekCarousel/`)
 
-Horizontal infinite carousel (Netflix-style peek). Used by album/sticker organisms, pack reveal, and trade previews.
+Horizontal carousel (Netflix-style peek). Used by album/sticker organisms, pack reveal, and trade previews. Linear list only — first item to last, no infinite loop.
 
 | Prop | Role |
 |------|------|
 | `data` | Items to show |
 | `keyExtractor` | Stable React keys |
 | `renderItem` | `(item, { index, scale, focused }) => ReactNode` |
-| `loop` | Default `true` when `data.length >= 2` |
 | `itemGap` | Spacing between cells (`theme.spacing.md`) |
 
 **Layout profiles** (`useIsNarrowLayout`, breakpoint 480px):
@@ -50,10 +49,10 @@ Horizontal infinite carousel (Netflix-style peek). Used by album/sticker organis
 | narrow | `viewportWidth / 2` | 1 central + half peeks | 1 item at viewport center |
 | wide | `viewportWidth / 4` | ~3 cards + edge peeks | 1 item at viewport center |
 
-- **Loop:** virtual window of 5 slots + `logicalIndex` (unbounded); after swipe, reset scroll to center slot without animation (`carouselVirtualWindow.ts`).
-- **Snap:** programmatic center snap on `onScrollEndDrag` / `onMomentumScrollEnd` (`centerScrollOffsetForSlot`).
+- **List:** `Animated.FlatList` over full `data`; snap per index (`centerScrollOffsetForSlot` in `carouselVirtualWindow.ts`).
+- **Snap:** programmatic center snap on `onScrollEndDrag` / `onMomentumScrollEnd`.
 - **Wide desktop:** chevron prev/next (`PeekCarouselNav`); web `touchAction: pan-x`, optional wheel handler; no CSS `scroll-snap` on content (conflicts with RN).
-- 0 items → render nothing; 1 item → centered, no loop.
+- 0 items → render nothing; 1 item → centered.
 - Scale via `Animated` + `onScroll`; `focusRadius = itemStride * 0.5`.
 - `nestedScrollEnabled` inside vertical `ScreenTemplate`.
 
