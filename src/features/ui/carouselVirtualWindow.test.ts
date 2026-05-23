@@ -5,7 +5,9 @@ import {
   itemCenterXForSlot,
   logicalIndexDeltaFromNearestSlot,
   modIndex,
+  nearestDataIndexFromScrollX,
   nearestSlotFromScrollX,
+  virtualLoopDeltaFromScroll,
 } from './carouselVirtualWindow';
 
 const metrics = {
@@ -51,5 +53,17 @@ describe('carouselVirtualWindow', () => {
     expect(dataIndexForVirtualSlot(2, 0, 5)).toBe(0);
     expect(dataIndexForVirtualSlot(3, 0, 5)).toBe(1);
     expect(dataIndexForVirtualSlot(0, 1, 5)).toBe(4);
+  });
+
+  it('virtualLoopDeltaFromScroll moves at most one step', () => {
+    const center = centerScrollOffsetForSlot(VIRTUAL_CENTER_SLOT, metrics);
+    expect(virtualLoopDeltaFromScroll(center, metrics)).toBe(0);
+    expect(virtualLoopDeltaFromScroll(center + metrics.strideWithGap * 0.5, metrics)).toBe(1);
+    expect(virtualLoopDeltaFromScroll(center - metrics.strideWithGap * 0.5, metrics)).toBe(-1);
+  });
+
+  it('nearestDataIndexFromScrollX', () => {
+    const idx1 = centerScrollOffsetForSlot(1, metrics);
+    expect(nearestDataIndexFromScrollX(idx1, metrics, 10)).toBe(1);
   });
 });

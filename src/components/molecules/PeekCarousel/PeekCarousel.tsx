@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
+  FlatList,
   Platform,
   StyleSheet,
   View,
@@ -14,11 +15,12 @@ import { useIsNarrowLayout } from '@/theme/useLayoutBreakpoint';
 import type { CarouselLayoutMetrics } from '@/features/ui/carouselVirtualWindow';
 import {
   VIRTUAL_CENTER_SLOT,
+  VIRTUAL_LOOP_MAX_ITEMS,
   VIRTUAL_SLOT_COUNT,
   centerScrollOffsetForSlot,
   dataIndexForVirtualSlot,
-  logicalIndexDeltaFromNearestSlot,
-  nearestSlotFromScrollX,
+  nearestDataIndexFromScrollX,
+  virtualLoopDeltaFromScroll,
 } from '@/features/ui/carouselVirtualWindow';
 
 import { getItemFocused, PeekCarouselCell } from './PeekCarouselCell';
@@ -38,6 +40,209 @@ export function PeekCarousel<T>({
 }: PeekCarouselProps<T>) {
   const metrics = usePeekCarouselMetrics(itemGap);
   const narrow = useIsNarrowLayout();
+
+  const shouldLoop = loopProp ?? data.length >= 2;
+  const useFlatList = data.length > VIRTUAL_LOOP_MAX_ITEMS;
+  const useVirtualLoop = !useFlatList && shouldLoop && data.length >= 2;
+
+  if (useFlatList) {
+    return (
+      <FlatListCarousel
+        data={data}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+        metrics={metrics}
+        narrow={narrow}
+        itemGap={itemGap}
+        accessibilityLabel={accessibilityLabel}
+      />
+    );
+  }
+
+  return (
+    <VirtualScrollCarousel
+      data={data}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+      metrics={metrics}
+      narrow={narrow}
+      itemGap={itemGap}
+      useVirtualLoop={useVirtualLoop}
+      singleItem={data.length === 1}
+      accessibilityLabel={accessibilityLabel}
+    />
+  );
+}
+
+type CarouselBodyProps<T> = Pick<
+  PeekCarouselProps<T>,
+  'data' | 'keyExtractor' | 'renderItem' | 'accessibilityLabel'
+> & {
+  metrics: ReturnType<typeof usePeekCarouselMetrics>;
+  narrow: boolean;
+  itemGap: number;
+};
+
+function FlatListCarousel<T>({
+  data,
+  keyExtractor,
+  renderItem,
+  metrics,
+  narrow,
+  itemGap,
+  accessibilityLabel,
+}: CarouselBodyProps<T>) {
+  const listRef = useRef<FlatList<T>>(null);
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const scrollOffsetRef = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const layoutMetrics: CarouselLayoutMetrics = useMemo(
+    () => ({
+      sidePadding: metrics.sidePadding,
+      itemStride: metrics.itemStride,
+      strideWithGap: metrics.strideWithGap,
+      viewportWidth: metrics.viewportWidth,
+    }),
+    [metrics],
+  );
+
+  const snapOffsets = useMemo(
+    () => data.map((_, index) => centerScrollOffsetForSlot(index, layoutMetrics)),
+    [data.length, layoutMetrics],
+  );
+
+  const itemCenters = useMemo(
+    () =>
+      data.map(
+        (_, index) =>
+          layoutMetrics.sidePadding + index * layoutMetrics.strideWithGap + layoutMetrics.itemStride / 2,
+      ),
+    [data.length, layoutMetrics],
+  );
+
+  const onScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+    {
+      useNativeDriver: false,
+      listener: (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+        const x = event.nativeEvent.contentOffset.x;
+        scrollOffsetRef.current = x;
+        setActiveIndex(nearestDataIndexFromScrollX(x, layoutMetrics, data.length));
+      },
+    },
+  );
+
+  const scrollToIndex = useCallback(
+    (index: number, animated: boolean) => {
+      const clamped = Math.max(0, Math.min(data.length - 1, index));
+      const offset = centerScrollOffsetForSlot(clamped, layoutMetrics);
+      listRef.current?.scrollToOffset({ offset, animated });
+      scrollOffsetRef.current = offset;
+      scrollX.setValue(offset);
+      setActiveIndex(clamped);
+    },
+    [data.length, layoutMetrics, scrollX],
+  );
+
+  const settleScrollPosition = useCallback(() => {
+    const index = nearestDataIndexFromScrollX(scrollOffsetRef.current, layoutMetrics, data.length);
+    scrollToIndex(index, true);
+  }, [layoutMetrics, data.length, scrollToIndex]);
+
+  const goStep = useCallback(
+    (direction: -1 | 1) => {
+      scrollToIndex(activeIndex + direction, true);
+    },
+    [activeIndex, scrollToIndex],
+  );
+
+  const webScrollStyle =
+    Platform.OS === 'web'
+      ? ({ touchAction: 'pan-x', overscrollBehaviorX: 'contain' } as Record<string, string>)
+      : undefined;
+
+  const { itemStride, viewportWidth, focusRadius, sidePadding } = metrics;
+
+  return (
+    <View accessibilityRole="adjustable" accessibilityLabel={accessibilityLabel} style={styles.wrap}>
+      <View style={[styles.scrollHost, webScrollStyle]}>
+        <Animated.FlatList
+          ref={listRef}
+          data={data}
+          horizontal
+          nestedScrollEnabled
+          showsHorizontalScrollIndicator={false}
+          decelerationRate="fast"
+          snapToOffsets={data.length > 1 ? snapOffsets : undefined}
+          disableIntervalMomentum
+          onScroll={onScroll}
+          scrollEventThrottle={16}
+          onScrollEndDrag={settleScrollPosition}
+          onMomentumScrollEnd={settleScrollPosition}
+          keyExtractor={(item, index) => keyExtractor(item, index)}
+          initialNumToRender={5}
+          maxToRenderPerBatch={8}
+          windowSize={7}
+          getItemLayout={(_, index) => ({
+            length: layoutMetrics.strideWithGap,
+            offset: sidePadding + index * layoutMetrics.strideWithGap,
+            index,
+          })}
+          contentContainerStyle={[
+            styles.content,
+            {
+              paddingHorizontal:
+                data.length === 1 ? (viewportWidth - itemStride) / 2 : sidePadding,
+              gap: itemGap,
+            },
+          ]}
+          renderItem={({ item, index }) => (
+            <PeekCarouselCell
+              scrollX={scrollX}
+              itemCenterX={itemCenters[index] ?? 0}
+              viewportWidth={viewportWidth}
+              focusRadius={focusRadius}
+              itemStride={itemStride}
+            >
+              {renderItem(item, {
+                index,
+                scale: getItemFocused(
+                  scrollOffsetRef.current,
+                  itemCenters[index] ?? 0,
+                  viewportWidth,
+                  focusRadius,
+                )
+                  ? 1
+                  : 0.8,
+                focused: index === activeIndex,
+              })}
+            </PeekCarouselCell>
+          )}
+        />
+      </View>
+      {!narrow && data.length > 1 ? (
+        <PeekCarouselNav onPrev={() => goStep(-1)} onNext={() => goStep(1)} />
+      ) : null}
+    </View>
+  );
+}
+
+type VirtualScrollCarouselProps<T> = CarouselBodyProps<T> & {
+  useVirtualLoop: boolean;
+  singleItem: boolean;
+};
+
+function VirtualScrollCarousel<T>({
+  data,
+  keyExtractor,
+  renderItem,
+  metrics,
+  narrow,
+  useVirtualLoop,
+  singleItem,
+  accessibilityLabel,
+}: VirtualScrollCarouselProps<T>) {
   const scrollRef = useRef<Animated.ScrollView>(null);
   const scrollX = useRef(new Animated.Value(0)).current;
   const scrollOffsetRef = useRef(0);
@@ -45,10 +250,6 @@ export function PeekCarousel<T>({
   const settlingRef = useRef(false);
 
   const [logicalIndex, setLogicalIndex] = useState(0);
-
-  const shouldLoop = loopProp ?? data.length >= 2;
-  const useVirtualLoop = shouldLoop && data.length >= 2;
-  const singleItem = data.length === 1;
 
   const layoutMetrics: CarouselLayoutMetrics = useMemo(
     () => ({
@@ -70,11 +271,15 @@ export function PeekCarousel<T>({
     });
   }, [useVirtualLoop, logicalIndex, data]);
 
-  const itemCenters = useMemo(() => {
-    return Array.from({ length: slotCount }, (_, slot) =>
-      layoutMetrics.sidePadding + slot * layoutMetrics.strideWithGap + layoutMetrics.itemStride / 2,
-    );
-  }, [slotCount, layoutMetrics]);
+  const itemCenters = useMemo(
+    () =>
+      Array.from(
+        { length: slotCount },
+        (_, slot) =>
+          layoutMetrics.sidePadding + slot * layoutMetrics.strideWithGap + layoutMetrics.itemStride / 2,
+      ),
+    [slotCount, layoutMetrics],
+  );
 
   const centerOffset = useMemo(
     () => centerScrollOffsetForSlot(useVirtualLoop ? VIRTUAL_CENTER_SLOT : 0, layoutMetrics),
@@ -106,10 +311,9 @@ export function PeekCarousel<T>({
       settlingRef.current = true;
 
       const scrollPos = scrollOffsetRef.current;
-      const nearest = nearestSlotFromScrollX(scrollPos, layoutMetrics, slotCount);
 
       if (useVirtualLoop) {
-        const delta = logicalIndexDeltaFromNearestSlot(nearest);
+        const delta = virtualLoopDeltaFromScroll(scrollPos, layoutMetrics);
         if (delta !== 0) {
           setLogicalIndex((li) => li + delta);
         } else {
@@ -119,15 +323,15 @@ export function PeekCarousel<T>({
           }
         }
       } else if (!singleItem) {
-        const target = centerScrollOffsetForSlot(nearest, layoutMetrics);
-        scrollToOffset(target, animated);
+        const nearest = nearestDataIndexFromScrollX(scrollPos, layoutMetrics, data.length);
+        scrollToOffset(centerScrollOffsetForSlot(nearest, layoutMetrics), animated);
       }
 
       requestAnimationFrame(() => {
         settlingRef.current = false;
       });
     },
-    [layoutMetrics, slotCount, scrollToOffset, singleItem, useVirtualLoop],
+    [layoutMetrics, scrollToOffset, singleItem, useVirtualLoop, data.length],
   );
 
   const handleScrollEnd = useCallback(() => {
@@ -141,11 +345,11 @@ export function PeekCarousel<T>({
         return;
       }
       if (data.length < 2) return;
-      const nearest = nearestSlotFromScrollX(scrollOffsetRef.current, layoutMetrics, slotCount);
+      const nearest = nearestDataIndexFromScrollX(scrollOffsetRef.current, layoutMetrics, data.length);
       const next = Math.max(0, Math.min(data.length - 1, nearest + direction));
       scrollToOffset(centerScrollOffsetForSlot(next, layoutMetrics), true);
     },
-    [useVirtualLoop, data.length, layoutMetrics, slotCount, scrollToOffset],
+    [useVirtualLoop, data.length, layoutMetrics, scrollToOffset],
   );
 
   useEffect(() => {
@@ -171,37 +375,15 @@ export function PeekCarousel<T>({
       scrollToOffset(initial, false);
       didInitialScroll.current = true;
     });
-  }, [
-    data.length,
-    layoutMetrics,
-    scrollToOffset,
-    singleItem,
-    useVirtualLoop,
-    centerOffset,
-  ]);
-
-  const handleWheel = useCallback(
-    (event: { nativeEvent?: { deltaX?: number; deltaY?: number }; preventDefault?: () => void }) => {
-      const deltaX = event.nativeEvent?.deltaX ?? 0;
-      const deltaY = event.nativeEvent?.deltaY ?? 0;
-      if (Math.abs(deltaX) <= Math.abs(deltaY)) return;
-      event.preventDefault?.();
-      const next = Math.max(0, scrollOffsetRef.current + deltaX);
-      scrollToOffset(next, false);
-    },
-    [scrollToOffset],
-  );
+  }, [data.length, layoutMetrics, scrollToOffset, singleItem, useVirtualLoop, centerOffset]);
 
   if (data.length === 0) return null;
 
-  const { itemStride, strideWithGap, viewportWidth, focusRadius, sidePadding } = metrics;
+  const { itemStride, viewportWidth, focusRadius, sidePadding } = metrics;
 
   const webScrollStyle =
     Platform.OS === 'web'
-      ? ({
-          touchAction: 'pan-x',
-          overscrollBehaviorX: 'contain',
-        } as Record<string, string>)
+      ? ({ touchAction: 'pan-x', overscrollBehaviorX: 'contain' } as Record<string, string>)
       : undefined;
 
   const renderSlot = (slotIndex: number, item: T, dataIndex: number) => {
@@ -231,15 +413,8 @@ export function PeekCarousel<T>({
   };
 
   return (
-    <View
-      accessibilityRole="adjustable"
-      accessibilityLabel={accessibilityLabel}
-      style={styles.wrap}
-    >
-      <View
-        style={[styles.scrollHost, webScrollStyle]}
-        {...(Platform.OS === 'web' ? { onWheel: handleWheel } : {})}
-      >
+    <View accessibilityRole="adjustable" accessibilityLabel={accessibilityLabel} style={styles.wrap}>
+      <View style={[styles.scrollHost, webScrollStyle]}>
         <Animated.ScrollView
           ref={scrollRef}
           horizontal
@@ -247,11 +422,9 @@ export function PeekCarousel<T>({
           showsHorizontalScrollIndicator={false}
           decelerationRate="fast"
           snapToOffsets={
-            singleItem
+            singleItem || useVirtualLoop
               ? undefined
-              : Array.from({ length: slotCount }, (_, slot) =>
-                  centerScrollOffsetForSlot(slot, layoutMetrics),
-                )
+              : data.map((_, index) => centerScrollOffsetForSlot(index, layoutMetrics))
           }
           disableIntervalMomentum
           onScroll={onScroll}
@@ -261,9 +434,7 @@ export function PeekCarousel<T>({
           contentContainerStyle={[
             styles.content,
             {
-              paddingHorizontal: singleItem
-                ? (viewportWidth - itemStride) / 2
-                : sidePadding,
+              paddingHorizontal: singleItem ? (viewportWidth - itemStride) / 2 : sidePadding,
               gap: itemGap,
             },
           ]}
