@@ -35,7 +35,7 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 ## Padrões
 
 - `StickerCard` recebe `imageUri` resolvido pelo hook (service), não URL crua no organism
-- Badge “NEW” quando `is_new` no DB
+- `ExclamationBadge` (igual tab Pacote) quando `is_new` e possuída; some ao focar o álbum (`clearNewFlagsForAlbum`); repetidas não marcam `is_new`
 - Progresso: `owned / totalStickers` do manifest
 - Home: busca por nome do álbum + paginação (`albumListPageSize` em settings)
 - Detalhe do álbum: busca por nome/id da figurinha, filtro `all|owned|missing`, paginação (`stickerGridPageSize`)

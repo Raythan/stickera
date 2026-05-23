@@ -49,4 +49,19 @@ export const CollectionRepository = {
     store.collection = rows;
     saveStore(store);
   },
+
+  /** Clears is_new for all stickers in an album (user viewed album detail). */
+  async clearNewFlagsForAlbum(albumId: string): Promise<void> {
+    const store = loadStore();
+    let changed = false;
+    for (const row of store.collection) {
+      if (row.album_id === albumId && row.is_new === 1) {
+        row.is_new = 0;
+        changed = true;
+      }
+    }
+    if (changed) {
+      saveStore(store);
+    }
+  },
 };

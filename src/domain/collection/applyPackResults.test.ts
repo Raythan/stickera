@@ -32,11 +32,12 @@ describe('applyPackResults', () => {
     const result = applyPackResults(existing, [sticker('album:1')], now);
     expect(result).toHaveLength(1);
     expect(result[0].quantity).toBe(3);
+    expect(result[0].is_new).toBe(0);
     expect(result[0].first_obtained_at).toBe('2026-01-01T00:00:00Z');
     expect(result[0].updated_at).toBe(now.toISOString());
   });
 
-  it('preserves is_new on existing rows', () => {
+  it('clears is_new on duplicate draw', () => {
     const existing: CollectionRow[] = [
       {
         sticker_id: 'album:1',
@@ -48,7 +49,7 @@ describe('applyPackResults', () => {
       },
     ];
     const result = applyPackResults(existing, [sticker('album:1')], now);
-    expect(result[0].is_new).toBe(1);
+    expect(result[0].is_new).toBe(0);
   });
 
   it('handles mix of new and existing stickers', () => {
@@ -69,6 +70,8 @@ describe('applyPackResults', () => {
     );
     expect(result).toHaveLength(2);
     expect(result.find((r) => r.sticker_id === 'album:1')?.quantity).toBe(2);
+    expect(result.find((r) => r.sticker_id === 'album:1')?.is_new).toBe(0);
     expect(result.find((r) => r.sticker_id === 'album:2')?.quantity).toBe(1);
+    expect(result.find((r) => r.sticker_id === 'album:2')?.is_new).toBe(1);
   });
 });

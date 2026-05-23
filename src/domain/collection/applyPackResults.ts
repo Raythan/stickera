@@ -3,7 +3,7 @@ import type { CollectionRow, StickerDef } from '@/domain/types';
 /**
  * Merges drawn stickers into existing collection rows.
  * - First obtain: quantity=1, is_new=1, first_obtained_at set.
- * - Subsequent: quantity++, is_new left unchanged, updated_at refreshed.
+ * - Subsequent (duplicate): quantity++, is_new=0, updated_at refreshed.
  * Returns a new array (does not mutate input).
  */
 export function applyPackResults(
@@ -25,6 +25,7 @@ export function applyPackResults(
       map.set(sticker.id, {
         ...existing,
         quantity: existing.quantity + 1,
+        is_new: 0,
         updated_at: ts,
       });
     } else {

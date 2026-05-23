@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Badge } from '@/components/atoms/Badge';
+import { ExclamationBadge } from '@/components/atoms/ExclamationBadge';
 import { RarityMedalIcon } from '@/components/atoms/RarityMedalIcon';
 import { Text } from '@/components/atoms/Text';
 import { StickerFramePreview } from '@/components/molecules/StickerFramePreview';
@@ -11,6 +11,8 @@ import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { StickerCardProps } from './StickerCard.types';
+
+const NEW_BADGE_SIZE = 12;
 
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
@@ -24,6 +26,12 @@ function createStyles(theme: AppTheme) {
     },
     frameLocked: {
       opacity: 0.42,
+    },
+    newBadge: {
+      position: 'absolute',
+      top: 4,
+      left: 4,
+      zIndex: 2,
     },
     overlayStack: {
       position: 'absolute',
@@ -51,13 +59,6 @@ function createStyles(theme: AppTheme) {
     overlayMuted: {
       opacity: 0.5,
     },
-    meta: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      gap: theme.spacing.xs,
-      justifyContent: 'center',
-      marginTop: theme.spacing.xs,
-    },
     name: {
       marginTop: theme.spacing.xs,
       textAlign: 'center',
@@ -79,6 +80,7 @@ export function StickerCard({
   const styles = useThemedStyles(createStyles);
   const owned = quantity > 0;
   const rarityTier = rarity && isStickerRarity(rarity) ? rarity : undefined;
+  const showNewAlert = isNew && owned;
 
   const content = (
     <View style={styles.wrap}>
@@ -91,6 +93,15 @@ export function StickerCard({
             rarity={rarityTier}
             owned={owned}
           />
+          {showNewAlert ? (
+            <View
+              style={styles.newBadge}
+              accessibilityRole="image"
+              accessibilityLabel={t('collection.new')}
+            >
+              <ExclamationBadge size={NEW_BADGE_SIZE} />
+            </View>
+          ) : null}
           <View
             style={[
               styles.overlayStack,
@@ -116,11 +127,6 @@ export function StickerCard({
           </View>
         </View>
       ) : null}
-      <View style={styles.meta}>
-        {isNew && owned ? (
-          <Badge label={t('collection.new')} variant="accent" />
-        ) : null}
-      </View>
       <Text
         variant="caption"
         style={styles.name}

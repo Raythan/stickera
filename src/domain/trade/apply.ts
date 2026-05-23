@@ -26,6 +26,7 @@ export function applyTradeBundle(
       map.set(stickerId, {
         ...existing,
         quantity: existing.quantity + 1,
+        is_new: 0,
         updated_at: ts,
       });
     } else {

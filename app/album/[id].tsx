@@ -9,6 +9,7 @@ import { AlbumStickerGrid } from '@/components/organisms/AlbumStickerGrid';
 import { CollectionListToolbar } from '@/components/organisms/CollectionListToolbar';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useAlbumCollection } from '@/features/collection/useAlbumCollection';
+import { useMarkAlbumViewed } from '@/features/collection/useMarkAlbumViewed';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
 import { useAlbumManifest } from '@/features/collection/useAlbumManifest';
 import { useCollectionListControls } from '@/features/collection/useCollectionListControls';
@@ -45,7 +46,8 @@ export default function AlbumDetailScreen() {
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
   const { manifest, loading: manifestLoading, error: manifestError } = useAlbumManifest(id);
-  const { ownedCount, getEntry, loading: collectionLoading } = useAlbumCollection(id);
+  const { ownedCount, getEntry, loading: collectionLoading, reload } = useAlbumCollection(id);
+  useMarkAlbumViewed(id, reload);
   const { pageSize, setPageSize, options: pageSizeOptions, ready: pageSizeReady } =
     usePageSizePreference('stickers');
   const framePath = manifest?.frameStylePath ?? 'frame.css';
