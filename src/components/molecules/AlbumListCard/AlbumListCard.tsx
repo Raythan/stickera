@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Switch, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { StickerFramePreview } from '@/components/molecules/StickerFramePreview';
 import { useAlbumFramePreview } from '@/features/collection/useAlbumFramePreview';
@@ -25,6 +24,12 @@ function createStyles(theme: AppTheme) {
       borderWidth: 1,
       borderColor: theme.colors.border,
     },
+    cardBody: {
+      borderRadius: 12,
+    },
+    cardBodyPressed: {
+      opacity: 0.88,
+    },
     title: {
       marginBottom: theme.spacing.xs,
     },
@@ -39,8 +44,13 @@ function createStyles(theme: AppTheme) {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      marginTop: theme.spacing.sm,
       marginBottom: theme.spacing.xs,
       gap: theme.spacing.sm,
+      borderRadius: 8,
+    },
+    poolRowPressed: {
+      opacity: 0.9,
     },
     poolLabel: {
       flex: 1,
@@ -88,32 +98,34 @@ export function AlbumListCard({
 
   return (
     <View style={styles.card}>
-      <Text variant="bodyBold" style={styles.title}>
-        {title}
-      </Text>
-      <Text variant="caption" color={colors.textMuted}>
-        {t('screens.album.progress', { owned, total })}
-      </Text>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={title}
         onPress={onPress}
-        style={styles.preview}
+        style={({ pressed }) => [styles.cardBody, pressed && styles.cardBodyPressed]}
       >
-        {loading ? <ActivityIndicator color={colors.primary} /> : null}
-        {error ? (
-          <Text variant="caption" color={colors.error}>
-            {error}
-          </Text>
-        ) : null}
-        {css ? <StickerFramePreview frameCss={css} artUri={artUri} /> : null}
+        <Text variant="bodyBold" style={styles.title}>
+          {title}
+        </Text>
+        <Text variant="caption" color={colors.textMuted}>
+          {t('screens.album.progress', { owned, total })}
+        </Text>
+        <View style={styles.preview}>
+          {loading ? <ActivityIndicator color={colors.primary} /> : null}
+          {error ? (
+            <Text variant="caption" color={colors.error}>
+              {error}
+            </Text>
+          ) : null}
+          {css ? <StickerFramePreview frameCss={css} artUri={artUri} /> : null}
+        </View>
       </Pressable>
       <Pressable
         accessibilityRole="switch"
         accessibilityState={{ checked: packPoolEnabled }}
         accessibilityLabel={t('screens.home.packPoolToggle')}
         onPress={() => onTogglePackPool(album.id, !packPoolEnabled)}
-        style={styles.poolRow}
+        style={({ pressed }) => [styles.poolRow, pressed && styles.poolRowPressed]}
       >
         <Text variant="caption" color={colors.textMuted} style={styles.poolLabel}>
           {t('screens.home.packPoolToggle')}
@@ -125,12 +137,6 @@ export function AlbumListCard({
           thumbColor={colors.surface}
         />
       </Pressable>
-      <Button
-        label={t('screens.album.openAlbum')}
-        variant="ghost"
-        size="sm"
-        onPress={onPress}
-      />
     </View>
   );
 }

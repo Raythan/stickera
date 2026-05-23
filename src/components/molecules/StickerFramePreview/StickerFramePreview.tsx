@@ -64,11 +64,14 @@ function buildFrameHtml(
 </html>`;
 }
 
-function createStyles(theme: AppTheme) {
+const DEFAULT_WIDTH = 120;
+const DEFAULT_HEIGHT = 160;
+
+function createStyles(theme: AppTheme, width: number, height: number) {
   return StyleSheet.create({
     wrap: {
-      width: 120,
-      height: 160,
+      width,
+      height,
       borderRadius: 8,
       overflow: 'hidden',
       backgroundColor: theme.colors.stickerPlaceholder,
@@ -88,8 +91,10 @@ export function StickerFramePreview({
   accessibilityLabel = 'Sticker frame preview',
   rarity,
   owned = true,
+  width = DEFAULT_WIDTH,
+  height = DEFAULT_HEIGHT,
 }: StickerFramePreviewProps) {
-  const styles = useThemedStyles(createStyles);
+  const styles = useThemedStyles((theme) => createStyles(theme, width, height));
   const html = useMemo(
     () => buildFrameHtml(frameCss, artUri, rarity, owned),
     [frameCss, artUri, rarity, owned],

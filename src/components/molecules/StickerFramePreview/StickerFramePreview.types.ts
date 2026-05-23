@@ -7,4 +7,6 @@ export type StickerFramePreviewProps = {
   rarity?: StickerRarity;
   /** When false, applies sticker-frame--locked in iframe. Default true. */
   owned?: boolean;
+  width?: number;
+  height?: number;
 };

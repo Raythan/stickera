@@ -63,6 +63,12 @@ function createStyles(theme: AppTheme) {
       marginTop: theme.spacing.xs,
       textAlign: 'center',
     },
+    pressable: {
+      borderRadius: 12,
+    },
+    pressed: {
+      opacity: 0.88,
+    },
   });
 }
 
@@ -141,7 +147,12 @@ export function StickerCard({
   if (!onPress) return content;
 
   return (
-    <Pressable accessibilityRole="button" accessibilityLabel={name} onPress={onPress}>
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={name}
+      onPress={onPress}
+      style={({ pressed }) => [styles.pressable, pressed && styles.pressed]}
+    >
       {content}
     </Pressable>
   );

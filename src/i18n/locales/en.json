@@ -42,6 +42,7 @@
       "pageOf": "Page {{page}} of {{totalPages}}",
       "itemCount": "{{count}} items",
       "noResults": "No results for this search or filter.",
+      "stickerDetailTitle": "Details",
       "prev": "Previous",
       "next": "Next"
     },

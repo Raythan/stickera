@@ -35,6 +35,9 @@ function createStyles(theme: AppTheme) {
     cellDisabled: {
       opacity: 0.45,
     },
+    cellPressed: {
+      opacity: 0.88,
+    },
   });
 }
 
@@ -72,7 +75,12 @@ export function TradeStickerSelectGrid({
                 if (atMax) return;
                 onToggle(item.stickerId);
               }}
-              style={[styles.cell, selected && styles.cellSelected, atMax && styles.cellDisabled]}
+              style={({ pressed }) => [
+                styles.cell,
+                selected && styles.cellSelected,
+                atMax && styles.cellDisabled,
+                pressed && !atMax && styles.cellPressed,
+              ]}
             >
               <StickerCard
                 stickerId={item.stickerId}
