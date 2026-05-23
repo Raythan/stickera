@@ -239,6 +239,7 @@ function VirtualScrollCarousel<T>({
   renderItem,
   metrics,
   narrow,
+  itemGap,
   useVirtualLoop,
   singleItem,
   accessibilityLabel,
