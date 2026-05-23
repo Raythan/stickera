@@ -6,12 +6,20 @@
 
 - [ ] Chrome mobile: menu → **Install app** / **Add to Home Screen**
 - [ ] Installed icon opens standalone (no browser chrome)
-- [ ] `manifest.webmanifest` has `name`, `short_name`, `icons` 192 + 512
+- [ ] `manifest.webmanifest` has `id`, `name`, `short_name`, `start_url`, `scope`, `display`
+- [ ] Icons: PNG **192** and **512** with `purpose` **any** (and maskable)
+- [ ] DevTools → Application → Manifest: no installability errors
 
 ## Offline
 
 - [ ] Airplane mode after first load: home, album grid, pack state readable
 - [ ] Service worker registered (`Application` → Service Workers in DevTools)
+
+## Auto-update
+
+- [ ] Bump `version` in `package.json` before deploy
+- [ ] `npm run build:web` regenerates `sw.js` with new cache id (`stickera-<version>`)
+- [ ] Returning users: tab refocus or hourly check fetches new SW → page reloads with new bundle
 
 ## Lighthouse (optional)
 

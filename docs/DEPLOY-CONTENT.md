@@ -15,7 +15,7 @@ Open in Chrome/Safari on your phone → browser menu → **Add to Home screen** 
 | Build | `npm run build:web` → `dist/` (Expo static export + `content/` copied in) |
 | Base path | `experiments.baseUrl: "/stickera"` in `app.json` |
 | Content sync | `EXPO_PUBLIC_CONTENT_BASE_URL` = same site (`https://raythan.github.io/stickera`) |
-| PWA | `public/manifest.webmanifest`, `public/sw.js`, `app/+html.tsx` |
+| PWA | `public/manifest.webmanifest`, `scripts/write-sw.mjs` → `public/sw.js`, `app/+html.tsx`, `WebPwaSetup` |
 | CI | [`.github/workflows/deploy-github-pages.yml`](../.github/workflows/deploy-github-pages.yml) |
 
 ## One-time GitHub setup
@@ -37,6 +37,12 @@ Open the URL shown (paths are under `/stickera/` when served with a static serve
 ## Netlify (content-only CDN, optional)
 
 If you later split app and CDN, use [netlify.toml](../netlify.toml) and [deploy-content.yml](../.github/workflows/deploy-content.yml). For the portfolio MVP, **GitHub Pages PWA is the default.**
+
+## Release (new app version)
+
+1. Bump `"version"` in `package.json` (e.g. `0.2.0`).
+2. Push `main` — CI runs `build:web`, which regenerates `sw.js` with a new cache name.
+3. Installed PWAs pick up the update on next visit (focus tab) or within ~1h; the page reloads automatically.
 
 ## Verify
 

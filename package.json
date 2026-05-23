@@ -13,7 +13,7 @@
     "start": "expo start --web",
     "web": "expo start --web",
     "build:web": "node scripts/build-github-pages.mjs",
-    "prebuild:web": "npm run sync:assets",
+    "prebuild:web": "npm run sync:assets && node scripts/write-sw.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "validate:i18n": "node scripts/validate-i18n.mjs",
     "validate:structure": "node scripts/validate-structure.mjs",

@@ -23,6 +23,7 @@ const env = {
 };
 
 console.log(`Building PWA for ${SITE} …`);
+execSync('node scripts/write-sw.mjs', { cwd: ROOT, stdio: 'inherit' });
 execSync('npx expo export -p web', { cwd: ROOT, stdio: 'inherit', env });
 
 const dist = path.join(ROOT, 'dist');
@@ -61,6 +62,16 @@ const assetsDist = path.join(dist, 'assets');
 if (fs.existsSync(iconSrc)) {
   fs.mkdirSync(assetsDist, { recursive: true });
   fs.copyFileSync(iconSrc, path.join(assetsDist, 'icon.png'));
+}
+
+execSync('node scripts/write-sw.mjs dist/sw.js', { cwd: ROOT, stdio: 'inherit' });
+
+const pkgVersion = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
+const manifestPath = path.join(dist, 'manifest.webmanifest');
+if (fs.existsSync(manifestPath)) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  manifest.version = pkgVersion;
+  fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
 fs.writeFileSync(path.join(dist, '.nojekyll'), '');

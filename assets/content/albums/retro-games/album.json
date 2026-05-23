@@ -1,8 +1,8 @@
 {
   "id": "retro-games",
-  "revision": 2,
+  "revision": 3,
   "frameStylePath": "frame.css",
-  "totalStickers": 5,
+  "totalStickers": 477,
   "nameKey": "albums.retroGames.name",
   "names": {
     "en": "Retro Games",
@@ -45,6 +45,4254 @@
       "rarity": "uncommon",
       "nameKey": "albums.retroGames.stickers.05.name",
       "image": "stickers/05-special-old.jpeg"
+    },
+    {
+      "id": "retro-games:06",
+      "number": 6,
+      "names": {
+        "en": "Pong 01",
+        "pt": "Pong 01"
+      },
+      "image": "stickers/1972_Pong_01.jpg"
+    },
+    {
+      "id": "retro-games:07",
+      "number": 7,
+      "names": {
+        "en": "Pong 02",
+        "pt": "Pong 02"
+      },
+      "image": "stickers/1972_Pong_02.jpg"
+    },
+    {
+      "id": "retro-games:08",
+      "number": 8,
+      "names": {
+        "en": "Pong 03",
+        "pt": "Pong 03"
+      },
+      "image": "stickers/1972_Pong_03.jpg"
+    },
+    {
+      "id": "retro-games:09",
+      "number": 9,
+      "names": {
+        "en": "Pong 04",
+        "pt": "Pong 04"
+      },
+      "image": "stickers/1972_Pong_04.jpg"
+    },
+    {
+      "id": "retro-games:10",
+      "number": 10,
+      "names": {
+        "en": "Pong 05",
+        "pt": "Pong 05"
+      },
+      "image": "stickers/1972_Pong_05.jpg"
+    },
+    {
+      "id": "retro-games:11",
+      "number": 11,
+      "names": {
+        "en": "Space Invaders 01",
+        "pt": "Space Invaders 01"
+      },
+      "image": "stickers/1978_Space_Invaders_01.jpg"
+    },
+    {
+      "id": "retro-games:12",
+      "number": 12,
+      "names": {
+        "en": "Space Invaders 02",
+        "pt": "Space Invaders 02"
+      },
+      "image": "stickers/1978_Space_Invaders_02.jpg"
+    },
+    {
+      "id": "retro-games:13",
+      "number": 13,
+      "names": {
+        "en": "Space Invaders 03",
+        "pt": "Space Invaders 03"
+      },
+      "image": "stickers/1978_Space_Invaders_03.png"
+    },
+    {
+      "id": "retro-games:14",
+      "number": 14,
+      "names": {
+        "en": "Space Invaders 04",
+        "pt": "Space Invaders 04"
+      },
+      "image": "stickers/1978_Space_Invaders_04.jpg"
+    },
+    {
+      "id": "retro-games:15",
+      "number": 15,
+      "names": {
+        "en": "Space Invaders 05",
+        "pt": "Space Invaders 05"
+      },
+      "image": "stickers/1978_Space_Invaders_05.jpg"
+    },
+    {
+      "id": "retro-games:16",
+      "number": 16,
+      "names": {
+        "en": "Asteroids 01",
+        "pt": "Asteroids 01"
+      },
+      "image": "stickers/1979_Asteroids_01.jpg"
+    },
+    {
+      "id": "retro-games:17",
+      "number": 17,
+      "names": {
+        "en": "Asteroids 02",
+        "pt": "Asteroids 02"
+      },
+      "image": "stickers/1979_Asteroids_02.jpg"
+    },
+    {
+      "id": "retro-games:18",
+      "number": 18,
+      "names": {
+        "en": "Asteroids 03",
+        "pt": "Asteroids 03"
+      },
+      "image": "stickers/1979_Asteroids_03.jpg"
+    },
+    {
+      "id": "retro-games:19",
+      "number": 19,
+      "names": {
+        "en": "Asteroids 04",
+        "pt": "Asteroids 04"
+      },
+      "image": "stickers/1979_Asteroids_04.jpg"
+    },
+    {
+      "id": "retro-games:20",
+      "number": 20,
+      "names": {
+        "en": "Asteroids 05",
+        "pt": "Asteroids 05"
+      },
+      "image": "stickers/1979_Asteroids_05.jpg"
+    },
+    {
+      "id": "retro-games:21",
+      "number": 21,
+      "names": {
+        "en": "Missile Command 01",
+        "pt": "Missile Command 01"
+      },
+      "image": "stickers/1980_Missile_Command_01.jpg"
+    },
+    {
+      "id": "retro-games:22",
+      "number": 22,
+      "names": {
+        "en": "Missile Command 02",
+        "pt": "Missile Command 02"
+      },
+      "image": "stickers/1980_Missile_Command_02.jpg"
+    },
+    {
+      "id": "retro-games:23",
+      "number": 23,
+      "names": {
+        "en": "Missile Command 03",
+        "pt": "Missile Command 03"
+      },
+      "image": "stickers/1980_Missile_Command_03.jpg"
+    },
+    {
+      "id": "retro-games:24",
+      "number": 24,
+      "names": {
+        "en": "Missile Command 04",
+        "pt": "Missile Command 04"
+      },
+      "image": "stickers/1980_Missile_Command_04.webp"
+    },
+    {
+      "id": "retro-games:25",
+      "number": 25,
+      "names": {
+        "en": "Missile Command 05",
+        "pt": "Missile Command 05"
+      },
+      "image": "stickers/1980_Missile_Command_05.jpg"
+    },
+    {
+      "id": "retro-games:26",
+      "number": 26,
+      "names": {
+        "en": "Pac Man 01",
+        "pt": "Pac Man 01"
+      },
+      "image": "stickers/1980_Pac-Man_01.jpg"
+    },
+    {
+      "id": "retro-games:27",
+      "number": 27,
+      "names": {
+        "en": "Pac Man 02",
+        "pt": "Pac Man 02"
+      },
+      "image": "stickers/1980_Pac-Man_02.jpg"
+    },
+    {
+      "id": "retro-games:28",
+      "number": 28,
+      "names": {
+        "en": "Pac Man 03",
+        "pt": "Pac Man 03"
+      },
+      "image": "stickers/1980_Pac-Man_03.jpg"
+    },
+    {
+      "id": "retro-games:29",
+      "number": 29,
+      "names": {
+        "en": "Pac Man 04",
+        "pt": "Pac Man 04"
+      },
+      "image": "stickers/1980_Pac-Man_04.jpg"
+    },
+    {
+      "id": "retro-games:30",
+      "number": 30,
+      "names": {
+        "en": "Pac Man 05",
+        "pt": "Pac Man 05"
+      },
+      "image": "stickers/1980_Pac-Man_05.jpg"
+    },
+    {
+      "id": "retro-games:31",
+      "number": 31,
+      "names": {
+        "en": "Donkey Kong 01",
+        "pt": "Donkey Kong 01"
+      },
+      "image": "stickers/1981_Donkey_Kong_01.jpg"
+    },
+    {
+      "id": "retro-games:32",
+      "number": 32,
+      "names": {
+        "en": "Donkey Kong 02",
+        "pt": "Donkey Kong 02"
+      },
+      "image": "stickers/1981_Donkey_Kong_02.jpg"
+    },
+    {
+      "id": "retro-games:33",
+      "number": 33,
+      "names": {
+        "en": "Donkey Kong 03",
+        "pt": "Donkey Kong 03"
+      },
+      "image": "stickers/1981_Donkey_Kong_03.jpg"
+    },
+    {
+      "id": "retro-games:34",
+      "number": 34,
+      "names": {
+        "en": "Donkey Kong 04",
+        "pt": "Donkey Kong 04"
+      },
+      "image": "stickers/1981_Donkey_Kong_04.jpg"
+    },
+    {
+      "id": "retro-games:35",
+      "number": 35,
+      "names": {
+        "en": "Donkey Kong 05",
+        "pt": "Donkey Kong 05"
+      },
+      "image": "stickers/1981_Donkey_Kong_05.png"
+    },
+    {
+      "id": "retro-games:36",
+      "number": 36,
+      "names": {
+        "en": "Frogger 01",
+        "pt": "Frogger 01"
+      },
+      "image": "stickers/1981_Frogger_01.jpg"
+    },
+    {
+      "id": "retro-games:37",
+      "number": 37,
+      "names": {
+        "en": "Frogger 02",
+        "pt": "Frogger 02"
+      },
+      "image": "stickers/1981_Frogger_02.jpg"
+    },
+    {
+      "id": "retro-games:38",
+      "number": 38,
+      "names": {
+        "en": "Frogger 03",
+        "pt": "Frogger 03"
+      },
+      "image": "stickers/1981_Frogger_03.jpg"
+    },
+    {
+      "id": "retro-games:39",
+      "number": 39,
+      "names": {
+        "en": "Frogger 04",
+        "pt": "Frogger 04"
+      },
+      "image": "stickers/1981_Frogger_04.jpg"
+    },
+    {
+      "id": "retro-games:40",
+      "number": 40,
+      "names": {
+        "en": "Frogger 05",
+        "pt": "Frogger 05"
+      },
+      "image": "stickers/1981_Frogger_05.jpeg"
+    },
+    {
+      "id": "retro-games:41",
+      "number": 41,
+      "names": {
+        "en": "Galaga 01",
+        "pt": "Galaga 01"
+      },
+      "image": "stickers/1981_Galaga_01.jpg"
+    },
+    {
+      "id": "retro-games:42",
+      "number": 42,
+      "names": {
+        "en": "Galaga 02",
+        "pt": "Galaga 02"
+      },
+      "image": "stickers/1981_Galaga_02.jpg"
+    },
+    {
+      "id": "retro-games:43",
+      "number": 43,
+      "names": {
+        "en": "Galaga 03",
+        "pt": "Galaga 03"
+      },
+      "image": "stickers/1981_Galaga_03.jpg"
+    },
+    {
+      "id": "retro-games:44",
+      "number": 44,
+      "names": {
+        "en": "Galaga 04",
+        "pt": "Galaga 04"
+      },
+      "image": "stickers/1981_Galaga_04.jpg"
+    },
+    {
+      "id": "retro-games:45",
+      "number": 45,
+      "names": {
+        "en": "Galaga 05",
+        "pt": "Galaga 05"
+      },
+      "image": "stickers/1981_Galaga_05.png"
+    },
+    {
+      "id": "retro-games:46",
+      "number": 46,
+      "names": {
+        "en": "Dig Dug 01",
+        "pt": "Dig Dug 01"
+      },
+      "image": "stickers/1982_Dig_Dug_01.jpg"
+    },
+    {
+      "id": "retro-games:47",
+      "number": 47,
+      "names": {
+        "en": "Dig Dug 02",
+        "pt": "Dig Dug 02"
+      },
+      "image": "stickers/1982_Dig_Dug_02.jpg"
+    },
+    {
+      "id": "retro-games:48",
+      "number": 48,
+      "names": {
+        "en": "Dig Dug 03",
+        "pt": "Dig Dug 03"
+      },
+      "image": "stickers/1982_Dig_Dug_03.png"
+    },
+    {
+      "id": "retro-games:49",
+      "number": 49,
+      "names": {
+        "en": "Dig Dug 04",
+        "pt": "Dig Dug 04"
+      },
+      "image": "stickers/1982_Dig_Dug_04.jpeg"
+    },
+    {
+      "id": "retro-games:50",
+      "number": 50,
+      "names": {
+        "en": "Dig Dug 05",
+        "pt": "Dig Dug 05"
+      },
+      "image": "stickers/1982_Dig_Dug_05.jpg"
+    },
+    {
+      "id": "retro-games:51",
+      "number": 51,
+      "names": {
+        "en": "Joust 01",
+        "pt": "Joust 01"
+      },
+      "image": "stickers/1982_Joust_01.jpg"
+    },
+    {
+      "id": "retro-games:52",
+      "number": 52,
+      "names": {
+        "en": "Joust 02",
+        "pt": "Joust 02"
+      },
+      "image": "stickers/1982_Joust_02.jpg"
+    },
+    {
+      "id": "retro-games:53",
+      "number": 53,
+      "names": {
+        "en": "Joust 03",
+        "pt": "Joust 03"
+      },
+      "image": "stickers/1982_Joust_03.jpg"
+    },
+    {
+      "id": "retro-games:54",
+      "number": 54,
+      "names": {
+        "en": "Joust 04",
+        "pt": "Joust 04"
+      },
+      "image": "stickers/1982_Joust_04.jpg"
+    },
+    {
+      "id": "retro-games:55",
+      "number": 55,
+      "names": {
+        "en": "Joust 05",
+        "pt": "Joust 05"
+      },
+      "image": "stickers/1982_Joust_05.jpg"
+    },
+    {
+      "id": "retro-games:56",
+      "number": 56,
+      "names": {
+        "en": "Pitfall 01",
+        "pt": "Pitfall 01"
+      },
+      "image": "stickers/1982_Pitfall_01.jpg"
+    },
+    {
+      "id": "retro-games:57",
+      "number": 57,
+      "names": {
+        "en": "Pitfall 02",
+        "pt": "Pitfall 02"
+      },
+      "image": "stickers/1982_Pitfall_02.jpg"
+    },
+    {
+      "id": "retro-games:58",
+      "number": 58,
+      "names": {
+        "en": "Pitfall 03",
+        "pt": "Pitfall 03"
+      },
+      "image": "stickers/1982_Pitfall_03.jpg"
+    },
+    {
+      "id": "retro-games:59",
+      "number": 59,
+      "names": {
+        "en": "Pitfall 04",
+        "pt": "Pitfall 04"
+      },
+      "image": "stickers/1982_Pitfall_04.png"
+    },
+    {
+      "id": "retro-games:60",
+      "number": 60,
+      "names": {
+        "en": "Pitfall 05",
+        "pt": "Pitfall 05"
+      },
+      "image": "stickers/1982_Pitfall_05.jpg"
+    },
+    {
+      "id": "retro-games:61",
+      "number": 61,
+      "names": {
+        "en": "Lode Runner 01",
+        "pt": "Lode Runner 01"
+      },
+      "image": "stickers/1983_Lode_Runner_01.png"
+    },
+    {
+      "id": "retro-games:62",
+      "number": 62,
+      "names": {
+        "en": "Lode Runner 02",
+        "pt": "Lode Runner 02"
+      },
+      "image": "stickers/1983_Lode_Runner_02.jpg"
+    },
+    {
+      "id": "retro-games:63",
+      "number": 63,
+      "names": {
+        "en": "Lode Runner 03",
+        "pt": "Lode Runner 03"
+      },
+      "image": "stickers/1983_Lode_Runner_03.jpg"
+    },
+    {
+      "id": "retro-games:64",
+      "number": 64,
+      "names": {
+        "en": "Lode Runner 04",
+        "pt": "Lode Runner 04"
+      },
+      "image": "stickers/1983_Lode_Runner_04.jpg"
+    },
+    {
+      "id": "retro-games:65",
+      "number": 65,
+      "names": {
+        "en": "Lode Runner 05",
+        "pt": "Lode Runner 05"
+      },
+      "image": "stickers/1983_Lode_Runner_05.png"
+    },
+    {
+      "id": "retro-games:66",
+      "number": 66,
+      "names": {
+        "en": "Mario Bros 01",
+        "pt": "Mario Bros 01"
+      },
+      "image": "stickers/1983_Mario_Bros_01.png"
+    },
+    {
+      "id": "retro-games:67",
+      "number": 67,
+      "names": {
+        "en": "Mario Bros 02",
+        "pt": "Mario Bros 02"
+      },
+      "image": "stickers/1983_Mario_Bros_02.jpg"
+    },
+    {
+      "id": "retro-games:68",
+      "number": 68,
+      "names": {
+        "en": "Mario Bros 03",
+        "pt": "Mario Bros 03"
+      },
+      "image": "stickers/1983_Mario_Bros_03.png"
+    },
+    {
+      "id": "retro-games:69",
+      "number": 69,
+      "names": {
+        "en": "Mario Bros 04",
+        "pt": "Mario Bros 04"
+      },
+      "image": "stickers/1983_Mario_Bros_04.jpg"
+    },
+    {
+      "id": "retro-games:70",
+      "number": 70,
+      "names": {
+        "en": "Mario Bros 05",
+        "pt": "Mario Bros 05"
+      },
+      "image": "stickers/1983_Mario_Bros_05.jpg"
+    },
+    {
+      "id": "retro-games:71",
+      "number": 71,
+      "names": {
+        "en": "Duck Hunt 01",
+        "pt": "Duck Hunt 01"
+      },
+      "image": "stickers/1984_Duck_Hunt_01.jpg"
+    },
+    {
+      "id": "retro-games:72",
+      "number": 72,
+      "names": {
+        "en": "Duck Hunt 02",
+        "pt": "Duck Hunt 02"
+      },
+      "image": "stickers/1984_Duck_Hunt_02.jpeg"
+    },
+    {
+      "id": "retro-games:73",
+      "number": 73,
+      "names": {
+        "en": "Duck Hunt 03",
+        "pt": "Duck Hunt 03"
+      },
+      "image": "stickers/1984_Duck_Hunt_03.jpg"
+    },
+    {
+      "id": "retro-games:74",
+      "number": 74,
+      "names": {
+        "en": "Duck Hunt 04",
+        "pt": "Duck Hunt 04"
+      },
+      "image": "stickers/1984_Duck_Hunt_04.jpg"
+    },
+    {
+      "id": "retro-games:75",
+      "number": 75,
+      "names": {
+        "en": "Duck Hunt 05",
+        "pt": "Duck Hunt 05"
+      },
+      "image": "stickers/1984_Duck_Hunt_05.jpg"
+    },
+    {
+      "id": "retro-games:76",
+      "number": 76,
+      "names": {
+        "en": "Punch Out 01",
+        "pt": "Punch Out 01"
+      },
+      "image": "stickers/1984_Punch-Out_01.jpg"
+    },
+    {
+      "id": "retro-games:77",
+      "number": 77,
+      "names": {
+        "en": "Punch Out 02",
+        "pt": "Punch Out 02"
+      },
+      "image": "stickers/1984_Punch-Out_02.jpg"
+    },
+    {
+      "id": "retro-games:78",
+      "number": 78,
+      "names": {
+        "en": "Punch Out 03",
+        "pt": "Punch Out 03"
+      },
+      "image": "stickers/1984_Punch-Out_03.jpg"
+    },
+    {
+      "id": "retro-games:79",
+      "number": 79,
+      "names": {
+        "en": "Punch Out 04",
+        "pt": "Punch Out 04"
+      },
+      "image": "stickers/1984_Punch-Out_04.jpg"
+    },
+    {
+      "id": "retro-games:80",
+      "number": 80,
+      "names": {
+        "en": "Punch Out 05",
+        "pt": "Punch Out 05"
+      },
+      "image": "stickers/1984_Punch-Out_05.jpg"
+    },
+    {
+      "id": "retro-games:81",
+      "number": 81,
+      "names": {
+        "en": "Tetris 01",
+        "pt": "Tetris 01"
+      },
+      "image": "stickers/1984_Tetris_01.png"
+    },
+    {
+      "id": "retro-games:82",
+      "number": 82,
+      "names": {
+        "en": "Tetris 02",
+        "pt": "Tetris 02"
+      },
+      "image": "stickers/1984_Tetris_02.jpg"
+    },
+    {
+      "id": "retro-games:83",
+      "number": 83,
+      "names": {
+        "en": "Tetris 03",
+        "pt": "Tetris 03"
+      },
+      "image": "stickers/1984_Tetris_03.jpg"
+    },
+    {
+      "id": "retro-games:84",
+      "number": 84,
+      "names": {
+        "en": "Tetris 04",
+        "pt": "Tetris 04"
+      },
+      "image": "stickers/1984_Tetris_04.jpg"
+    },
+    {
+      "id": "retro-games:85",
+      "number": 85,
+      "names": {
+        "en": "Tetris 05",
+        "pt": "Tetris 05"
+      },
+      "image": "stickers/1984_Tetris_05.jpg"
+    },
+    {
+      "id": "retro-games:86",
+      "number": 86,
+      "names": {
+        "en": "Ghosts N Goblins 01",
+        "pt": "Ghosts N Goblins 01"
+      },
+      "image": "stickers/1985_Ghosts_n_Goblins_01.jpg"
+    },
+    {
+      "id": "retro-games:87",
+      "number": 87,
+      "names": {
+        "en": "Ghosts N Goblins 02",
+        "pt": "Ghosts N Goblins 02"
+      },
+      "image": "stickers/1985_Ghosts_n_Goblins_02.jpeg"
+    },
+    {
+      "id": "retro-games:88",
+      "number": 88,
+      "names": {
+        "en": "Ghosts N Goblins 03",
+        "pt": "Ghosts N Goblins 03"
+      },
+      "image": "stickers/1985_Ghosts_n_Goblins_03.png"
+    },
+    {
+      "id": "retro-games:89",
+      "number": 89,
+      "names": {
+        "en": "Ghosts N Goblins 04",
+        "pt": "Ghosts N Goblins 04"
+      },
+      "image": "stickers/1985_Ghosts_n_Goblins_04.jpg"
+    },
+    {
+      "id": "retro-games:90",
+      "number": 90,
+      "names": {
+        "en": "Ghosts N Goblins 05",
+        "pt": "Ghosts N Goblins 05"
+      },
+      "image": "stickers/1985_Ghosts_n_Goblins_05.jpg"
+    },
+    {
+      "id": "retro-games:91",
+      "number": 91,
+      "names": {
+        "en": "Gradius 01",
+        "pt": "Gradius 01"
+      },
+      "image": "stickers/1985_Gradius_01.jpg"
+    },
+    {
+      "id": "retro-games:92",
+      "number": 92,
+      "names": {
+        "en": "Gradius 02",
+        "pt": "Gradius 02"
+      },
+      "image": "stickers/1985_Gradius_02.jpg"
+    },
+    {
+      "id": "retro-games:93",
+      "number": 93,
+      "names": {
+        "en": "Gradius 03",
+        "pt": "Gradius 03"
+      },
+      "image": "stickers/1985_Gradius_03.jpg"
+    },
+    {
+      "id": "retro-games:94",
+      "number": 94,
+      "names": {
+        "en": "Gradius 04",
+        "pt": "Gradius 04"
+      },
+      "image": "stickers/1985_Gradius_04.jpg"
+    },
+    {
+      "id": "retro-games:95",
+      "number": 95,
+      "names": {
+        "en": "Gradius 05",
+        "pt": "Gradius 05"
+      },
+      "image": "stickers/1985_Gradius_05.jpg"
+    },
+    {
+      "id": "retro-games:96",
+      "number": 96,
+      "names": {
+        "en": "Super Mario Bros 01",
+        "pt": "Super Mario Bros 01"
+      },
+      "image": "stickers/1985_Super_Mario_Bros_01.jpg"
+    },
+    {
+      "id": "retro-games:97",
+      "number": 97,
+      "names": {
+        "en": "Super Mario Bros 02",
+        "pt": "Super Mario Bros 02"
+      },
+      "image": "stickers/1985_Super_Mario_Bros_02.jpg"
+    },
+    {
+      "id": "retro-games:98",
+      "number": 98,
+      "names": {
+        "en": "Super Mario Bros 03",
+        "pt": "Super Mario Bros 03"
+      },
+      "image": "stickers/1985_Super_Mario_Bros_03.jpg"
+    },
+    {
+      "id": "retro-games:99",
+      "number": 99,
+      "names": {
+        "en": "Super Mario Bros 04",
+        "pt": "Super Mario Bros 04"
+      },
+      "image": "stickers/1985_Super_Mario_Bros_04.gif"
+    },
+    {
+      "id": "retro-games:100",
+      "number": 100,
+      "names": {
+        "en": "Super Mario Bros 05",
+        "pt": "Super Mario Bros 05"
+      },
+      "image": "stickers/1985_Super_Mario_Bros_05.jpg"
+    },
+    {
+      "id": "retro-games:101",
+      "number": 101,
+      "names": {
+        "en": "Alex Kidd In Miracle World 01",
+        "pt": "Alex Kidd In Miracle World 01"
+      },
+      "image": "stickers/1986_Alex_Kidd_in_Miracle_World_01.jpg"
+    },
+    {
+      "id": "retro-games:102",
+      "number": 102,
+      "names": {
+        "en": "Castlevania 01",
+        "pt": "Castlevania 01"
+      },
+      "image": "stickers/1986_Castlevania_01.jpg"
+    },
+    {
+      "id": "retro-games:103",
+      "number": 103,
+      "names": {
+        "en": "Metroid 01",
+        "pt": "Metroid 01"
+      },
+      "image": "stickers/1986_Metroid_01.jpg"
+    },
+    {
+      "id": "retro-games:104",
+      "number": 104,
+      "names": {
+        "en": "Metroid 02",
+        "pt": "Metroid 02"
+      },
+      "image": "stickers/1986_Metroid_02.jpg"
+    },
+    {
+      "id": "retro-games:105",
+      "number": 105,
+      "names": {
+        "en": "Metroid 03",
+        "pt": "Metroid 03"
+      },
+      "image": "stickers/1986_Metroid_03.png"
+    },
+    {
+      "id": "retro-games:106",
+      "number": 106,
+      "names": {
+        "en": "Metroid 04",
+        "pt": "Metroid 04"
+      },
+      "image": "stickers/1986_Metroid_04.jpg"
+    },
+    {
+      "id": "retro-games:107",
+      "number": 107,
+      "names": {
+        "en": "Metroid 05",
+        "pt": "Metroid 05"
+      },
+      "image": "stickers/1986_Metroid_05.jpg"
+    },
+    {
+      "id": "retro-games:108",
+      "number": 108,
+      "names": {
+        "en": "Out Run 01",
+        "pt": "Out Run 01"
+      },
+      "image": "stickers/1986_Out_Run_01.jpg"
+    },
+    {
+      "id": "retro-games:109",
+      "number": 109,
+      "names": {
+        "en": "Out Run 02",
+        "pt": "Out Run 02"
+      },
+      "image": "stickers/1986_Out_Run_02.jpg"
+    },
+    {
+      "id": "retro-games:110",
+      "number": 110,
+      "names": {
+        "en": "Out Run 03",
+        "pt": "Out Run 03"
+      },
+      "image": "stickers/1986_Out_Run_03.jpg"
+    },
+    {
+      "id": "retro-games:111",
+      "number": 111,
+      "names": {
+        "en": "Out Run 04",
+        "pt": "Out Run 04"
+      },
+      "image": "stickers/1986_Out_Run_04.jpg"
+    },
+    {
+      "id": "retro-games:112",
+      "number": 112,
+      "names": {
+        "en": "Out Run 05",
+        "pt": "Out Run 05"
+      },
+      "image": "stickers/1986_Out_Run_05.jpg"
+    },
+    {
+      "id": "retro-games:113",
+      "number": 113,
+      "names": {
+        "en": "The Legend Of Zelda 01",
+        "pt": "The Legend Of Zelda 01"
+      },
+      "image": "stickers/1986_The_Legend_of_Zelda_01.jpg"
+    },
+    {
+      "id": "retro-games:114",
+      "number": 114,
+      "names": {
+        "en": "The Legend Of Zelda 02",
+        "pt": "The Legend Of Zelda 02"
+      },
+      "image": "stickers/1986_The_Legend_of_Zelda_02.jpg"
+    },
+    {
+      "id": "retro-games:115",
+      "number": 115,
+      "names": {
+        "en": "The Legend Of Zelda 03",
+        "pt": "The Legend Of Zelda 03"
+      },
+      "image": "stickers/1986_The_Legend_of_Zelda_03.jpg"
+    },
+    {
+      "id": "retro-games:116",
+      "number": 116,
+      "names": {
+        "en": "The Legend Of Zelda 04",
+        "pt": "The Legend Of Zelda 04"
+      },
+      "image": "stickers/1986_The_Legend_of_Zelda_04.jpg"
+    },
+    {
+      "id": "retro-games:117",
+      "number": 117,
+      "names": {
+        "en": "The Legend Of Zelda 05",
+        "pt": "The Legend Of Zelda 05"
+      },
+      "image": "stickers/1986_The_Legend_of_Zelda_05.jpg"
+    },
+    {
+      "id": "retro-games:118",
+      "number": 118,
+      "names": {
+        "en": "Contra 01",
+        "pt": "Contra 01"
+      },
+      "image": "stickers/1987_Contra_01.jpg"
+    },
+    {
+      "id": "retro-games:119",
+      "number": 119,
+      "names": {
+        "en": "Double Dragon 01",
+        "pt": "Double Dragon 01"
+      },
+      "image": "stickers/1987_Double_Dragon_01.jpg"
+    },
+    {
+      "id": "retro-games:120",
+      "number": 120,
+      "names": {
+        "en": "Double Dragon 02",
+        "pt": "Double Dragon 02"
+      },
+      "image": "stickers/1987_Double_Dragon_02.jpg"
+    },
+    {
+      "id": "retro-games:121",
+      "number": 121,
+      "names": {
+        "en": "Double Dragon 03",
+        "pt": "Double Dragon 03"
+      },
+      "image": "stickers/1987_Double_Dragon_03.jpg"
+    },
+    {
+      "id": "retro-games:122",
+      "number": 122,
+      "names": {
+        "en": "Double Dragon 04",
+        "pt": "Double Dragon 04"
+      },
+      "image": "stickers/1987_Double_Dragon_04.jpg"
+    },
+    {
+      "id": "retro-games:123",
+      "number": 123,
+      "names": {
+        "en": "Double Dragon 05",
+        "pt": "Double Dragon 05"
+      },
+      "image": "stickers/1987_Double_Dragon_05.jpg"
+    },
+    {
+      "id": "retro-games:124",
+      "number": 124,
+      "names": {
+        "en": "Final Fantasy 01",
+        "pt": "Final Fantasy 01"
+      },
+      "image": "stickers/1987_Final_Fantasy_01.jpg"
+    },
+    {
+      "id": "retro-games:125",
+      "number": 125,
+      "names": {
+        "en": "Final Fantasy 02",
+        "pt": "Final Fantasy 02"
+      },
+      "image": "stickers/1987_Final_Fantasy_02.jpg"
+    },
+    {
+      "id": "retro-games:126",
+      "number": 126,
+      "names": {
+        "en": "Final Fantasy 03",
+        "pt": "Final Fantasy 03"
+      },
+      "image": "stickers/1987_Final_Fantasy_03.jpg"
+    },
+    {
+      "id": "retro-games:127",
+      "number": 127,
+      "names": {
+        "en": "Final Fantasy 04",
+        "pt": "Final Fantasy 04"
+      },
+      "image": "stickers/1987_Final_Fantasy_04.jpg"
+    },
+    {
+      "id": "retro-games:128",
+      "number": 128,
+      "names": {
+        "en": "Final Fantasy 05",
+        "pt": "Final Fantasy 05"
+      },
+      "image": "stickers/1987_Final_Fantasy_05.jpg"
+    },
+    {
+      "id": "retro-games:129",
+      "number": 129,
+      "names": {
+        "en": "Mega Man 01",
+        "pt": "Mega Man 01"
+      },
+      "image": "stickers/1987_Mega_Man_01.png"
+    },
+    {
+      "id": "retro-games:130",
+      "number": 130,
+      "names": {
+        "en": "Mega Man 02",
+        "pt": "Mega Man 02"
+      },
+      "image": "stickers/1987_Mega_Man_02.jpg"
+    },
+    {
+      "id": "retro-games:131",
+      "number": 131,
+      "names": {
+        "en": "Mega Man 03",
+        "pt": "Mega Man 03"
+      },
+      "image": "stickers/1987_Mega_Man_03.jpg"
+    },
+    {
+      "id": "retro-games:132",
+      "number": 132,
+      "names": {
+        "en": "Mega Man 04",
+        "pt": "Mega Man 04"
+      },
+      "image": "stickers/1987_Mega_Man_04.png"
+    },
+    {
+      "id": "retro-games:133",
+      "number": 133,
+      "names": {
+        "en": "Mega Man 05",
+        "pt": "Mega Man 05"
+      },
+      "image": "stickers/1987_Mega_Man_05.jpg"
+    },
+    {
+      "id": "retro-games:134",
+      "number": 134,
+      "names": {
+        "en": "Street Fighter 01",
+        "pt": "Street Fighter 01"
+      },
+      "image": "stickers/1987_Street_Fighter_01.jpg"
+    },
+    {
+      "id": "retro-games:135",
+      "number": 135,
+      "names": {
+        "en": "Street Fighter 02",
+        "pt": "Street Fighter 02"
+      },
+      "image": "stickers/1987_Street_Fighter_02.jpg"
+    },
+    {
+      "id": "retro-games:136",
+      "number": 136,
+      "names": {
+        "en": "Street Fighter 03",
+        "pt": "Street Fighter 03"
+      },
+      "image": "stickers/1987_Street_Fighter_03.jpg"
+    },
+    {
+      "id": "retro-games:137",
+      "number": 137,
+      "names": {
+        "en": "Street Fighter 04",
+        "pt": "Street Fighter 04"
+      },
+      "image": "stickers/1987_Street_Fighter_04.jpg"
+    },
+    {
+      "id": "retro-games:138",
+      "number": 138,
+      "names": {
+        "en": "Street Fighter 05",
+        "pt": "Street Fighter 05"
+      },
+      "image": "stickers/1987_Street_Fighter_05.jpg"
+    },
+    {
+      "id": "retro-games:139",
+      "number": 139,
+      "names": {
+        "en": "Altered Beast 01",
+        "pt": "Altered Beast 01"
+      },
+      "image": "stickers/1988_Altered_Beast_01.jpg"
+    },
+    {
+      "id": "retro-games:140",
+      "number": 140,
+      "names": {
+        "en": "Altered Beast 02",
+        "pt": "Altered Beast 02"
+      },
+      "image": "stickers/1988_Altered_Beast_02.png"
+    },
+    {
+      "id": "retro-games:141",
+      "number": 141,
+      "names": {
+        "en": "Altered Beast 03",
+        "pt": "Altered Beast 03"
+      },
+      "image": "stickers/1988_Altered_Beast_03.jpg"
+    },
+    {
+      "id": "retro-games:142",
+      "number": 142,
+      "names": {
+        "en": "Altered Beast 04",
+        "pt": "Altered Beast 04"
+      },
+      "image": "stickers/1988_Altered_Beast_04.jpg"
+    },
+    {
+      "id": "retro-games:143",
+      "number": 143,
+      "names": {
+        "en": "Altered Beast 05",
+        "pt": "Altered Beast 05"
+      },
+      "image": "stickers/1988_Altered_Beast_05.png"
+    },
+    {
+      "id": "retro-games:144",
+      "number": 144,
+      "names": {
+        "en": "Ghouls N Ghosts 01",
+        "pt": "Ghouls N Ghosts 01"
+      },
+      "image": "stickers/1988_Ghouls_n_Ghosts_01.jpg"
+    },
+    {
+      "id": "retro-games:145",
+      "number": 145,
+      "names": {
+        "en": "Ghouls N Ghosts 02",
+        "pt": "Ghouls N Ghosts 02"
+      },
+      "image": "stickers/1988_Ghouls_n_Ghosts_02.jpg"
+    },
+    {
+      "id": "retro-games:146",
+      "number": 146,
+      "names": {
+        "en": "Ghouls N Ghosts 03",
+        "pt": "Ghouls N Ghosts 03"
+      },
+      "image": "stickers/1988_Ghouls_n_Ghosts_03.jpg"
+    },
+    {
+      "id": "retro-games:147",
+      "number": 147,
+      "names": {
+        "en": "Ghouls N Ghosts 04",
+        "pt": "Ghouls N Ghosts 04"
+      },
+      "image": "stickers/1988_Ghouls_n_Ghosts_04.JPG"
+    },
+    {
+      "id": "retro-games:148",
+      "number": 148,
+      "names": {
+        "en": "Ghouls N Ghosts 05",
+        "pt": "Ghouls N Ghosts 05"
+      },
+      "image": "stickers/1988_Ghouls_n_Ghosts_05.png"
+    },
+    {
+      "id": "retro-games:149",
+      "number": 149,
+      "names": {
+        "en": "Ninja Gaiden 01",
+        "pt": "Ninja Gaiden 01"
+      },
+      "image": "stickers/1988_Ninja_Gaiden_01.jpeg"
+    },
+    {
+      "id": "retro-games:150",
+      "number": 150,
+      "names": {
+        "en": "Ninja Gaiden 02",
+        "pt": "Ninja Gaiden 02"
+      },
+      "image": "stickers/1988_Ninja_Gaiden_02.jpg"
+    },
+    {
+      "id": "retro-games:151",
+      "number": 151,
+      "names": {
+        "en": "Ninja Gaiden 03",
+        "pt": "Ninja Gaiden 03"
+      },
+      "image": "stickers/1988_Ninja_Gaiden_03.png"
+    },
+    {
+      "id": "retro-games:152",
+      "number": 152,
+      "names": {
+        "en": "Ninja Gaiden 04",
+        "pt": "Ninja Gaiden 04"
+      },
+      "image": "stickers/1988_Ninja_Gaiden_04.jpg"
+    },
+    {
+      "id": "retro-games:153",
+      "number": 153,
+      "names": {
+        "en": "Ninja Gaiden 05",
+        "pt": "Ninja Gaiden 05"
+      },
+      "image": "stickers/1988_Ninja_Gaiden_05.jpg"
+    },
+    {
+      "id": "retro-games:154",
+      "number": 154,
+      "names": {
+        "en": "Super Mario Bros 3 01",
+        "pt": "Super Mario Bros 3 01"
+      },
+      "image": "stickers/1988_Super_Mario_Bros_3_01.jpg"
+    },
+    {
+      "id": "retro-games:155",
+      "number": 155,
+      "names": {
+        "en": "Super Mario Bros 3 02",
+        "pt": "Super Mario Bros 3 02"
+      },
+      "image": "stickers/1988_Super_Mario_Bros_3_02.jpg"
+    },
+    {
+      "id": "retro-games:156",
+      "number": 156,
+      "names": {
+        "en": "Super Mario Bros 3 03",
+        "pt": "Super Mario Bros 3 03"
+      },
+      "image": "stickers/1988_Super_Mario_Bros_3_03.jpg"
+    },
+    {
+      "id": "retro-games:157",
+      "number": 157,
+      "names": {
+        "en": "Super Mario Bros 3 04",
+        "pt": "Super Mario Bros 3 04"
+      },
+      "image": "stickers/1988_Super_Mario_Bros_3_04.jpg"
+    },
+    {
+      "id": "retro-games:158",
+      "number": 158,
+      "names": {
+        "en": "Super Mario Bros 3 05",
+        "pt": "Super Mario Bros 3 05"
+      },
+      "image": "stickers/1988_Super_Mario_Bros_3_05.jpg"
+    },
+    {
+      "id": "retro-games:159",
+      "number": 159,
+      "names": {
+        "en": "Final Fight 01",
+        "pt": "Final Fight 01"
+      },
+      "image": "stickers/1989_Final_Fight_01.jpg"
+    },
+    {
+      "id": "retro-games:160",
+      "number": 160,
+      "names": {
+        "en": "Final Fight 02",
+        "pt": "Final Fight 02"
+      },
+      "image": "stickers/1989_Final_Fight_02.jpg"
+    },
+    {
+      "id": "retro-games:161",
+      "number": 161,
+      "names": {
+        "en": "Final Fight 03",
+        "pt": "Final Fight 03"
+      },
+      "image": "stickers/1989_Final_Fight_03.jpg"
+    },
+    {
+      "id": "retro-games:162",
+      "number": 162,
+      "names": {
+        "en": "Final Fight 04",
+        "pt": "Final Fight 04"
+      },
+      "image": "stickers/1989_Final_Fight_04.jpg"
+    },
+    {
+      "id": "retro-games:163",
+      "number": 163,
+      "names": {
+        "en": "Final Fight 05",
+        "pt": "Final Fight 05"
+      },
+      "image": "stickers/1989_Final_Fight_05.png"
+    },
+    {
+      "id": "retro-games:164",
+      "number": 164,
+      "names": {
+        "en": "Golden Axe 01",
+        "pt": "Golden Axe 01"
+      },
+      "image": "stickers/1989_Golden_Axe_01.jpg"
+    },
+    {
+      "id": "retro-games:165",
+      "number": 165,
+      "names": {
+        "en": "Golden Axe 02",
+        "pt": "Golden Axe 02"
+      },
+      "image": "stickers/1989_Golden_Axe_02.png"
+    },
+    {
+      "id": "retro-games:166",
+      "number": 166,
+      "names": {
+        "en": "Golden Axe 03",
+        "pt": "Golden Axe 03"
+      },
+      "image": "stickers/1989_Golden_Axe_03.jpg"
+    },
+    {
+      "id": "retro-games:167",
+      "number": 167,
+      "names": {
+        "en": "Golden Axe 04",
+        "pt": "Golden Axe 04"
+      },
+      "image": "stickers/1989_Golden_Axe_04.jpg"
+    },
+    {
+      "id": "retro-games:168",
+      "number": 168,
+      "names": {
+        "en": "Golden Axe 05",
+        "pt": "Golden Axe 05"
+      },
+      "image": "stickers/1989_Golden_Axe_05.jpg"
+    },
+    {
+      "id": "retro-games:169",
+      "number": 169,
+      "names": {
+        "en": "Prince Of Persia 01",
+        "pt": "Prince Of Persia 01"
+      },
+      "image": "stickers/1989_Prince_of_Persia_01.jpg"
+    },
+    {
+      "id": "retro-games:170",
+      "number": 170,
+      "names": {
+        "en": "Prince Of Persia 02",
+        "pt": "Prince Of Persia 02"
+      },
+      "image": "stickers/1989_Prince_of_Persia_02.jpg"
+    },
+    {
+      "id": "retro-games:171",
+      "number": 171,
+      "names": {
+        "en": "Prince Of Persia 03",
+        "pt": "Prince Of Persia 03"
+      },
+      "image": "stickers/1989_Prince_of_Persia_03.jpg"
+    },
+    {
+      "id": "retro-games:172",
+      "number": 172,
+      "names": {
+        "en": "Prince Of Persia 04",
+        "pt": "Prince Of Persia 04"
+      },
+      "image": "stickers/1989_Prince_of_Persia_04.jpg"
+    },
+    {
+      "id": "retro-games:173",
+      "number": 173,
+      "names": {
+        "en": "Prince Of Persia 05",
+        "pt": "Prince Of Persia 05"
+      },
+      "image": "stickers/1989_Prince_of_Persia_05.jpg"
+    },
+    {
+      "id": "retro-games:174",
+      "number": 174,
+      "names": {
+        "en": "Simcity 01",
+        "pt": "Simcity 01"
+      },
+      "image": "stickers/1989_SimCity_01.jpg"
+    },
+    {
+      "id": "retro-games:175",
+      "number": 175,
+      "names": {
+        "en": "Simcity 02",
+        "pt": "Simcity 02"
+      },
+      "image": "stickers/1989_SimCity_02.jpg"
+    },
+    {
+      "id": "retro-games:176",
+      "number": 176,
+      "names": {
+        "en": "Simcity 03",
+        "pt": "Simcity 03"
+      },
+      "image": "stickers/1989_SimCity_03.jpg"
+    },
+    {
+      "id": "retro-games:177",
+      "number": 177,
+      "names": {
+        "en": "Simcity 04",
+        "pt": "Simcity 04"
+      },
+      "image": "stickers/1989_SimCity_04.jpg"
+    },
+    {
+      "id": "retro-games:178",
+      "number": 178,
+      "names": {
+        "en": "Simcity 05",
+        "pt": "Simcity 05"
+      },
+      "image": "stickers/1989_SimCity_05.jpg"
+    },
+    {
+      "id": "retro-games:179",
+      "number": 179,
+      "names": {
+        "en": "F Zero 01",
+        "pt": "F Zero 01"
+      },
+      "image": "stickers/1990_F-Zero_01.jpg"
+    },
+    {
+      "id": "retro-games:180",
+      "number": 180,
+      "names": {
+        "en": "F Zero 02",
+        "pt": "F Zero 02"
+      },
+      "image": "stickers/1990_F-Zero_02.jpg"
+    },
+    {
+      "id": "retro-games:181",
+      "number": 181,
+      "names": {
+        "en": "F Zero 03",
+        "pt": "F Zero 03"
+      },
+      "image": "stickers/1990_F-Zero_03.jpg"
+    },
+    {
+      "id": "retro-games:182",
+      "number": 182,
+      "names": {
+        "en": "F Zero 04",
+        "pt": "F Zero 04"
+      },
+      "image": "stickers/1990_F-Zero_04.png"
+    },
+    {
+      "id": "retro-games:183",
+      "number": 183,
+      "names": {
+        "en": "F Zero 05",
+        "pt": "F Zero 05"
+      },
+      "image": "stickers/1990_F-Zero_05.jpg"
+    },
+    {
+      "id": "retro-games:184",
+      "number": 184,
+      "names": {
+        "en": "Mega Man 3 01",
+        "pt": "Mega Man 3 01"
+      },
+      "image": "stickers/1990_Mega_Man_3_01.jpg"
+    },
+    {
+      "id": "retro-games:185",
+      "number": 185,
+      "names": {
+        "en": "Mega Man 3 02",
+        "pt": "Mega Man 3 02"
+      },
+      "image": "stickers/1990_Mega_Man_3_02.jpg"
+    },
+    {
+      "id": "retro-games:186",
+      "number": 186,
+      "names": {
+        "en": "Mega Man 3 03",
+        "pt": "Mega Man 3 03"
+      },
+      "image": "stickers/1990_Mega_Man_3_03.jpg"
+    },
+    {
+      "id": "retro-games:187",
+      "number": 187,
+      "names": {
+        "en": "Mega Man 3 04",
+        "pt": "Mega Man 3 04"
+      },
+      "image": "stickers/1990_Mega_Man_3_04.jpg"
+    },
+    {
+      "id": "retro-games:188",
+      "number": 188,
+      "names": {
+        "en": "Mega Man 3 05",
+        "pt": "Mega Man 3 05"
+      },
+      "image": "stickers/1990_Mega_Man_3_05.jpg"
+    },
+    {
+      "id": "retro-games:189",
+      "number": 189,
+      "names": {
+        "en": "Super Mario World 01",
+        "pt": "Super Mario World 01"
+      },
+      "image": "stickers/1990_Super_Mario_World_01.jpg"
+    },
+    {
+      "id": "retro-games:190",
+      "number": 190,
+      "names": {
+        "en": "Super Mario World 02",
+        "pt": "Super Mario World 02"
+      },
+      "image": "stickers/1990_Super_Mario_World_02.jpg"
+    },
+    {
+      "id": "retro-games:191",
+      "number": 191,
+      "names": {
+        "en": "Super Mario World 03",
+        "pt": "Super Mario World 03"
+      },
+      "image": "stickers/1990_Super_Mario_World_03.jpg"
+    },
+    {
+      "id": "retro-games:192",
+      "number": 192,
+      "names": {
+        "en": "Super Mario World 04",
+        "pt": "Super Mario World 04"
+      },
+      "image": "stickers/1990_Super_Mario_World_04.jpg"
+    },
+    {
+      "id": "retro-games:193",
+      "number": 193,
+      "names": {
+        "en": "Super Mario World 05",
+        "pt": "Super Mario World 05"
+      },
+      "image": "stickers/1990_Super_Mario_World_05.jpg"
+    },
+    {
+      "id": "retro-games:194",
+      "number": 194,
+      "names": {
+        "en": "The Secret Of Monkey Island 01",
+        "pt": "The Secret Of Monkey Island 01"
+      },
+      "image": "stickers/1990_The_Secret_of_Monkey_Island_01.jpg"
+    },
+    {
+      "id": "retro-games:195",
+      "number": 195,
+      "names": {
+        "en": "The Secret Of Monkey Island 02",
+        "pt": "The Secret Of Monkey Island 02"
+      },
+      "image": "stickers/1990_The_Secret_of_Monkey_Island_02.jpg"
+    },
+    {
+      "id": "retro-games:196",
+      "number": 196,
+      "names": {
+        "en": "The Secret Of Monkey Island 03",
+        "pt": "The Secret Of Monkey Island 03"
+      },
+      "image": "stickers/1990_The_Secret_of_Monkey_Island_03.jpg"
+    },
+    {
+      "id": "retro-games:197",
+      "number": 197,
+      "names": {
+        "en": "The Secret Of Monkey Island 04",
+        "pt": "The Secret Of Monkey Island 04"
+      },
+      "image": "stickers/1990_The_Secret_of_Monkey_Island_04.jpg"
+    },
+    {
+      "id": "retro-games:198",
+      "number": 198,
+      "names": {
+        "en": "The Secret Of Monkey Island 05",
+        "pt": "The Secret Of Monkey Island 05"
+      },
+      "image": "stickers/1990_The_Secret_of_Monkey_Island_05.jpg"
+    },
+    {
+      "id": "retro-games:199",
+      "number": 199,
+      "names": {
+        "en": "Sonic The Hedgehog 01",
+        "pt": "Sonic The Hedgehog 01"
+      },
+      "image": "stickers/1991_Sonic_the_Hedgehog_01.png"
+    },
+    {
+      "id": "retro-games:200",
+      "number": 200,
+      "names": {
+        "en": "Sonic The Hedgehog 02",
+        "pt": "Sonic The Hedgehog 02"
+      },
+      "image": "stickers/1991_Sonic_the_Hedgehog_02.jpg"
+    },
+    {
+      "id": "retro-games:201",
+      "number": 201,
+      "names": {
+        "en": "Sonic The Hedgehog 03",
+        "pt": "Sonic The Hedgehog 03"
+      },
+      "image": "stickers/1991_Sonic_the_Hedgehog_03.jpg"
+    },
+    {
+      "id": "retro-games:202",
+      "number": 202,
+      "names": {
+        "en": "Sonic The Hedgehog 04",
+        "pt": "Sonic The Hedgehog 04"
+      },
+      "image": "stickers/1991_Sonic_the_Hedgehog_04.jpg"
+    },
+    {
+      "id": "retro-games:203",
+      "number": 203,
+      "names": {
+        "en": "Sonic The Hedgehog 05",
+        "pt": "Sonic The Hedgehog 05"
+      },
+      "image": "stickers/1991_Sonic_the_Hedgehog_05.jpg"
+    },
+    {
+      "id": "retro-games:204",
+      "number": 204,
+      "names": {
+        "en": "Street Fighter Ii 01",
+        "pt": "Street Fighter Ii 01"
+      },
+      "image": "stickers/1991_Street_Fighter_II_01.jpg"
+    },
+    {
+      "id": "retro-games:205",
+      "number": 205,
+      "names": {
+        "en": "Street Fighter Ii 02",
+        "pt": "Street Fighter Ii 02"
+      },
+      "image": "stickers/1991_Street_Fighter_II_02.jpg"
+    },
+    {
+      "id": "retro-games:206",
+      "number": 206,
+      "names": {
+        "en": "Street Fighter Ii 03",
+        "pt": "Street Fighter Ii 03"
+      },
+      "image": "stickers/1991_Street_Fighter_II_03.jpg"
+    },
+    {
+      "id": "retro-games:207",
+      "number": 207,
+      "names": {
+        "en": "Street Fighter Ii 04",
+        "pt": "Street Fighter Ii 04"
+      },
+      "image": "stickers/1991_Street_Fighter_II_04.jpg"
+    },
+    {
+      "id": "retro-games:208",
+      "number": 208,
+      "names": {
+        "en": "Street Fighter Ii 05",
+        "pt": "Street Fighter Ii 05"
+      },
+      "image": "stickers/1991_Street_Fighter_II_05.jpg"
+    },
+    {
+      "id": "retro-games:209",
+      "number": 209,
+      "names": {
+        "en": "Super Castlevania Iv 01",
+        "pt": "Super Castlevania Iv 01"
+      },
+      "image": "stickers/1991_Super_Castlevania_IV_01.jpg"
+    },
+    {
+      "id": "retro-games:210",
+      "number": 210,
+      "names": {
+        "en": "Super Castlevania Iv 02",
+        "pt": "Super Castlevania Iv 02"
+      },
+      "image": "stickers/1991_Super_Castlevania_IV_02.jpg"
+    },
+    {
+      "id": "retro-games:211",
+      "number": 211,
+      "names": {
+        "en": "Super Castlevania Iv 03",
+        "pt": "Super Castlevania Iv 03"
+      },
+      "image": "stickers/1991_Super_Castlevania_IV_03.png"
+    },
+    {
+      "id": "retro-games:212",
+      "number": 212,
+      "names": {
+        "en": "Super Castlevania Iv 04",
+        "pt": "Super Castlevania Iv 04"
+      },
+      "image": "stickers/1991_Super_Castlevania_IV_04.jpg"
+    },
+    {
+      "id": "retro-games:213",
+      "number": 213,
+      "names": {
+        "en": "Super Castlevania Iv 05",
+        "pt": "Super Castlevania Iv 05"
+      },
+      "image": "stickers/1991_Super_Castlevania_IV_05.jpg"
+    },
+    {
+      "id": "retro-games:214",
+      "number": 214,
+      "names": {
+        "en": "The Legend Of Zelda A Link To The Past 01",
+        "pt": "The Legend Of Zelda A Link To The Past 01"
+      },
+      "image": "stickers/1991_The_Legend_of_Zelda_A_Link_to_the_Past_01.jpg"
+    },
+    {
+      "id": "retro-games:215",
+      "number": 215,
+      "names": {
+        "en": "The Legend Of Zelda A Link To The Past 02",
+        "pt": "The Legend Of Zelda A Link To The Past 02"
+      },
+      "image": "stickers/1991_The_Legend_of_Zelda_A_Link_to_the_Past_02.jpg"
+    },
+    {
+      "id": "retro-games:216",
+      "number": 216,
+      "names": {
+        "en": "The Legend Of Zelda A Link To The Past 03",
+        "pt": "The Legend Of Zelda A Link To The Past 03"
+      },
+      "image": "stickers/1991_The_Legend_of_Zelda_A_Link_to_the_Past_03.jpg"
+    },
+    {
+      "id": "retro-games:217",
+      "number": 217,
+      "names": {
+        "en": "The Legend Of Zelda A Link To The Past 04",
+        "pt": "The Legend Of Zelda A Link To The Past 04"
+      },
+      "image": "stickers/1991_The_Legend_of_Zelda_A_Link_to_the_Past_04.jpg"
+    },
+    {
+      "id": "retro-games:218",
+      "number": 218,
+      "names": {
+        "en": "The Legend Of Zelda A Link To The Past 05",
+        "pt": "The Legend Of Zelda A Link To The Past 05"
+      },
+      "image": "stickers/1991_The_Legend_of_Zelda_A_Link_to_the_Past_05.jpg"
+    },
+    {
+      "id": "retro-games:219",
+      "number": 219,
+      "names": {
+        "en": "Mortal Kombat 01",
+        "pt": "Mortal Kombat 01"
+      },
+      "image": "stickers/1992_Mortal_Kombat_01.jpg"
+    },
+    {
+      "id": "retro-games:220",
+      "number": 220,
+      "names": {
+        "en": "Mortal Kombat 02",
+        "pt": "Mortal Kombat 02"
+      },
+      "image": "stickers/1992_Mortal_Kombat_02.jpg"
+    },
+    {
+      "id": "retro-games:221",
+      "number": 221,
+      "names": {
+        "en": "Mortal Kombat 03",
+        "pt": "Mortal Kombat 03"
+      },
+      "image": "stickers/1992_Mortal_Kombat_03.jpg"
+    },
+    {
+      "id": "retro-games:222",
+      "number": 222,
+      "names": {
+        "en": "Mortal Kombat 04",
+        "pt": "Mortal Kombat 04"
+      },
+      "image": "stickers/1992_Mortal_Kombat_04.jpg"
+    },
+    {
+      "id": "retro-games:223",
+      "number": 223,
+      "names": {
+        "en": "Mortal Kombat 05",
+        "pt": "Mortal Kombat 05"
+      },
+      "image": "stickers/1992_Mortal_Kombat_05.jpg"
+    },
+    {
+      "id": "retro-games:224",
+      "number": 224,
+      "names": {
+        "en": "Sonic The Hedgehog 2 01",
+        "pt": "Sonic The Hedgehog 2 01"
+      },
+      "image": "stickers/1992_Sonic_the_Hedgehog_2_01.jpg"
+    },
+    {
+      "id": "retro-games:225",
+      "number": 225,
+      "names": {
+        "en": "Sonic The Hedgehog 2 02",
+        "pt": "Sonic The Hedgehog 2 02"
+      },
+      "image": "stickers/1992_Sonic_the_Hedgehog_2_02.jpg"
+    },
+    {
+      "id": "retro-games:226",
+      "number": 226,
+      "names": {
+        "en": "Sonic The Hedgehog 2 03",
+        "pt": "Sonic The Hedgehog 2 03"
+      },
+      "image": "stickers/1992_Sonic_the_Hedgehog_2_03.jpg"
+    },
+    {
+      "id": "retro-games:227",
+      "number": 227,
+      "names": {
+        "en": "Sonic The Hedgehog 2 04",
+        "pt": "Sonic The Hedgehog 2 04"
+      },
+      "image": "stickers/1992_Sonic_the_Hedgehog_2_04.jpg"
+    },
+    {
+      "id": "retro-games:228",
+      "number": 228,
+      "names": {
+        "en": "Sonic The Hedgehog 2 05",
+        "pt": "Sonic The Hedgehog 2 05"
+      },
+      "image": "stickers/1992_Sonic_the_Hedgehog_2_05.jpg"
+    },
+    {
+      "id": "retro-games:229",
+      "number": 229,
+      "names": {
+        "en": "Streets Of Rage 2 01",
+        "pt": "Streets Of Rage 2 01"
+      },
+      "image": "stickers/1992_Streets_of_Rage_2_01.jpg"
+    },
+    {
+      "id": "retro-games:230",
+      "number": 230,
+      "names": {
+        "en": "Streets Of Rage 2 02",
+        "pt": "Streets Of Rage 2 02"
+      },
+      "image": "stickers/1992_Streets_of_Rage_2_02.jpg"
+    },
+    {
+      "id": "retro-games:231",
+      "number": 231,
+      "names": {
+        "en": "Streets Of Rage 2 03",
+        "pt": "Streets Of Rage 2 03"
+      },
+      "image": "stickers/1992_Streets_of_Rage_2_03.png"
+    },
+    {
+      "id": "retro-games:232",
+      "number": 232,
+      "names": {
+        "en": "Streets Of Rage 2 04",
+        "pt": "Streets Of Rage 2 04"
+      },
+      "image": "stickers/1992_Streets_of_Rage_2_04.jpg"
+    },
+    {
+      "id": "retro-games:233",
+      "number": 233,
+      "names": {
+        "en": "Streets Of Rage 2 05",
+        "pt": "Streets Of Rage 2 05"
+      },
+      "image": "stickers/1992_Streets_of_Rage_2_05.jpg"
+    },
+    {
+      "id": "retro-games:234",
+      "number": 234,
+      "names": {
+        "en": "Super Mario Kart 01",
+        "pt": "Super Mario Kart 01"
+      },
+      "image": "stickers/1992_Super_Mario_Kart_01.jpg"
+    },
+    {
+      "id": "retro-games:235",
+      "number": 235,
+      "names": {
+        "en": "Super Mario Kart 02",
+        "pt": "Super Mario Kart 02"
+      },
+      "image": "stickers/1992_Super_Mario_Kart_02.jpg"
+    },
+    {
+      "id": "retro-games:236",
+      "number": 236,
+      "names": {
+        "en": "Super Mario Kart 03",
+        "pt": "Super Mario Kart 03"
+      },
+      "image": "stickers/1992_Super_Mario_Kart_03.jpg"
+    },
+    {
+      "id": "retro-games:237",
+      "number": 237,
+      "names": {
+        "en": "Super Mario Kart 04",
+        "pt": "Super Mario Kart 04"
+      },
+      "image": "stickers/1992_Super_Mario_Kart_04.jpg"
+    },
+    {
+      "id": "retro-games:238",
+      "number": 238,
+      "names": {
+        "en": "Super Mario Kart 05",
+        "pt": "Super Mario Kart 05"
+      },
+      "image": "stickers/1992_Super_Mario_Kart_05.jpg"
+    },
+    {
+      "id": "retro-games:239",
+      "number": 239,
+      "names": {
+        "en": "Wolfenstein 3d 01",
+        "pt": "Wolfenstein 3d 01"
+      },
+      "image": "stickers/1992_Wolfenstein_3D_01.png"
+    },
+    {
+      "id": "retro-games:240",
+      "number": 240,
+      "names": {
+        "en": "Wolfenstein 3d 02",
+        "pt": "Wolfenstein 3d 02"
+      },
+      "image": "stickers/1992_Wolfenstein_3D_02.jpg"
+    },
+    {
+      "id": "retro-games:241",
+      "number": 241,
+      "names": {
+        "en": "Wolfenstein 3d 03",
+        "pt": "Wolfenstein 3d 03"
+      },
+      "image": "stickers/1992_Wolfenstein_3D_03.jpg"
+    },
+    {
+      "id": "retro-games:242",
+      "number": 242,
+      "names": {
+        "en": "Wolfenstein 3d 04",
+        "pt": "Wolfenstein 3d 04"
+      },
+      "image": "stickers/1992_Wolfenstein_3D_04.jpg"
+    },
+    {
+      "id": "retro-games:243",
+      "number": 243,
+      "names": {
+        "en": "Wolfenstein 3d 05",
+        "pt": "Wolfenstein 3d 05"
+      },
+      "image": "stickers/1992_Wolfenstein_3D_05.png"
+    },
+    {
+      "id": "retro-games:244",
+      "number": 244,
+      "names": {
+        "en": "Doom 01",
+        "pt": "Doom 01"
+      },
+      "image": "stickers/1993_Doom_01.jpg"
+    },
+    {
+      "id": "retro-games:245",
+      "number": 245,
+      "names": {
+        "en": "Doom 02",
+        "pt": "Doom 02"
+      },
+      "image": "stickers/1993_Doom_02.jpg"
+    },
+    {
+      "id": "retro-games:246",
+      "number": 246,
+      "names": {
+        "en": "Doom 03",
+        "pt": "Doom 03"
+      },
+      "image": "stickers/1993_Doom_03.jpg"
+    },
+    {
+      "id": "retro-games:247",
+      "number": 247,
+      "names": {
+        "en": "Doom 04",
+        "pt": "Doom 04"
+      },
+      "image": "stickers/1993_Doom_04.jpg"
+    },
+    {
+      "id": "retro-games:248",
+      "number": 248,
+      "names": {
+        "en": "Doom 05",
+        "pt": "Doom 05"
+      },
+      "image": "stickers/1993_Doom_05.jpg"
+    },
+    {
+      "id": "retro-games:249",
+      "number": 249,
+      "names": {
+        "en": "Gunstar Heroes 01",
+        "pt": "Gunstar Heroes 01"
+      },
+      "image": "stickers/1993_Gunstar_Heroes_01.png"
+    },
+    {
+      "id": "retro-games:250",
+      "number": 250,
+      "names": {
+        "en": "Gunstar Heroes 02",
+        "pt": "Gunstar Heroes 02"
+      },
+      "image": "stickers/1993_Gunstar_Heroes_02.jpg"
+    },
+    {
+      "id": "retro-games:251",
+      "number": 251,
+      "names": {
+        "en": "Gunstar Heroes 03",
+        "pt": "Gunstar Heroes 03"
+      },
+      "image": "stickers/1993_Gunstar_Heroes_03.jpg"
+    },
+    {
+      "id": "retro-games:252",
+      "number": 252,
+      "names": {
+        "en": "Gunstar Heroes 04",
+        "pt": "Gunstar Heroes 04"
+      },
+      "image": "stickers/1993_Gunstar_Heroes_04.jpg"
+    },
+    {
+      "id": "retro-games:253",
+      "number": 253,
+      "names": {
+        "en": "Gunstar Heroes 05",
+        "pt": "Gunstar Heroes 05"
+      },
+      "image": "stickers/1993_Gunstar_Heroes_05.png"
+    },
+    {
+      "id": "retro-games:254",
+      "number": 254,
+      "names": {
+        "en": "Mega Man X 01",
+        "pt": "Mega Man X 01"
+      },
+      "image": "stickers/1993_Mega_Man_X_01.png"
+    },
+    {
+      "id": "retro-games:255",
+      "number": 255,
+      "names": {
+        "en": "Mega Man X 02",
+        "pt": "Mega Man X 02"
+      },
+      "image": "stickers/1993_Mega_Man_X_02.jpg"
+    },
+    {
+      "id": "retro-games:256",
+      "number": 256,
+      "names": {
+        "en": "Mega Man X 03",
+        "pt": "Mega Man X 03"
+      },
+      "image": "stickers/1993_Mega_Man_X_03.jpg"
+    },
+    {
+      "id": "retro-games:257",
+      "number": 257,
+      "names": {
+        "en": "Mega Man X 04",
+        "pt": "Mega Man X 04"
+      },
+      "image": "stickers/1993_Mega_Man_X_04.jpg"
+    },
+    {
+      "id": "retro-games:258",
+      "number": 258,
+      "names": {
+        "en": "Mega Man X 05",
+        "pt": "Mega Man X 05"
+      },
+      "image": "stickers/1993_Mega_Man_X_05.jpg"
+    },
+    {
+      "id": "retro-games:259",
+      "number": 259,
+      "names": {
+        "en": "Mortal Kombat Ii 01",
+        "pt": "Mortal Kombat Ii 01"
+      },
+      "image": "stickers/1993_Mortal_Kombat_II_01.jpg"
+    },
+    {
+      "id": "retro-games:260",
+      "number": 260,
+      "names": {
+        "en": "Mortal Kombat Ii 02",
+        "pt": "Mortal Kombat Ii 02"
+      },
+      "image": "stickers/1993_Mortal_Kombat_II_02.jpg"
+    },
+    {
+      "id": "retro-games:261",
+      "number": 261,
+      "names": {
+        "en": "Mortal Kombat Ii 03",
+        "pt": "Mortal Kombat Ii 03"
+      },
+      "image": "stickers/1993_Mortal_Kombat_II_03.jpg"
+    },
+    {
+      "id": "retro-games:262",
+      "number": 262,
+      "names": {
+        "en": "Mortal Kombat Ii 04",
+        "pt": "Mortal Kombat Ii 04"
+      },
+      "image": "stickers/1993_Mortal_Kombat_II_04.jpg"
+    },
+    {
+      "id": "retro-games:263",
+      "number": 263,
+      "names": {
+        "en": "Mortal Kombat Ii 05",
+        "pt": "Mortal Kombat Ii 05"
+      },
+      "image": "stickers/1993_Mortal_Kombat_II_05.jpg"
+    },
+    {
+      "id": "retro-games:264",
+      "number": 264,
+      "names": {
+        "en": "Star Fox 01",
+        "pt": "Star Fox 01"
+      },
+      "image": "stickers/1993_Star_Fox_01.jpg"
+    },
+    {
+      "id": "retro-games:265",
+      "number": 265,
+      "names": {
+        "en": "Star Fox 02",
+        "pt": "Star Fox 02"
+      },
+      "image": "stickers/1993_Star_Fox_02.jpg"
+    },
+    {
+      "id": "retro-games:266",
+      "number": 266,
+      "names": {
+        "en": "Star Fox 03",
+        "pt": "Star Fox 03"
+      },
+      "image": "stickers/1993_Star_Fox_03.jpg"
+    },
+    {
+      "id": "retro-games:267",
+      "number": 267,
+      "names": {
+        "en": "Star Fox 04",
+        "pt": "Star Fox 04"
+      },
+      "image": "stickers/1993_Star_Fox_04.jpg"
+    },
+    {
+      "id": "retro-games:268",
+      "number": 268,
+      "names": {
+        "en": "Star Fox 05",
+        "pt": "Star Fox 05"
+      },
+      "image": "stickers/1993_Star_Fox_05.jpg"
+    },
+    {
+      "id": "retro-games:269",
+      "number": 269,
+      "names": {
+        "en": "Donkey Kong Country 01",
+        "pt": "Donkey Kong Country 01"
+      },
+      "image": "stickers/1994_Donkey_Kong_Country_01.jpg"
+    },
+    {
+      "id": "retro-games:270",
+      "number": 270,
+      "names": {
+        "en": "Donkey Kong Country 02",
+        "pt": "Donkey Kong Country 02"
+      },
+      "image": "stickers/1994_Donkey_Kong_Country_02.jpg"
+    },
+    {
+      "id": "retro-games:271",
+      "number": 271,
+      "names": {
+        "en": "Donkey Kong Country 03",
+        "pt": "Donkey Kong Country 03"
+      },
+      "image": "stickers/1994_Donkey_Kong_Country_03.jpg"
+    },
+    {
+      "id": "retro-games:272",
+      "number": 272,
+      "names": {
+        "en": "Donkey Kong Country 04",
+        "pt": "Donkey Kong Country 04"
+      },
+      "image": "stickers/1994_Donkey_Kong_Country_04.jpg"
+    },
+    {
+      "id": "retro-games:273",
+      "number": 273,
+      "names": {
+        "en": "Donkey Kong Country 05",
+        "pt": "Donkey Kong Country 05"
+      },
+      "image": "stickers/1994_Donkey_Kong_Country_05.png"
+    },
+    {
+      "id": "retro-games:274",
+      "number": 274,
+      "names": {
+        "en": "Earthbound 01",
+        "pt": "Earthbound 01"
+      },
+      "image": "stickers/1994_EarthBound_01.jpg"
+    },
+    {
+      "id": "retro-games:275",
+      "number": 275,
+      "names": {
+        "en": "Earthbound 02",
+        "pt": "Earthbound 02"
+      },
+      "image": "stickers/1994_EarthBound_02.jpg"
+    },
+    {
+      "id": "retro-games:276",
+      "number": 276,
+      "names": {
+        "en": "Earthbound 03",
+        "pt": "Earthbound 03"
+      },
+      "image": "stickers/1994_EarthBound_03.jpg"
+    },
+    {
+      "id": "retro-games:277",
+      "number": 277,
+      "names": {
+        "en": "Earthbound 04",
+        "pt": "Earthbound 04"
+      },
+      "image": "stickers/1994_EarthBound_04.jpg"
+    },
+    {
+      "id": "retro-games:278",
+      "number": 278,
+      "names": {
+        "en": "Earthbound 05",
+        "pt": "Earthbound 05"
+      },
+      "image": "stickers/1994_EarthBound_05.jpg"
+    },
+    {
+      "id": "retro-games:279",
+      "number": 279,
+      "names": {
+        "en": "Final Fantasy Vi 01",
+        "pt": "Final Fantasy Vi 01"
+      },
+      "image": "stickers/1994_Final_Fantasy_VI_01.jpg"
+    },
+    {
+      "id": "retro-games:280",
+      "number": 280,
+      "names": {
+        "en": "Final Fantasy Vi 02",
+        "pt": "Final Fantasy Vi 02"
+      },
+      "image": "stickers/1994_Final_Fantasy_VI_02.jpg"
+    },
+    {
+      "id": "retro-games:281",
+      "number": 281,
+      "names": {
+        "en": "Final Fantasy Vi 03",
+        "pt": "Final Fantasy Vi 03"
+      },
+      "image": "stickers/1994_Final_Fantasy_VI_03.jpg"
+    },
+    {
+      "id": "retro-games:282",
+      "number": 282,
+      "names": {
+        "en": "Final Fantasy Vi 04",
+        "pt": "Final Fantasy Vi 04"
+      },
+      "image": "stickers/1994_Final_Fantasy_VI_04.jpg"
+    },
+    {
+      "id": "retro-games:283",
+      "number": 283,
+      "names": {
+        "en": "Final Fantasy Vi 05",
+        "pt": "Final Fantasy Vi 05"
+      },
+      "image": "stickers/1994_Final_Fantasy_VI_05.jpg"
+    },
+    {
+      "id": "retro-games:284",
+      "number": 284,
+      "names": {
+        "en": "Sonic Knuckles 01",
+        "pt": "Sonic Knuckles 01"
+      },
+      "image": "stickers/1994_Sonic_Knuckles_01.jpg"
+    },
+    {
+      "id": "retro-games:285",
+      "number": 285,
+      "names": {
+        "en": "Sonic Knuckles 02",
+        "pt": "Sonic Knuckles 02"
+      },
+      "image": "stickers/1994_Sonic_Knuckles_02.jpg"
+    },
+    {
+      "id": "retro-games:286",
+      "number": 286,
+      "names": {
+        "en": "Sonic Knuckles 03",
+        "pt": "Sonic Knuckles 03"
+      },
+      "image": "stickers/1994_Sonic_Knuckles_03.png"
+    },
+    {
+      "id": "retro-games:287",
+      "number": 287,
+      "names": {
+        "en": "Sonic Knuckles 04",
+        "pt": "Sonic Knuckles 04"
+      },
+      "image": "stickers/1994_Sonic_Knuckles_04.png"
+    },
+    {
+      "id": "retro-games:288",
+      "number": 288,
+      "names": {
+        "en": "Sonic Knuckles 05",
+        "pt": "Sonic Knuckles 05"
+      },
+      "image": "stickers/1994_Sonic_Knuckles_05.png"
+    },
+    {
+      "id": "retro-games:289",
+      "number": 289,
+      "names": {
+        "en": "Super Metroid 01",
+        "pt": "Super Metroid 01"
+      },
+      "image": "stickers/1994_Super_Metroid_01.jpg"
+    },
+    {
+      "id": "retro-games:290",
+      "number": 290,
+      "names": {
+        "en": "Super Metroid 02",
+        "pt": "Super Metroid 02"
+      },
+      "image": "stickers/1994_Super_Metroid_02.jpg"
+    },
+    {
+      "id": "retro-games:291",
+      "number": 291,
+      "names": {
+        "en": "Super Metroid 03",
+        "pt": "Super Metroid 03"
+      },
+      "image": "stickers/1994_Super_Metroid_03.jpg"
+    },
+    {
+      "id": "retro-games:292",
+      "number": 292,
+      "names": {
+        "en": "Super Metroid 04",
+        "pt": "Super Metroid 04"
+      },
+      "image": "stickers/1994_Super_Metroid_04.jpg"
+    },
+    {
+      "id": "retro-games:293",
+      "number": 293,
+      "names": {
+        "en": "Super Metroid 05",
+        "pt": "Super Metroid 05"
+      },
+      "image": "stickers/1994_Super_Metroid_05.jpg"
+    },
+    {
+      "id": "retro-games:294",
+      "number": 294,
+      "names": {
+        "en": "Chrono Trigger 01",
+        "pt": "Chrono Trigger 01"
+      },
+      "image": "stickers/1995_Chrono_Trigger_01.webp"
+    },
+    {
+      "id": "retro-games:295",
+      "number": 295,
+      "names": {
+        "en": "Chrono Trigger 02",
+        "pt": "Chrono Trigger 02"
+      },
+      "image": "stickers/1995_Chrono_Trigger_02.jpg"
+    },
+    {
+      "id": "retro-games:296",
+      "number": 296,
+      "names": {
+        "en": "Chrono Trigger 03",
+        "pt": "Chrono Trigger 03"
+      },
+      "image": "stickers/1995_Chrono_Trigger_03.jpg"
+    },
+    {
+      "id": "retro-games:297",
+      "number": 297,
+      "names": {
+        "en": "Chrono Trigger 04",
+        "pt": "Chrono Trigger 04"
+      },
+      "image": "stickers/1995_Chrono_Trigger_04.jpg"
+    },
+    {
+      "id": "retro-games:298",
+      "number": 298,
+      "names": {
+        "en": "Chrono Trigger 05",
+        "pt": "Chrono Trigger 05"
+      },
+      "image": "stickers/1995_Chrono_Trigger_05.jpg"
+    },
+    {
+      "id": "retro-games:299",
+      "number": 299,
+      "names": {
+        "en": "Donkey Kong Country 2 01",
+        "pt": "Donkey Kong Country 2 01"
+      },
+      "image": "stickers/1995_Donkey_Kong_Country_2_01.jpg"
+    },
+    {
+      "id": "retro-games:300",
+      "number": 300,
+      "names": {
+        "en": "Donkey Kong Country 2 02",
+        "pt": "Donkey Kong Country 2 02"
+      },
+      "image": "stickers/1995_Donkey_Kong_Country_2_02.jpg"
+    },
+    {
+      "id": "retro-games:301",
+      "number": 301,
+      "names": {
+        "en": "Donkey Kong Country 2 03",
+        "pt": "Donkey Kong Country 2 03"
+      },
+      "image": "stickers/1995_Donkey_Kong_Country_2_03.jpg"
+    },
+    {
+      "id": "retro-games:302",
+      "number": 302,
+      "names": {
+        "en": "Donkey Kong Country 2 04",
+        "pt": "Donkey Kong Country 2 04"
+      },
+      "image": "stickers/1995_Donkey_Kong_Country_2_04.jpg"
+    },
+    {
+      "id": "retro-games:303",
+      "number": 303,
+      "names": {
+        "en": "Donkey Kong Country 2 05",
+        "pt": "Donkey Kong Country 2 05"
+      },
+      "image": "stickers/1995_Donkey_Kong_Country_2_05.jpg"
+    },
+    {
+      "id": "retro-games:304",
+      "number": 304,
+      "names": {
+        "en": "Rayman 01",
+        "pt": "Rayman 01"
+      },
+      "image": "stickers/1995_Rayman_01.jpg"
+    },
+    {
+      "id": "retro-games:305",
+      "number": 305,
+      "names": {
+        "en": "Rayman 02",
+        "pt": "Rayman 02"
+      },
+      "image": "stickers/1995_Rayman_02.jpg"
+    },
+    {
+      "id": "retro-games:306",
+      "number": 306,
+      "names": {
+        "en": "Rayman 03",
+        "pt": "Rayman 03"
+      },
+      "image": "stickers/1995_Rayman_03.png"
+    },
+    {
+      "id": "retro-games:307",
+      "number": 307,
+      "names": {
+        "en": "Rayman 04",
+        "pt": "Rayman 04"
+      },
+      "image": "stickers/1995_Rayman_04.jpg"
+    },
+    {
+      "id": "retro-games:308",
+      "number": 308,
+      "names": {
+        "en": "Rayman 05",
+        "pt": "Rayman 05"
+      },
+      "image": "stickers/1995_Rayman_05.jpg"
+    },
+    {
+      "id": "retro-games:309",
+      "number": 309,
+      "names": {
+        "en": "Ultimate Mortal Kombat 3 01",
+        "pt": "Ultimate Mortal Kombat 3 01"
+      },
+      "image": "stickers/1995_Ultimate_Mortal_Kombat_3_01.jpg"
+    },
+    {
+      "id": "retro-games:310",
+      "number": 310,
+      "names": {
+        "en": "Ultimate Mortal Kombat 3 02",
+        "pt": "Ultimate Mortal Kombat 3 02"
+      },
+      "image": "stickers/1995_Ultimate_Mortal_Kombat_3_02.png"
+    },
+    {
+      "id": "retro-games:311",
+      "number": 311,
+      "names": {
+        "en": "Ultimate Mortal Kombat 3 03",
+        "pt": "Ultimate Mortal Kombat 3 03"
+      },
+      "image": "stickers/1995_Ultimate_Mortal_Kombat_3_03.jpg"
+    },
+    {
+      "id": "retro-games:312",
+      "number": 312,
+      "names": {
+        "en": "Ultimate Mortal Kombat 3 04",
+        "pt": "Ultimate Mortal Kombat 3 04"
+      },
+      "image": "stickers/1995_Ultimate_Mortal_Kombat_3_04.png"
+    },
+    {
+      "id": "retro-games:313",
+      "number": 313,
+      "names": {
+        "en": "Ultimate Mortal Kombat 3 05",
+        "pt": "Ultimate Mortal Kombat 3 05"
+      },
+      "image": "stickers/1995_Ultimate_Mortal_Kombat_3_05.jpg"
+    },
+    {
+      "id": "retro-games:314",
+      "number": 314,
+      "names": {
+        "en": "Yoshi S Island 01",
+        "pt": "Yoshi S Island 01"
+      },
+      "image": "stickers/1995_Yoshi_s_Island_01.jpg"
+    },
+    {
+      "id": "retro-games:315",
+      "number": 315,
+      "names": {
+        "en": "Yoshi S Island 02",
+        "pt": "Yoshi S Island 02"
+      },
+      "image": "stickers/1995_Yoshi_s_Island_02.png"
+    },
+    {
+      "id": "retro-games:316",
+      "number": 316,
+      "names": {
+        "en": "Yoshi S Island 03",
+        "pt": "Yoshi S Island 03"
+      },
+      "image": "stickers/1995_Yoshi_s_Island_03.jpg"
+    },
+    {
+      "id": "retro-games:317",
+      "number": 317,
+      "names": {
+        "en": "Yoshi S Island 04",
+        "pt": "Yoshi S Island 04"
+      },
+      "image": "stickers/1995_Yoshi_s_Island_04.jpg"
+    },
+    {
+      "id": "retro-games:318",
+      "number": 318,
+      "names": {
+        "en": "Yoshi S Island 05",
+        "pt": "Yoshi S Island 05"
+      },
+      "image": "stickers/1995_Yoshi_s_Island_05.jpg"
+    },
+    {
+      "id": "retro-games:319",
+      "number": 319,
+      "names": {
+        "en": "Crash Bandicoot 01",
+        "pt": "Crash Bandicoot 01"
+      },
+      "image": "stickers/1996_Crash_Bandicoot_01.png"
+    },
+    {
+      "id": "retro-games:320",
+      "number": 320,
+      "names": {
+        "en": "Crash Bandicoot 02",
+        "pt": "Crash Bandicoot 02"
+      },
+      "image": "stickers/1996_Crash_Bandicoot_02.jpeg"
+    },
+    {
+      "id": "retro-games:321",
+      "number": 321,
+      "names": {
+        "en": "Crash Bandicoot 03",
+        "pt": "Crash Bandicoot 03"
+      },
+      "image": "stickers/1996_Crash_Bandicoot_03.png"
+    },
+    {
+      "id": "retro-games:322",
+      "number": 322,
+      "names": {
+        "en": "Crash Bandicoot 04",
+        "pt": "Crash Bandicoot 04"
+      },
+      "image": "stickers/1996_Crash_Bandicoot_04.jpg"
+    },
+    {
+      "id": "retro-games:323",
+      "number": 323,
+      "names": {
+        "en": "Crash Bandicoot 05",
+        "pt": "Crash Bandicoot 05"
+      },
+      "image": "stickers/1996_Crash_Bandicoot_05.jpg"
+    },
+    {
+      "id": "retro-games:324",
+      "number": 324,
+      "names": {
+        "en": "Diablo 01",
+        "pt": "Diablo 01"
+      },
+      "image": "stickers/1996_Diablo_01.jpg"
+    },
+    {
+      "id": "retro-games:325",
+      "number": 325,
+      "names": {
+        "en": "Diablo 02",
+        "pt": "Diablo 02"
+      },
+      "image": "stickers/1996_Diablo_02.jpg"
+    },
+    {
+      "id": "retro-games:326",
+      "number": 326,
+      "names": {
+        "en": "Diablo 03",
+        "pt": "Diablo 03"
+      },
+      "image": "stickers/1996_Diablo_03.png"
+    },
+    {
+      "id": "retro-games:327",
+      "number": 327,
+      "names": {
+        "en": "Diablo 04",
+        "pt": "Diablo 04"
+      },
+      "image": "stickers/1996_Diablo_04.jpg"
+    },
+    {
+      "id": "retro-games:328",
+      "number": 328,
+      "names": {
+        "en": "Diablo 05",
+        "pt": "Diablo 05"
+      },
+      "image": "stickers/1996_Diablo_05.jpg"
+    },
+    {
+      "id": "retro-games:329",
+      "number": 329,
+      "names": {
+        "en": "Metal Slug 01",
+        "pt": "Metal Slug 01"
+      },
+      "image": "stickers/1996_Metal_Slug_01.jpg"
+    },
+    {
+      "id": "retro-games:330",
+      "number": 330,
+      "names": {
+        "en": "Metal Slug 02",
+        "pt": "Metal Slug 02"
+      },
+      "image": "stickers/1996_Metal_Slug_02.jpg"
+    },
+    {
+      "id": "retro-games:331",
+      "number": 331,
+      "names": {
+        "en": "Metal Slug 03",
+        "pt": "Metal Slug 03"
+      },
+      "image": "stickers/1996_Metal_Slug_03.jpg"
+    },
+    {
+      "id": "retro-games:332",
+      "number": 332,
+      "names": {
+        "en": "Metal Slug 04",
+        "pt": "Metal Slug 04"
+      },
+      "image": "stickers/1996_Metal_Slug_04.jpg"
+    },
+    {
+      "id": "retro-games:333",
+      "number": 333,
+      "names": {
+        "en": "Metal Slug 05",
+        "pt": "Metal Slug 05"
+      },
+      "image": "stickers/1996_Metal_Slug_05.jpg"
+    },
+    {
+      "id": "retro-games:334",
+      "number": 334,
+      "names": {
+        "en": "Pokémon Red Blue 01",
+        "pt": "Pokémon Red Blue 01"
+      },
+      "image": "stickers/1996_Pokémon_Red_Blue_01.jpg"
+    },
+    {
+      "id": "retro-games:335",
+      "number": 335,
+      "names": {
+        "en": "Pokémon Red Blue 02",
+        "pt": "Pokémon Red Blue 02"
+      },
+      "image": "stickers/1996_Pokémon_Red_Blue_02.jpg"
+    },
+    {
+      "id": "retro-games:336",
+      "number": 336,
+      "names": {
+        "en": "Pokémon Red Blue 03",
+        "pt": "Pokémon Red Blue 03"
+      },
+      "image": "stickers/1996_Pokémon_Red_Blue_03.jpg"
+    },
+    {
+      "id": "retro-games:337",
+      "number": 337,
+      "names": {
+        "en": "Pokémon Red Blue 04",
+        "pt": "Pokémon Red Blue 04"
+      },
+      "image": "stickers/1996_Pokémon_Red_Blue_04.jpg"
+    },
+    {
+      "id": "retro-games:338",
+      "number": 338,
+      "names": {
+        "en": "Pokémon Red Blue 05",
+        "pt": "Pokémon Red Blue 05"
+      },
+      "image": "stickers/1996_Pokémon_Red_Blue_05.jpg"
+    },
+    {
+      "id": "retro-games:339",
+      "number": 339,
+      "names": {
+        "en": "Resident Evil 01",
+        "pt": "Resident Evil 01"
+      },
+      "image": "stickers/1996_Resident_Evil_01.jpg"
+    },
+    {
+      "id": "retro-games:340",
+      "number": 340,
+      "names": {
+        "en": "Resident Evil 02",
+        "pt": "Resident Evil 02"
+      },
+      "image": "stickers/1996_Resident_Evil_02.jpg"
+    },
+    {
+      "id": "retro-games:341",
+      "number": 341,
+      "names": {
+        "en": "Resident Evil 03",
+        "pt": "Resident Evil 03"
+      },
+      "image": "stickers/1996_Resident_Evil_03.jpg"
+    },
+    {
+      "id": "retro-games:342",
+      "number": 342,
+      "names": {
+        "en": "Resident Evil 04",
+        "pt": "Resident Evil 04"
+      },
+      "image": "stickers/1996_Resident_Evil_04.jpg"
+    },
+    {
+      "id": "retro-games:343",
+      "number": 343,
+      "names": {
+        "en": "Resident Evil 05",
+        "pt": "Resident Evil 05"
+      },
+      "image": "stickers/1996_Resident_Evil_05.jpg"
+    },
+    {
+      "id": "retro-games:344",
+      "number": 344,
+      "names": {
+        "en": "Super Mario 64 01",
+        "pt": "Super Mario 64 01"
+      },
+      "image": "stickers/1996_Super_Mario_64_01.jpg"
+    },
+    {
+      "id": "retro-games:345",
+      "number": 345,
+      "names": {
+        "en": "Super Mario 64 02",
+        "pt": "Super Mario 64 02"
+      },
+      "image": "stickers/1996_Super_Mario_64_02.jpg"
+    },
+    {
+      "id": "retro-games:346",
+      "number": 346,
+      "names": {
+        "en": "Super Mario 64 03",
+        "pt": "Super Mario 64 03"
+      },
+      "image": "stickers/1996_Super_Mario_64_03.png"
+    },
+    {
+      "id": "retro-games:347",
+      "number": 347,
+      "names": {
+        "en": "Super Mario 64 04",
+        "pt": "Super Mario 64 04"
+      },
+      "image": "stickers/1996_Super_Mario_64_04.jpg"
+    },
+    {
+      "id": "retro-games:348",
+      "number": 348,
+      "names": {
+        "en": "Super Mario 64 05",
+        "pt": "Super Mario 64 05"
+      },
+      "image": "stickers/1996_Super_Mario_64_05.jpg"
+    },
+    {
+      "id": "retro-games:349",
+      "number": 349,
+      "names": {
+        "en": "Tomb Raider 01",
+        "pt": "Tomb Raider 01"
+      },
+      "image": "stickers/1996_Tomb_Raider_01.png"
+    },
+    {
+      "id": "retro-games:350",
+      "number": 350,
+      "names": {
+        "en": "Tomb Raider 02",
+        "pt": "Tomb Raider 02"
+      },
+      "image": "stickers/1996_Tomb_Raider_02.jpg"
+    },
+    {
+      "id": "retro-games:351",
+      "number": 351,
+      "names": {
+        "en": "Tomb Raider 03",
+        "pt": "Tomb Raider 03"
+      },
+      "image": "stickers/1996_Tomb_Raider_03.jpg"
+    },
+    {
+      "id": "retro-games:352",
+      "number": 352,
+      "names": {
+        "en": "Tomb Raider 04",
+        "pt": "Tomb Raider 04"
+      },
+      "image": "stickers/1996_Tomb_Raider_04.jpg"
+    },
+    {
+      "id": "retro-games:353",
+      "number": 353,
+      "names": {
+        "en": "Tomb Raider 05",
+        "pt": "Tomb Raider 05"
+      },
+      "image": "stickers/1996_Tomb_Raider_05.jpg"
+    },
+    {
+      "id": "retro-games:354",
+      "number": 354,
+      "names": {
+        "en": "Age Of Empires 01",
+        "pt": "Age Of Empires 01"
+      },
+      "image": "stickers/1997_Age_of_Empires_01.jpg"
+    },
+    {
+      "id": "retro-games:355",
+      "number": 355,
+      "names": {
+        "en": "Age Of Empires 02",
+        "pt": "Age Of Empires 02"
+      },
+      "image": "stickers/1997_Age_of_Empires_02.jpg"
+    },
+    {
+      "id": "retro-games:356",
+      "number": 356,
+      "names": {
+        "en": "Age Of Empires 03",
+        "pt": "Age Of Empires 03"
+      },
+      "image": "stickers/1997_Age_of_Empires_03.jpg"
+    },
+    {
+      "id": "retro-games:357",
+      "number": 357,
+      "names": {
+        "en": "Age Of Empires 04",
+        "pt": "Age Of Empires 04"
+      },
+      "image": "stickers/1997_Age_of_Empires_04.jpg"
+    },
+    {
+      "id": "retro-games:358",
+      "number": 358,
+      "names": {
+        "en": "Age Of Empires 05",
+        "pt": "Age Of Empires 05"
+      },
+      "image": "stickers/1997_Age_of_Empires_05.jpg"
+    },
+    {
+      "id": "retro-games:359",
+      "number": 359,
+      "names": {
+        "en": "Castlevania Symphony Of The Night 01",
+        "pt": "Castlevania Symphony Of The Night 01"
+      },
+      "image": "stickers/1997_Castlevania_Symphony_of_the_Night_01.jpg"
+    },
+    {
+      "id": "retro-games:360",
+      "number": 360,
+      "names": {
+        "en": "Castlevania Symphony Of The Night 02",
+        "pt": "Castlevania Symphony Of The Night 02"
+      },
+      "image": "stickers/1997_Castlevania_Symphony_of_the_Night_02.jpg"
+    },
+    {
+      "id": "retro-games:361",
+      "number": 361,
+      "names": {
+        "en": "Castlevania Symphony Of The Night 03",
+        "pt": "Castlevania Symphony Of The Night 03"
+      },
+      "image": "stickers/1997_Castlevania_Symphony_of_the_Night_03.jpg"
+    },
+    {
+      "id": "retro-games:362",
+      "number": 362,
+      "names": {
+        "en": "Castlevania Symphony Of The Night 04",
+        "pt": "Castlevania Symphony Of The Night 04"
+      },
+      "image": "stickers/1997_Castlevania_Symphony_of_the_Night_04.jpg"
+    },
+    {
+      "id": "retro-games:363",
+      "number": 363,
+      "names": {
+        "en": "Castlevania Symphony Of The Night 05",
+        "pt": "Castlevania Symphony Of The Night 05"
+      },
+      "image": "stickers/1997_Castlevania_Symphony_of_the_Night_05.jpg"
+    },
+    {
+      "id": "retro-games:364",
+      "number": 364,
+      "names": {
+        "en": "Fallout 01",
+        "pt": "Fallout 01"
+      },
+      "image": "stickers/1997_Fallout_01.jpg"
+    },
+    {
+      "id": "retro-games:365",
+      "number": 365,
+      "names": {
+        "en": "Fallout 02",
+        "pt": "Fallout 02"
+      },
+      "image": "stickers/1997_Fallout_02.jpg"
+    },
+    {
+      "id": "retro-games:366",
+      "number": 366,
+      "names": {
+        "en": "Fallout 03",
+        "pt": "Fallout 03"
+      },
+      "image": "stickers/1997_Fallout_03.jpg"
+    },
+    {
+      "id": "retro-games:367",
+      "number": 367,
+      "names": {
+        "en": "Fallout 04",
+        "pt": "Fallout 04"
+      },
+      "image": "stickers/1997_Fallout_04.jpg"
+    },
+    {
+      "id": "retro-games:368",
+      "number": 368,
+      "names": {
+        "en": "Fallout 05",
+        "pt": "Fallout 05"
+      },
+      "image": "stickers/1997_Fallout_05.JPG"
+    },
+    {
+      "id": "retro-games:369",
+      "number": 369,
+      "names": {
+        "en": "Final Fantasy Vii 01",
+        "pt": "Final Fantasy Vii 01"
+      },
+      "image": "stickers/1997_Final_Fantasy_VII_01.jpg"
+    },
+    {
+      "id": "retro-games:370",
+      "number": 370,
+      "names": {
+        "en": "Final Fantasy Vii 02",
+        "pt": "Final Fantasy Vii 02"
+      },
+      "image": "stickers/1997_Final_Fantasy_VII_02.jpg"
+    },
+    {
+      "id": "retro-games:371",
+      "number": 371,
+      "names": {
+        "en": "Final Fantasy Vii 03",
+        "pt": "Final Fantasy Vii 03"
+      },
+      "image": "stickers/1997_Final_Fantasy_VII_03.jpg"
+    },
+    {
+      "id": "retro-games:372",
+      "number": 372,
+      "names": {
+        "en": "Final Fantasy Vii 04",
+        "pt": "Final Fantasy Vii 04"
+      },
+      "image": "stickers/1997_Final_Fantasy_VII_04.jpg"
+    },
+    {
+      "id": "retro-games:373",
+      "number": 373,
+      "names": {
+        "en": "Final Fantasy Vii 05",
+        "pt": "Final Fantasy Vii 05"
+      },
+      "image": "stickers/1997_Final_Fantasy_VII_05.jpg"
+    },
+    {
+      "id": "retro-games:374",
+      "number": 374,
+      "names": {
+        "en": "Goldeneye 007 01",
+        "pt": "Goldeneye 007 01"
+      },
+      "image": "stickers/1997_GoldenEye_007_01.jpg"
+    },
+    {
+      "id": "retro-games:375",
+      "number": 375,
+      "names": {
+        "en": "Goldeneye 007 02",
+        "pt": "Goldeneye 007 02"
+      },
+      "image": "stickers/1997_GoldenEye_007_02.jpg"
+    },
+    {
+      "id": "retro-games:376",
+      "number": 376,
+      "names": {
+        "en": "Goldeneye 007 03",
+        "pt": "Goldeneye 007 03"
+      },
+      "image": "stickers/1997_GoldenEye_007_03.jpg"
+    },
+    {
+      "id": "retro-games:377",
+      "number": 377,
+      "names": {
+        "en": "Goldeneye 007 04",
+        "pt": "Goldeneye 007 04"
+      },
+      "image": "stickers/1997_GoldenEye_007_04.jpg"
+    },
+    {
+      "id": "retro-games:378",
+      "number": 378,
+      "names": {
+        "en": "Goldeneye 007 05",
+        "pt": "Goldeneye 007 05"
+      },
+      "image": "stickers/1997_GoldenEye_007_05.jpg"
+    },
+    {
+      "id": "retro-games:379",
+      "number": 379,
+      "names": {
+        "en": "Grand Theft Auto 01",
+        "pt": "Grand Theft Auto 01"
+      },
+      "image": "stickers/1997_Grand_Theft_Auto_01.jpg"
+    },
+    {
+      "id": "retro-games:380",
+      "number": 380,
+      "names": {
+        "en": "Grand Theft Auto 02",
+        "pt": "Grand Theft Auto 02"
+      },
+      "image": "stickers/1997_Grand_Theft_Auto_02.jpg"
+    },
+    {
+      "id": "retro-games:381",
+      "number": 381,
+      "names": {
+        "en": "Grand Theft Auto 03",
+        "pt": "Grand Theft Auto 03"
+      },
+      "image": "stickers/1997_Grand_Theft_Auto_03.jpg"
+    },
+    {
+      "id": "retro-games:382",
+      "number": 382,
+      "names": {
+        "en": "Grand Theft Auto 04",
+        "pt": "Grand Theft Auto 04"
+      },
+      "image": "stickers/1997_Grand_Theft_Auto_04.jpg"
+    },
+    {
+      "id": "retro-games:383",
+      "number": 383,
+      "names": {
+        "en": "Grand Theft Auto 05",
+        "pt": "Grand Theft Auto 05"
+      },
+      "image": "stickers/1997_Grand_Theft_Auto_05.jpg"
+    },
+    {
+      "id": "retro-games:384",
+      "number": 384,
+      "names": {
+        "en": "Star Fox 64 01",
+        "pt": "Star Fox 64 01"
+      },
+      "image": "stickers/1997_Star_Fox_64_01.jpg"
+    },
+    {
+      "id": "retro-games:385",
+      "number": 385,
+      "names": {
+        "en": "Star Fox 64 02",
+        "pt": "Star Fox 64 02"
+      },
+      "image": "stickers/1997_Star_Fox_64_02.jpg"
+    },
+    {
+      "id": "retro-games:386",
+      "number": 386,
+      "names": {
+        "en": "Star Fox 64 03",
+        "pt": "Star Fox 64 03"
+      },
+      "image": "stickers/1997_Star_Fox_64_03.jpg"
+    },
+    {
+      "id": "retro-games:387",
+      "number": 387,
+      "names": {
+        "en": "Star Fox 64 04",
+        "pt": "Star Fox 64 04"
+      },
+      "image": "stickers/1997_Star_Fox_64_04.png"
+    },
+    {
+      "id": "retro-games:388",
+      "number": 388,
+      "names": {
+        "en": "Star Fox 64 05",
+        "pt": "Star Fox 64 05"
+      },
+      "image": "stickers/1997_Star_Fox_64_05.jpg"
+    },
+    {
+      "id": "retro-games:389",
+      "number": 389,
+      "names": {
+        "en": "Crash Bandicoot 3 Warped 01",
+        "pt": "Crash Bandicoot 3 Warped 01"
+      },
+      "image": "stickers/1998_Crash_Bandicoot_3_Warped_01.png"
+    },
+    {
+      "id": "retro-games:390",
+      "number": 390,
+      "names": {
+        "en": "Crash Bandicoot 3 Warped 02",
+        "pt": "Crash Bandicoot 3 Warped 02"
+      },
+      "image": "stickers/1998_Crash_Bandicoot_3_Warped_02.jpg"
+    },
+    {
+      "id": "retro-games:391",
+      "number": 391,
+      "names": {
+        "en": "Crash Bandicoot 3 Warped 03",
+        "pt": "Crash Bandicoot 3 Warped 03"
+      },
+      "image": "stickers/1998_Crash_Bandicoot_3_Warped_03.jpg"
+    },
+    {
+      "id": "retro-games:392",
+      "number": 392,
+      "names": {
+        "en": "Crash Bandicoot 3 Warped 04",
+        "pt": "Crash Bandicoot 3 Warped 04"
+      },
+      "image": "stickers/1998_Crash_Bandicoot_3_Warped_04.jpg"
+    },
+    {
+      "id": "retro-games:393",
+      "number": 393,
+      "names": {
+        "en": "Crash Bandicoot 3 Warped 05",
+        "pt": "Crash Bandicoot 3 Warped 05"
+      },
+      "image": "stickers/1998_Crash_Bandicoot_3_Warped_05.jpg"
+    },
+    {
+      "id": "retro-games:394",
+      "number": 394,
+      "names": {
+        "en": "Grim Fandango 01",
+        "pt": "Grim Fandango 01"
+      },
+      "image": "stickers/1998_Grim_Fandango_01.jpg"
+    },
+    {
+      "id": "retro-games:395",
+      "number": 395,
+      "names": {
+        "en": "Half Life 01",
+        "pt": "Half Life 01"
+      },
+      "image": "stickers/1998_Half-Life_01.jpg"
+    },
+    {
+      "id": "retro-games:396",
+      "number": 396,
+      "names": {
+        "en": "Half Life 02",
+        "pt": "Half Life 02"
+      },
+      "image": "stickers/1998_Half-Life_02.jpg"
+    },
+    {
+      "id": "retro-games:397",
+      "number": 397,
+      "names": {
+        "en": "Half Life 03",
+        "pt": "Half Life 03"
+      },
+      "image": "stickers/1998_Half-Life_03.jpg"
+    },
+    {
+      "id": "retro-games:398",
+      "number": 398,
+      "names": {
+        "en": "Half Life 04",
+        "pt": "Half Life 04"
+      },
+      "image": "stickers/1998_Half-Life_04.jpg"
+    },
+    {
+      "id": "retro-games:399",
+      "number": 399,
+      "names": {
+        "en": "Half Life 05",
+        "pt": "Half Life 05"
+      },
+      "image": "stickers/1998_Half-Life_05.jpg"
+    },
+    {
+      "id": "retro-games:400",
+      "number": 400,
+      "names": {
+        "en": "Metal Gear Solid 01",
+        "pt": "Metal Gear Solid 01"
+      },
+      "image": "stickers/1998_Metal_Gear_Solid_01.jpg"
+    },
+    {
+      "id": "retro-games:401",
+      "number": 401,
+      "names": {
+        "en": "Metal Gear Solid 02",
+        "pt": "Metal Gear Solid 02"
+      },
+      "image": "stickers/1998_Metal_Gear_Solid_02.jpeg"
+    },
+    {
+      "id": "retro-games:402",
+      "number": 402,
+      "names": {
+        "en": "Metal Gear Solid 03",
+        "pt": "Metal Gear Solid 03"
+      },
+      "image": "stickers/1998_Metal_Gear_Solid_03.jpg"
+    },
+    {
+      "id": "retro-games:403",
+      "number": 403,
+      "names": {
+        "en": "Metal Gear Solid 04",
+        "pt": "Metal Gear Solid 04"
+      },
+      "image": "stickers/1998_Metal_Gear_Solid_04.jpg"
+    },
+    {
+      "id": "retro-games:404",
+      "number": 404,
+      "names": {
+        "en": "Metal Gear Solid 05",
+        "pt": "Metal Gear Solid 05"
+      },
+      "image": "stickers/1998_Metal_Gear_Solid_05.jpg"
+    },
+    {
+      "id": "retro-games:405",
+      "number": 405,
+      "names": {
+        "en": "Resident Evil 2 01",
+        "pt": "Resident Evil 2 01"
+      },
+      "image": "stickers/1998_Resident_Evil_2_01.jpg"
+    },
+    {
+      "id": "retro-games:406",
+      "number": 406,
+      "names": {
+        "en": "Starcraft 01",
+        "pt": "Starcraft 01"
+      },
+      "image": "stickers/1998_StarCraft_01.jpg"
+    },
+    {
+      "id": "retro-games:407",
+      "number": 407,
+      "names": {
+        "en": "Starcraft 02",
+        "pt": "Starcraft 02"
+      },
+      "image": "stickers/1998_StarCraft_02.jpg"
+    },
+    {
+      "id": "retro-games:408",
+      "number": 408,
+      "names": {
+        "en": "Starcraft 03",
+        "pt": "Starcraft 03"
+      },
+      "image": "stickers/1998_StarCraft_03.jpg"
+    },
+    {
+      "id": "retro-games:409",
+      "number": 409,
+      "names": {
+        "en": "Starcraft 04",
+        "pt": "Starcraft 04"
+      },
+      "image": "stickers/1998_StarCraft_04.png"
+    },
+    {
+      "id": "retro-games:410",
+      "number": 410,
+      "names": {
+        "en": "Starcraft 05",
+        "pt": "Starcraft 05"
+      },
+      "image": "stickers/1998_StarCraft_05.jpg"
+    },
+    {
+      "id": "retro-games:411",
+      "number": 411,
+      "names": {
+        "en": "The Legend Of Zelda Ocarina Of Time 01",
+        "pt": "The Legend Of Zelda Ocarina Of Time 01"
+      },
+      "image": "stickers/1998_The_Legend_of_Zelda_Ocarina_of_Time_01.jpg"
+    },
+    {
+      "id": "retro-games:412",
+      "number": 412,
+      "names": {
+        "en": "Xenogears 01",
+        "pt": "Xenogears 01"
+      },
+      "image": "stickers/1998_Xenogears_01.jpg"
+    },
+    {
+      "id": "retro-games:413",
+      "number": 413,
+      "names": {
+        "en": "Xenogears 02",
+        "pt": "Xenogears 02"
+      },
+      "image": "stickers/1998_Xenogears_02.jpg"
+    },
+    {
+      "id": "retro-games:414",
+      "number": 414,
+      "names": {
+        "en": "Xenogears 03",
+        "pt": "Xenogears 03"
+      },
+      "image": "stickers/1998_Xenogears_03.jpg"
+    },
+    {
+      "id": "retro-games:415",
+      "number": 415,
+      "names": {
+        "en": "Xenogears 04",
+        "pt": "Xenogears 04"
+      },
+      "image": "stickers/1998_Xenogears_04.jpg"
+    },
+    {
+      "id": "retro-games:416",
+      "number": 416,
+      "names": {
+        "en": "Xenogears 05",
+        "pt": "Xenogears 05"
+      },
+      "image": "stickers/1998_Xenogears_05.jpg"
+    },
+    {
+      "id": "retro-games:417",
+      "number": 417,
+      "names": {
+        "en": "Age Of Empires Ii 01",
+        "pt": "Age Of Empires Ii 01"
+      },
+      "image": "stickers/1999_Age_of_Empires_II_01.webp"
+    },
+    {
+      "id": "retro-games:418",
+      "number": 418,
+      "names": {
+        "en": "Age Of Empires Ii 02",
+        "pt": "Age Of Empires Ii 02"
+      },
+      "image": "stickers/1999_Age_of_Empires_II_02.jpg"
+    },
+    {
+      "id": "retro-games:419",
+      "number": 419,
+      "names": {
+        "en": "Age Of Empires Ii 03",
+        "pt": "Age Of Empires Ii 03"
+      },
+      "image": "stickers/1999_Age_of_Empires_II_03.jpg"
+    },
+    {
+      "id": "retro-games:420",
+      "number": 420,
+      "names": {
+        "en": "Age Of Empires Ii 04",
+        "pt": "Age Of Empires Ii 04"
+      },
+      "image": "stickers/1999_Age_of_Empires_II_04.jpg"
+    },
+    {
+      "id": "retro-games:421",
+      "number": 421,
+      "names": {
+        "en": "Age Of Empires Ii 05",
+        "pt": "Age Of Empires Ii 05"
+      },
+      "image": "stickers/1999_Age_of_Empires_II_05.jpg"
+    },
+    {
+      "id": "retro-games:422",
+      "number": 422,
+      "names": {
+        "en": "Chrono Cross 01",
+        "pt": "Chrono Cross 01"
+      },
+      "image": "stickers/1999_Chrono_Cross_01.jpg"
+    },
+    {
+      "id": "retro-games:423",
+      "number": 423,
+      "names": {
+        "en": "Chrono Cross 02",
+        "pt": "Chrono Cross 02"
+      },
+      "image": "stickers/1999_Chrono_Cross_02.jpg"
+    },
+    {
+      "id": "retro-games:424",
+      "number": 424,
+      "names": {
+        "en": "Chrono Cross 03",
+        "pt": "Chrono Cross 03"
+      },
+      "image": "stickers/1999_Chrono_Cross_03.jpg"
+    },
+    {
+      "id": "retro-games:425",
+      "number": 425,
+      "names": {
+        "en": "Chrono Cross 04",
+        "pt": "Chrono Cross 04"
+      },
+      "image": "stickers/1999_Chrono_Cross_04.jpg"
+    },
+    {
+      "id": "retro-games:426",
+      "number": 426,
+      "names": {
+        "en": "Chrono Cross 05",
+        "pt": "Chrono Cross 05"
+      },
+      "image": "stickers/1999_Chrono_Cross_05.jpg"
+    },
+    {
+      "id": "retro-games:427",
+      "number": 427,
+      "names": {
+        "en": "Resident Evil 3 Nemesis 01",
+        "pt": "Resident Evil 3 Nemesis 01"
+      },
+      "image": "stickers/1999_Resident_Evil_3_Nemesis_01.jpg"
+    },
+    {
+      "id": "retro-games:428",
+      "number": 428,
+      "names": {
+        "en": "Resident Evil 3 Nemesis 02",
+        "pt": "Resident Evil 3 Nemesis 02"
+      },
+      "image": "stickers/1999_Resident_Evil_3_Nemesis_02.jpg"
+    },
+    {
+      "id": "retro-games:429",
+      "number": 429,
+      "names": {
+        "en": "Resident Evil 3 Nemesis 03",
+        "pt": "Resident Evil 3 Nemesis 03"
+      },
+      "image": "stickers/1999_Resident_Evil_3_Nemesis_03.jpg"
+    },
+    {
+      "id": "retro-games:430",
+      "number": 430,
+      "names": {
+        "en": "Resident Evil 3 Nemesis 04",
+        "pt": "Resident Evil 3 Nemesis 04"
+      },
+      "image": "stickers/1999_Resident_Evil_3_Nemesis_04.jpg"
+    },
+    {
+      "id": "retro-games:431",
+      "number": 431,
+      "names": {
+        "en": "Resident Evil 3 Nemesis 05",
+        "pt": "Resident Evil 3 Nemesis 05"
+      },
+      "image": "stickers/1999_Resident_Evil_3_Nemesis_05.jpg"
+    },
+    {
+      "id": "retro-games:432",
+      "number": 432,
+      "names": {
+        "en": "Silent Hill 01",
+        "pt": "Silent Hill 01"
+      },
+      "image": "stickers/1999_Silent_Hill_01.png"
+    },
+    {
+      "id": "retro-games:433",
+      "number": 433,
+      "names": {
+        "en": "Silent Hill 02",
+        "pt": "Silent Hill 02"
+      },
+      "image": "stickers/1999_Silent_Hill_02.jpg"
+    },
+    {
+      "id": "retro-games:434",
+      "number": 434,
+      "names": {
+        "en": "Silent Hill 03",
+        "pt": "Silent Hill 03"
+      },
+      "image": "stickers/1999_Silent_Hill_03.jpg"
+    },
+    {
+      "id": "retro-games:435",
+      "number": 435,
+      "names": {
+        "en": "Silent Hill 04",
+        "pt": "Silent Hill 04"
+      },
+      "image": "stickers/1999_Silent_Hill_04.jpg"
+    },
+    {
+      "id": "retro-games:436",
+      "number": 436,
+      "names": {
+        "en": "Silent Hill 05",
+        "pt": "Silent Hill 05"
+      },
+      "image": "stickers/1999_Silent_Hill_05.png"
+    },
+    {
+      "id": "retro-games:437",
+      "number": 437,
+      "names": {
+        "en": "Super Smash Bros 01",
+        "pt": "Super Smash Bros 01"
+      },
+      "image": "stickers/1999_Super_Smash_Bros_01.jpg"
+    },
+    {
+      "id": "retro-games:438",
+      "number": 438,
+      "names": {
+        "en": "Super Smash Bros 02",
+        "pt": "Super Smash Bros 02"
+      },
+      "image": "stickers/1999_Super_Smash_Bros_02.jpg"
+    },
+    {
+      "id": "retro-games:439",
+      "number": 439,
+      "names": {
+        "en": "Super Smash Bros 03",
+        "pt": "Super Smash Bros 03"
+      },
+      "image": "stickers/1999_Super_Smash_Bros_03.jpg"
+    },
+    {
+      "id": "retro-games:440",
+      "number": 440,
+      "names": {
+        "en": "Super Smash Bros 04",
+        "pt": "Super Smash Bros 04"
+      },
+      "image": "stickers/1999_Super_Smash_Bros_04.jpg"
+    },
+    {
+      "id": "retro-games:441",
+      "number": 441,
+      "names": {
+        "en": "Super Smash Bros 05",
+        "pt": "Super Smash Bros 05"
+      },
+      "image": "stickers/1999_Super_Smash_Bros_05.png"
+    },
+    {
+      "id": "retro-games:442",
+      "number": 442,
+      "names": {
+        "en": "Tony Hawk S Pro Skater 01",
+        "pt": "Tony Hawk S Pro Skater 01"
+      },
+      "image": "stickers/1999_Tony_Hawk_s_Pro_Skater_01.png"
+    },
+    {
+      "id": "retro-games:443",
+      "number": 443,
+      "names": {
+        "en": "Tony Hawk S Pro Skater 02",
+        "pt": "Tony Hawk S Pro Skater 02"
+      },
+      "image": "stickers/1999_Tony_Hawk_s_Pro_Skater_02.jpg"
+    },
+    {
+      "id": "retro-games:444",
+      "number": 444,
+      "names": {
+        "en": "Tony Hawk S Pro Skater 03",
+        "pt": "Tony Hawk S Pro Skater 03"
+      },
+      "image": "stickers/1999_Tony_Hawk_s_Pro_Skater_03.jpg"
+    },
+    {
+      "id": "retro-games:445",
+      "number": 445,
+      "names": {
+        "en": "Tony Hawk S Pro Skater 04",
+        "pt": "Tony Hawk S Pro Skater 04"
+      },
+      "image": "stickers/1999_Tony_Hawk_s_Pro_Skater_04.jpg"
+    },
+    {
+      "id": "retro-games:446",
+      "number": 446,
+      "names": {
+        "en": "Tony Hawk S Pro Skater 05",
+        "pt": "Tony Hawk S Pro Skater 05"
+      },
+      "image": "stickers/1999_Tony_Hawk_s_Pro_Skater_05.jpg"
+    },
+    {
+      "id": "retro-games:447",
+      "number": 447,
+      "names": {
+        "en": "Unreal Tournament 01",
+        "pt": "Unreal Tournament 01"
+      },
+      "image": "stickers/1999_Unreal_Tournament_01.jpg"
+    },
+    {
+      "id": "retro-games:448",
+      "number": 448,
+      "names": {
+        "en": "Unreal Tournament 02",
+        "pt": "Unreal Tournament 02"
+      },
+      "image": "stickers/1999_Unreal_Tournament_02.jpg"
+    },
+    {
+      "id": "retro-games:449",
+      "number": 449,
+      "names": {
+        "en": "Unreal Tournament 03",
+        "pt": "Unreal Tournament 03"
+      },
+      "image": "stickers/1999_Unreal_Tournament_03.webp"
+    },
+    {
+      "id": "retro-games:450",
+      "number": 450,
+      "names": {
+        "en": "Unreal Tournament 04",
+        "pt": "Unreal Tournament 04"
+      },
+      "image": "stickers/1999_Unreal_Tournament_04.jpg"
+    },
+    {
+      "id": "retro-games:451",
+      "number": 451,
+      "names": {
+        "en": "Unreal Tournament 05",
+        "pt": "Unreal Tournament 05"
+      },
+      "image": "stickers/1999_Unreal_Tournament_05.jpg"
+    },
+    {
+      "id": "retro-games:452",
+      "number": 452,
+      "names": {
+        "en": "Baldur S Gate Ii 01",
+        "pt": "Baldur S Gate Ii 01"
+      },
+      "image": "stickers/2000_Baldur_s_Gate_II_01.jpg"
+    },
+    {
+      "id": "retro-games:453",
+      "number": 453,
+      "names": {
+        "en": "Baldur S Gate Ii 02",
+        "pt": "Baldur S Gate Ii 02"
+      },
+      "image": "stickers/2000_Baldur_s_Gate_II_02.jpg"
+    },
+    {
+      "id": "retro-games:454",
+      "number": 454,
+      "names": {
+        "en": "Baldur S Gate Ii 03",
+        "pt": "Baldur S Gate Ii 03"
+      },
+      "image": "stickers/2000_Baldur_s_Gate_II_03.jpg"
+    },
+    {
+      "id": "retro-games:455",
+      "number": 455,
+      "names": {
+        "en": "Baldur S Gate Ii 04",
+        "pt": "Baldur S Gate Ii 04"
+      },
+      "image": "stickers/2000_Baldur_s_Gate_II_04.jpeg"
+    },
+    {
+      "id": "retro-games:456",
+      "number": 456,
+      "names": {
+        "en": "Baldur S Gate Ii 05",
+        "pt": "Baldur S Gate Ii 05"
+      },
+      "image": "stickers/2000_Baldur_s_Gate_II_05.jpg"
+    },
+    {
+      "id": "retro-games:457",
+      "number": 457,
+      "names": {
+        "en": "Counter Strike 01",
+        "pt": "Counter Strike 01"
+      },
+      "image": "stickers/2000_Counter-Strike_01.jpg"
+    },
+    {
+      "id": "retro-games:458",
+      "number": 458,
+      "names": {
+        "en": "Counter Strike 02",
+        "pt": "Counter Strike 02"
+      },
+      "image": "stickers/2000_Counter-Strike_02.jpg"
+    },
+    {
+      "id": "retro-games:459",
+      "number": 459,
+      "names": {
+        "en": "Counter Strike 03",
+        "pt": "Counter Strike 03"
+      },
+      "image": "stickers/2000_Counter-Strike_03.jpg"
+    },
+    {
+      "id": "retro-games:460",
+      "number": 460,
+      "names": {
+        "en": "Counter Strike 04",
+        "pt": "Counter Strike 04"
+      },
+      "image": "stickers/2000_Counter-Strike_04.jpg"
+    },
+    {
+      "id": "retro-games:461",
+      "number": 461,
+      "names": {
+        "en": "Counter Strike 05",
+        "pt": "Counter Strike 05"
+      },
+      "image": "stickers/2000_Counter-Strike_05.webp"
+    },
+    {
+      "id": "retro-games:462",
+      "number": 462,
+      "names": {
+        "en": "Diablo Ii 01",
+        "pt": "Diablo Ii 01"
+      },
+      "image": "stickers/2000_Diablo_II_01.jpg"
+    },
+    {
+      "id": "retro-games:463",
+      "number": 463,
+      "names": {
+        "en": "Diablo Ii 02",
+        "pt": "Diablo Ii 02"
+      },
+      "image": "stickers/2000_Diablo_II_02.jpg"
+    },
+    {
+      "id": "retro-games:464",
+      "number": 464,
+      "names": {
+        "en": "Diablo Ii 03",
+        "pt": "Diablo Ii 03"
+      },
+      "image": "stickers/2000_Diablo_II_03.jpg"
+    },
+    {
+      "id": "retro-games:465",
+      "number": 465,
+      "names": {
+        "en": "Diablo Ii 04",
+        "pt": "Diablo Ii 04"
+      },
+      "image": "stickers/2000_Diablo_II_04.jpg"
+    },
+    {
+      "id": "retro-games:466",
+      "number": 466,
+      "names": {
+        "en": "Diablo Ii 05",
+        "pt": "Diablo Ii 05"
+      },
+      "image": "stickers/2000_Diablo_II_05.jpg"
+    },
+    {
+      "id": "retro-games:467",
+      "number": 467,
+      "names": {
+        "en": "Final Fantasy Ix 01",
+        "pt": "Final Fantasy Ix 01"
+      },
+      "image": "stickers/2000_Final_Fantasy_IX_01.png"
+    },
+    {
+      "id": "retro-games:468",
+      "number": 468,
+      "names": {
+        "en": "Final Fantasy Ix 02",
+        "pt": "Final Fantasy Ix 02"
+      },
+      "image": "stickers/2000_Final_Fantasy_IX_02.jpg"
+    },
+    {
+      "id": "retro-games:469",
+      "number": 469,
+      "names": {
+        "en": "Final Fantasy Ix 03",
+        "pt": "Final Fantasy Ix 03"
+      },
+      "image": "stickers/2000_Final_Fantasy_IX_03.jpg"
+    },
+    {
+      "id": "retro-games:470",
+      "number": 470,
+      "names": {
+        "en": "Final Fantasy Ix 04",
+        "pt": "Final Fantasy Ix 04"
+      },
+      "image": "stickers/2000_Final_Fantasy_IX_04.png"
+    },
+    {
+      "id": "retro-games:471",
+      "number": 471,
+      "names": {
+        "en": "Final Fantasy Ix 05",
+        "pt": "Final Fantasy Ix 05"
+      },
+      "image": "stickers/2000_Final_Fantasy_IX_05.jpg"
+    },
+    {
+      "id": "retro-games:472",
+      "number": 472,
+      "names": {
+        "en": "Marvel Vs Capcom 2 01",
+        "pt": "Marvel Vs Capcom 2 01"
+      },
+      "image": "stickers/2000_Marvel_vs_Capcom_2_01.jpg"
+    },
+    {
+      "id": "retro-games:473",
+      "number": 473,
+      "names": {
+        "en": "Marvel Vs Capcom 2 02",
+        "pt": "Marvel Vs Capcom 2 02"
+      },
+      "image": "stickers/2000_Marvel_vs_Capcom_2_02.webp"
+    },
+    {
+      "id": "retro-games:474",
+      "number": 474,
+      "names": {
+        "en": "Marvel Vs Capcom 2 03",
+        "pt": "Marvel Vs Capcom 2 03"
+      },
+      "image": "stickers/2000_Marvel_vs_Capcom_2_03.jpg"
+    },
+    {
+      "id": "retro-games:475",
+      "number": 475,
+      "names": {
+        "en": "Marvel Vs Capcom 2 04",
+        "pt": "Marvel Vs Capcom 2 04"
+      },
+      "image": "stickers/2000_Marvel_vs_Capcom_2_04.jpg"
+    },
+    {
+      "id": "retro-games:476",
+      "number": 476,
+      "names": {
+        "en": "Marvel Vs Capcom 2 05",
+        "pt": "Marvel Vs Capcom 2 05"
+      },
+      "image": "stickers/2000_Marvel_vs_Capcom_2_05.jpg"
+    },
+    {
+      "id": "retro-games:477",
+      "number": 477,
+      "names": {
+        "en": "The Legend Of Zelda Majora S Mask 01",
+        "pt": "The Legend Of Zelda Majora S Mask 01"
+      },
+      "image": "stickers/2000_The_Legend_of_Zelda_Majora_s_Mask_01.jpg"
     }
   ]
 }

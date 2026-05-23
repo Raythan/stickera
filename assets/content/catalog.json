@@ -1,5 +1,5 @@
 {
-  "version": "2026.05.22.5",
+  "version": "2026.05.23.2",
   "baseUrl": "",
   "albums": [
     {
@@ -9,7 +9,7 @@
     },
     {
       "id": "retro-games",
-      "revision": 2,
+      "revision": 3,
       "manifestPath": "/albums/retro-games/album.json"
     },
     {
