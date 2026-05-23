@@ -5,7 +5,7 @@
       "subtitle": "Collect stickers, open timed packs, trade duplicates.",
       "comingSoon": "Albums sync in Phase 2",
       "packPoolHint": "Toggle each album to include or exclude it when opening packs.",
-      "packPoolToggle": "In pack pool",
+      "packPoolToggle": "Enable when opening packs",
       "openPack": "Open pack"
     },
     "pack": {
