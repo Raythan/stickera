@@ -52,7 +52,7 @@
       "cancelOffer": "Cancel",
       "copyPayload": "Copy payload",
       "confirm": "Confirm trade",
-      "disclaimer": "Trades require internet and trust between people. You only declare what you give; the other person receives. Further exchanges happen outside the app.",
+      "disclaimer": "Only trade with people you trust; you need to be connected to the internet",
       "success": "Trade completed!",
       "youGive": "Sent",
       "youReceive": "Received",
