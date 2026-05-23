@@ -19,8 +19,8 @@ import { useThemedStyles } from '@/theme/useThemedStyles';
 
 function createStyles(theme: AppTheme) {
   return StyleSheet.create({
-    actions: {
-      marginVertical: theme.spacing.md,
+    topActions: {
+      marginBottom: theme.spacing.md,
     },
     hint: {
       marginTop: theme.spacing.md,
@@ -29,6 +29,9 @@ function createStyles(theme: AppTheme) {
     error: {
       marginBottom: theme.spacing.md,
       textAlign: 'center',
+    },
+    copyActions: {
+      marginVertical: theme.spacing.md,
     },
   });
 }
@@ -93,7 +96,7 @@ export default function TradeOfferScreen() {
             {t('screens.trade.useCopyNotQr')}
           </Text>
         ) : null}
-        <View style={styles.actions}>
+        <View style={styles.copyActions}>
           <Button
             label={copied ? '✓' : t('screens.trade.copyPayload')}
             onPress={handleCopy}
@@ -116,6 +119,19 @@ export default function TradeOfferScreen() {
         </Text>
       ) : (
         <>
+          <View style={styles.topActions}>
+            <Button
+              label={t('screens.trade.createOffer')}
+              onPress={() => void handleCreate()}
+              disabled={selectedIds.length === 0 || isCreating}
+              fullWidth
+            />
+          </View>
+          {offerError ? (
+            <Text variant="caption" color={colors.error} style={styles.error}>
+              {formatTradeError(t, offerError)}
+            </Text>
+          ) : null}
           <TradeStickerSelectGrid
             items={items}
             selectedIds={selectedIds}
@@ -123,18 +139,8 @@ export default function TradeOfferScreen() {
             label={t('screens.trade.selectOfferedVisual')}
           />
           {selectedIds.length > 0 ? (
-            <TradeBundlePreview items={selectedItems} />
+            <TradeBundlePreview items={selectedItems} title={t('screens.trade.youGive')} />
           ) : null}
-          {offerError ? (
-            <Text variant="caption" color={colors.error} style={styles.error}>
-              {formatTradeError(t, offerError)}
-            </Text>
-          ) : null}
-          <Button
-            label={t('screens.trade.createOffer')}
-            onPress={handleCreate}
-            disabled={selectedIds.length === 0 || isCreating}
-          />
         </>
       )}
     </ScreenTemplate>

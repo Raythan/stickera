@@ -6,50 +6,48 @@
 
 - Two browsers or devices (or one normal + one private window).
 - Both with Stickera PWA open and content synced (Settings).
-- Each side has **duplicate** stickers (quantity ≥ 2) in at least one enabled album.
-- Optional: `EXPO_PUBLIC_TRADE_REGISTRY_URL` set in production build for global one-accept.
+- Initiator (A) has **duplicate** stickers (quantity ≥ 2) to offer.
+- **`EXPO_PUBLIC_TRADE_REGISTRY_URL`** set (production secret or local `http://localhost:8787` with `wrangler dev`).
 
-## Happy path (v2 bundle)
+## Happy path (v2 gift)
 
 | Step | Actor | Action | Expected |
 |------|-------|--------|----------|
-| 1 | A | Trade hub → **Create offer** → select 1+ duplicates → create | Payload + QR (if ≤ 8 stickers) |
-| 2 | A | Copy payload or show QR | — |
-| 3 | B | Trade hub → **Paste trade payload** (or **Scan QR** on web) | Partner preview visible |
-| 4 | B | Select counter-offer duplicates → **Confirm trade** | Success + ack string |
-| 5 | B | Copy ack to A (clipboard / message) | — |
-| 6 | A | Trade hub → paste ack → **Confirm incoming trade** | Trade moves to **Completed trades** |
-| 7 | Both | Album / collection | Quantities updated; no duplicate IDs lost |
+| 1 | A | Trade hub → **Create offer** (top) → select duplicates → generate | Payload + QR (if ≤ 8 stickers); registry register OK |
+| 2 | A | Copy payload or show QR | Sent offer in hub |
+| 3 | B | Trade hub → **Accept offer** (top) → **Scan QR** or paste | Partner preview (what B receives) |
+| 4a | B | **Scan QR** | Auto-accept; success message |
+| 4b | B | **Paste** → **Accept** | Success (or **Cancel** clears preview only) |
+| 5 | A | Wait on hub / reopen trade tab | Sent offer completes; stickers debited |
+| 6 | Both | Album / collection | A lost offered qty; B gained stickers |
 
 ## Hub UX checks
 
-- **Your offers:** visual preview of offered stickers; **Copy payload again** while not expired.
-- **Imported offers:** preview + **Continue** to accept screen.
-- **Completed trades:** `TradeCompletedSummary` only — no copy payload/ack buttons.
+- **Create offer** and **Accept offer** buttons at **top** of trade tab.
+- **Your offers:** preview + **Copy payload again** while pending.
+- No **Finish my offer** / ack paste section.
+- **Completed trades:** `TradeCompletedSummary` in collapsed history.
 
 ## Scanner (web)
 
-1. On accept screen, choose **Scan QR**.
-2. Allow camera when prompted.
-3. Scan A's QR → payload decodes and preview loads.
-4. If camera denied: switch to **Paste** and paste manually.
+1. Accept panel → **Scan QR**.
+2. Allow camera.
+3. Scan A's QR → trade completes without Confirm button.
+4. Camera denied → use **Paste** + Accept.
 
 ## Registry scenarios
 
 | Case | Setup | Expected |
 |------|-------|----------|
-| Registry online | Production build with `TRADE_REGISTRY_URL` secret | Badge “global protection: online”; second device cannot claim same `offerId` after B confirms |
-| Registry offline / unset | Local dev or missing secret | Local anti-replay only; same payload could be tried on another phone until expiry |
+| Registry online | URL in build + worker running | Create/accept work; second claim on same `offerId` fails |
+| Registry missing / down | No URL or worker stopped | Hub blocks trade with registry error |
 
 ## Negative cases
 
 | Case | Steps | Expected |
 |------|-------|----------|
-| Expired offer | Wait past `expiresAt` or use old saved payload | “Expired” / decode error |
-| Local replay | Complete trade on B, paste same payload again on B | `OFFER_ALREADY_USED` |
-| Own offer | A pastes own sent payload on A | `OWN_OFFER` |
-| No duplicates | B confirms without enough counter duplicates | Validation error |
-
-## v1 legacy (optional)
-
-If testing a v1 payload (single offered + wanted): initiator can **Confirm incoming** from hub by `offerId` without ack paste.
+| Expired offer | Old payload past `expiresAt` | Expired error |
+| Local replay | B accepts twice same payload on B | `OFFER_ALREADY_USED` |
+| Own offer | A accepts own payload on A | `OWN_OFFER` |
+| v1 payload | Paste legacy v1 code | Legacy offer error — ask for new code |
+| Initiator spent duplicates | A trades away stickers before poll | Initiator sync error on debit |

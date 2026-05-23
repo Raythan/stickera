@@ -16,6 +16,11 @@ export function tradeErrorKey(error: string): string | null {
   if (error === 'OWN_OFFER') return 'errors.trade.ownOffer';
   if (error === 'OFFER_ALREADY_CLAIMED_GLOBALLY') return 'errors.trade.alreadyClaimedGlobally';
   if (error === 'REGISTRY_ERROR') return 'errors.trade.registryError';
+  if (error === 'REGISTRY_NOT_CONFIGURED') return 'errors.trade.registryNotConfigured';
+  if (error === 'REGISTRY_UNAVAILABLE') return 'errors.trade.registryUnavailable';
+  if (error === 'REGISTRY_NOT_REGISTERED') return 'errors.trade.registryNotRegistered';
+  if (error === 'REGISTRY_CONFLICT') return 'errors.trade.registryConflict';
+  if (error === 'legacyOffer') return 'errors.trade.legacyOffer';
   if (error === 'contentVersionMismatch') return 'errors.trade.contentVersionMismatch';
   if (error === 'CONTENT_VERSION_REQUIRED') return 'errors.trade.contentVersionRequired';
   if (known.includes(error)) return `errors.trade.${error}`;

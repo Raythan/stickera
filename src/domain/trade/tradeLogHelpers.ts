@@ -54,6 +54,9 @@ export function getTradeSidesFromEntry(entry: TradeLogEntry): {
   const counterIds = parseCounterIds(entry);
 
   if (entry.role === 'acceptor') {
+    if (payload.v === 2 && counterIds.length === 0) {
+      return { gaveIds: [], receivedIds: offeredIds };
+    }
     return {
       gaveIds: counterIds,
       receivedIds: offeredIds,
@@ -65,6 +68,13 @@ export function getTradeSidesFromEntry(entry: TradeLogEntry): {
     return {
       gaveIds: offeredIds,
       receivedIds: counterIds.length > 0 ? counterIds : [v1.wanted.stickerId],
+    };
+  }
+
+  if (payload.v === 2) {
+    return {
+      gaveIds: offeredIds,
+      receivedIds: counterIds,
     };
   }
 

@@ -84,7 +84,7 @@ Trade accept: `stickera://trade/accept?payload=<base64url>` optional.
 ```env
 EXPO_PUBLIC_CONTENT_BASE_URL=https://raythan.github.io/stickera
 EXPO_PUBLIC_DEFAULT_LOCALE=en
-EXPO_PUBLIC_TRADE_REGISTRY_URL=   # optional; Cloudflare Worker for global offer claim
+EXPO_PUBLIC_TRADE_REGISTRY_URL=   # required for trade; Cloudflare Worker register/claim
 ```
 
 ## Scaffold order

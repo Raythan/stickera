@@ -74,3 +74,21 @@ export function applyTradeV2Initiator(
 ): CollectionRow[] {
   return applyTradeBundle(collection, offeredIds, acceptorIds, now);
 }
+
+/** Gift accept: receive offeredIds only (no give). */
+export function applyGiftAsAcceptor(
+  collection: CollectionRow[],
+  offeredIds: string[],
+  now = new Date(),
+): CollectionRow[] {
+  return applyTradeBundle(collection, [], offeredIds, now);
+}
+
+/** Gift initiator sync: debit offeredIds only (no receive). */
+export function applyGiftAsInitiator(
+  collection: CollectionRow[],
+  offeredIds: string[],
+  now = new Date(),
+): CollectionRow[] {
+  return applyTradeBundle(collection, offeredIds, [], now);
+}

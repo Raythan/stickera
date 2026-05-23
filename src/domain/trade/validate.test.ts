@@ -4,6 +4,7 @@ import type { CollectionRow, TradePayload } from '@/domain/types';
 
 import {
   validateAcceptorCounterIds,
+  validateGiftAccept,
   validateInitiatorOfferIds,
   validateOfferAsAcceptor,
   validateOfferAsInitiator,
@@ -87,6 +88,44 @@ describe('validateInitiatorOfferIds (v2)', () => {
     expect(validateInitiatorOfferIds([], collection, catalogIds, future, now)).toEqual({
       valid: false,
       reason: 'emptySelection',
+    });
+  });
+});
+
+describe('validateGiftAccept (v2)', () => {
+  const payloadV2 = {
+    v: 2 as const,
+    offerId: 'v2-offer',
+    offeredIds: ['album:1', 'album:3'],
+    expiresAt: future,
+    contentVersion: '2026.05.22.5',
+  };
+
+  it('accepts when acceptor has no duplicates of offered', () => {
+    const sparse: CollectionRow[] = [
+      { sticker_id: 'album:4', album_id: 'album', quantity: 1, is_new: 0, first_obtained_at: null, updated_at: '' },
+    ];
+    expect(
+      validateGiftAccept(payloadV2, catalogIds, '2026.05.22.5', now).valid,
+    ).toBe(true);
+    expect(validateOfferAsAcceptor(payloadV2, sparse, catalogIds, '2026.05.22.5', now).valid).toBe(
+      true,
+    );
+  });
+
+  it('rejects v1 as legacy', () => {
+    expect(validateGiftAccept(makePayload(), catalogIds, null, now)).toEqual({
+      valid: false,
+      reason: 'legacyOffer',
+    });
+  });
+
+  it('rejects expired', () => {
+    expect(
+      validateGiftAccept({ ...payloadV2, expiresAt: past }, catalogIds, '2026.05.22.5', now),
+    ).toEqual({
+      valid: false,
+      reason: 'expired',
     });
   });
 });

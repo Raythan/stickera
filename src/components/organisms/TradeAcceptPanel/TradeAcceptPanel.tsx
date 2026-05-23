@@ -6,12 +6,10 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { TradeBundlePreview } from '@/components/molecules/TradeBundlePreview';
 import { TradeQrScanner } from '@/components/molecules/TradeQrScanner';
-import { TradeStickerSelectGrid } from '@/components/organisms/TradeStickerSelectGrid';
-import type { TradableStickerItem } from '@/domain/types';
 import { resolveStickerItemsByIds } from '@/features/trade/tradableStickerItems';
 import { formatTradeError } from '@/features/trade/tradeErrorKey';
-import { useTradableStickerItems } from '@/features/trade/useTradableStickerItems';
 import { useTradeAccept } from '@/features/trade/useTradeAccept';
+import type { TradableStickerItem } from '@/domain/types';
 import type { AppTheme } from '@/theme/presets';
 import { useTheme } from '@/theme/ThemeContext';
 import { useThemedStyles } from '@/theme/useThemedStyles';
@@ -53,8 +51,13 @@ function createStyles(theme: AppTheme) {
     successText: {
       textAlign: 'center',
     },
-    ackPayload: {
-      textAlign: 'center',
+    actionRow: {
+      flexDirection: 'row',
+      gap: theme.spacing.sm,
+      marginTop: theme.spacing.md,
+    },
+    actionBtn: {
+      flex: 1,
     },
   });
 }
@@ -63,27 +66,33 @@ export function TradeAcceptPanel({ initialEncoded, onTradeCompleted }: TradeAcce
   const { t } = useTranslation();
   const { colors } = useTheme();
   const styles = useThemedStyles(createStyles);
-  const { decode, confirm, preview, offeredIds, isAccepting, error } = useTradeAccept();
-  const { items: tradableItems, loading: tradableLoading } = useTradableStickerItems();
+  const {
+    decode,
+    confirm,
+    preview,
+    offeredIds,
+    isAccepting,
+    error,
+    acceptSuccess,
+    clearPreview,
+    resetSuccess,
+  } = useTradeAccept();
   const [input, setInput] = useState('');
-  const [success, setSuccess] = useState(false);
-  const [encodedAck, setEncodedAck] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
   const [partnerItems, setPartnerItems] = useState<TradableStickerItem[]>([]);
-  const [selectedAcceptorIds, setSelectedAcceptorIds] = useState<string[]>([]);
   const [inputMode, setInputMode] = useState<'paste' | 'scan'>('paste');
-
-  const isV2 = preview?.v === 2;
 
   useEffect(() => {
     if (initialEncoded?.trim()) {
       setInput(initialEncoded.trim());
-      setSelectedAcceptorIds([]);
-      setSuccess(false);
-      setEncodedAck(null);
-      decode(initialEncoded.trim());
+      decode(initialEncoded.trim(), { via: 'paste' });
     }
   }, [initialEncoded, decode]);
+
+  useEffect(() => {
+    if (acceptSuccess) {
+      onTradeCompleted?.();
+    }
+  }, [acceptSuccess, onTradeCompleted]);
 
   useEffect(() => {
     if (!preview || offeredIds.length === 0) {
@@ -93,69 +102,41 @@ export function TradeAcceptPanel({ initialEncoded, onTradeCompleted }: TradeAcce
     void resolveStickerItemsByIds(offeredIds).then(setPartnerItems);
   }, [preview, offeredIds]);
 
-  const toggleAcceptor = useCallback((id: string) => {
-    setSelectedAcceptorIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
-    );
-  }, []);
-
   const handleDecode = useCallback(() => {
     if (input.trim()) {
-      setSelectedAcceptorIds([]);
-      setSuccess(false);
-      decode(input.trim());
+      resetSuccess();
+      decode(input.trim(), { via: 'paste' });
     }
-  }, [input, decode]);
+  }, [input, decode, resetSuccess]);
 
   const handleScan = useCallback(
     (decoded: string) => {
       setInputMode('paste');
       setInput(decoded);
-      setSelectedAcceptorIds([]);
-      setSuccess(false);
-      decode(decoded);
+      resetSuccess();
+      decode(decoded, { via: 'scan' });
     },
-    [decode],
+    [decode, resetSuccess],
   );
 
   const handleConfirm = useCallback(async () => {
-    const result = await confirm(isV2 ? selectedAcceptorIds : []);
+    const result = await confirm();
     if (result.ok) {
-      setSuccess(true);
-      setEncodedAck(result.encodedAck);
       onTradeCompleted?.();
     }
-  }, [confirm, isV2, selectedAcceptorIds, onTradeCompleted]);
+  }, [confirm, onTradeCompleted]);
 
-  const handleCopyAck = useCallback(async () => {
-    if (!encodedAck || Platform.OS !== 'web' || !navigator.clipboard) return;
-    await navigator.clipboard.writeText(encodedAck);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }, [encodedAck]);
+  const handleCancel = useCallback(() => {
+    clearPreview();
+    setInput('');
+  }, [clearPreview]);
 
-  const selectedCounterItems = tradableItems.filter((i) =>
-    selectedAcceptorIds.includes(i.stickerId),
-  );
-
-  const canConfirmV2 = isV2 && selectedAcceptorIds.length > 0;
-  const canConfirmV1 = !isV2 && preview !== null;
-
-  if (success && encodedAck) {
+  if (acceptSuccess) {
     return (
       <View style={styles.successBlock}>
         <Text variant="bodyBold" color={colors.success} style={styles.successText}>
           {t('screens.trade.success')}
         </Text>
-        <Text variant="caption" color={colors.textMuted} style={styles.successText}>
-          {t('screens.trade.ackHint')}
-        </Text>
-        <Text variant="caption" color={colors.textMuted} numberOfLines={4} style={styles.ackPayload}>
-          {encodedAck}
-        </Text>
-        {Platform.OS === 'web' ? (
-          <Button label={copied ? '✓' : t('screens.trade.copyAck')} onPress={handleCopyAck} />
-        ) : null}
       </View>
     );
   }
@@ -180,7 +161,7 @@ export function TradeAcceptPanel({ initialEncoded, onTradeCompleted }: TradeAcce
       </View>
 
       {inputMode === 'scan' && Platform.OS === 'web' ? (
-        <TradeQrScanner active={!preview} onScan={handleScan} />
+        <TradeQrScanner active={!preview && !isAccepting} onScan={handleScan} />
       ) : (
         <>
           <TextInput
@@ -197,7 +178,7 @@ export function TradeAcceptPanel({ initialEncoded, onTradeCompleted }: TradeAcce
             label={t('screens.trade.previewOffer')}
             variant="secondary"
             onPress={handleDecode}
-            disabled={!input.trim()}
+            disabled={!input.trim() || isAccepting}
           />
         </>
       )}
@@ -218,38 +199,33 @@ export function TradeAcceptPanel({ initialEncoded, onTradeCompleted }: TradeAcce
 
           <TradeBundlePreview
             items={partnerItems}
-            title={t('screens.trade.partnerOffers')}
+            title={t('screens.trade.youReceive')}
           />
 
-          {isV2 ? (
-            tradableLoading ? (
-              <Text variant="body" color={colors.textMuted}>
-                {t('common.loading')}
-              </Text>
-            ) : (
-              <>
-                <TradeStickerSelectGrid
-                  items={tradableItems}
-                  selectedIds={selectedAcceptorIds}
-                  onToggle={toggleAcceptor}
-                  label={t('screens.trade.selectCounterOffer')}
-                />
-                {selectedAcceptorIds.length > 0 ? (
-                  <TradeBundlePreview
-                    items={selectedCounterItems}
-                    title={t('screens.trade.youGive')}
-                  />
-                ) : null}
-              </>
-            )
-          ) : null}
-
-          <Button
-            label={t('screens.trade.confirm')}
-            onPress={handleConfirm}
-            disabled={isAccepting || (!canConfirmV2 && !canConfirmV1)}
-          />
+          <View style={styles.actionRow}>
+            <View style={styles.actionBtn}>
+              <Button
+                label={t('screens.trade.cancelOffer')}
+                variant="secondary"
+                onPress={handleCancel}
+                disabled={isAccepting}
+              />
+            </View>
+            <View style={styles.actionBtn}>
+              <Button
+                label={t('screens.trade.acceptOffer')}
+                onPress={() => void handleConfirm()}
+                disabled={isAccepting}
+              />
+            </View>
+          </View>
         </View>
+      ) : null}
+
+      {isAccepting ? (
+        <Text variant="caption" color={colors.textMuted} style={styles.from}>
+          {t('common.loading')}
+        </Text>
       ) : null}
     </View>
   );

@@ -16,7 +16,8 @@ export type TradeValidationResult =
         | 'offeredNotInCatalog'
         | 'tooManyStickers'
         | 'emptySelection'
-        | 'contentVersionMismatch';
+        | 'contentVersionMismatch'
+        | 'legacyOffer';
     };
 
 export function validateTradeContentVersion(
@@ -147,6 +148,33 @@ export function validateOfferAsInitiator(
   return { valid: true };
 }
 
+/** v2 gift accept: receive only — no inventory check on acceptor. */
+export function validateGiftAccept(
+  payload: TradePayloadAny,
+  catalogStickerIds: Set<string>,
+  localContentVersion: string | null = null,
+  now = new Date(),
+): TradeValidationResult {
+  if (payload.v === 1) {
+    return { valid: false, reason: 'legacyOffer' };
+  }
+
+  const versionCheck = validateTradeContentVersion(payload, localContentVersion);
+  if (!versionCheck.valid) return versionCheck;
+
+  const offeredIds = getInitiatorOfferedIds(payload);
+  if (offeredIds.length === 0) return { valid: false, reason: 'emptySelection' };
+  if (offeredIds.length > MAX_TRADE_STICKERS_PER_SIDE) {
+    return { valid: false, reason: 'tooManyStickers' };
+  }
+
+  return (
+    checkExpiryAndCatalog(offeredIds, catalogStickerIds, payload.expiresAt, now) ?? {
+      valid: true,
+    }
+  );
+}
+
 /** v1 legacy: acceptor gives wanted */
 export function validateOfferAsAcceptor(
   payload: TradePayloadAny,
@@ -155,12 +183,12 @@ export function validateOfferAsAcceptor(
   localContentVersion: string | null = null,
   now = new Date(),
 ): TradeValidationResult {
+  if (payload.v === 2) {
+    return validateGiftAccept(payload, catalogStickerIds, localContentVersion, now);
+  }
+
   const versionCheck = validateTradeContentVersion(payload, localContentVersion);
   if (!versionCheck.valid) return versionCheck;
-
-  if (payload.v === 2) {
-    return { valid: false, reason: 'emptySelection' };
-  }
   const offeredIds = getInitiatorOfferedIds(payload);
   const base = checkExpiryAndCatalog(offeredIds, catalogStickerIds, payload.expiresAt, now);
   if (base) return base;

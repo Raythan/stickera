@@ -3,15 +3,18 @@ const TIMEOUT_MS = 8000;
 
 export type RegistryRegisterResult =
   | { ok: true }
-  | { ok: false; reason: 'conflict' | 'unavailable' | 'invalid' };
+  | { ok: false; reason: 'conflict' | 'unavailable' | 'invalid' | 'not_configured' };
 
 export type RegistryClaimResult =
   | { ok: true }
-  | { ok: false; reason: 'already_consumed' | 'expired' | 'not_registered' | 'unavailable' };
+  | {
+      ok: false;
+      reason: 'already_consumed' | 'expired' | 'not_registered' | 'unavailable' | 'not_configured';
+    };
 
 export type RegistryStatusResult =
   | { ok: true; status: 'pending' | 'consumed' | 'expired' | 'not_found' }
-  | { ok: false; reason: 'unavailable' };
+  | { ok: false; reason: 'unavailable' | 'not_configured' };
 
 export function isTradeRegistryConfigured(): boolean {
   return REGISTRY_URL.length > 0;
@@ -42,10 +45,27 @@ async function registryFetch(
   }
 }
 
+/** Throws if registry URL is missing; optionally pings health. */
+export async function assertRegistryAvailable(ping = false): Promise<
+  | { ok: true }
+  | { ok: false; reason: 'not_configured' | 'unavailable' }
+> {
+  if (!isTradeRegistryConfigured()) {
+    return { ok: false, reason: 'not_configured' };
+  }
+  if (!ping) return { ok: true };
+  const healthy = await pingRegistry();
+  return healthy ? { ok: true } : { ok: false, reason: 'unavailable' };
+}
+
 export async function registerOffer(
   offerId: string,
   expiresAt: string,
 ): Promise<RegistryRegisterResult> {
+  if (!isTradeRegistryConfigured()) {
+    return { ok: false, reason: 'not_configured' };
+  }
+
   const res = await registryFetch('/v1/offers/register', {
     method: 'POST',
     body: JSON.stringify({ offerId, expiresAt }),
@@ -59,6 +79,10 @@ export async function registerOffer(
 }
 
 export async function claimOffer(offerId: string): Promise<RegistryClaimResult> {
+  if (!isTradeRegistryConfigured()) {
+    return { ok: false, reason: 'not_configured' };
+  }
+
   const res = await registryFetch('/v1/offers/claim', {
     method: 'POST',
     body: JSON.stringify({ offerId }),
@@ -73,6 +97,10 @@ export async function claimOffer(offerId: string): Promise<RegistryClaimResult> 
 }
 
 export async function getOfferStatus(offerId: string): Promise<RegistryStatusResult> {
+  if (!isTradeRegistryConfigured()) {
+    return { ok: false, reason: 'not_configured' };
+  }
+
   const res = await registryFetch(`/v1/offers/${encodeURIComponent(offerId)}`, {
     method: 'GET',
   });

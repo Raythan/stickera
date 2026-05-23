@@ -4,21 +4,21 @@
 
 ## Objetivo
 
-Oferecer duplicata, gerar payload, QR/share, aceitar e aplicar troca com confirmação documentada.
+Oferecer duplicatas (gift), gerar payload após registry, QR/share, aceitar (scan auto ou colar + confirmar) e sincronizar débito do iniciador via poll.
 
 ## Pré-requisitos
 
 - Fase 4 gate
-- Duplicatas possíveis (`quantity >= 2`)
+- Duplicatas possíveis (`quantity >= 2`) para criar oferta
+- `EXPO_PUBLIC_TRADE_REGISTRY_URL` configurado (dev: worker local)
 
 ## Domain
 
 | Função | Teste |
 |--------|-------|
 | `encodeTradePayload` / `decodeTradePayload` | round-trip |
-| `validateTradePayload` | expirado, qty insuficiente |
-| `applyTrade` | initiator vs acceptor |
-| `TradeAck` | par com offer |
+| `validateInitiatorOfferIds` / `validateGiftAccept` | expirado, catálogo |
+| `applyGiftAsAcceptor` / `applyGiftAsInitiator` | gift one-way |
 
 Schema: [trade-payload.schema.json](../schemas/trade-payload.schema.json).
 
@@ -26,38 +26,40 @@ Schema: [trade-payload.schema.json](../schemas/trade-payload.schema.json).
 
 | Rota | Implementação |
 |------|----------------|
-| `app/(tabs)/trade/index.tsx` | `TradeHubContent` (hub: criar oferta, aceitar, ack, histórico) |
-| `app/(tabs)/trade/offer.tsx` | `TradeOfferScreen` + `TradeStickerSelectGrid` |
-| Aceitar no hub | `TradeAcceptPanel` (colar payload, QR via `TradeQrScanner`, preview) |
-| `app/trade/*` | Redirects legado → `/(tabs)/trade/*` (deep links) |
+| `app/(tabs)/trade/index.tsx` | `TradeHubContent` — topo: Criar \| Aceitar; poll sent |
+| `app/(tabs)/trade/offer.tsx` | `TradeOfferScreen` — botão gerar acima do grid |
+| Aceitar | `TradeAcceptPanel` no hub (paste/scan, gift preview) |
+| `app/trade/*` | Redirects legado → `/(tabs)/trade/*` |
 
 ## i18n (mínimo)
 
 ```
 screens.trade.createOffer
-screens.trade.roleAcceptor*
-screens.trade.roleInitiatorAck*
+screens.trade.acceptOffer
+screens.trade.cancelOffer
 screens.trade.inputModePaste|Scan
-screens.trade.confirm
 screens.trade.disclaimer
 screens.trade.success
 errors.trade.*
+errors.trade.registry*
 ```
 
 ## Checklist de saída
 
 - [x] Só lista stickers com qty ≥ 2 para oferta
-- [x] QR contém payload v1 válido
-- [x] Acceptor vê preview claro (dá / recebe)
+- [x] QR contém payload v2 válido
+- [x] Acceptor vê preview (o que recebe)
+- [x] Registry register + claim obrigatórios
+- [x] Iniciador debita via poll (sem ack manual)
 - [x] `trade_log` registra status
-- [x] Disclaimer visível (confiança local)
-- [x] Testes codec passando
+- [x] Disclaimer visível
+- [x] Testes domain passando
 
 ## Anti-padrões
 
 - Trade sem validar expiração
-- Atualizar só um dispositivo sem fluxo ack
-- Backend REST para “confirmar trade”
+- Troca offline sem registry
+- Contrapartida no app (removida — confiança)
 
 ## Próxima fase
 

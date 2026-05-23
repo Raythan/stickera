@@ -53,6 +53,15 @@ describe('TradeRegistryClient', () => {
       require('./TradeRegistryClient') as typeof import('./TradeRegistryClient');
     expect(isTradeRegistryConfigured()).toBe(false);
     const result = await claimOffer('x');
-    expect(result).toEqual({ ok: false, reason: 'unavailable' });
+    expect(result).toEqual({ ok: false, reason: 'not_configured' });
+  });
+
+  it('registerOffer returns not_configured when URL empty', async () => {
+    jest.resetModules();
+    process.env.EXPO_PUBLIC_TRADE_REGISTRY_URL = '';
+    const { registerOffer } =
+      require('./TradeRegistryClient') as typeof import('./TradeRegistryClient');
+    const result = await registerOffer('x', '2099-01-01T00:00:00Z');
+    expect(result).toEqual({ ok: false, reason: 'not_configured' });
   });
 });

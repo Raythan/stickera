@@ -38,7 +38,7 @@ describe('tradeLogHelpers', () => {
     expect(encodedPayloadFromEntry(entry)).toBe(encodeTradePayload(payload));
   });
 
-  it('getTradeSidesFromEntry for acceptor role', () => {
+  it('getTradeSidesFromEntry for acceptor role (legacy counter)', () => {
     const entry = {
       id: 'x',
       payload_json: JSON.stringify({
@@ -56,6 +56,26 @@ describe('tradeLogHelpers', () => {
     expect(getTradeSidesFromEntry(entry)).toEqual({
       gaveIds: ['album:3'],
       receivedIds: ['album:1', 'album:2'],
+    });
+  });
+
+  it('getTradeSidesFromEntry for v2 gift acceptor (no counter)', () => {
+    const entry = {
+      id: 'x',
+      payload_json: JSON.stringify({
+        v: 2,
+        offerId: 'o2',
+        offeredIds: ['album:1'],
+        expiresAt: '2099-01-01T00:00:00Z',
+        contentVersion: '2026.05.22.5',
+      }),
+      role: 'acceptor' as const,
+      status: 'completed' as const,
+      created_at: '2026-01-01T00:00:00Z',
+    };
+    expect(getTradeSidesFromEntry(entry)).toEqual({
+      gaveIds: [],
+      receivedIds: ['album:1'],
     });
   });
 });

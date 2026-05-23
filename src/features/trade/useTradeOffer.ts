@@ -9,7 +9,10 @@ import { SettingsRepository } from '@/services/db/SettingsRepository';
 import { EnabledAlbumRepository } from '@/services/db/EnabledAlbumRepository';
 import { TradeLogRepository } from '@/services/db/TradeLogRepository';
 import { ProfileService } from '@/services/profile/ProfileService';
-import { registerOffer } from '@/services/trade/TradeRegistryClient';
+import {
+  assertRegistryAvailable,
+  registerOffer,
+} from '@/services/trade/TradeRegistryClient';
 import { getAlbumManifest } from '@/services/content/AlbumManifestStore';
 
 export type TradeOfferResult =
@@ -37,6 +40,17 @@ export function useTradeOffer() {
     }): Promise<TradeOfferResult> => {
       setIsCreating(true);
       try {
+        const registryCheck = await assertRegistryAvailable(true);
+        if (!registryCheck.ok) {
+          return {
+            ok: false,
+            reason:
+              registryCheck.reason === 'not_configured'
+                ? 'REGISTRY_NOT_CONFIGURED'
+                : 'REGISTRY_UNAVAILABLE',
+          };
+        }
+
         const fromProfileId = await ProfileService.getOrCreateProfileId();
         const contentVersion = await SettingsRepository.getContentVersion();
         if (!contentVersion) {
@@ -61,6 +75,17 @@ export function useTradeOffer() {
           return { ok: false, reason: validation.reason };
         }
 
+        const registerResult = await registerOffer(payload.offerId, payload.expiresAt);
+        if (!registerResult.ok) {
+          const reason =
+            registerResult.reason === 'not_configured'
+              ? 'REGISTRY_NOT_CONFIGURED'
+              : registerResult.reason === 'conflict'
+                ? 'REGISTRY_CONFLICT'
+                : 'REGISTRY_UNAVAILABLE';
+          return { ok: false, reason };
+        }
+
         const encoded = encodeTradePayload(payload);
 
         await TradeLogRepository.append({
@@ -71,8 +96,6 @@ export function useTradeOffer() {
           status: 'sent',
           created_at: new Date().toISOString(),
         });
-
-        void registerOffer(payload.offerId, payload.expiresAt);
 
         return { ok: true, payload, encoded };
       } catch (e) {

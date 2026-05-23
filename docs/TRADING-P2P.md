@@ -1,18 +1,21 @@
-# P2P trading (no backend)
+# P2P trading (gift model + trade registry)
 
-> **SDD:** spec de trade P2P. Schemas: [trade-payload.schema.json](schemas/trade-payload.schema.json), [trade-ack.schema.json](schemas/trade-ack.schema.json). Validação: [SPEC-VALIDATION.md](SPEC-VALIDATION.md) §4. Phase 5: [PHASES/05-trading.md](PHASES/05-trading.md).
+> **SDD:** spec de trade P2P. Schemas: [trade-payload.schema.json](schemas/trade-payload.schema.json), [trade-ack.schema.json](schemas/trade-ack.schema.json) (legado). Validação: [SPEC-VALIDATION.md](SPEC-VALIDATION.md) §4. Phase 5: [PHASES/05-trading.md](PHASES/05-trading.md). Registry: ADR-002.
 
-Trading is **opt-in**, **local-trust**, and **duplicate-only**. No server mediates; payloads move via QR, copy/paste, or OS share.
+Trading is **opt-in**, **trust-based**, and **duplicate-only** for offers. Payloads move via QR, copy/paste, or deep link. **Collection changes stay on device**; a minimal **trade registry** (Cloudflare Worker) is **required** to register and claim `offerId` globally.
 
 ## Goals
 
-- User A offers one or more duplicate stickers from enabled albums (no `wanted` in the offer — in-person counter-offer on accept)
-- User B imports payload, previews visually, selects duplicates to return
-- Both confirm on device; localStorage updated independently via `TradeAck`
+- User A selects duplicate stickers they **give** (no counter-offer in the app).
+- User B receives those stickers after claim; reciprocal trades happen outside the app (trust).
+- Two hub actions: **Create offer** | **Accept offer** (buttons at top of Trade tab).
+- **Paste:** preview → Accept or Cancel (local only until Accept).
+- **Scan QR:** preview + **auto-accept** (no Confirm button).
+- Initiator debits `offeredIds` when registry reports `consumed` (poll); no manual ack paste.
 
 ## Trade payload
 
-JSON → base64url for QR / deep link. **New offers use v2.** v1 remains decodable for legacy offers.
+JSON → base64url for QR / deep link. **New offers use v2.** v1 remains decodable for legacy log entries only.
 
 ### v2 (current)
 
@@ -21,130 +24,111 @@ type TradePayloadV2 = {
   v: 2;
   offerId: string;
   fromDisplayName?: string;
-  offeredIds: string[]; // 1..100, unique
+  offeredIds: string[]; // 1..100, unique — what initiator gives
   expiresAt: string; // ISO, +5 min default
-  fromProfileId?: string; // device profile stamp for pack-bank bonus
-  contentVersion: string; // catalog.version on offer device — must match acceptor
+  fromProfileId?: string;
+  contentVersion: string; // must match acceptor catalog
 };
 ```
 
-### v1 (legacy 1:1)
+### v1 (legacy)
 
-```typescript
-type TradePayloadV1 = {
-  v: 1;
-  offerId: string;
-  fromDisplayName?: string;
-  offered: { stickerId: string; quantity: 1 };
-  wanted: { stickerId: string; quantity: 1 };
-  expiresAt: string;
-};
-```
+Decodable for old `trade_log` rows. New accept flow rejects v1 with a clear error — ask partner for a new v2 code.
 
-## Trade acknowledgment
+## Trade acknowledgment (legacy)
 
-```typescript
-type TradeAckV2 = {
-  v: 2;
-  offerId: string;
-  acceptedAt: string;
-  acceptorIds: string[]; // 1..100, what acceptor gave
-  acceptorProfileId?: string;
-};
+`TradeAck` v1/v2 schemas remain for **historical** `trade_log` entries only. **Active flow does not generate or paste ack.**
 
-type TradeAckV1 = { v: 1; offerId: string; acceptedAt: string };
-```
-
-Initiator confirms by pasting **v2 ack** (includes `acceptorIds`) so their collection applies the bundle.
-
-## Flow (v2, in-person)
+## Flow (v2 gift + registry)
 
 ```mermaid
 sequenceDiagram
   participant A as Initiator
+  participant R as TradeRegistry
   participant B as Acceptor
 
-  A->>A: Multi-select duplicates to offer
-  A->>B: Copy payload or QR (small bundles only)
-  B->>B: Visual preview of A's offer
-  B->>B: Multi-select duplicates to return
-  B->>B: Confirm — apply on B, encode TradeAckV2
-  B->>A: Copy ack
-  A->>A: Paste ack — apply bundle on A
+  A->>A: Select duplicates to give
+  A->>R: POST /v1/offers/register
+  R-->>A: 201
+  A->>B: QR or copy payload
+  alt Scan QR
+    B->>B: decode + auto confirm
+  else Paste
+    B->>B: preview Accept or Cancel
+  end
+  B->>R: POST /v1/offers/claim
+  R-->>B: 200 claimed
+  B->>B: apply receive offeredIds
+  A->>R: GET status poll consumed
+  A->>A: apply debit offeredIds
 ```
 
 ## Validation
 
 | Role | Rule |
 |------|------|
-| Initiator (create) | Each `offeredIds` entry: `quantity >= 2`; IDs in enabled catalog; not expired |
-| Acceptor (confirm) | Each `acceptorIds` entry: `quantity >= 2`; offer not expired; IDs in catalog |
+| Initiator (create) | Each `offeredIds`: `quantity >= 2`; IDs in enabled catalog; not expired |
+| Acceptor (gift accept) | Offer not expired; `contentVersion` match; offered IDs in catalog; **no** duplicate check on acceptor inventory |
 
 ```typescript
 function validateInitiatorOfferIds(offeredIds, collection, catalogIds, expiresAt): ValidationResult;
-function validateAcceptorCounterIds(payload, acceptorIds, collection, catalogIds): ValidationResult;
+function validateGiftAccept(payload, catalogIds, localContentVersion): ValidationResult;
 ```
 
 ```typescript
-function applyTradeBundle(collection, giveIds, receiveIds): Collection;
-// initiator: give offeredIds, receive acceptorIds
-// acceptor: give acceptorIds, receive offeredIds
+function applyGiftAsAcceptor(collection, offeredIds): Collection; // receive only
+function applyGiftAsInitiator(collection, offeredIds): Collection; // debit offered only
 ```
 
 ## UX surfaces
 
 | Screen | Components |
 |--------|------------|
-| Trade hub | Pending sent + ack confirm |
-| Create offer | `TradeStickerSelectGrid` — offer only |
-| Accept | `TradeBundlePreview` (partner) + grid (counter-offer); **QR scanner** (web) or paste |
-| Trade hub | `TradeBundlePreview` on pending sent/imported offers |
+| Trade hub | Top: **Create offer** + **Accept offer**; disclaimer; accept panel; sent offers (poll); history |
+| Create offer | `TradeStickerSelectGrid`; generate button **above** grid; QR/copy after register |
+| Accept | `TradeBundlePreview` (partner gives); Paste/Scan; paste → Accept/Cancel |
 
-**QR display:** recommended when `offeredIds.length <= 8`; larger bundles — copy payload (QR/deep link may fail).
+**QR display:** when `offeredIds.length <= 8`; else copy payload.
 
-**QR scanner (accept screen, web/PWA):** `TradeQrScanner` uses `html5-qrcode` + camera permission. Toggle **Paste** / **Scan**; decoded token fills the same field as manual paste. If `getUserMedia` is unavailable (some desktops), user stays on paste. Deep link `?p=` still works without camera.
+**QR scanner (web/PWA):** `TradeQrScanner`; scan auto-confirms after decode.
 
 ## Deep link
 
-`stickera://trade/accept?p=<base64url>`
+`/(tabs)/trade?p=<base64url>` (legacy `stickera://trade/accept?p=` redirects)
 
 ## Abuse / expectations
 
 - Trades are between people you trust.
 - Editing local saves is possible; not a competitive game.
 
-### Re-copy tokens (local)
+### Re-copy payload
 
-- Initiator: `trade_log` stores `encoded_payload` for `status: sent` — hub **Copy payload again**.
-- Acceptor: on paste/decode, offer saved as `draft` with payload — copy or **Continue** before confirm.
-- After accept/confirm: `ack_encoded` stored — **Copy ack again** from hub/recent.
+- Initiator: `trade_log` `sent` — **Copy payload again** while not expired/consumed.
 
-### Anti-replay (this device only)
+### Anti-replay
 
-- `consumed_trade_offers` in settings: `offerId` marked when a trade **completes** on this device (accept or initiator confirm).
-- Importing a consumed `offerId` → `OFFER_ALREADY_USED`.
-- Accepting your own sent offer → `OWN_OFFER`.
+- **Registry (required):** one global `claim` per `offerId`.
+- **Local:** `consumed_trade_offers`; `OFFER_ALREADY_USED`, `OWN_OFFER`.
 
-**Without registry**, the same payload can still be pasted on **another person's phone** until expiry.
+### Trade registry (required — ADR-002)
 
-### Optional global registry (ADR-002)
+[`workers/trade-registry/README.md`](../workers/trade-registry/README.md)
 
-Cloudflare Worker: [`workers/trade-registry/README.md`](../workers/trade-registry/README.md).
-
-| Env | `EXPO_PUBLIC_TRADE_REGISTRY_URL` (build-time) |
+| Env | `EXPO_PUBLIC_TRADE_REGISTRY_URL` (build-time, required for trade) |
 | Client | [`TradeRegistryClient`](../src/services/trade/TradeRegistryClient.ts) |
 
 | Step | Who | Action |
 |------|-----|--------|
-| Create offer | Initiator | `POST /v1/offers/register` (best-effort; offline still works) |
-| Preview paste | Acceptor | `GET /v1/offers/:id` — block if `consumed` / `expired` |
-| Confirm | Acceptor | `POST /v1/offers/claim` — atomic global single accept |
+| Create offer | Initiator | `POST /v1/offers/register` — **must succeed** before showing code |
+| Preview | Acceptor | `GET /v1/offers/:id` — block if `consumed` / `expired` |
+| Accept | Acceptor | `POST /v1/offers/claim` — **must succeed** before applying collection |
+| Complete initiator | Initiator | Poll `GET` until `consumed`, then debit locally |
 
-If registry URL unset or unreachable → local-only flow (no block on register miss; claim `unavailable` skips).
+If registry URL unset or unreachable → trade UI blocked with error (no offline trade).
 
 ## In-app UI (Trade tab)
 
-The **Trade** tab is a single hub: **Create offer** opens the offer builder; **I received an offer** (acceptor) pastes the partner code inline; **Offers you sent** + **Finish my offer** (initiator) paste the partner return code; completed trades appear only after **View details**.
+Single hub: **Create offer** | **Accept offer** at top; accept panel toggled by Accept; sent offers with sync poll; collapsible completed history. No ack paste section.
 
 ## Future (out of MVP)
 
