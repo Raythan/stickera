@@ -45,15 +45,16 @@ Horizontal infinite carousel (Netflix-style peek). Used by album/sticker organis
 
 **Layout profiles** (`useIsNarrowLayout`, breakpoint 480px):
 
-| Profile | `itemStride` | Focused (scale 1.0) | Peeks (scale 0.8) |
-|---------|--------------|---------------------|-------------------|
-| narrow | `viewportWidth / 2` | 1 centered | half of prev/next |
-| wide | `viewportWidth / 4` | 3 centered | half at each edge |
+| Profile | `itemStride` | Visible band | Scale 1.0 |
+|---------|--------------|--------------|-----------|
+| narrow | `viewportWidth / 2` | 1 central + half peeks | 1 item at viewport center |
+| wide | `viewportWidth / 4` | ~3 cards + edge peeks | 1 item at viewport center |
 
-- Snap: `snapToInterval` = stride + gap; web `scroll-snap` via `Platform.OS === 'web'`.
-- Loop: triple buffer `[...data, ...data, ...data]`; reindex on momentum end via `useInfiniteCarouselOffset`.
+- **Loop:** virtual window of 5 slots + `logicalIndex` (unbounded); after swipe, reset scroll to center slot without animation (`carouselVirtualWindow.ts`).
+- **Snap:** programmatic center snap on `onScrollEndDrag` / `onMomentumScrollEnd` (`centerScrollOffsetForSlot`).
+- **Wide desktop:** chevron prev/next (`PeekCarouselNav`); web `touchAction: pan-x`, optional wheel handler; no CSS `scroll-snap` on content (conflicts with RN).
 - 0 items → render nothing; 1 item → centered, no loop.
-- Scale via `Animated` + `onScroll`; wrap children in `Animated.View` with `transform: [{ scale }]`.
+- Scale via `Animated` + `onScroll`; `focusRadius = itemStride * 0.5`.
 - `nestedScrollEnabled` inside vertical `ScreenTemplate`.
 
 ### Organisms (`src/components/organisms/`)

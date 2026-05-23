@@ -85,7 +85,7 @@ function applyGiftAsInitiator(collection, offeredIds): Collection; // debit offe
 | Screen | Components |
 |--------|------------|
 | Trade hub | Top: **Create offer** + **Accept offer**; disclaimer; accept panel; sent offers (poll); history |
-| Create offer | `TradeStickerSelectGrid` (`PeekCarousel`); generate button **above** carousel; QR/copy after register |
+| Create offer | `TradeStickerSelectGrid` (`PeekCarousel` + setas no wide); generate button **above** carousel; QR/copy after register |
 | Accept | `TradeBundlePreview` (`PeekCarousel`, partner gives); Paste/Scan; paste → Accept/Cancel |
 
 **QR display:** when `offeredIds.length <= 8`; else copy payload.

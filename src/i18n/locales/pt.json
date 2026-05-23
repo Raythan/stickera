@@ -157,6 +157,10 @@
   "collection": {
     "quantity": "×{{count}}",
     "new": "NOVO",
+    "carousel": {
+      "prev": "Item anterior",
+      "next": "Próximo item"
+    },
     "rarity": {
       "common": "Raridade comum",
       "uncommon": "Raridade incomum",

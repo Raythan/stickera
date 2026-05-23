@@ -26,7 +26,7 @@ export function usePeekCarouselMetrics(itemGap: number): PeekCarouselMetrics {
     const itemStride = narrow ? viewportWidth / 2 : viewportWidth / 4;
     const strideWithGap = itemStride + itemGap;
     const sidePadding = Math.max(0, (viewportWidth - itemStride * focusedCount) / 2);
-    const focusRadius = narrow ? itemStride * 0.55 : itemStride * 1.55;
+    const focusRadius = itemStride * 0.5;
 
     return {
       narrow,

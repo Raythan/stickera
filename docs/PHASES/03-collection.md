@@ -40,7 +40,7 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 - Progresso: `owned / totalStickers` do manifest
 - Home: busca por nome do álbum; carrossel percorre **todos** os resultados filtrados
 - Detalhe do álbum: busca por nome/id da figurinha, filtro `all|owned|missing`; carrossel sem paginação
-- `PeekCarousel`: narrow = 1 central + metades laterais (80%); wide = 3 inteiros + metades nas bordas (80%); loop se ≥2 itens
+- `PeekCarousel`: janela virtual 5 slots + índice lógico (loop ilimitado); snap ao centro ao soltar; narrow/wide com peeks 80%; wide: setas chevron sem texto
 - Lógica de lista: `src/domain/collection/listQuery.ts` + `useCollectionListControls` (`paginate: false`)
 
 ## i18n novas chaves (mínimo)
