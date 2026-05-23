@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '@/components/atoms/Text';
 import { AlbumGrid } from '@/components/organisms/AlbumGrid';
 import { CollectionListToolbar } from '@/components/organisms/CollectionListToolbar';
-import { HomeHero } from '@/components/organisms/HomeHero';
 import { ScreenTemplate } from '@/components/templates/ScreenTemplate';
 import { useCollectionListControls } from '@/features/collection/useCollectionListControls';
 import { useAlbumProgress } from '@/features/collection/useAlbumProgress';
@@ -88,12 +87,6 @@ export default function HomeScreen() {
       showHome={false}
       showHeader={false}
     >
-      <HomeHero
-        title={t('screens.home.title')}
-        subtitle={t('screens.home.subtitle')}
-        packLabel={t('screens.home.openPack')}
-        onOpenPack={() => router.push('/pack')}
-      />
       <Text variant="caption" color={colors.textMuted} style={{ marginBottom: spacing.md }}>
         {t('screens.home.packPoolHint')}
       </Text>
