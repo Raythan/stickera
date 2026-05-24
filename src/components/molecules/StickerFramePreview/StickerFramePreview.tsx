@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 
 import type { AppTheme } from '@/theme/presets';
-import { useThemedStyles } from '@/theme/useThemedStyles';
+import { useTheme } from '@/theme/ThemeContext';
 
 import { isStickerRarity } from '@/theme/rarity';
 
@@ -95,7 +95,11 @@ export function StickerFramePreview({
   height = DEFAULT_HEIGHT,
   pointerEventsDisabled = false,
 }: StickerFramePreviewProps) {
-  const styles = useThemedStyles((theme) => createStyles(theme, width, height));
+  const theme = useTheme();
+  const styles = useMemo(
+    () => createStyles(theme, width, height),
+    [theme, width, height],
+  );
   const html = useMemo(
     () => buildFrameHtml(frameCss, artUri, rarity, owned),
     [frameCss, artUri, rarity, owned],

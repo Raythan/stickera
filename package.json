@@ -1,6 +1,6 @@
 {
   "name": "stickera",
-  "version": "0.1.1-mvp",
+  "version": "0.1.2-mvp",
   "private": true,
   "description": "Offline sticker album — PWA",
   "main": "expo-router/entry",
