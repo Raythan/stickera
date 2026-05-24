@@ -1,5 +1,5 @@
 {
-  "version": "2026.05.23.4",
+  "version": "2026.05.24.2",
   "baseUrl": "",
   "albums": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "id": "space-explorers",
-      "revision": 2,
+      "revision": 3,
       "manifestPath": "/albums/space-explorers/album.json"
     },
     {

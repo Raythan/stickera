@@ -1,8 +1,8 @@
 {
   "id": "space-explorers",
-  "revision": 2,
+  "revision": 3,
   "frameStylePath": "frame.css",
-  "totalStickers": 4,
+  "totalStickers": 429,
   "nameKey": "albums.spaceExplorers.name",
   "names": {
     "en": "Space Explorers",
@@ -38,6 +38,3831 @@
       "rarity": "legendary",
       "nameKey": "albums.spaceExplorers.stickers.04.name",
       "image": "stickers/04-space-explorer.jpeg"
+    },
+    {
+      "id": "space-explorers:05",
+      "number": 5,
+      "names": {
+        "en": "Cadela Laika 01",
+        "pt": "Cadela Laika 01"
+      },
+      "image": "stickers/1957_Cadela_Laika_01.jpg"
+    },
+    {
+      "id": "space-explorers:06",
+      "number": 6,
+      "names": {
+        "en": "Cadela Laika 02",
+        "pt": "Cadela Laika 02"
+      },
+      "image": "stickers/1957_Cadela_Laika_02.png"
+    },
+    {
+      "id": "space-explorers:07",
+      "number": 7,
+      "names": {
+        "en": "Cadela Laika 03",
+        "pt": "Cadela Laika 03"
+      },
+      "image": "stickers/1957_Cadela_Laika_03.jpg"
+    },
+    {
+      "id": "space-explorers:08",
+      "number": 8,
+      "names": {
+        "en": "Cadela Laika 04",
+        "pt": "Cadela Laika 04"
+      },
+      "image": "stickers/1957_Cadela_Laika_04.jpg"
+    },
+    {
+      "id": "space-explorers:09",
+      "number": 9,
+      "names": {
+        "en": "Cadela Laika 05",
+        "pt": "Cadela Laika 05"
+      },
+      "image": "stickers/1957_Cadela_Laika_05.jpg"
+    },
+    {
+      "id": "space-explorers:10",
+      "number": 10,
+      "names": {
+        "en": "Cadela Laika 06",
+        "pt": "Cadela Laika 06"
+      },
+      "image": "stickers/1957_Cadela_Laika_06.png"
+    },
+    {
+      "id": "space-explorers:11",
+      "number": 11,
+      "names": {
+        "en": "Cadela Laika 07",
+        "pt": "Cadela Laika 07"
+      },
+      "image": "stickers/1957_Cadela_Laika_07.webp"
+    },
+    {
+      "id": "space-explorers:12",
+      "number": 12,
+      "names": {
+        "en": "Cadela Laika 08",
+        "pt": "Cadela Laika 08"
+      },
+      "image": "stickers/1957_Cadela_Laika_08.jpg"
+    },
+    {
+      "id": "space-explorers:13",
+      "number": 13,
+      "names": {
+        "en": "Cadela Laika 09",
+        "pt": "Cadela Laika 09"
+      },
+      "image": "stickers/1957_Cadela_Laika_09.jpg"
+    },
+    {
+      "id": "space-explorers:14",
+      "number": 14,
+      "names": {
+        "en": "Cadela Laika 10",
+        "pt": "Cadela Laika 10"
+      },
+      "image": "stickers/1957_Cadela_Laika_10.jpg"
+    },
+    {
+      "id": "space-explorers:15",
+      "number": 15,
+      "names": {
+        "en": "Sputnik 1 01",
+        "pt": "Sputnik 1 01"
+      },
+      "image": "stickers/1957_Sputnik_1_01.jpg"
+    },
+    {
+      "id": "space-explorers:16",
+      "number": 16,
+      "names": {
+        "en": "Sputnik 1 02",
+        "pt": "Sputnik 1 02"
+      },
+      "image": "stickers/1957_Sputnik_1_02.jpg"
+    },
+    {
+      "id": "space-explorers:17",
+      "number": 17,
+      "names": {
+        "en": "Sputnik 1 03",
+        "pt": "Sputnik 1 03"
+      },
+      "image": "stickers/1957_Sputnik_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:18",
+      "number": 18,
+      "names": {
+        "en": "Sputnik 1 04",
+        "pt": "Sputnik 1 04"
+      },
+      "image": "stickers/1957_Sputnik_1_04.jpg"
+    },
+    {
+      "id": "space-explorers:19",
+      "number": 19,
+      "names": {
+        "en": "Sputnik 1 05",
+        "pt": "Sputnik 1 05"
+      },
+      "image": "stickers/1957_Sputnik_1_05.jpg"
+    },
+    {
+      "id": "space-explorers:20",
+      "number": 20,
+      "names": {
+        "en": "Sputnik 1 06",
+        "pt": "Sputnik 1 06"
+      },
+      "image": "stickers/1957_Sputnik_1_06.jpg"
+    },
+    {
+      "id": "space-explorers:21",
+      "number": 21,
+      "names": {
+        "en": "Sputnik 1 07",
+        "pt": "Sputnik 1 07"
+      },
+      "image": "stickers/1957_Sputnik_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:22",
+      "number": 22,
+      "names": {
+        "en": "Sputnik 1 08",
+        "pt": "Sputnik 1 08"
+      },
+      "image": "stickers/1957_Sputnik_1_08.jpg"
+    },
+    {
+      "id": "space-explorers:23",
+      "number": 23,
+      "names": {
+        "en": "Sputnik 1 09",
+        "pt": "Sputnik 1 09"
+      },
+      "image": "stickers/1957_Sputnik_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:24",
+      "number": 24,
+      "names": {
+        "en": "Sputnik 1 10",
+        "pt": "Sputnik 1 10"
+      },
+      "image": "stickers/1957_Sputnik_1_10.jpg"
+    },
+    {
+      "id": "space-explorers:25",
+      "number": 25,
+      "names": {
+        "en": "Explorer 1 01",
+        "pt": "Explorer 1 01"
+      },
+      "image": "stickers/1958_Explorer_1_01.jpg"
+    },
+    {
+      "id": "space-explorers:26",
+      "number": 26,
+      "names": {
+        "en": "Explorer 1 02",
+        "pt": "Explorer 1 02"
+      },
+      "image": "stickers/1958_Explorer_1_02.jpg"
+    },
+    {
+      "id": "space-explorers:27",
+      "number": 27,
+      "names": {
+        "en": "Explorer 1 03",
+        "pt": "Explorer 1 03"
+      },
+      "image": "stickers/1958_Explorer_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:28",
+      "number": 28,
+      "names": {
+        "en": "Explorer 1 04",
+        "pt": "Explorer 1 04"
+      },
+      "image": "stickers/1958_Explorer_1_04.jpg"
+    },
+    {
+      "id": "space-explorers:29",
+      "number": 29,
+      "names": {
+        "en": "Explorer 1 05",
+        "pt": "Explorer 1 05"
+      },
+      "image": "stickers/1958_Explorer_1_05.jpg"
+    },
+    {
+      "id": "space-explorers:30",
+      "number": 30,
+      "names": {
+        "en": "Explorer 1 06",
+        "pt": "Explorer 1 06"
+      },
+      "image": "stickers/1958_Explorer_1_06.jpg"
+    },
+    {
+      "id": "space-explorers:31",
+      "number": 31,
+      "names": {
+        "en": "Explorer 1 07",
+        "pt": "Explorer 1 07"
+      },
+      "image": "stickers/1958_Explorer_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:32",
+      "number": 32,
+      "names": {
+        "en": "Explorer 1 08",
+        "pt": "Explorer 1 08"
+      },
+      "image": "stickers/1958_Explorer_1_08.jpg"
+    },
+    {
+      "id": "space-explorers:33",
+      "number": 33,
+      "names": {
+        "en": "Explorer 1 09",
+        "pt": "Explorer 1 09"
+      },
+      "image": "stickers/1958_Explorer_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:34",
+      "number": 34,
+      "names": {
+        "en": "Explorer 1 10",
+        "pt": "Explorer 1 10"
+      },
+      "image": "stickers/1958_Explorer_1_10.jpg"
+    },
+    {
+      "id": "space-explorers:35",
+      "number": 35,
+      "names": {
+        "en": "Luna 2 01",
+        "pt": "Luna 2 01"
+      },
+      "image": "stickers/1959_Luna_2_01.jpg"
+    },
+    {
+      "id": "space-explorers:36",
+      "number": 36,
+      "names": {
+        "en": "Luna 2 02",
+        "pt": "Luna 2 02"
+      },
+      "image": "stickers/1959_Luna_2_02.jpg"
+    },
+    {
+      "id": "space-explorers:37",
+      "number": 37,
+      "names": {
+        "en": "Luna 2 03",
+        "pt": "Luna 2 03"
+      },
+      "image": "stickers/1959_Luna_2_03.webp"
+    },
+    {
+      "id": "space-explorers:38",
+      "number": 38,
+      "names": {
+        "en": "Luna 2 04",
+        "pt": "Luna 2 04"
+      },
+      "image": "stickers/1959_Luna_2_04.webp"
+    },
+    {
+      "id": "space-explorers:39",
+      "number": 39,
+      "names": {
+        "en": "Luna 2 05",
+        "pt": "Luna 2 05"
+      },
+      "image": "stickers/1959_Luna_2_05.jpg"
+    },
+    {
+      "id": "space-explorers:40",
+      "number": 40,
+      "names": {
+        "en": "Luna 2 06",
+        "pt": "Luna 2 06"
+      },
+      "image": "stickers/1959_Luna_2_06.jpg"
+    },
+    {
+      "id": "space-explorers:41",
+      "number": 41,
+      "names": {
+        "en": "Luna 2 07",
+        "pt": "Luna 2 07"
+      },
+      "image": "stickers/1959_Luna_2_07.jpg"
+    },
+    {
+      "id": "space-explorers:42",
+      "number": 42,
+      "names": {
+        "en": "Luna 2 08",
+        "pt": "Luna 2 08"
+      },
+      "image": "stickers/1959_Luna_2_08.webp"
+    },
+    {
+      "id": "space-explorers:43",
+      "number": 43,
+      "names": {
+        "en": "Luna 2 09",
+        "pt": "Luna 2 09"
+      },
+      "image": "stickers/1959_Luna_2_09.png"
+    },
+    {
+      "id": "space-explorers:44",
+      "number": 44,
+      "names": {
+        "en": "Luna 2 10",
+        "pt": "Luna 2 10"
+      },
+      "image": "stickers/1959_Luna_2_10.jpg"
+    },
+    {
+      "id": "space-explorers:45",
+      "number": 45,
+      "names": {
+        "en": "Alan Shepard 01",
+        "pt": "Alan Shepard 01"
+      },
+      "image": "stickers/1961_Alan_Shepard_01.jpg"
+    },
+    {
+      "id": "space-explorers:46",
+      "number": 46,
+      "names": {
+        "en": "Alan Shepard 02",
+        "pt": "Alan Shepard 02"
+      },
+      "image": "stickers/1961_Alan_Shepard_02.jpg"
+    },
+    {
+      "id": "space-explorers:47",
+      "number": 47,
+      "names": {
+        "en": "Alan Shepard 03",
+        "pt": "Alan Shepard 03"
+      },
+      "image": "stickers/1961_Alan_Shepard_03.jpg"
+    },
+    {
+      "id": "space-explorers:48",
+      "number": 48,
+      "names": {
+        "en": "Alan Shepard 04",
+        "pt": "Alan Shepard 04"
+      },
+      "image": "stickers/1961_Alan_Shepard_04.jpg"
+    },
+    {
+      "id": "space-explorers:49",
+      "number": 49,
+      "names": {
+        "en": "Alan Shepard 05",
+        "pt": "Alan Shepard 05"
+      },
+      "image": "stickers/1961_Alan_Shepard_05.png"
+    },
+    {
+      "id": "space-explorers:50",
+      "number": 50,
+      "names": {
+        "en": "Alan Shepard 06",
+        "pt": "Alan Shepard 06"
+      },
+      "image": "stickers/1961_Alan_Shepard_06.jpg"
+    },
+    {
+      "id": "space-explorers:51",
+      "number": 51,
+      "names": {
+        "en": "Alan Shepard 07",
+        "pt": "Alan Shepard 07"
+      },
+      "image": "stickers/1961_Alan_Shepard_07.jpg"
+    },
+    {
+      "id": "space-explorers:52",
+      "number": 52,
+      "names": {
+        "en": "Alan Shepard 08",
+        "pt": "Alan Shepard 08"
+      },
+      "image": "stickers/1961_Alan_Shepard_08.jpg"
+    },
+    {
+      "id": "space-explorers:53",
+      "number": 53,
+      "names": {
+        "en": "Alan Shepard 09",
+        "pt": "Alan Shepard 09"
+      },
+      "image": "stickers/1961_Alan_Shepard_09.jpg"
+    },
+    {
+      "id": "space-explorers:54",
+      "number": 54,
+      "names": {
+        "en": "Alan Shepard 10",
+        "pt": "Alan Shepard 10"
+      },
+      "image": "stickers/1961_Alan_Shepard_10.jpg"
+    },
+    {
+      "id": "space-explorers:55",
+      "number": 55,
+      "names": {
+        "en": "Yuri Gagarin 01",
+        "pt": "Yuri Gagarin 01"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_01.jpg"
+    },
+    {
+      "id": "space-explorers:56",
+      "number": 56,
+      "names": {
+        "en": "Yuri Gagarin 02",
+        "pt": "Yuri Gagarin 02"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_02.jpg"
+    },
+    {
+      "id": "space-explorers:57",
+      "number": 57,
+      "names": {
+        "en": "Yuri Gagarin 03",
+        "pt": "Yuri Gagarin 03"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_03.jpg"
+    },
+    {
+      "id": "space-explorers:58",
+      "number": 58,
+      "names": {
+        "en": "Yuri Gagarin 04",
+        "pt": "Yuri Gagarin 04"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_04.jpeg"
+    },
+    {
+      "id": "space-explorers:59",
+      "number": 59,
+      "names": {
+        "en": "Yuri Gagarin 05",
+        "pt": "Yuri Gagarin 05"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_05.jpg"
+    },
+    {
+      "id": "space-explorers:60",
+      "number": 60,
+      "names": {
+        "en": "Yuri Gagarin 06",
+        "pt": "Yuri Gagarin 06"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_06.jpg"
+    },
+    {
+      "id": "space-explorers:61",
+      "number": 61,
+      "names": {
+        "en": "Yuri Gagarin 07",
+        "pt": "Yuri Gagarin 07"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_07.jpg"
+    },
+    {
+      "id": "space-explorers:62",
+      "number": 62,
+      "names": {
+        "en": "Yuri Gagarin 08",
+        "pt": "Yuri Gagarin 08"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_08.jpg"
+    },
+    {
+      "id": "space-explorers:63",
+      "number": 63,
+      "names": {
+        "en": "Yuri Gagarin 09",
+        "pt": "Yuri Gagarin 09"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_09.jpg"
+    },
+    {
+      "id": "space-explorers:64",
+      "number": 64,
+      "names": {
+        "en": "Yuri Gagarin 10",
+        "pt": "Yuri Gagarin 10"
+      },
+      "image": "stickers/1961_Yuri_Gagarin_10.jpg"
+    },
+    {
+      "id": "space-explorers:65",
+      "number": 65,
+      "names": {
+        "en": "John Glenn 01",
+        "pt": "John Glenn 01"
+      },
+      "image": "stickers/1962_John_Glenn_01.jpg"
+    },
+    {
+      "id": "space-explorers:66",
+      "number": 66,
+      "names": {
+        "en": "John Glenn 02",
+        "pt": "John Glenn 02"
+      },
+      "image": "stickers/1962_John_Glenn_02.jpg"
+    },
+    {
+      "id": "space-explorers:67",
+      "number": 67,
+      "names": {
+        "en": "John Glenn 03",
+        "pt": "John Glenn 03"
+      },
+      "image": "stickers/1962_John_Glenn_03.jpg"
+    },
+    {
+      "id": "space-explorers:68",
+      "number": 68,
+      "names": {
+        "en": "John Glenn 04",
+        "pt": "John Glenn 04"
+      },
+      "image": "stickers/1962_John_Glenn_04.jpg"
+    },
+    {
+      "id": "space-explorers:69",
+      "number": 69,
+      "names": {
+        "en": "John Glenn 05",
+        "pt": "John Glenn 05"
+      },
+      "image": "stickers/1962_John_Glenn_05.jpg"
+    },
+    {
+      "id": "space-explorers:70",
+      "number": 70,
+      "names": {
+        "en": "John Glenn 06",
+        "pt": "John Glenn 06"
+      },
+      "image": "stickers/1962_John_Glenn_06.jpg"
+    },
+    {
+      "id": "space-explorers:71",
+      "number": 71,
+      "names": {
+        "en": "John Glenn 07",
+        "pt": "John Glenn 07"
+      },
+      "image": "stickers/1962_John_Glenn_07.jpg"
+    },
+    {
+      "id": "space-explorers:72",
+      "number": 72,
+      "names": {
+        "en": "John Glenn 08",
+        "pt": "John Glenn 08"
+      },
+      "image": "stickers/1962_John_Glenn_08.jpg"
+    },
+    {
+      "id": "space-explorers:73",
+      "number": 73,
+      "names": {
+        "en": "John Glenn 09",
+        "pt": "John Glenn 09"
+      },
+      "image": "stickers/1962_John_Glenn_09.jpg"
+    },
+    {
+      "id": "space-explorers:74",
+      "number": 74,
+      "names": {
+        "en": "John Glenn 10",
+        "pt": "John Glenn 10"
+      },
+      "image": "stickers/1962_John_Glenn_10.jpg"
+    },
+    {
+      "id": "space-explorers:75",
+      "number": 75,
+      "names": {
+        "en": "Mariner 2 01",
+        "pt": "Mariner 2 01"
+      },
+      "image": "stickers/1962_Mariner_2_01.jpg"
+    },
+    {
+      "id": "space-explorers:76",
+      "number": 76,
+      "names": {
+        "en": "Mariner 2 02",
+        "pt": "Mariner 2 02"
+      },
+      "image": "stickers/1962_Mariner_2_02.jpg"
+    },
+    {
+      "id": "space-explorers:77",
+      "number": 77,
+      "names": {
+        "en": "Mariner 2 03",
+        "pt": "Mariner 2 03"
+      },
+      "image": "stickers/1962_Mariner_2_03.jpg"
+    },
+    {
+      "id": "space-explorers:78",
+      "number": 78,
+      "names": {
+        "en": "Mariner 2 04",
+        "pt": "Mariner 2 04"
+      },
+      "image": "stickers/1962_Mariner_2_04.jpg"
+    },
+    {
+      "id": "space-explorers:79",
+      "number": 79,
+      "names": {
+        "en": "Mariner 2 05",
+        "pt": "Mariner 2 05"
+      },
+      "image": "stickers/1962_Mariner_2_05.jpg"
+    },
+    {
+      "id": "space-explorers:80",
+      "number": 80,
+      "names": {
+        "en": "Mariner 2 06",
+        "pt": "Mariner 2 06"
+      },
+      "image": "stickers/1962_Mariner_2_06.png"
+    },
+    {
+      "id": "space-explorers:81",
+      "number": 81,
+      "names": {
+        "en": "Mariner 2 07",
+        "pt": "Mariner 2 07"
+      },
+      "image": "stickers/1962_Mariner_2_07.jpg"
+    },
+    {
+      "id": "space-explorers:82",
+      "number": 82,
+      "names": {
+        "en": "Mariner 2 08",
+        "pt": "Mariner 2 08"
+      },
+      "image": "stickers/1962_Mariner_2_08.jpg"
+    },
+    {
+      "id": "space-explorers:83",
+      "number": 83,
+      "names": {
+        "en": "Mariner 2 09",
+        "pt": "Mariner 2 09"
+      },
+      "image": "stickers/1962_Mariner_2_09.jpg"
+    },
+    {
+      "id": "space-explorers:84",
+      "number": 84,
+      "names": {
+        "en": "Mariner 2 10",
+        "pt": "Mariner 2 10"
+      },
+      "image": "stickers/1962_Mariner_2_10.jpg"
+    },
+    {
+      "id": "space-explorers:85",
+      "number": 85,
+      "names": {
+        "en": "Valentina Tereshkova 01",
+        "pt": "Valentina Tereshkova 01"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_01.jpg"
+    },
+    {
+      "id": "space-explorers:86",
+      "number": 86,
+      "names": {
+        "en": "Valentina Tereshkova 02",
+        "pt": "Valentina Tereshkova 02"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_02.jpg"
+    },
+    {
+      "id": "space-explorers:87",
+      "number": 87,
+      "names": {
+        "en": "Valentina Tereshkova 03",
+        "pt": "Valentina Tereshkova 03"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_03.jpg"
+    },
+    {
+      "id": "space-explorers:88",
+      "number": 88,
+      "names": {
+        "en": "Valentina Tereshkova 04",
+        "pt": "Valentina Tereshkova 04"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_04.jpg"
+    },
+    {
+      "id": "space-explorers:89",
+      "number": 89,
+      "names": {
+        "en": "Valentina Tereshkova 05",
+        "pt": "Valentina Tereshkova 05"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_05.webp"
+    },
+    {
+      "id": "space-explorers:90",
+      "number": 90,
+      "names": {
+        "en": "Valentina Tereshkova 06",
+        "pt": "Valentina Tereshkova 06"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_06.jpg"
+    },
+    {
+      "id": "space-explorers:91",
+      "number": 91,
+      "names": {
+        "en": "Valentina Tereshkova 07",
+        "pt": "Valentina Tereshkova 07"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_07.jpg"
+    },
+    {
+      "id": "space-explorers:92",
+      "number": 92,
+      "names": {
+        "en": "Valentina Tereshkova 08",
+        "pt": "Valentina Tereshkova 08"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_08.jpg"
+    },
+    {
+      "id": "space-explorers:93",
+      "number": 93,
+      "names": {
+        "en": "Valentina Tereshkova 09",
+        "pt": "Valentina Tereshkova 09"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_09.jpg"
+    },
+    {
+      "id": "space-explorers:94",
+      "number": 94,
+      "names": {
+        "en": "Valentina Tereshkova 10",
+        "pt": "Valentina Tereshkova 10"
+      },
+      "image": "stickers/1963_Valentina_Tereshkova_10.jpg"
+    },
+    {
+      "id": "space-explorers:95",
+      "number": 95,
+      "names": {
+        "en": "Alexei Leonov 01",
+        "pt": "Alexei Leonov 01"
+      },
+      "image": "stickers/1965_Alexei_Leonov_01.jpg"
+    },
+    {
+      "id": "space-explorers:96",
+      "number": 96,
+      "names": {
+        "en": "Alexei Leonov 02",
+        "pt": "Alexei Leonov 02"
+      },
+      "image": "stickers/1965_Alexei_Leonov_02.jpg"
+    },
+    {
+      "id": "space-explorers:97",
+      "number": 97,
+      "names": {
+        "en": "Alexei Leonov 03",
+        "pt": "Alexei Leonov 03"
+      },
+      "image": "stickers/1965_Alexei_Leonov_03.jpg"
+    },
+    {
+      "id": "space-explorers:98",
+      "number": 98,
+      "names": {
+        "en": "Alexei Leonov 04",
+        "pt": "Alexei Leonov 04"
+      },
+      "image": "stickers/1965_Alexei_Leonov_04.jpg"
+    },
+    {
+      "id": "space-explorers:99",
+      "number": 99,
+      "names": {
+        "en": "Alexei Leonov 05",
+        "pt": "Alexei Leonov 05"
+      },
+      "image": "stickers/1965_Alexei_Leonov_05.jpg"
+    },
+    {
+      "id": "space-explorers:100",
+      "number": 100,
+      "names": {
+        "en": "Alexei Leonov 06",
+        "pt": "Alexei Leonov 06"
+      },
+      "image": "stickers/1965_Alexei_Leonov_06.jpg"
+    },
+    {
+      "id": "space-explorers:101",
+      "number": 101,
+      "names": {
+        "en": "Alexei Leonov 07",
+        "pt": "Alexei Leonov 07"
+      },
+      "image": "stickers/1965_Alexei_Leonov_07.jpg"
+    },
+    {
+      "id": "space-explorers:102",
+      "number": 102,
+      "names": {
+        "en": "Alexei Leonov 08",
+        "pt": "Alexei Leonov 08"
+      },
+      "image": "stickers/1965_Alexei_Leonov_08.jpg"
+    },
+    {
+      "id": "space-explorers:103",
+      "number": 103,
+      "names": {
+        "en": "Alexei Leonov 09",
+        "pt": "Alexei Leonov 09"
+      },
+      "image": "stickers/1965_Alexei_Leonov_09.jpg"
+    },
+    {
+      "id": "space-explorers:104",
+      "number": 104,
+      "names": {
+        "en": "Alexei Leonov 10",
+        "pt": "Alexei Leonov 10"
+      },
+      "image": "stickers/1965_Alexei_Leonov_10.jpg"
+    },
+    {
+      "id": "space-explorers:105",
+      "number": 105,
+      "names": {
+        "en": "Edward White 01",
+        "pt": "Edward White 01"
+      },
+      "image": "stickers/1965_Edward_White_01.jpg"
+    },
+    {
+      "id": "space-explorers:106",
+      "number": 106,
+      "names": {
+        "en": "Edward White 02",
+        "pt": "Edward White 02"
+      },
+      "image": "stickers/1965_Edward_White_02.jpg"
+    },
+    {
+      "id": "space-explorers:107",
+      "number": 107,
+      "names": {
+        "en": "Edward White 03",
+        "pt": "Edward White 03"
+      },
+      "image": "stickers/1965_Edward_White_03.jpg"
+    },
+    {
+      "id": "space-explorers:108",
+      "number": 108,
+      "names": {
+        "en": "Edward White 04",
+        "pt": "Edward White 04"
+      },
+      "image": "stickers/1965_Edward_White_04.jpg"
+    },
+    {
+      "id": "space-explorers:109",
+      "number": 109,
+      "names": {
+        "en": "Edward White 05",
+        "pt": "Edward White 05"
+      },
+      "image": "stickers/1965_Edward_White_05.jpg"
+    },
+    {
+      "id": "space-explorers:110",
+      "number": 110,
+      "names": {
+        "en": "Edward White 06",
+        "pt": "Edward White 06"
+      },
+      "image": "stickers/1965_Edward_White_06.jpg"
+    },
+    {
+      "id": "space-explorers:111",
+      "number": 111,
+      "names": {
+        "en": "Edward White 08",
+        "pt": "Edward White 08"
+      },
+      "image": "stickers/1965_Edward_White_08.jpg"
+    },
+    {
+      "id": "space-explorers:112",
+      "number": 112,
+      "names": {
+        "en": "Edward White 09",
+        "pt": "Edward White 09"
+      },
+      "image": "stickers/1965_Edward_White_09.jpg"
+    },
+    {
+      "id": "space-explorers:113",
+      "number": 113,
+      "names": {
+        "en": "Edward White 10",
+        "pt": "Edward White 10"
+      },
+      "image": "stickers/1965_Edward_White_10.png"
+    },
+    {
+      "id": "space-explorers:114",
+      "number": 114,
+      "names": {
+        "en": "Luna 9 01",
+        "pt": "Luna 9 01"
+      },
+      "image": "stickers/1966_Luna_9_01.jpg"
+    },
+    {
+      "id": "space-explorers:115",
+      "number": 115,
+      "names": {
+        "en": "Luna 9 02",
+        "pt": "Luna 9 02"
+      },
+      "image": "stickers/1966_Luna_9_02.jpg"
+    },
+    {
+      "id": "space-explorers:116",
+      "number": 116,
+      "names": {
+        "en": "Luna 9 03",
+        "pt": "Luna 9 03"
+      },
+      "image": "stickers/1966_Luna_9_03.jpg"
+    },
+    {
+      "id": "space-explorers:117",
+      "number": 117,
+      "names": {
+        "en": "Luna 9 04",
+        "pt": "Luna 9 04"
+      },
+      "image": "stickers/1966_Luna_9_04.jpg"
+    },
+    {
+      "id": "space-explorers:118",
+      "number": 118,
+      "names": {
+        "en": "Luna 9 05",
+        "pt": "Luna 9 05"
+      },
+      "image": "stickers/1966_Luna_9_05.jpg"
+    },
+    {
+      "id": "space-explorers:119",
+      "number": 119,
+      "names": {
+        "en": "Luna 9 06",
+        "pt": "Luna 9 06"
+      },
+      "image": "stickers/1966_Luna_9_06.jpg"
+    },
+    {
+      "id": "space-explorers:120",
+      "number": 120,
+      "names": {
+        "en": "Luna 9 07",
+        "pt": "Luna 9 07"
+      },
+      "image": "stickers/1966_Luna_9_07.jpg"
+    },
+    {
+      "id": "space-explorers:121",
+      "number": 121,
+      "names": {
+        "en": "Luna 9 08",
+        "pt": "Luna 9 08"
+      },
+      "image": "stickers/1966_Luna_9_08.jpg"
+    },
+    {
+      "id": "space-explorers:122",
+      "number": 122,
+      "names": {
+        "en": "Luna 9 09",
+        "pt": "Luna 9 09"
+      },
+      "image": "stickers/1966_Luna_9_09.png"
+    },
+    {
+      "id": "space-explorers:123",
+      "number": 123,
+      "names": {
+        "en": "Luna 9 10",
+        "pt": "Luna 9 10"
+      },
+      "image": "stickers/1966_Luna_9_10.jpg"
+    },
+    {
+      "id": "space-explorers:124",
+      "number": 124,
+      "names": {
+        "en": "Venera 4 01",
+        "pt": "Venera 4 01"
+      },
+      "image": "stickers/1967_Venera_4_01.jpg"
+    },
+    {
+      "id": "space-explorers:125",
+      "number": 125,
+      "names": {
+        "en": "Venera 4 02",
+        "pt": "Venera 4 02"
+      },
+      "image": "stickers/1967_Venera_4_02.jpg"
+    },
+    {
+      "id": "space-explorers:126",
+      "number": 126,
+      "names": {
+        "en": "Venera 4 03",
+        "pt": "Venera 4 03"
+      },
+      "image": "stickers/1967_Venera_4_03.jpg"
+    },
+    {
+      "id": "space-explorers:127",
+      "number": 127,
+      "names": {
+        "en": "Venera 4 04",
+        "pt": "Venera 4 04"
+      },
+      "image": "stickers/1967_Venera_4_04.jpg"
+    },
+    {
+      "id": "space-explorers:128",
+      "number": 128,
+      "names": {
+        "en": "Venera 4 05",
+        "pt": "Venera 4 05"
+      },
+      "image": "stickers/1967_Venera_4_05.jpg"
+    },
+    {
+      "id": "space-explorers:129",
+      "number": 129,
+      "names": {
+        "en": "Venera 4 06",
+        "pt": "Venera 4 06"
+      },
+      "image": "stickers/1967_Venera_4_06.jpg"
+    },
+    {
+      "id": "space-explorers:130",
+      "number": 130,
+      "names": {
+        "en": "Venera 4 07",
+        "pt": "Venera 4 07"
+      },
+      "image": "stickers/1967_Venera_4_07.webp"
+    },
+    {
+      "id": "space-explorers:131",
+      "number": 131,
+      "names": {
+        "en": "Venera 4 08",
+        "pt": "Venera 4 08"
+      },
+      "image": "stickers/1967_Venera_4_08.jpg"
+    },
+    {
+      "id": "space-explorers:132",
+      "number": 132,
+      "names": {
+        "en": "Venera 4 09",
+        "pt": "Venera 4 09"
+      },
+      "image": "stickers/1967_Venera_4_09.jpg"
+    },
+    {
+      "id": "space-explorers:133",
+      "number": 133,
+      "names": {
+        "en": "Venera 4 10",
+        "pt": "Venera 4 10"
+      },
+      "image": "stickers/1967_Venera_4_10.jpg"
+    },
+    {
+      "id": "space-explorers:134",
+      "number": 134,
+      "names": {
+        "en": "Buzz Aldrin 01",
+        "pt": "Buzz Aldrin 01"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_01.jpg"
+    },
+    {
+      "id": "space-explorers:135",
+      "number": 135,
+      "names": {
+        "en": "Buzz Aldrin 02",
+        "pt": "Buzz Aldrin 02"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_02.jpg"
+    },
+    {
+      "id": "space-explorers:136",
+      "number": 136,
+      "names": {
+        "en": "Buzz Aldrin 03",
+        "pt": "Buzz Aldrin 03"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_03.webp"
+    },
+    {
+      "id": "space-explorers:137",
+      "number": 137,
+      "names": {
+        "en": "Buzz Aldrin 04",
+        "pt": "Buzz Aldrin 04"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_04.jpg"
+    },
+    {
+      "id": "space-explorers:138",
+      "number": 138,
+      "names": {
+        "en": "Buzz Aldrin 05",
+        "pt": "Buzz Aldrin 05"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_05.jpg"
+    },
+    {
+      "id": "space-explorers:139",
+      "number": 139,
+      "names": {
+        "en": "Buzz Aldrin 06",
+        "pt": "Buzz Aldrin 06"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_06.jpg"
+    },
+    {
+      "id": "space-explorers:140",
+      "number": 140,
+      "names": {
+        "en": "Buzz Aldrin 07",
+        "pt": "Buzz Aldrin 07"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_07.jpg"
+    },
+    {
+      "id": "space-explorers:141",
+      "number": 141,
+      "names": {
+        "en": "Buzz Aldrin 08",
+        "pt": "Buzz Aldrin 08"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_08.jpg"
+    },
+    {
+      "id": "space-explorers:142",
+      "number": 142,
+      "names": {
+        "en": "Buzz Aldrin 09",
+        "pt": "Buzz Aldrin 09"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_09.jpg"
+    },
+    {
+      "id": "space-explorers:143",
+      "number": 143,
+      "names": {
+        "en": "Buzz Aldrin 10",
+        "pt": "Buzz Aldrin 10"
+      },
+      "image": "stickers/1969_Buzz_Aldrin_10.jpg"
+    },
+    {
+      "id": "space-explorers:144",
+      "number": 144,
+      "names": {
+        "en": "Michael Collins 01",
+        "pt": "Michael Collins 01"
+      },
+      "image": "stickers/1969_Michael_Collins_01.jpg"
+    },
+    {
+      "id": "space-explorers:145",
+      "number": 145,
+      "names": {
+        "en": "Michael Collins 02",
+        "pt": "Michael Collins 02"
+      },
+      "image": "stickers/1969_Michael_Collins_02.jpg"
+    },
+    {
+      "id": "space-explorers:146",
+      "number": 146,
+      "names": {
+        "en": "Michael Collins 03",
+        "pt": "Michael Collins 03"
+      },
+      "image": "stickers/1969_Michael_Collins_03.jpg"
+    },
+    {
+      "id": "space-explorers:147",
+      "number": 147,
+      "names": {
+        "en": "Michael Collins 04",
+        "pt": "Michael Collins 04"
+      },
+      "image": "stickers/1969_Michael_Collins_04.jpg"
+    },
+    {
+      "id": "space-explorers:148",
+      "number": 148,
+      "names": {
+        "en": "Michael Collins 05",
+        "pt": "Michael Collins 05"
+      },
+      "image": "stickers/1969_Michael_Collins_05.jpg"
+    },
+    {
+      "id": "space-explorers:149",
+      "number": 149,
+      "names": {
+        "en": "Michael Collins 06",
+        "pt": "Michael Collins 06"
+      },
+      "image": "stickers/1969_Michael_Collins_06.jpg"
+    },
+    {
+      "id": "space-explorers:150",
+      "number": 150,
+      "names": {
+        "en": "Michael Collins 07",
+        "pt": "Michael Collins 07"
+      },
+      "image": "stickers/1969_Michael_Collins_07.jpg"
+    },
+    {
+      "id": "space-explorers:151",
+      "number": 151,
+      "names": {
+        "en": "Michael Collins 08",
+        "pt": "Michael Collins 08"
+      },
+      "image": "stickers/1969_Michael_Collins_08.jpg"
+    },
+    {
+      "id": "space-explorers:152",
+      "number": 152,
+      "names": {
+        "en": "Michael Collins 09",
+        "pt": "Michael Collins 09"
+      },
+      "image": "stickers/1969_Michael_Collins_09.jpg"
+    },
+    {
+      "id": "space-explorers:153",
+      "number": 153,
+      "names": {
+        "en": "Michael Collins 10",
+        "pt": "Michael Collins 10"
+      },
+      "image": "stickers/1969_Michael_Collins_10.jpg"
+    },
+    {
+      "id": "space-explorers:154",
+      "number": 154,
+      "names": {
+        "en": "Neil Armstrong 01",
+        "pt": "Neil Armstrong 01"
+      },
+      "image": "stickers/1969_Neil_Armstrong_01.jpg"
+    },
+    {
+      "id": "space-explorers:155",
+      "number": 155,
+      "names": {
+        "en": "Neil Armstrong 02",
+        "pt": "Neil Armstrong 02"
+      },
+      "image": "stickers/1969_Neil_Armstrong_02.jpg"
+    },
+    {
+      "id": "space-explorers:156",
+      "number": 156,
+      "names": {
+        "en": "Neil Armstrong 03",
+        "pt": "Neil Armstrong 03"
+      },
+      "image": "stickers/1969_Neil_Armstrong_03.jpg"
+    },
+    {
+      "id": "space-explorers:157",
+      "number": 157,
+      "names": {
+        "en": "Neil Armstrong 04",
+        "pt": "Neil Armstrong 04"
+      },
+      "image": "stickers/1969_Neil_Armstrong_04.jpg"
+    },
+    {
+      "id": "space-explorers:158",
+      "number": 158,
+      "names": {
+        "en": "Neil Armstrong 05",
+        "pt": "Neil Armstrong 05"
+      },
+      "image": "stickers/1969_Neil_Armstrong_05.jpg"
+    },
+    {
+      "id": "space-explorers:159",
+      "number": 159,
+      "names": {
+        "en": "Neil Armstrong 06",
+        "pt": "Neil Armstrong 06"
+      },
+      "image": "stickers/1969_Neil_Armstrong_06.jpg"
+    },
+    {
+      "id": "space-explorers:160",
+      "number": 160,
+      "names": {
+        "en": "Neil Armstrong 07",
+        "pt": "Neil Armstrong 07"
+      },
+      "image": "stickers/1969_Neil_Armstrong_07.jpg"
+    },
+    {
+      "id": "space-explorers:161",
+      "number": 161,
+      "names": {
+        "en": "Neil Armstrong 08",
+        "pt": "Neil Armstrong 08"
+      },
+      "image": "stickers/1969_Neil_Armstrong_08.jpg"
+    },
+    {
+      "id": "space-explorers:162",
+      "number": 162,
+      "names": {
+        "en": "Neil Armstrong 09",
+        "pt": "Neil Armstrong 09"
+      },
+      "image": "stickers/1969_Neil_Armstrong_09.jpg"
+    },
+    {
+      "id": "space-explorers:163",
+      "number": 163,
+      "names": {
+        "en": "Neil Armstrong 10",
+        "pt": "Neil Armstrong 10"
+      },
+      "image": "stickers/1969_Neil_Armstrong_10.jpg"
+    },
+    {
+      "id": "space-explorers:164",
+      "number": 164,
+      "names": {
+        "en": "Lunokhod 1 01",
+        "pt": "Lunokhod 1 01"
+      },
+      "image": "stickers/1970_Lunokhod_1_01.JPG"
+    },
+    {
+      "id": "space-explorers:165",
+      "number": 165,
+      "names": {
+        "en": "Lunokhod 1 02",
+        "pt": "Lunokhod 1 02"
+      },
+      "image": "stickers/1970_Lunokhod_1_02.jpg"
+    },
+    {
+      "id": "space-explorers:166",
+      "number": 166,
+      "names": {
+        "en": "Lunokhod 1 03",
+        "pt": "Lunokhod 1 03"
+      },
+      "image": "stickers/1970_Lunokhod_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:167",
+      "number": 167,
+      "names": {
+        "en": "Lunokhod 1 04",
+        "pt": "Lunokhod 1 04"
+      },
+      "image": "stickers/1970_Lunokhod_1_04.jpg"
+    },
+    {
+      "id": "space-explorers:168",
+      "number": 168,
+      "names": {
+        "en": "Lunokhod 1 05",
+        "pt": "Lunokhod 1 05"
+      },
+      "image": "stickers/1970_Lunokhod_1_05.jpeg"
+    },
+    {
+      "id": "space-explorers:169",
+      "number": 169,
+      "names": {
+        "en": "Lunokhod 1 06",
+        "pt": "Lunokhod 1 06"
+      },
+      "image": "stickers/1970_Lunokhod_1_06.jpg"
+    },
+    {
+      "id": "space-explorers:170",
+      "number": 170,
+      "names": {
+        "en": "Lunokhod 1 07",
+        "pt": "Lunokhod 1 07"
+      },
+      "image": "stickers/1970_Lunokhod_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:171",
+      "number": 171,
+      "names": {
+        "en": "Lunokhod 1 08",
+        "pt": "Lunokhod 1 08"
+      },
+      "image": "stickers/1970_Lunokhod_1_08.jpg"
+    },
+    {
+      "id": "space-explorers:172",
+      "number": 172,
+      "names": {
+        "en": "Lunokhod 1 09",
+        "pt": "Lunokhod 1 09"
+      },
+      "image": "stickers/1970_Lunokhod_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:173",
+      "number": 173,
+      "names": {
+        "en": "Lunokhod 1 10",
+        "pt": "Lunokhod 1 10"
+      },
+      "image": "stickers/1970_Lunokhod_1_10.jpg"
+    },
+    {
+      "id": "space-explorers:174",
+      "number": 174,
+      "names": {
+        "en": "Mars 3 01",
+        "pt": "Mars 3 01"
+      },
+      "image": "stickers/1971_Mars_3_01.jpg"
+    },
+    {
+      "id": "space-explorers:175",
+      "number": 175,
+      "names": {
+        "en": "Mars 3 02",
+        "pt": "Mars 3 02"
+      },
+      "image": "stickers/1971_Mars_3_02.jpg"
+    },
+    {
+      "id": "space-explorers:176",
+      "number": 176,
+      "names": {
+        "en": "Mars 3 03",
+        "pt": "Mars 3 03"
+      },
+      "image": "stickers/1971_Mars_3_03.jpg"
+    },
+    {
+      "id": "space-explorers:177",
+      "number": 177,
+      "names": {
+        "en": "Mars 3 04",
+        "pt": "Mars 3 04"
+      },
+      "image": "stickers/1971_Mars_3_04.jpg"
+    },
+    {
+      "id": "space-explorers:178",
+      "number": 178,
+      "names": {
+        "en": "Mars 3 05",
+        "pt": "Mars 3 05"
+      },
+      "image": "stickers/1971_Mars_3_05.jpg"
+    },
+    {
+      "id": "space-explorers:179",
+      "number": 179,
+      "names": {
+        "en": "Mars 3 06",
+        "pt": "Mars 3 06"
+      },
+      "image": "stickers/1971_Mars_3_06.jpg"
+    },
+    {
+      "id": "space-explorers:180",
+      "number": 180,
+      "names": {
+        "en": "Mars 3 07",
+        "pt": "Mars 3 07"
+      },
+      "image": "stickers/1971_Mars_3_07.jpg"
+    },
+    {
+      "id": "space-explorers:181",
+      "number": 181,
+      "names": {
+        "en": "Mars 3 08",
+        "pt": "Mars 3 08"
+      },
+      "image": "stickers/1971_Mars_3_08.jpg"
+    },
+    {
+      "id": "space-explorers:182",
+      "number": 182,
+      "names": {
+        "en": "Mars 3 09",
+        "pt": "Mars 3 09"
+      },
+      "image": "stickers/1971_Mars_3_09.jpg"
+    },
+    {
+      "id": "space-explorers:183",
+      "number": 183,
+      "names": {
+        "en": "Mars 3 10",
+        "pt": "Mars 3 10"
+      },
+      "image": "stickers/1971_Mars_3_10.jpg"
+    },
+    {
+      "id": "space-explorers:184",
+      "number": 184,
+      "names": {
+        "en": "Salyut 1 01",
+        "pt": "Salyut 1 01"
+      },
+      "image": "stickers/1971_Salyut_1_01.jpg"
+    },
+    {
+      "id": "space-explorers:185",
+      "number": 185,
+      "names": {
+        "en": "Salyut 1 02",
+        "pt": "Salyut 1 02"
+      },
+      "image": "stickers/1971_Salyut_1_02.jpeg"
+    },
+    {
+      "id": "space-explorers:186",
+      "number": 186,
+      "names": {
+        "en": "Salyut 1 03",
+        "pt": "Salyut 1 03"
+      },
+      "image": "stickers/1971_Salyut_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:187",
+      "number": 187,
+      "names": {
+        "en": "Salyut 1 04",
+        "pt": "Salyut 1 04"
+      },
+      "image": "stickers/1971_Salyut_1_04.jpg"
+    },
+    {
+      "id": "space-explorers:188",
+      "number": 188,
+      "names": {
+        "en": "Salyut 1 05",
+        "pt": "Salyut 1 05"
+      },
+      "image": "stickers/1971_Salyut_1_05.jpg"
+    },
+    {
+      "id": "space-explorers:189",
+      "number": 189,
+      "names": {
+        "en": "Salyut 1 06",
+        "pt": "Salyut 1 06"
+      },
+      "image": "stickers/1971_Salyut_1_06.png"
+    },
+    {
+      "id": "space-explorers:190",
+      "number": 190,
+      "names": {
+        "en": "Salyut 1 07",
+        "pt": "Salyut 1 07"
+      },
+      "image": "stickers/1971_Salyut_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:191",
+      "number": 191,
+      "names": {
+        "en": "Salyut 1 08",
+        "pt": "Salyut 1 08"
+      },
+      "image": "stickers/1971_Salyut_1_08.jpg"
+    },
+    {
+      "id": "space-explorers:192",
+      "number": 192,
+      "names": {
+        "en": "Salyut 1 09",
+        "pt": "Salyut 1 09"
+      },
+      "image": "stickers/1971_Salyut_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:193",
+      "number": 193,
+      "names": {
+        "en": "Salyut 1 10",
+        "pt": "Salyut 1 10"
+      },
+      "image": "stickers/1971_Salyut_1_10.gif"
+    },
+    {
+      "id": "space-explorers:194",
+      "number": 194,
+      "names": {
+        "en": "Pioneer 10 01",
+        "pt": "Pioneer 10 01"
+      },
+      "image": "stickers/1972_Pioneer_10_01.jpg"
+    },
+    {
+      "id": "space-explorers:195",
+      "number": 195,
+      "names": {
+        "en": "Pioneer 10 02",
+        "pt": "Pioneer 10 02"
+      },
+      "image": "stickers/1972_Pioneer_10_02.webp"
+    },
+    {
+      "id": "space-explorers:196",
+      "number": 196,
+      "names": {
+        "en": "Pioneer 10 03",
+        "pt": "Pioneer 10 03"
+      },
+      "image": "stickers/1972_Pioneer_10_03.jpg"
+    },
+    {
+      "id": "space-explorers:197",
+      "number": 197,
+      "names": {
+        "en": "Pioneer 10 04",
+        "pt": "Pioneer 10 04"
+      },
+      "image": "stickers/1972_Pioneer_10_04.jpg"
+    },
+    {
+      "id": "space-explorers:198",
+      "number": 198,
+      "names": {
+        "en": "Pioneer 10 05",
+        "pt": "Pioneer 10 05"
+      },
+      "image": "stickers/1972_Pioneer_10_05.jpg"
+    },
+    {
+      "id": "space-explorers:199",
+      "number": 199,
+      "names": {
+        "en": "Pioneer 10 06",
+        "pt": "Pioneer 10 06"
+      },
+      "image": "stickers/1972_Pioneer_10_06.jpg"
+    },
+    {
+      "id": "space-explorers:200",
+      "number": 200,
+      "names": {
+        "en": "Pioneer 10 07",
+        "pt": "Pioneer 10 07"
+      },
+      "image": "stickers/1972_Pioneer_10_07.jpg"
+    },
+    {
+      "id": "space-explorers:201",
+      "number": 201,
+      "names": {
+        "en": "Pioneer 10 08",
+        "pt": "Pioneer 10 08"
+      },
+      "image": "stickers/1972_Pioneer_10_08.jpg"
+    },
+    {
+      "id": "space-explorers:202",
+      "number": 202,
+      "names": {
+        "en": "Pioneer 10 09",
+        "pt": "Pioneer 10 09"
+      },
+      "image": "stickers/1972_Pioneer_10_09.jpg"
+    },
+    {
+      "id": "space-explorers:203",
+      "number": 203,
+      "names": {
+        "en": "Pioneer 10 10",
+        "pt": "Pioneer 10 10"
+      },
+      "image": "stickers/1972_Pioneer_10_10.jpg"
+    },
+    {
+      "id": "space-explorers:204",
+      "number": 204,
+      "names": {
+        "en": "Skylab 01",
+        "pt": "Skylab 01"
+      },
+      "image": "stickers/1973_Skylab_01.jpg"
+    },
+    {
+      "id": "space-explorers:205",
+      "number": 205,
+      "names": {
+        "en": "Skylab 02",
+        "pt": "Skylab 02"
+      },
+      "image": "stickers/1973_Skylab_02.jpg"
+    },
+    {
+      "id": "space-explorers:206",
+      "number": 206,
+      "names": {
+        "en": "Skylab 03",
+        "pt": "Skylab 03"
+      },
+      "image": "stickers/1973_Skylab_03.jpg"
+    },
+    {
+      "id": "space-explorers:207",
+      "number": 207,
+      "names": {
+        "en": "Skylab 04",
+        "pt": "Skylab 04"
+      },
+      "image": "stickers/1973_Skylab_04.jpg"
+    },
+    {
+      "id": "space-explorers:208",
+      "number": 208,
+      "names": {
+        "en": "Skylab 05",
+        "pt": "Skylab 05"
+      },
+      "image": "stickers/1973_Skylab_05.jpg"
+    },
+    {
+      "id": "space-explorers:209",
+      "number": 209,
+      "names": {
+        "en": "Skylab 06",
+        "pt": "Skylab 06"
+      },
+      "image": "stickers/1973_Skylab_06.jpg"
+    },
+    {
+      "id": "space-explorers:210",
+      "number": 210,
+      "names": {
+        "en": "Skylab 07",
+        "pt": "Skylab 07"
+      },
+      "image": "stickers/1973_Skylab_07.jpg"
+    },
+    {
+      "id": "space-explorers:211",
+      "number": 211,
+      "names": {
+        "en": "Skylab 08",
+        "pt": "Skylab 08"
+      },
+      "image": "stickers/1973_Skylab_08.jpeg"
+    },
+    {
+      "id": "space-explorers:212",
+      "number": 212,
+      "names": {
+        "en": "Skylab 09",
+        "pt": "Skylab 09"
+      },
+      "image": "stickers/1973_Skylab_09.jpg"
+    },
+    {
+      "id": "space-explorers:213",
+      "number": 213,
+      "names": {
+        "en": "Skylab 10",
+        "pt": "Skylab 10"
+      },
+      "image": "stickers/1973_Skylab_10.jpg"
+    },
+    {
+      "id": "space-explorers:214",
+      "number": 214,
+      "names": {
+        "en": "Mariner 10 01",
+        "pt": "Mariner 10 01"
+      },
+      "image": "stickers/1974_Mariner_10_01.jpg"
+    },
+    {
+      "id": "space-explorers:215",
+      "number": 215,
+      "names": {
+        "en": "Mariner 10 02",
+        "pt": "Mariner 10 02"
+      },
+      "image": "stickers/1974_Mariner_10_02.jpg"
+    },
+    {
+      "id": "space-explorers:216",
+      "number": 216,
+      "names": {
+        "en": "Mariner 10 03",
+        "pt": "Mariner 10 03"
+      },
+      "image": "stickers/1974_Mariner_10_03.jpg"
+    },
+    {
+      "id": "space-explorers:217",
+      "number": 217,
+      "names": {
+        "en": "Mariner 10 04",
+        "pt": "Mariner 10 04"
+      },
+      "image": "stickers/1974_Mariner_10_04.jpg"
+    },
+    {
+      "id": "space-explorers:218",
+      "number": 218,
+      "names": {
+        "en": "Mariner 10 05",
+        "pt": "Mariner 10 05"
+      },
+      "image": "stickers/1974_Mariner_10_05.png"
+    },
+    {
+      "id": "space-explorers:219",
+      "number": 219,
+      "names": {
+        "en": "Mariner 10 06",
+        "pt": "Mariner 10 06"
+      },
+      "image": "stickers/1974_Mariner_10_06.jpeg"
+    },
+    {
+      "id": "space-explorers:220",
+      "number": 220,
+      "names": {
+        "en": "Mariner 10 07",
+        "pt": "Mariner 10 07"
+      },
+      "image": "stickers/1974_Mariner_10_07.jpg"
+    },
+    {
+      "id": "space-explorers:221",
+      "number": 221,
+      "names": {
+        "en": "Mariner 10 08",
+        "pt": "Mariner 10 08"
+      },
+      "image": "stickers/1974_Mariner_10_08.jpg"
+    },
+    {
+      "id": "space-explorers:222",
+      "number": 222,
+      "names": {
+        "en": "Mariner 10 09",
+        "pt": "Mariner 10 09"
+      },
+      "image": "stickers/1974_Mariner_10_09.jpg"
+    },
+    {
+      "id": "space-explorers:223",
+      "number": 223,
+      "names": {
+        "en": "Mariner 10 10",
+        "pt": "Mariner 10 10"
+      },
+      "image": "stickers/1974_Mariner_10_10.jpg"
+    },
+    {
+      "id": "space-explorers:224",
+      "number": 224,
+      "names": {
+        "en": "Apollo Soyuz 01",
+        "pt": "Apollo Soyuz 01"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_01.jpg"
+    },
+    {
+      "id": "space-explorers:225",
+      "number": 225,
+      "names": {
+        "en": "Apollo Soyuz 02",
+        "pt": "Apollo Soyuz 02"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_02.jpg"
+    },
+    {
+      "id": "space-explorers:226",
+      "number": 226,
+      "names": {
+        "en": "Apollo Soyuz 03",
+        "pt": "Apollo Soyuz 03"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_03.jpg"
+    },
+    {
+      "id": "space-explorers:227",
+      "number": 227,
+      "names": {
+        "en": "Apollo Soyuz 04",
+        "pt": "Apollo Soyuz 04"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_04.jpg"
+    },
+    {
+      "id": "space-explorers:228",
+      "number": 228,
+      "names": {
+        "en": "Apollo Soyuz 05",
+        "pt": "Apollo Soyuz 05"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_05.jpg"
+    },
+    {
+      "id": "space-explorers:229",
+      "number": 229,
+      "names": {
+        "en": "Apollo Soyuz 06",
+        "pt": "Apollo Soyuz 06"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_06.jpg"
+    },
+    {
+      "id": "space-explorers:230",
+      "number": 230,
+      "names": {
+        "en": "Apollo Soyuz 07",
+        "pt": "Apollo Soyuz 07"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_07.jpg"
+    },
+    {
+      "id": "space-explorers:231",
+      "number": 231,
+      "names": {
+        "en": "Apollo Soyuz 08",
+        "pt": "Apollo Soyuz 08"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_08.jpg"
+    },
+    {
+      "id": "space-explorers:232",
+      "number": 232,
+      "names": {
+        "en": "Apollo Soyuz 09",
+        "pt": "Apollo Soyuz 09"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_09.jpg"
+    },
+    {
+      "id": "space-explorers:233",
+      "number": 233,
+      "names": {
+        "en": "Apollo Soyuz 10",
+        "pt": "Apollo Soyuz 10"
+      },
+      "image": "stickers/1975_Apollo-Soyuz_10.jpg"
+    },
+    {
+      "id": "space-explorers:234",
+      "number": 234,
+      "names": {
+        "en": "Viking 1 01",
+        "pt": "Viking 1 01"
+      },
+      "image": "stickers/1976_Viking_1_01.jpg"
+    },
+    {
+      "id": "space-explorers:235",
+      "number": 235,
+      "names": {
+        "en": "Viking 1 02",
+        "pt": "Viking 1 02"
+      },
+      "image": "stickers/1976_Viking_1_02.jpg"
+    },
+    {
+      "id": "space-explorers:236",
+      "number": 236,
+      "names": {
+        "en": "Viking 1 03",
+        "pt": "Viking 1 03"
+      },
+      "image": "stickers/1976_Viking_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:237",
+      "number": 237,
+      "names": {
+        "en": "Viking 1 04",
+        "pt": "Viking 1 04"
+      },
+      "image": "stickers/1976_Viking_1_04.jpg"
+    },
+    {
+      "id": "space-explorers:238",
+      "number": 238,
+      "names": {
+        "en": "Viking 1 05",
+        "pt": "Viking 1 05"
+      },
+      "image": "stickers/1976_Viking_1_05.jpg"
+    },
+    {
+      "id": "space-explorers:239",
+      "number": 239,
+      "names": {
+        "en": "Viking 1 06",
+        "pt": "Viking 1 06"
+      },
+      "image": "stickers/1976_Viking_1_06.jpg"
+    },
+    {
+      "id": "space-explorers:240",
+      "number": 240,
+      "names": {
+        "en": "Viking 1 07",
+        "pt": "Viking 1 07"
+      },
+      "image": "stickers/1976_Viking_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:241",
+      "number": 241,
+      "names": {
+        "en": "Viking 1 08",
+        "pt": "Viking 1 08"
+      },
+      "image": "stickers/1976_Viking_1_08.webp"
+    },
+    {
+      "id": "space-explorers:242",
+      "number": 242,
+      "names": {
+        "en": "Viking 1 09",
+        "pt": "Viking 1 09"
+      },
+      "image": "stickers/1976_Viking_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:243",
+      "number": 243,
+      "names": {
+        "en": "Viking 1 10",
+        "pt": "Viking 1 10"
+      },
+      "image": "stickers/1976_Viking_1_10.jpg"
+    },
+    {
+      "id": "space-explorers:244",
+      "number": 244,
+      "names": {
+        "en": "Voyager 1 01",
+        "pt": "Voyager 1 01"
+      },
+      "image": "stickers/1977_Voyager_1_01.jpg"
+    },
+    {
+      "id": "space-explorers:245",
+      "number": 245,
+      "names": {
+        "en": "Voyager 1 02",
+        "pt": "Voyager 1 02"
+      },
+      "image": "stickers/1977_Voyager_1_02.jpg"
+    },
+    {
+      "id": "space-explorers:246",
+      "number": 246,
+      "names": {
+        "en": "Voyager 1 03",
+        "pt": "Voyager 1 03"
+      },
+      "image": "stickers/1977_Voyager_1_03.jpg"
+    },
+    {
+      "id": "space-explorers:247",
+      "number": 247,
+      "names": {
+        "en": "Voyager 1 04",
+        "pt": "Voyager 1 04"
+      },
+      "image": "stickers/1977_Voyager_1_04.jpeg"
+    },
+    {
+      "id": "space-explorers:248",
+      "number": 248,
+      "names": {
+        "en": "Voyager 1 05",
+        "pt": "Voyager 1 05"
+      },
+      "image": "stickers/1977_Voyager_1_05.jpg"
+    },
+    {
+      "id": "space-explorers:249",
+      "number": 249,
+      "names": {
+        "en": "Voyager 1 06",
+        "pt": "Voyager 1 06"
+      },
+      "image": "stickers/1977_Voyager_1_06.jpg"
+    },
+    {
+      "id": "space-explorers:250",
+      "number": 250,
+      "names": {
+        "en": "Voyager 1 07",
+        "pt": "Voyager 1 07"
+      },
+      "image": "stickers/1977_Voyager_1_07.jpg"
+    },
+    {
+      "id": "space-explorers:251",
+      "number": 251,
+      "names": {
+        "en": "Voyager 1 08",
+        "pt": "Voyager 1 08"
+      },
+      "image": "stickers/1977_Voyager_1_08.jpg"
+    },
+    {
+      "id": "space-explorers:252",
+      "number": 252,
+      "names": {
+        "en": "Voyager 1 09",
+        "pt": "Voyager 1 09"
+      },
+      "image": "stickers/1977_Voyager_1_09.jpg"
+    },
+    {
+      "id": "space-explorers:253",
+      "number": 253,
+      "names": {
+        "en": "Voyager 1 10",
+        "pt": "Voyager 1 10"
+      },
+      "image": "stickers/1977_Voyager_1_10.jpg"
+    },
+    {
+      "id": "space-explorers:254",
+      "number": 254,
+      "names": {
+        "en": "Voyager 2 01",
+        "pt": "Voyager 2 01"
+      },
+      "image": "stickers/1977_Voyager_2_01.jpg"
+    },
+    {
+      "id": "space-explorers:255",
+      "number": 255,
+      "names": {
+        "en": "Voyager 2 02",
+        "pt": "Voyager 2 02"
+      },
+      "image": "stickers/1977_Voyager_2_02.png"
+    },
+    {
+      "id": "space-explorers:256",
+      "number": 256,
+      "names": {
+        "en": "Voyager 2 03",
+        "pt": "Voyager 2 03"
+      },
+      "image": "stickers/1977_Voyager_2_03.jpg"
+    },
+    {
+      "id": "space-explorers:257",
+      "number": 257,
+      "names": {
+        "en": "Voyager 2 04",
+        "pt": "Voyager 2 04"
+      },
+      "image": "stickers/1977_Voyager_2_04.jpg"
+    },
+    {
+      "id": "space-explorers:258",
+      "number": 258,
+      "names": {
+        "en": "Voyager 2 05",
+        "pt": "Voyager 2 05"
+      },
+      "image": "stickers/1977_Voyager_2_05.jpg"
+    },
+    {
+      "id": "space-explorers:259",
+      "number": 259,
+      "names": {
+        "en": "Voyager 2 06",
+        "pt": "Voyager 2 06"
+      },
+      "image": "stickers/1977_Voyager_2_06.jpg"
+    },
+    {
+      "id": "space-explorers:260",
+      "number": 260,
+      "names": {
+        "en": "Voyager 2 07",
+        "pt": "Voyager 2 07"
+      },
+      "image": "stickers/1977_Voyager_2_07.jpg"
+    },
+    {
+      "id": "space-explorers:261",
+      "number": 261,
+      "names": {
+        "en": "Voyager 2 08",
+        "pt": "Voyager 2 08"
+      },
+      "image": "stickers/1977_Voyager_2_08.jpg"
+    },
+    {
+      "id": "space-explorers:262",
+      "number": 262,
+      "names": {
+        "en": "Voyager 2 09",
+        "pt": "Voyager 2 09"
+      },
+      "image": "stickers/1977_Voyager_2_09.jpg"
+    },
+    {
+      "id": "space-explorers:263",
+      "number": 263,
+      "names": {
+        "en": "Voyager 2 10",
+        "pt": "Voyager 2 10"
+      },
+      "image": "stickers/1977_Voyager_2_10.webp"
+    },
+    {
+      "id": "space-explorers:264",
+      "number": 264,
+      "names": {
+        "en": "Ônibus Espacial Columbia 01",
+        "pt": "Ônibus Espacial Columbia 01"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_01.jpg"
+    },
+    {
+      "id": "space-explorers:265",
+      "number": 265,
+      "names": {
+        "en": "Ônibus Espacial Columbia 02",
+        "pt": "Ônibus Espacial Columbia 02"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_02.jpeg"
+    },
+    {
+      "id": "space-explorers:266",
+      "number": 266,
+      "names": {
+        "en": "Ônibus Espacial Columbia 03",
+        "pt": "Ônibus Espacial Columbia 03"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_03.jpg"
+    },
+    {
+      "id": "space-explorers:267",
+      "number": 267,
+      "names": {
+        "en": "Ônibus Espacial Columbia 04",
+        "pt": "Ônibus Espacial Columbia 04"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_04.jpg"
+    },
+    {
+      "id": "space-explorers:268",
+      "number": 268,
+      "names": {
+        "en": "Ônibus Espacial Columbia 05",
+        "pt": "Ônibus Espacial Columbia 05"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_05.jpg"
+    },
+    {
+      "id": "space-explorers:269",
+      "number": 269,
+      "names": {
+        "en": "Ônibus Espacial Columbia 06",
+        "pt": "Ônibus Espacial Columbia 06"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_06.jpg"
+    },
+    {
+      "id": "space-explorers:270",
+      "number": 270,
+      "names": {
+        "en": "Ônibus Espacial Columbia 07",
+        "pt": "Ônibus Espacial Columbia 07"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_07.jpg"
+    },
+    {
+      "id": "space-explorers:271",
+      "number": 271,
+      "names": {
+        "en": "Ônibus Espacial Columbia 08",
+        "pt": "Ônibus Espacial Columbia 08"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_08.jpg"
+    },
+    {
+      "id": "space-explorers:272",
+      "number": 272,
+      "names": {
+        "en": "Ônibus Espacial Columbia 09",
+        "pt": "Ônibus Espacial Columbia 09"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_09.jpg"
+    },
+    {
+      "id": "space-explorers:273",
+      "number": 273,
+      "names": {
+        "en": "Ônibus Espacial Columbia 10",
+        "pt": "Ônibus Espacial Columbia 10"
+      },
+      "image": "stickers/1981_Ônibus_Espacial_Columbia_10.jpg"
+    },
+    {
+      "id": "space-explorers:274",
+      "number": 274,
+      "names": {
+        "en": "Sally Ride 01",
+        "pt": "Sally Ride 01"
+      },
+      "image": "stickers/1983_Sally_Ride_01.jpg"
+    },
+    {
+      "id": "space-explorers:275",
+      "number": 275,
+      "names": {
+        "en": "Sally Ride 02",
+        "pt": "Sally Ride 02"
+      },
+      "image": "stickers/1983_Sally_Ride_02.jpg"
+    },
+    {
+      "id": "space-explorers:276",
+      "number": 276,
+      "names": {
+        "en": "Sally Ride 03",
+        "pt": "Sally Ride 03"
+      },
+      "image": "stickers/1983_Sally_Ride_03.jpg"
+    },
+    {
+      "id": "space-explorers:277",
+      "number": 277,
+      "names": {
+        "en": "Sally Ride 04",
+        "pt": "Sally Ride 04"
+      },
+      "image": "stickers/1983_Sally_Ride_04.jpg"
+    },
+    {
+      "id": "space-explorers:278",
+      "number": 278,
+      "names": {
+        "en": "Sally Ride 05",
+        "pt": "Sally Ride 05"
+      },
+      "image": "stickers/1983_Sally_Ride_05.jpg"
+    },
+    {
+      "id": "space-explorers:279",
+      "number": 279,
+      "names": {
+        "en": "Sally Ride 06",
+        "pt": "Sally Ride 06"
+      },
+      "image": "stickers/1983_Sally_Ride_06.jpeg"
+    },
+    {
+      "id": "space-explorers:280",
+      "number": 280,
+      "names": {
+        "en": "Sally Ride 07",
+        "pt": "Sally Ride 07"
+      },
+      "image": "stickers/1983_Sally_Ride_07.jpg"
+    },
+    {
+      "id": "space-explorers:281",
+      "number": 281,
+      "names": {
+        "en": "Sally Ride 08",
+        "pt": "Sally Ride 08"
+      },
+      "image": "stickers/1983_Sally_Ride_08.jpg"
+    },
+    {
+      "id": "space-explorers:282",
+      "number": 282,
+      "names": {
+        "en": "Sally Ride 09",
+        "pt": "Sally Ride 09"
+      },
+      "image": "stickers/1983_Sally_Ride_09.jpg"
+    },
+    {
+      "id": "space-explorers:283",
+      "number": 283,
+      "names": {
+        "en": "Sally Ride 10",
+        "pt": "Sally Ride 10"
+      },
+      "image": "stickers/1983_Sally_Ride_10.jpg"
+    },
+    {
+      "id": "space-explorers:284",
+      "number": 284,
+      "names": {
+        "en": "Bruce Mccandless Ii 01",
+        "pt": "Bruce Mccandless Ii 01"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_01.jpg"
+    },
+    {
+      "id": "space-explorers:285",
+      "number": 285,
+      "names": {
+        "en": "Bruce Mccandless Ii 02",
+        "pt": "Bruce Mccandless Ii 02"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_02.jpg"
+    },
+    {
+      "id": "space-explorers:286",
+      "number": 286,
+      "names": {
+        "en": "Bruce Mccandless Ii 03",
+        "pt": "Bruce Mccandless Ii 03"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_03.jpg"
+    },
+    {
+      "id": "space-explorers:287",
+      "number": 287,
+      "names": {
+        "en": "Bruce Mccandless Ii 04",
+        "pt": "Bruce Mccandless Ii 04"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_04.jpg"
+    },
+    {
+      "id": "space-explorers:288",
+      "number": 288,
+      "names": {
+        "en": "Bruce Mccandless Ii 05",
+        "pt": "Bruce Mccandless Ii 05"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_05.jpg"
+    },
+    {
+      "id": "space-explorers:289",
+      "number": 289,
+      "names": {
+        "en": "Bruce Mccandless Ii 06",
+        "pt": "Bruce Mccandless Ii 06"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_06.jpg"
+    },
+    {
+      "id": "space-explorers:290",
+      "number": 290,
+      "names": {
+        "en": "Bruce Mccandless Ii 07",
+        "pt": "Bruce Mccandless Ii 07"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_07.jpg"
+    },
+    {
+      "id": "space-explorers:291",
+      "number": 291,
+      "names": {
+        "en": "Bruce Mccandless Ii 08",
+        "pt": "Bruce Mccandless Ii 08"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_08.png"
+    },
+    {
+      "id": "space-explorers:292",
+      "number": 292,
+      "names": {
+        "en": "Bruce Mccandless Ii 09",
+        "pt": "Bruce Mccandless Ii 09"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_09.jpg"
+    },
+    {
+      "id": "space-explorers:293",
+      "number": 293,
+      "names": {
+        "en": "Bruce Mccandless Ii 10",
+        "pt": "Bruce Mccandless Ii 10"
+      },
+      "image": "stickers/1984_Bruce_McCandless_II_10.jpg"
+    },
+    {
+      "id": "space-explorers:294",
+      "number": 294,
+      "names": {
+        "en": "Estação Espacial Mir 01",
+        "pt": "Estação Espacial Mir 01"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_01.jpg"
+    },
+    {
+      "id": "space-explorers:295",
+      "number": 295,
+      "names": {
+        "en": "Estação Espacial Mir 02",
+        "pt": "Estação Espacial Mir 02"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_02.jpg"
+    },
+    {
+      "id": "space-explorers:296",
+      "number": 296,
+      "names": {
+        "en": "Estação Espacial Mir 03",
+        "pt": "Estação Espacial Mir 03"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_03.jpg"
+    },
+    {
+      "id": "space-explorers:297",
+      "number": 297,
+      "names": {
+        "en": "Estação Espacial Mir 04",
+        "pt": "Estação Espacial Mir 04"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_04.jpg"
+    },
+    {
+      "id": "space-explorers:298",
+      "number": 298,
+      "names": {
+        "en": "Estação Espacial Mir 05",
+        "pt": "Estação Espacial Mir 05"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_05.jpg"
+    },
+    {
+      "id": "space-explorers:299",
+      "number": 299,
+      "names": {
+        "en": "Estação Espacial Mir 06",
+        "pt": "Estação Espacial Mir 06"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_06.jpg"
+    },
+    {
+      "id": "space-explorers:300",
+      "number": 300,
+      "names": {
+        "en": "Estação Espacial Mir 07",
+        "pt": "Estação Espacial Mir 07"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_07.png"
+    },
+    {
+      "id": "space-explorers:301",
+      "number": 301,
+      "names": {
+        "en": "Estação Espacial Mir 08",
+        "pt": "Estação Espacial Mir 08"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_08.jpg"
+    },
+    {
+      "id": "space-explorers:302",
+      "number": 302,
+      "names": {
+        "en": "Estação Espacial Mir 09",
+        "pt": "Estação Espacial Mir 09"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_09.jpg"
+    },
+    {
+      "id": "space-explorers:303",
+      "number": 303,
+      "names": {
+        "en": "Estação Espacial Mir 10",
+        "pt": "Estação Espacial Mir 10"
+      },
+      "image": "stickers/1986_Estação_Espacial_Mir_10.jpg"
+    },
+    {
+      "id": "space-explorers:304",
+      "number": 304,
+      "names": {
+        "en": "Telescópio Espacial Hubble 01",
+        "pt": "Telescópio Espacial Hubble 01"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_01.jpg"
+    },
+    {
+      "id": "space-explorers:305",
+      "number": 305,
+      "names": {
+        "en": "Telescópio Espacial Hubble 02",
+        "pt": "Telescópio Espacial Hubble 02"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_02.jpg"
+    },
+    {
+      "id": "space-explorers:306",
+      "number": 306,
+      "names": {
+        "en": "Telescópio Espacial Hubble 03",
+        "pt": "Telescópio Espacial Hubble 03"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_03.jpg"
+    },
+    {
+      "id": "space-explorers:307",
+      "number": 307,
+      "names": {
+        "en": "Telescópio Espacial Hubble 04",
+        "pt": "Telescópio Espacial Hubble 04"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_04.jpg"
+    },
+    {
+      "id": "space-explorers:308",
+      "number": 308,
+      "names": {
+        "en": "Telescópio Espacial Hubble 05",
+        "pt": "Telescópio Espacial Hubble 05"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_05.jpg"
+    },
+    {
+      "id": "space-explorers:309",
+      "number": 309,
+      "names": {
+        "en": "Telescópio Espacial Hubble 06",
+        "pt": "Telescópio Espacial Hubble 06"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_06.jpg"
+    },
+    {
+      "id": "space-explorers:310",
+      "number": 310,
+      "names": {
+        "en": "Telescópio Espacial Hubble 07",
+        "pt": "Telescópio Espacial Hubble 07"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_07.gif"
+    },
+    {
+      "id": "space-explorers:311",
+      "number": 311,
+      "names": {
+        "en": "Telescópio Espacial Hubble 08",
+        "pt": "Telescópio Espacial Hubble 08"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_08.jpg"
+    },
+    {
+      "id": "space-explorers:312",
+      "number": 312,
+      "names": {
+        "en": "Telescópio Espacial Hubble 09",
+        "pt": "Telescópio Espacial Hubble 09"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_09.jpg"
+    },
+    {
+      "id": "space-explorers:313",
+      "number": 313,
+      "names": {
+        "en": "Telescópio Espacial Hubble 10",
+        "pt": "Telescópio Espacial Hubble 10"
+      },
+      "image": "stickers/1990_Telescópio_Espacial_Hubble_10.jpg"
+    },
+    {
+      "id": "space-explorers:314",
+      "number": 314,
+      "names": {
+        "en": "Mars Global Surveyor 01",
+        "pt": "Mars Global Surveyor 01"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_01.jpg"
+    },
+    {
+      "id": "space-explorers:315",
+      "number": 315,
+      "names": {
+        "en": "Mars Global Surveyor 02",
+        "pt": "Mars Global Surveyor 02"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_02.jpg"
+    },
+    {
+      "id": "space-explorers:316",
+      "number": 316,
+      "names": {
+        "en": "Mars Global Surveyor 03",
+        "pt": "Mars Global Surveyor 03"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_03.jpg"
+    },
+    {
+      "id": "space-explorers:317",
+      "number": 317,
+      "names": {
+        "en": "Mars Global Surveyor 04",
+        "pt": "Mars Global Surveyor 04"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_04.gif"
+    },
+    {
+      "id": "space-explorers:318",
+      "number": 318,
+      "names": {
+        "en": "Mars Global Surveyor 05",
+        "pt": "Mars Global Surveyor 05"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_05.jpg"
+    },
+    {
+      "id": "space-explorers:319",
+      "number": 319,
+      "names": {
+        "en": "Mars Global Surveyor 07",
+        "pt": "Mars Global Surveyor 07"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_07.jpg"
+    },
+    {
+      "id": "space-explorers:320",
+      "number": 320,
+      "names": {
+        "en": "Mars Global Surveyor 08",
+        "pt": "Mars Global Surveyor 08"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_08.jpeg"
+    },
+    {
+      "id": "space-explorers:321",
+      "number": 321,
+      "names": {
+        "en": "Mars Global Surveyor 09",
+        "pt": "Mars Global Surveyor 09"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_09.png"
+    },
+    {
+      "id": "space-explorers:322",
+      "number": 322,
+      "names": {
+        "en": "Mars Global Surveyor 10",
+        "pt": "Mars Global Surveyor 10"
+      },
+      "image": "stickers/1996_Mars_Global_Surveyor_10.jpg"
+    },
+    {
+      "id": "space-explorers:323",
+      "number": 323,
+      "names": {
+        "en": "Cassini Huygens 01",
+        "pt": "Cassini Huygens 01"
+      },
+      "image": "stickers/1997_Cassini-Huygens_01.jpg"
+    },
+    {
+      "id": "space-explorers:324",
+      "number": 324,
+      "names": {
+        "en": "Cassini Huygens 02",
+        "pt": "Cassini Huygens 02"
+      },
+      "image": "stickers/1997_Cassini-Huygens_02.jpg"
+    },
+    {
+      "id": "space-explorers:325",
+      "number": 325,
+      "names": {
+        "en": "Cassini Huygens 03",
+        "pt": "Cassini Huygens 03"
+      },
+      "image": "stickers/1997_Cassini-Huygens_03.jpeg"
+    },
+    {
+      "id": "space-explorers:326",
+      "number": 326,
+      "names": {
+        "en": "Cassini Huygens 04",
+        "pt": "Cassini Huygens 04"
+      },
+      "image": "stickers/1997_Cassini-Huygens_04.jpg"
+    },
+    {
+      "id": "space-explorers:327",
+      "number": 327,
+      "names": {
+        "en": "Cassini Huygens 05",
+        "pt": "Cassini Huygens 05"
+      },
+      "image": "stickers/1997_Cassini-Huygens_05.jpg"
+    },
+    {
+      "id": "space-explorers:328",
+      "number": 328,
+      "names": {
+        "en": "Cassini Huygens 06",
+        "pt": "Cassini Huygens 06"
+      },
+      "image": "stickers/1997_Cassini-Huygens_06.jpg"
+    },
+    {
+      "id": "space-explorers:329",
+      "number": 329,
+      "names": {
+        "en": "Cassini Huygens 07",
+        "pt": "Cassini Huygens 07"
+      },
+      "image": "stickers/1997_Cassini-Huygens_07.jpg"
+    },
+    {
+      "id": "space-explorers:330",
+      "number": 330,
+      "names": {
+        "en": "Cassini Huygens 08",
+        "pt": "Cassini Huygens 08"
+      },
+      "image": "stickers/1997_Cassini-Huygens_08.jpg"
+    },
+    {
+      "id": "space-explorers:331",
+      "number": 331,
+      "names": {
+        "en": "Cassini Huygens 09",
+        "pt": "Cassini Huygens 09"
+      },
+      "image": "stickers/1997_Cassini-Huygens_09.jpg"
+    },
+    {
+      "id": "space-explorers:332",
+      "number": 332,
+      "names": {
+        "en": "Cassini Huygens 10",
+        "pt": "Cassini Huygens 10"
+      },
+      "image": "stickers/1997_Cassini-Huygens_10.jpg"
+    },
+    {
+      "id": "space-explorers:333",
+      "number": 333,
+      "names": {
+        "en": "Mars Pathfinder 01",
+        "pt": "Mars Pathfinder 01"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_01.jpg"
+    },
+    {
+      "id": "space-explorers:334",
+      "number": 334,
+      "names": {
+        "en": "Mars Pathfinder 02",
+        "pt": "Mars Pathfinder 02"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_02.jpg"
+    },
+    {
+      "id": "space-explorers:335",
+      "number": 335,
+      "names": {
+        "en": "Mars Pathfinder 03",
+        "pt": "Mars Pathfinder 03"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_03.jpg"
+    },
+    {
+      "id": "space-explorers:336",
+      "number": 336,
+      "names": {
+        "en": "Mars Pathfinder 04",
+        "pt": "Mars Pathfinder 04"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_04.jpg"
+    },
+    {
+      "id": "space-explorers:337",
+      "number": 337,
+      "names": {
+        "en": "Mars Pathfinder 05",
+        "pt": "Mars Pathfinder 05"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_05.JPG"
+    },
+    {
+      "id": "space-explorers:338",
+      "number": 338,
+      "names": {
+        "en": "Mars Pathfinder 06",
+        "pt": "Mars Pathfinder 06"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_06.jpg"
+    },
+    {
+      "id": "space-explorers:339",
+      "number": 339,
+      "names": {
+        "en": "Mars Pathfinder 07",
+        "pt": "Mars Pathfinder 07"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_07.jpg"
+    },
+    {
+      "id": "space-explorers:340",
+      "number": 340,
+      "names": {
+        "en": "Mars Pathfinder 08",
+        "pt": "Mars Pathfinder 08"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_08.jpg"
+    },
+    {
+      "id": "space-explorers:341",
+      "number": 341,
+      "names": {
+        "en": "Mars Pathfinder 09",
+        "pt": "Mars Pathfinder 09"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_09.jpg"
+    },
+    {
+      "id": "space-explorers:342",
+      "number": 342,
+      "names": {
+        "en": "Mars Pathfinder 10",
+        "pt": "Mars Pathfinder 10"
+      },
+      "image": "stickers/1997_Mars_Pathfinder_10.jpg"
+    },
+    {
+      "id": "space-explorers:343",
+      "number": 343,
+      "names": {
+        "en": "Estação Espacial Internacional 01",
+        "pt": "Estação Espacial Internacional 01"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_01.jpg"
+    },
+    {
+      "id": "space-explorers:344",
+      "number": 344,
+      "names": {
+        "en": "Estação Espacial Internacional 02",
+        "pt": "Estação Espacial Internacional 02"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_02.jpg"
+    },
+    {
+      "id": "space-explorers:345",
+      "number": 345,
+      "names": {
+        "en": "Estação Espacial Internacional 03",
+        "pt": "Estação Espacial Internacional 03"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_03.jpg"
+    },
+    {
+      "id": "space-explorers:346",
+      "number": 346,
+      "names": {
+        "en": "Estação Espacial Internacional 04",
+        "pt": "Estação Espacial Internacional 04"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_04.jpg"
+    },
+    {
+      "id": "space-explorers:347",
+      "number": 347,
+      "names": {
+        "en": "Estação Espacial Internacional 05",
+        "pt": "Estação Espacial Internacional 05"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_05.jpg"
+    },
+    {
+      "id": "space-explorers:348",
+      "number": 348,
+      "names": {
+        "en": "Estação Espacial Internacional 06",
+        "pt": "Estação Espacial Internacional 06"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_06.jpg"
+    },
+    {
+      "id": "space-explorers:349",
+      "number": 349,
+      "names": {
+        "en": "Estação Espacial Internacional 07",
+        "pt": "Estação Espacial Internacional 07"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_07.jpg"
+    },
+    {
+      "id": "space-explorers:350",
+      "number": 350,
+      "names": {
+        "en": "Estação Espacial Internacional 08",
+        "pt": "Estação Espacial Internacional 08"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_08.jpg"
+    },
+    {
+      "id": "space-explorers:351",
+      "number": 351,
+      "names": {
+        "en": "Estação Espacial Internacional 09",
+        "pt": "Estação Espacial Internacional 09"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_09.jpg"
+    },
+    {
+      "id": "space-explorers:352",
+      "number": 352,
+      "names": {
+        "en": "Estação Espacial Internacional 10",
+        "pt": "Estação Espacial Internacional 10"
+      },
+      "image": "stickers/1998_Estação_Espacial_Internacional_10.jpg"
+    },
+    {
+      "id": "space-explorers:353",
+      "number": 353,
+      "names": {
+        "en": "Rover Spirit 01",
+        "pt": "Rover Spirit 01"
+      },
+      "image": "stickers/2003_Rover_Spirit_01.jpg"
+    },
+    {
+      "id": "space-explorers:354",
+      "number": 354,
+      "names": {
+        "en": "Rover Spirit 02",
+        "pt": "Rover Spirit 02"
+      },
+      "image": "stickers/2003_Rover_Spirit_02.jpg"
+    },
+    {
+      "id": "space-explorers:355",
+      "number": 355,
+      "names": {
+        "en": "Rover Spirit 03",
+        "pt": "Rover Spirit 03"
+      },
+      "image": "stickers/2003_Rover_Spirit_03.jpg"
+    },
+    {
+      "id": "space-explorers:356",
+      "number": 356,
+      "names": {
+        "en": "Rover Spirit 04",
+        "pt": "Rover Spirit 04"
+      },
+      "image": "stickers/2003_Rover_Spirit_04.jpg"
+    },
+    {
+      "id": "space-explorers:357",
+      "number": 357,
+      "names": {
+        "en": "Rover Spirit 05",
+        "pt": "Rover Spirit 05"
+      },
+      "image": "stickers/2003_Rover_Spirit_05.jpg"
+    },
+    {
+      "id": "space-explorers:358",
+      "number": 358,
+      "names": {
+        "en": "Rover Spirit 06",
+        "pt": "Rover Spirit 06"
+      },
+      "image": "stickers/2003_Rover_Spirit_06.jpg"
+    },
+    {
+      "id": "space-explorers:359",
+      "number": 359,
+      "names": {
+        "en": "Rover Spirit 07",
+        "pt": "Rover Spirit 07"
+      },
+      "image": "stickers/2003_Rover_Spirit_07.jpg"
+    },
+    {
+      "id": "space-explorers:360",
+      "number": 360,
+      "names": {
+        "en": "Rover Spirit 08",
+        "pt": "Rover Spirit 08"
+      },
+      "image": "stickers/2003_Rover_Spirit_08.jpg"
+    },
+    {
+      "id": "space-explorers:361",
+      "number": 361,
+      "names": {
+        "en": "Rover Spirit 09",
+        "pt": "Rover Spirit 09"
+      },
+      "image": "stickers/2003_Rover_Spirit_09.jpg"
+    },
+    {
+      "id": "space-explorers:362",
+      "number": 362,
+      "names": {
+        "en": "Rover Spirit 10",
+        "pt": "Rover Spirit 10"
+      },
+      "image": "stickers/2003_Rover_Spirit_10.jpg"
+    },
+    {
+      "id": "space-explorers:363",
+      "number": 363,
+      "names": {
+        "en": "Rosetta 08",
+        "pt": "Rosetta 08"
+      },
+      "image": "stickers/2004_Rosetta_08.jpg"
+    },
+    {
+      "id": "space-explorers:364",
+      "number": 364,
+      "names": {
+        "en": "Rosetta 09",
+        "pt": "Rosetta 09"
+      },
+      "image": "stickers/2004_Rosetta_09.jpg"
+    },
+    {
+      "id": "space-explorers:365",
+      "number": 365,
+      "names": {
+        "en": "Rosetta 10",
+        "pt": "Rosetta 10"
+      },
+      "image": "stickers/2004_Rosetta_10.jpg"
+    },
+    {
+      "id": "space-explorers:366",
+      "number": 366,
+      "names": {
+        "en": "Rover Opportunity 01",
+        "pt": "Rover Opportunity 01"
+      },
+      "image": "stickers/2004_Rover_Opportunity_01.jpg"
+    },
+    {
+      "id": "space-explorers:367",
+      "number": 367,
+      "names": {
+        "en": "Rover Opportunity 02",
+        "pt": "Rover Opportunity 02"
+      },
+      "image": "stickers/2004_Rover_Opportunity_02.jpg"
+    },
+    {
+      "id": "space-explorers:368",
+      "number": 368,
+      "names": {
+        "en": "Rover Opportunity 03",
+        "pt": "Rover Opportunity 03"
+      },
+      "image": "stickers/2004_Rover_Opportunity_03.jpg"
+    },
+    {
+      "id": "space-explorers:369",
+      "number": 369,
+      "names": {
+        "en": "Rover Opportunity 04",
+        "pt": "Rover Opportunity 04"
+      },
+      "image": "stickers/2004_Rover_Opportunity_04.jpg"
+    },
+    {
+      "id": "space-explorers:370",
+      "number": 370,
+      "names": {
+        "en": "Rover Opportunity 05",
+        "pt": "Rover Opportunity 05"
+      },
+      "image": "stickers/2004_Rover_Opportunity_05.jpg"
+    },
+    {
+      "id": "space-explorers:371",
+      "number": 371,
+      "names": {
+        "en": "Rover Opportunity 06",
+        "pt": "Rover Opportunity 06"
+      },
+      "image": "stickers/2004_Rover_Opportunity_06.jpg"
+    },
+    {
+      "id": "space-explorers:372",
+      "number": 372,
+      "names": {
+        "en": "Rover Opportunity 07",
+        "pt": "Rover Opportunity 07"
+      },
+      "image": "stickers/2004_Rover_Opportunity_07.jpg"
+    },
+    {
+      "id": "space-explorers:373",
+      "number": 373,
+      "names": {
+        "en": "Rover Opportunity 08",
+        "pt": "Rover Opportunity 08"
+      },
+      "image": "stickers/2004_Rover_Opportunity_08.jpg"
+    },
+    {
+      "id": "space-explorers:374",
+      "number": 374,
+      "names": {
+        "en": "Rover Opportunity 09",
+        "pt": "Rover Opportunity 09"
+      },
+      "image": "stickers/2004_Rover_Opportunity_09.jpg"
+    },
+    {
+      "id": "space-explorers:375",
+      "number": 375,
+      "names": {
+        "en": "Rover Opportunity 10",
+        "pt": "Rover Opportunity 10"
+      },
+      "image": "stickers/2004_Rover_Opportunity_10.jpeg"
+    },
+    {
+      "id": "space-explorers:376",
+      "number": 376,
+      "names": {
+        "en": "New Horizons 01",
+        "pt": "New Horizons 01"
+      },
+      "image": "stickers/2006_New_Horizons_01.jpg"
+    },
+    {
+      "id": "space-explorers:377",
+      "number": 377,
+      "names": {
+        "en": "New Horizons 02",
+        "pt": "New Horizons 02"
+      },
+      "image": "stickers/2006_New_Horizons_02.jpg"
+    },
+    {
+      "id": "space-explorers:378",
+      "number": 378,
+      "names": {
+        "en": "New Horizons 03",
+        "pt": "New Horizons 03"
+      },
+      "image": "stickers/2006_New_Horizons_03.jpg"
+    },
+    {
+      "id": "space-explorers:379",
+      "number": 379,
+      "names": {
+        "en": "New Horizons 04",
+        "pt": "New Horizons 04"
+      },
+      "image": "stickers/2006_New_Horizons_04.jpg"
+    },
+    {
+      "id": "space-explorers:380",
+      "number": 380,
+      "names": {
+        "en": "New Horizons 05",
+        "pt": "New Horizons 05"
+      },
+      "image": "stickers/2006_New_Horizons_05.jpg"
+    },
+    {
+      "id": "space-explorers:381",
+      "number": 381,
+      "names": {
+        "en": "New Horizons 06",
+        "pt": "New Horizons 06"
+      },
+      "image": "stickers/2006_New_Horizons_06.jpg"
+    },
+    {
+      "id": "space-explorers:382",
+      "number": 382,
+      "names": {
+        "en": "New Horizons 07",
+        "pt": "New Horizons 07"
+      },
+      "image": "stickers/2006_New_Horizons_07.jpg"
+    },
+    {
+      "id": "space-explorers:383",
+      "number": 383,
+      "names": {
+        "en": "New Horizons 08",
+        "pt": "New Horizons 08"
+      },
+      "image": "stickers/2006_New_Horizons_08.jpg"
+    },
+    {
+      "id": "space-explorers:384",
+      "number": 384,
+      "names": {
+        "en": "New Horizons 09",
+        "pt": "New Horizons 09"
+      },
+      "image": "stickers/2006_New_Horizons_09.jpg"
+    },
+    {
+      "id": "space-explorers:385",
+      "number": 385,
+      "names": {
+        "en": "New Horizons 10",
+        "pt": "New Horizons 10"
+      },
+      "image": "stickers/2006_New_Horizons_10.jpg"
+    },
+    {
+      "id": "space-explorers:386",
+      "number": 386,
+      "names": {
+        "en": "Telescópio Espacial Kepler 01",
+        "pt": "Telescópio Espacial Kepler 01"
+      },
+      "image": "stickers/2009_Telescópio_Espacial_Kepler_01.webp"
+    },
+    {
+      "id": "space-explorers:387",
+      "number": 387,
+      "names": {
+        "en": "Rover Curiosity 01",
+        "pt": "Rover Curiosity 01"
+      },
+      "image": "stickers/2011_Rover_Curiosity_01.jpg"
+    },
+    {
+      "id": "space-explorers:388",
+      "number": 388,
+      "names": {
+        "en": "Rover Curiosity 02",
+        "pt": "Rover Curiosity 02"
+      },
+      "image": "stickers/2011_Rover_Curiosity_02.jpeg"
+    },
+    {
+      "id": "space-explorers:389",
+      "number": 389,
+      "names": {
+        "en": "Rover Curiosity 03",
+        "pt": "Rover Curiosity 03"
+      },
+      "image": "stickers/2011_Rover_Curiosity_03.jpg"
+    },
+    {
+      "id": "space-explorers:390",
+      "number": 390,
+      "names": {
+        "en": "Rover Curiosity 04",
+        "pt": "Rover Curiosity 04"
+      },
+      "image": "stickers/2011_Rover_Curiosity_04.jpg"
+    },
+    {
+      "id": "space-explorers:391",
+      "number": 391,
+      "names": {
+        "en": "Rover Curiosity 05",
+        "pt": "Rover Curiosity 05"
+      },
+      "image": "stickers/2011_Rover_Curiosity_05.jpg"
+    },
+    {
+      "id": "space-explorers:392",
+      "number": 392,
+      "names": {
+        "en": "Rover Curiosity 06",
+        "pt": "Rover Curiosity 06"
+      },
+      "image": "stickers/2011_Rover_Curiosity_06.jpg"
+    },
+    {
+      "id": "space-explorers:393",
+      "number": 393,
+      "names": {
+        "en": "Rover Curiosity 07",
+        "pt": "Rover Curiosity 07"
+      },
+      "image": "stickers/2011_Rover_Curiosity_07.jpg"
+    },
+    {
+      "id": "space-explorers:394",
+      "number": 394,
+      "names": {
+        "en": "Rover Curiosity 08",
+        "pt": "Rover Curiosity 08"
+      },
+      "image": "stickers/2011_Rover_Curiosity_08.jpg"
+    },
+    {
+      "id": "space-explorers:395",
+      "number": 395,
+      "names": {
+        "en": "Rover Curiosity 09",
+        "pt": "Rover Curiosity 09"
+      },
+      "image": "stickers/2011_Rover_Curiosity_09.jpg"
+    },
+    {
+      "id": "space-explorers:396",
+      "number": 396,
+      "names": {
+        "en": "Rover Curiosity 10",
+        "pt": "Rover Curiosity 10"
+      },
+      "image": "stickers/2011_Rover_Curiosity_10.jpg"
+    },
+    {
+      "id": "space-explorers:397",
+      "number": 397,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 01",
+        "pt": "Voyager 1 Na Interestelar 01"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_01.webp"
+    },
+    {
+      "id": "space-explorers:398",
+      "number": 398,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 02",
+        "pt": "Voyager 1 Na Interestelar 02"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_02.jpg"
+    },
+    {
+      "id": "space-explorers:399",
+      "number": 399,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 03",
+        "pt": "Voyager 1 Na Interestelar 03"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_03.jpg"
+    },
+    {
+      "id": "space-explorers:400",
+      "number": 400,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 04",
+        "pt": "Voyager 1 Na Interestelar 04"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_04.jpg"
+    },
+    {
+      "id": "space-explorers:401",
+      "number": 401,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 05",
+        "pt": "Voyager 1 Na Interestelar 05"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_05.jpg"
+    },
+    {
+      "id": "space-explorers:402",
+      "number": 402,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 06",
+        "pt": "Voyager 1 Na Interestelar 06"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_06.png"
+    },
+    {
+      "id": "space-explorers:403",
+      "number": 403,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 07",
+        "pt": "Voyager 1 Na Interestelar 07"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_07.jpg"
+    },
+    {
+      "id": "space-explorers:404",
+      "number": 404,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 08",
+        "pt": "Voyager 1 Na Interestelar 08"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_08.jpg"
+    },
+    {
+      "id": "space-explorers:405",
+      "number": 405,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 09",
+        "pt": "Voyager 1 Na Interestelar 09"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_09.jpg"
+    },
+    {
+      "id": "space-explorers:406",
+      "number": 406,
+      "names": {
+        "en": "Voyager 1 Na Interestelar 10",
+        "pt": "Voyager 1 Na Interestelar 10"
+      },
+      "image": "stickers/2012_Voyager_1_na_Interestelar_10.jpg"
+    },
+    {
+      "id": "space-explorers:407",
+      "number": 407,
+      "names": {
+        "en": "Dawn 02",
+        "pt": "Dawn 02"
+      },
+      "image": "stickers/2015_Dawn_02.jpg"
+    },
+    {
+      "id": "space-explorers:408",
+      "number": 408,
+      "names": {
+        "en": "Dawn 03",
+        "pt": "Dawn 03"
+      },
+      "image": "stickers/2015_Dawn_03.jpg"
+    },
+    {
+      "id": "space-explorers:409",
+      "number": 409,
+      "names": {
+        "en": "Parker Solar Probe 01",
+        "pt": "Parker Solar Probe 01"
+      },
+      "image": "stickers/2018_Parker_Solar_Probe_01.jpg"
+    },
+    {
+      "id": "space-explorers:410",
+      "number": 410,
+      "names": {
+        "en": "Rover Perseverance 01",
+        "pt": "Rover Perseverance 01"
+      },
+      "image": "stickers/2020_Rover_Perseverance_01.jpg"
+    },
+    {
+      "id": "space-explorers:411",
+      "number": 411,
+      "names": {
+        "en": "Rover Perseverance 02",
+        "pt": "Rover Perseverance 02"
+      },
+      "image": "stickers/2020_Rover_Perseverance_02.jpg"
+    },
+    {
+      "id": "space-explorers:412",
+      "number": 412,
+      "names": {
+        "en": "Rover Perseverance 03",
+        "pt": "Rover Perseverance 03"
+      },
+      "image": "stickers/2020_Rover_Perseverance_03.jpg"
+    },
+    {
+      "id": "space-explorers:413",
+      "number": 413,
+      "names": {
+        "en": "Rover Perseverance 04",
+        "pt": "Rover Perseverance 04"
+      },
+      "image": "stickers/2020_Rover_Perseverance_04.jpg"
+    },
+    {
+      "id": "space-explorers:414",
+      "number": 414,
+      "names": {
+        "en": "Rover Perseverance 05",
+        "pt": "Rover Perseverance 05"
+      },
+      "image": "stickers/2020_Rover_Perseverance_05.jpg"
+    },
+    {
+      "id": "space-explorers:415",
+      "number": 415,
+      "names": {
+        "en": "Rover Perseverance 06",
+        "pt": "Rover Perseverance 06"
+      },
+      "image": "stickers/2020_Rover_Perseverance_06.jpg"
+    },
+    {
+      "id": "space-explorers:416",
+      "number": 416,
+      "names": {
+        "en": "Rover Perseverance 07",
+        "pt": "Rover Perseverance 07"
+      },
+      "image": "stickers/2020_Rover_Perseverance_07.jpg"
+    },
+    {
+      "id": "space-explorers:417",
+      "number": 417,
+      "names": {
+        "en": "Rover Perseverance 08",
+        "pt": "Rover Perseverance 08"
+      },
+      "image": "stickers/2020_Rover_Perseverance_08.jpg"
+    },
+    {
+      "id": "space-explorers:418",
+      "number": 418,
+      "names": {
+        "en": "Rover Perseverance 09",
+        "pt": "Rover Perseverance 09"
+      },
+      "image": "stickers/2020_Rover_Perseverance_09.jpg"
+    },
+    {
+      "id": "space-explorers:419",
+      "number": 419,
+      "names": {
+        "en": "Rover Perseverance 10",
+        "pt": "Rover Perseverance 10"
+      },
+      "image": "stickers/2020_Rover_Perseverance_10.jpg"
+    },
+    {
+      "id": "space-explorers:420",
+      "number": 420,
+      "names": {
+        "en": "Telescópio Espacial James Webb 01",
+        "pt": "Telescópio Espacial James Webb 01"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_01.png"
+    },
+    {
+      "id": "space-explorers:421",
+      "number": 421,
+      "names": {
+        "en": "Telescópio Espacial James Webb 02",
+        "pt": "Telescópio Espacial James Webb 02"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_02.png"
+    },
+    {
+      "id": "space-explorers:422",
+      "number": 422,
+      "names": {
+        "en": "Telescópio Espacial James Webb 03",
+        "pt": "Telescópio Espacial James Webb 03"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_03.jpg"
+    },
+    {
+      "id": "space-explorers:423",
+      "number": 423,
+      "names": {
+        "en": "Telescópio Espacial James Webb 04",
+        "pt": "Telescópio Espacial James Webb 04"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_04.jpg"
+    },
+    {
+      "id": "space-explorers:424",
+      "number": 424,
+      "names": {
+        "en": "Telescópio Espacial James Webb 05",
+        "pt": "Telescópio Espacial James Webb 05"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_05.jpg"
+    },
+    {
+      "id": "space-explorers:425",
+      "number": 425,
+      "names": {
+        "en": "Telescópio Espacial James Webb 06",
+        "pt": "Telescópio Espacial James Webb 06"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_06.jpg"
+    },
+    {
+      "id": "space-explorers:426",
+      "number": 426,
+      "names": {
+        "en": "Telescópio Espacial James Webb 07",
+        "pt": "Telescópio Espacial James Webb 07"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_07.jpg"
+    },
+    {
+      "id": "space-explorers:427",
+      "number": 427,
+      "names": {
+        "en": "Telescópio Espacial James Webb 08",
+        "pt": "Telescópio Espacial James Webb 08"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_08.gif"
+    },
+    {
+      "id": "space-explorers:428",
+      "number": 428,
+      "names": {
+        "en": "Telescópio Espacial James Webb 09",
+        "pt": "Telescópio Espacial James Webb 09"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_09.jpg"
+    },
+    {
+      "id": "space-explorers:429",
+      "number": 429,
+      "names": {
+        "en": "Telescópio Espacial James Webb 10",
+        "pt": "Telescópio Espacial James Webb 10"
+      },
+      "image": "stickers/2021_Telescópio_Espacial_James_Webb_10.jpg"
     }
   ]
 }
