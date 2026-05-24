@@ -110,6 +110,12 @@ export function StickerFramePreview({
       ? ({ pointerEvents: 'none' } as const)
       : undefined;
 
+  // DOM <iframe> does not accept RN style arrays (throws on CSSStyleDeclaration).
+  const iframeStyle = useMemo(
+    () => StyleSheet.flatten([styles.iframe, passthrough]),
+    [styles.iframe, passthrough],
+  );
+
   return (
     <View
       style={[styles.wrap, passthrough]}
@@ -119,7 +125,7 @@ export function StickerFramePreview({
       <iframe
         title={accessibilityLabel}
         srcDoc={html}
-        style={[styles.iframe, passthrough] as object}
+        style={iframeStyle}
         sandbox="allow-same-origin"
       />
     </View>
