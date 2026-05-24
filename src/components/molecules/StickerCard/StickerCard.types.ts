@@ -7,4 +7,6 @@ export type StickerCardProps = {
   isNew?: boolean;
   rarity?: string;
   onPress?: () => void;
+  /** Lets parent Pressable receive taps on the frame (web iframe). */
+  pointerEventsDisabled?: boolean;
 };

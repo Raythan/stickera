@@ -9,4 +9,6 @@ export type StickerFramePreviewProps = {
   owned?: boolean;
   width?: number;
   height?: number;
+  /** When true, iframe ignores pointer events so parent Pressable receives taps (web). */
+  pointerEventsDisabled?: boolean;
 };

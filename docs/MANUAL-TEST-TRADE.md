@@ -24,7 +24,10 @@
 ## Hub UX checks
 
 - **Create offer** and **Accept offer** buttons at **top** of trade tab.
-- **Your offers:** preview + **Copy payload again** while pending.
+- **Your offers:** only **pending** sent offers (not expired, not completed); preview + **Copy payload again**.
+- After partner accepts or offer expires: row leaves **Your offers**; completed trades appear under **Completed trades** (expand history).
+- Bundle labels: **Enviado** / **Recebido** (not "You give/receive").
+- Create offer: tap anywhere on sticker cell (including art) toggles selection.
 - No **Finish my offer** / ack paste section.
 - **Completed trades:** `TradeCompletedSummary` in collapsed history.
 

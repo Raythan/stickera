@@ -66,6 +66,21 @@ if (fs.existsSync(iconSrc)) {
 
 execSync('node scripts/write-sw.mjs dist/sw.js', { cwd: ROOT, stdio: 'inherit' });
 
+const publicDir = path.join(ROOT, 'public');
+const pwaFiles = [
+  'manifest.webmanifest',
+  'sw.js',
+  'icon-192.png',
+  'icon-512.png',
+  'icon.svg',
+];
+for (const name of pwaFiles) {
+  const src = path.join(publicDir, name);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(dist, name));
+  }
+}
+
 const pkgVersion = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 const manifestPath = path.join(dist, 'manifest.webmanifest');
 if (fs.existsSync(manifestPath)) {
@@ -80,5 +95,7 @@ const indexHtml = path.join(dist, 'index.html');
 if (fs.existsSync(indexHtml)) {
   fs.copyFileSync(indexHtml, path.join(dist, '404.html'));
 }
+
+execSync('node scripts/validate-pwa.mjs dist', { cwd: ROOT, stdio: 'inherit' });
 
 console.log('✅ dist/ ready for GitHub Pages (PWA + content)');

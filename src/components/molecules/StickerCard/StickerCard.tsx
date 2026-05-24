@@ -80,6 +80,7 @@ export function StickerCard({
   isNew,
   rarity,
   onPress,
+  pointerEventsDisabled: pointerEventsDisabledProp,
 }: StickerCardProps) {
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -87,6 +88,7 @@ export function StickerCard({
   const owned = quantity > 0;
   const rarityTier = rarity && isStickerRarity(rarity) ? rarity : undefined;
   const showNewAlert = isNew && owned;
+  const pointerEventsDisabled = pointerEventsDisabledProp ?? Boolean(onPress);
 
   const content = (
     <View style={styles.wrap}>
@@ -98,6 +100,7 @@ export function StickerCard({
             accessibilityLabel={name}
             rarity={rarityTier}
             owned={owned}
+            pointerEventsDisabled={pointerEventsDisabled}
           />
           {showNewAlert ? (
             <View

@@ -56,6 +56,19 @@ Horizontal carousel (Netflix-style peek). Used by album/sticker organisms, pack 
 - Scale via `Animated` + `onScroll`; `focusRadius = itemStride * 0.5`.
 - `nestedScrollEnabled` inside vertical `ScreenTemplate`.
 
+#### `StickerDetailModal` (`src/components/molecules/StickerDetailModal/`)
+
+Modal com moldura grande (~338px), nome, quantidade e raridade. Usado em `AlbumStickerGrid`, `PackReveal`, `TradeBundlePreview`.
+
+#### `StickerFramePreview` / `StickerCard`
+
+- `pointerEventsDisabled` no iframe (web) quando o pai é `Pressable` — toque na arte da figurinha propaga.
+- `StickerCard`: `onPress` abre detalhe; `pointerEventsDisabled` explícito em células de seleção de troca.
+
+#### `AlbumListCard`
+
+Card inteiro (título, progresso, capa) abre o álbum; toggle de pool separado. Sem botão "Ver álbum".
+
 ### Organisms (`src/components/organisms/`)
 
 - Full sections: `AlbumGrid`, `PackRevealCarousel`, `TradeOfferSummary`.

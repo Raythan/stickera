@@ -117,7 +117,9 @@ export function AlbumListCard({
               {error}
             </Text>
           ) : null}
-          {css ? <StickerFramePreview frameCss={css} artUri={artUri} /> : null}
+          {css ? (
+            <StickerFramePreview frameCss={css} artUri={artUri} pointerEventsDisabled />
+          ) : null}
         </View>
       </Pressable>
       <Pressable

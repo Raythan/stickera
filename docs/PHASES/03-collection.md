@@ -20,11 +20,12 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 | `StickerCard` | molecule; medalha de raridade + qty ×N à direita da moldura |
 | `RarityMedalIcon` | atom; cor por tier (`src/theme/rarity.ts`) |
 | `CollectionListToolbar` | busca, contagem; filtro posse no detalhe (sem paginação) |
-| `AlbumListCard` | toggle pool por álbum na home |
+| `AlbumListCard` | card pressionável (capa abre álbum); toggle pool |
+| `StickerDetailModal` | detalhe da figurinha (modal) |
 
 ## Rotas
 
-- `app/(tabs)/index.tsx` — home álbuns (busca, carrossel, toggle pool)
+- `app/(tabs)/index.tsx` — home álbuns (dica pool, busca, carrossel; sem hero)
 - `app/album/[id].tsx` — detalhe (busca, filtro posse, carrossel)
 - `app/(tabs)/settings.tsx` — admin unlock (idioma/tema/sync no `HeaderMenu`)
 
@@ -42,11 +43,12 @@ Usuário vê álbuns, habilita/desabilita para pool de pacotes, vê progresso e 
 - Detalhe do álbum: busca por nome/id da figurinha, filtro `all|owned|missing`; carrossel sem paginação
 - `PeekCarousel`: `FlatList` linear (início→fim); snap ao centro ao soltar; narrow/wide com peeks 80%; wide: setas chevron sem texto
 - Lógica de lista: `src/domain/collection/listQuery.ts` + `useCollectionListControls` (`paginate: false`)
+- `StickerFramePreview`: `pointerEventsDisabled` no web para o `Pressable` pai receber toque na moldura
+- Toque na capa do álbum ou na figurinha dispara a mesma ação do card (detalhe ou navegação)
 
 ## i18n novas chaves (mínimo)
 
 ```
-screens.home.title
 screens.home.packPoolToggle
 screens.album.progress
 collection.quantity
@@ -64,8 +66,8 @@ screens.settings.themeLight|Dark|Bloom|Ocean
 - [x] Figurinha não possuída: moldura `--locked` + medalha/contador apagados; ao obter, volta ao normal
 - [x] Troca de idioma re-renderiza `nameKey`
 - [x] Rotas usam `ScreenTemplate`
-- [x] Busca na home (álbuns) em carrossel infinito
-- [x] Busca + filtro posse no detalhe do álbum em carrossel infinito
+- [x] Busca na home (álbuns) em carrossel linear
+- [x] Busca + filtro posse no detalhe do álbum em carrossel linear
 - [x] Medalha de raridade + contador ×N à direita da moldura (sem badge textual de raridade)
 - [x] `frame.css` com modificadores `--common` … `--legendary` e `--locked`
 

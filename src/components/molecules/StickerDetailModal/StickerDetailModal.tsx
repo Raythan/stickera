@@ -11,7 +11,7 @@ import { useThemedStyles } from '@/theme/useThemedStyles';
 
 import type { StickerDetailModalProps } from './StickerDetailModal.types';
 
-const DETAIL_WIDTH = 260;
+const DETAIL_WIDTH = 338;
 const DETAIL_HEIGHT = Math.round(DETAIL_WIDTH * (160 / 120));
 
 function createStyles(theme: AppTheme) {
@@ -25,14 +25,14 @@ function createStyles(theme: AppTheme) {
     },
     sheet: {
       width: '100%',
-      maxWidth: 360,
+      maxWidth: 400,
       backgroundColor: theme.colors.surface,
       borderRadius: 20,
-      padding: theme.spacing.lg,
+      padding: theme.spacing.md,
       borderWidth: 1,
       borderColor: theme.colors.border,
       alignItems: 'center',
-      gap: theme.spacing.md,
+      gap: theme.spacing.sm,
     },
     header: {
       width: '100%',
@@ -53,6 +53,7 @@ function createStyles(theme: AppTheme) {
     },
     preview: {
       alignItems: 'center',
+      marginVertical: 0,
     },
     meta: {
       width: '100%',

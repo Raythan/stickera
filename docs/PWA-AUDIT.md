@@ -2,6 +2,16 @@
 
 > Portfolio / Phase 6. Run after deploy to [GitHub Pages](https://raythan.github.io/stickera/).
 
+## Build validation (CI / local)
+
+After `npm run build:web`:
+
+```bash
+npm run validate:pwa
+```
+
+Checks `dist/manifest.webmanifest`, `dist/sw.js`, icons, `start_url`/`scope` `/stickera/`, `display: standalone`.
+
 ## Installability
 
 - [ ] Chrome mobile: menu → **Install app** / **Add to Home Screen**

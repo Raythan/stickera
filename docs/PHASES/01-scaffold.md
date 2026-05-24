@@ -58,7 +58,7 @@ Migrar para estrutura em `docs/ARCHITECTURE.md` (pastas `src/`).
 Chaves obrigatórias antes de sair da fase 1:
 
 ```
-screens.home.title
+screens.home.packPoolHint
 nav.languageMenu
 nav.themeMenu
 screens.settings.themeLight|Dark|Bloom|Ocean

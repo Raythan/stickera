@@ -1,6 +1,6 @@
 {
   "name": "stickera",
-  "version": "0.1.0-mvp",
+  "version": "0.1.1-mvp",
   "private": true,
   "description": "Offline sticker album — PWA",
   "main": "expo-router/entry",
@@ -19,6 +19,7 @@
     "validate:structure": "node scripts/validate-structure.mjs",
     "validate:structure:strict": "node scripts/validate-structure.mjs --strict",
     "validate:bundle": "node scripts/validate-bundle.mjs",
+    "validate:pwa": "node scripts/validate-pwa.mjs",
     "mvp:status": "node scripts/mvp-status.mjs",
     "hash:admin": "node scripts/hash-admin-code.mjs",
     "validate": "npm run validate:structure && npm run validate:content && npm run validate:i18n && npm run validate:bundle",

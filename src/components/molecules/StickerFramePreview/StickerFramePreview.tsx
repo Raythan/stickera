@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
 import type { AppTheme } from '@/theme/presets';
 import { useThemedStyles } from '@/theme/useThemedStyles';
@@ -93,6 +93,7 @@ export function StickerFramePreview({
   owned = true,
   width = DEFAULT_WIDTH,
   height = DEFAULT_HEIGHT,
+  pointerEventsDisabled = false,
 }: StickerFramePreviewProps) {
   const styles = useThemedStyles((theme) => createStyles(theme, width, height));
   const html = useMemo(
@@ -100,12 +101,21 @@ export function StickerFramePreview({
     [frameCss, artUri, rarity, owned],
   );
 
+  const passthrough =
+    pointerEventsDisabled && Platform.OS === 'web'
+      ? ({ pointerEvents: 'none' } as const)
+      : undefined;
+
   return (
-    <View style={styles.wrap} accessibilityLabel={accessibilityLabel}>
+    <View
+      style={[styles.wrap, passthrough]}
+      accessibilityLabel={accessibilityLabel}
+      pointerEvents={pointerEventsDisabled ? 'box-none' : 'auto'}
+    >
       <iframe
         title={accessibilityLabel}
         srcDoc={html}
-        style={styles.iframe as object}
+        style={[styles.iframe, passthrough] as object}
         sandbox="allow-same-origin"
       />
     </View>

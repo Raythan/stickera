@@ -89,6 +89,7 @@ export function TradeStickerSelectGrid({
                 frameCss={item.frameCss}
                 quantity={item.quantity}
                 rarity={item.rarity}
+                pointerEventsDisabled
               />
             </Pressable>
           );

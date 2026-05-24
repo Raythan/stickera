@@ -1,12 +1,9 @@
 {
   "screens": {
     "home": {
-      "title": "My Albums",
-      "subtitle": "Collect stickers, open timed packs, trade duplicates.",
       "comingSoon": "Albums sync in Phase 2",
       "packPoolHint": "Toggle each album to include or exclude it when opening packs.",
-      "packPoolToggle": "Enable when opening packs",
-      "openPack": "Open pack"
+      "packPoolToggle": "Enable when opening packs"
     },
     "pack": {
       "title": "Open pack",
@@ -28,8 +25,7 @@
       "contentVersion": "Content version: {{version}}"
     },
     "album": {
-      "progress": "{{owned}} / {{total}}",
-      "openAlbum": "View album"
+      "progress": "{{owned}} / {{total}}"
     },
     "collection": {
       "searchPlaceholderAlbums": "Search albums…",
