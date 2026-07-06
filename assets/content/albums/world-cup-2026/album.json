@@ -1,54 +1,1194 @@
 {
   "id": "world-cup-2026",
-  "revision": 1,
+  "revision": 2,
   "frameStylePath": "frame.css",
-  "totalStickers": 4,
+  "totalStickers": 118,
   "names": {
     "en": "FIFA World Cup 2026",
     "pt": "Copa do Mundo 2026"
   },
-  "coverImage": "stickers/01-neymar.jpeg",
+  "coverImage": "stickers/2026_Brazil_BRA_FW_Neymar_01.jpg",
   "packWeight": 1.25,
   "stickers": [
     {
       "id": "world-cup-2026:01",
       "number": 1,
-      "rarity": "legendary",
       "names": {
-        "en": "Neymar",
-        "pt": "Neymar"
+        "en": "Alex Sandro 01",
+        "pt": "Alex Sandro 01"
       },
-      "image": "stickers/01-neymar.jpeg"
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_01.jpg",
+      "rarity": "common"
     },
     {
       "id": "world-cup-2026:02",
       "number": 2,
-      "rarity": "rare",
       "names": {
-        "en": "Vinícius Jr.",
-        "pt": "Vinícius Jr."
+        "en": "Alex Sandro 02",
+        "pt": "Alex Sandro 02"
       },
-      "image": "stickers/02-vinicius-junior.jpeg"
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_02.jpg",
+      "rarity": "common"
     },
     {
       "id": "world-cup-2026:03",
       "number": 3,
-      "rarity": "rare",
       "names": {
-        "en": "Raphinha",
-        "pt": "Raphinha"
+        "en": "Alex Sandro 03",
+        "pt": "Alex Sandro 03"
       },
-      "image": "stickers/03-raphinha.jpeg"
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_03.jpg",
+      "rarity": "common"
     },
     {
       "id": "world-cup-2026:04",
       "number": 4,
-      "rarity": "uncommon",
       "names": {
-        "en": "Endrick",
-        "pt": "Endrick"
+        "en": "Alex Sandro 04",
+        "pt": "Alex Sandro 04"
       },
-      "image": "stickers/04-endrick.jpeg"
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_04.jpeg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:05",
+      "number": 5,
+      "names": {
+        "en": "Alex Sandro 05",
+        "pt": "Alex Sandro 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:06",
+      "number": 6,
+      "names": {
+        "en": "Alex Sandro 06",
+        "pt": "Alex Sandro 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:07",
+      "number": 7,
+      "names": {
+        "en": "Alex Sandro 07",
+        "pt": "Alex Sandro 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Alex_Sandro_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:08",
+      "number": 8,
+      "names": {
+        "en": "Bremer 01",
+        "pt": "Bremer 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Bremer_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:09",
+      "number": 9,
+      "names": {
+        "en": "Bremer 04",
+        "pt": "Bremer 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Bremer_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:10",
+      "number": 10,
+      "names": {
+        "en": "Bremer 05",
+        "pt": "Bremer 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Bremer_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:11",
+      "number": 11,
+      "names": {
+        "en": "Bremer 06",
+        "pt": "Bremer 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Bremer_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:12",
+      "number": 12,
+      "names": {
+        "en": "Bremer 07",
+        "pt": "Bremer 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Bremer_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:13",
+      "number": 13,
+      "names": {
+        "en": "Gabriel Magalhães 01",
+        "pt": "Gabriel Magalhães 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:14",
+      "number": 14,
+      "names": {
+        "en": "Gabriel Magalhães 02",
+        "pt": "Gabriel Magalhães 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:15",
+      "number": 15,
+      "names": {
+        "en": "Gabriel Magalhães 04",
+        "pt": "Gabriel Magalhães 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_04.jpeg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:16",
+      "number": 16,
+      "names": {
+        "en": "Gabriel Magalhães 05",
+        "pt": "Gabriel Magalhães 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:17",
+      "number": 17,
+      "names": {
+        "en": "Gabriel Magalhães 06",
+        "pt": "Gabriel Magalhães 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_06.png",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:18",
+      "number": 18,
+      "names": {
+        "en": "Gabriel Magalhães 07",
+        "pt": "Gabriel Magalhães 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Gabriel_Magalhães_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:19",
+      "number": 19,
+      "names": {
+        "en": "Léo Pereira 01",
+        "pt": "Léo Pereira 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Léo_Pereira_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:20",
+      "number": 20,
+      "names": {
+        "en": "Léo Pereira 02",
+        "pt": "Léo Pereira 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Léo_Pereira_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:21",
+      "number": 21,
+      "names": {
+        "en": "Léo Pereira 03",
+        "pt": "Léo Pereira 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Léo_Pereira_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:22",
+      "number": 22,
+      "names": {
+        "en": "Léo Pereira 05",
+        "pt": "Léo Pereira 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Léo_Pereira_05.jpeg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:23",
+      "number": 23,
+      "names": {
+        "en": "Léo Pereira 07",
+        "pt": "Léo Pereira 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Léo_Pereira_07.jpeg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:24",
+      "number": 24,
+      "names": {
+        "en": "Marquinhos 02",
+        "pt": "Marquinhos 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Marquinhos_02.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:25",
+      "number": 25,
+      "names": {
+        "en": "Marquinhos 03",
+        "pt": "Marquinhos 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Marquinhos_03.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:26",
+      "number": 26,
+      "names": {
+        "en": "Marquinhos 04",
+        "pt": "Marquinhos 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Marquinhos_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:27",
+      "number": 27,
+      "names": {
+        "en": "Marquinhos 05",
+        "pt": "Marquinhos 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Marquinhos_05.png",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:28",
+      "number": 28,
+      "names": {
+        "en": "Marquinhos 07",
+        "pt": "Marquinhos 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_DF_Marquinhos_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:29",
+      "number": 29,
+      "names": {
+        "en": "Endrick 01",
+        "pt": "Endrick 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_01.jpeg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:30",
+      "number": 30,
+      "names": {
+        "en": "Endrick 02",
+        "pt": "Endrick 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:31",
+      "number": 31,
+      "names": {
+        "en": "Endrick 03",
+        "pt": "Endrick 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:32",
+      "number": 32,
+      "names": {
+        "en": "Endrick 04",
+        "pt": "Endrick 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:33",
+      "number": 33,
+      "names": {
+        "en": "Endrick 05",
+        "pt": "Endrick 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:34",
+      "number": 34,
+      "names": {
+        "en": "Endrick 06",
+        "pt": "Endrick 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:35",
+      "number": 35,
+      "names": {
+        "en": "Endrick 07",
+        "pt": "Endrick 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Endrick_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:36",
+      "number": 36,
+      "names": {
+        "en": "Gabriel Martinelli 01",
+        "pt": "Gabriel Martinelli 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:37",
+      "number": 37,
+      "names": {
+        "en": "Gabriel Martinelli 02",
+        "pt": "Gabriel Martinelli 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:38",
+      "number": 38,
+      "names": {
+        "en": "Gabriel Martinelli 03",
+        "pt": "Gabriel Martinelli 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:39",
+      "number": 39,
+      "names": {
+        "en": "Gabriel Martinelli 04",
+        "pt": "Gabriel Martinelli 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:40",
+      "number": 40,
+      "names": {
+        "en": "Gabriel Martinelli 05",
+        "pt": "Gabriel Martinelli 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:41",
+      "number": 41,
+      "names": {
+        "en": "Gabriel Martinelli 06",
+        "pt": "Gabriel Martinelli 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Gabriel_Martinelli_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:42",
+      "number": 42,
+      "names": {
+        "en": "Matheus Cunha 01",
+        "pt": "Matheus Cunha 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_01.jpeg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:43",
+      "number": 43,
+      "names": {
+        "en": "Matheus Cunha 02",
+        "pt": "Matheus Cunha 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:44",
+      "number": 44,
+      "names": {
+        "en": "Matheus Cunha 03",
+        "pt": "Matheus Cunha 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:45",
+      "number": 45,
+      "names": {
+        "en": "Matheus Cunha 04",
+        "pt": "Matheus Cunha 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:46",
+      "number": 46,
+      "names": {
+        "en": "Matheus Cunha 05",
+        "pt": "Matheus Cunha 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:47",
+      "number": 47,
+      "names": {
+        "en": "Matheus Cunha 06",
+        "pt": "Matheus Cunha 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:48",
+      "number": 48,
+      "names": {
+        "en": "Matheus Cunha 07",
+        "pt": "Matheus Cunha 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Matheus_Cunha_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:49",
+      "number": 49,
+      "names": {
+        "en": "Neymar 01",
+        "pt": "Neymar 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:50",
+      "number": 50,
+      "names": {
+        "en": "Neymar 02",
+        "pt": "Neymar 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:51",
+      "number": 51,
+      "names": {
+        "en": "Neymar 03",
+        "pt": "Neymar 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:52",
+      "number": 52,
+      "names": {
+        "en": "Neymar 04",
+        "pt": "Neymar 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:53",
+      "number": 53,
+      "names": {
+        "en": "Neymar 05",
+        "pt": "Neymar 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_05.jpeg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:54",
+      "number": 54,
+      "names": {
+        "en": "Neymar 06",
+        "pt": "Neymar 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:55",
+      "number": 55,
+      "names": {
+        "en": "Neymar 07",
+        "pt": "Neymar 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Neymar_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:56",
+      "number": 56,
+      "names": {
+        "en": "Rayan 01",
+        "pt": "Rayan 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_01.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:57",
+      "number": 57,
+      "names": {
+        "en": "Rayan 02",
+        "pt": "Rayan 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:58",
+      "number": 58,
+      "names": {
+        "en": "Rayan 03",
+        "pt": "Rayan 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:59",
+      "number": 59,
+      "names": {
+        "en": "Rayan 04",
+        "pt": "Rayan 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_04.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:60",
+      "number": 60,
+      "names": {
+        "en": "Rayan 06",
+        "pt": "Rayan 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:61",
+      "number": 61,
+      "names": {
+        "en": "Rayan 07",
+        "pt": "Rayan 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Rayan_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:62",
+      "number": 62,
+      "names": {
+        "en": "Vinícius Júnior 01",
+        "pt": "Vinícius Júnior 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:63",
+      "number": 63,
+      "names": {
+        "en": "Vinícius Júnior 02",
+        "pt": "Vinícius Júnior 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:64",
+      "number": 64,
+      "names": {
+        "en": "Vinícius Júnior 03",
+        "pt": "Vinícius Júnior 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:65",
+      "number": 65,
+      "names": {
+        "en": "Vinícius Júnior 04",
+        "pt": "Vinícius Júnior 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:66",
+      "number": 66,
+      "names": {
+        "en": "Vinícius Júnior 05",
+        "pt": "Vinícius Júnior 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:67",
+      "number": 67,
+      "names": {
+        "en": "Vinícius Júnior 06",
+        "pt": "Vinícius Júnior 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:68",
+      "number": 68,
+      "names": {
+        "en": "Vinícius Júnior 07",
+        "pt": "Vinícius Júnior 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_FW_Vinícius_Júnior_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:69",
+      "number": 69,
+      "names": {
+        "en": "Alisson 01",
+        "pt": "Alisson 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:70",
+      "number": 70,
+      "names": {
+        "en": "Alisson 02",
+        "pt": "Alisson 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:71",
+      "number": 71,
+      "names": {
+        "en": "Alisson 03",
+        "pt": "Alisson 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:72",
+      "number": 72,
+      "names": {
+        "en": "Alisson 04",
+        "pt": "Alisson 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:73",
+      "number": 73,
+      "names": {
+        "en": "Alisson 05",
+        "pt": "Alisson 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:74",
+      "number": 74,
+      "names": {
+        "en": "Alisson 06",
+        "pt": "Alisson 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:75",
+      "number": 75,
+      "names": {
+        "en": "Alisson 07",
+        "pt": "Alisson 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Alisson_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:76",
+      "number": 76,
+      "names": {
+        "en": "Ederson Moraes 02",
+        "pt": "Ederson Moraes 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Ederson_Moraes_02.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:77",
+      "number": 77,
+      "names": {
+        "en": "Ederson Moraes 04",
+        "pt": "Ederson Moraes 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Ederson_Moraes_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:78",
+      "number": 78,
+      "names": {
+        "en": "Ederson Moraes 05",
+        "pt": "Ederson Moraes 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Ederson_Moraes_05.png",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:79",
+      "number": 79,
+      "names": {
+        "en": "Ederson Moraes 06",
+        "pt": "Ederson Moraes 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Ederson_Moraes_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:80",
+      "number": 80,
+      "names": {
+        "en": "Weverton 01",
+        "pt": "Weverton 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Weverton_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:81",
+      "number": 81,
+      "names": {
+        "en": "Weverton 02",
+        "pt": "Weverton 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Weverton_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:82",
+      "number": 82,
+      "names": {
+        "en": "Weverton 04",
+        "pt": "Weverton 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Weverton_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:83",
+      "number": 83,
+      "names": {
+        "en": "Weverton 05",
+        "pt": "Weverton 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Weverton_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:84",
+      "number": 84,
+      "names": {
+        "en": "Weverton 07",
+        "pt": "Weverton 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_GK_Weverton_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:85",
+      "number": 85,
+      "names": {
+        "en": "Bruno Guimarães 01",
+        "pt": "Bruno Guimarães 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:86",
+      "number": 86,
+      "names": {
+        "en": "Bruno Guimarães 02",
+        "pt": "Bruno Guimarães 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:87",
+      "number": 87,
+      "names": {
+        "en": "Bruno Guimarães 03",
+        "pt": "Bruno Guimarães 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:88",
+      "number": 88,
+      "names": {
+        "en": "Bruno Guimarães 04",
+        "pt": "Bruno Guimarães 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_04.jpeg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:89",
+      "number": 89,
+      "names": {
+        "en": "Bruno Guimarães 05",
+        "pt": "Bruno Guimarães 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:90",
+      "number": 90,
+      "names": {
+        "en": "Bruno Guimarães 06",
+        "pt": "Bruno Guimarães 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:91",
+      "number": 91,
+      "names": {
+        "en": "Bruno Guimarães 07",
+        "pt": "Bruno Guimarães 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Bruno_Guimarães_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:92",
+      "number": 92,
+      "names": {
+        "en": "Casemiro 01",
+        "pt": "Casemiro 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:93",
+      "number": 93,
+      "names": {
+        "en": "Casemiro 02",
+        "pt": "Casemiro 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:94",
+      "number": 94,
+      "names": {
+        "en": "Casemiro 03",
+        "pt": "Casemiro 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:95",
+      "number": 95,
+      "names": {
+        "en": "Casemiro 04",
+        "pt": "Casemiro 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:96",
+      "number": 96,
+      "names": {
+        "en": "Casemiro 05",
+        "pt": "Casemiro 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:97",
+      "number": 97,
+      "names": {
+        "en": "Casemiro 06",
+        "pt": "Casemiro 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:98",
+      "number": 98,
+      "names": {
+        "en": "Casemiro 07",
+        "pt": "Casemiro 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Casemiro_07.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:99",
+      "number": 99,
+      "names": {
+        "en": "Danilo Santos 01",
+        "pt": "Danilo Santos 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Danilo_Santos_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:100",
+      "number": 100,
+      "names": {
+        "en": "Danilo Santos 02",
+        "pt": "Danilo Santos 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Danilo_Santos_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:101",
+      "number": 101,
+      "names": {
+        "en": "Danilo Santos 03",
+        "pt": "Danilo Santos 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Danilo_Santos_03.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:102",
+      "number": 102,
+      "names": {
+        "en": "Danilo Santos 04",
+        "pt": "Danilo Santos 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Danilo_Santos_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:103",
+      "number": 103,
+      "names": {
+        "en": "Danilo Santos 07",
+        "pt": "Danilo Santos 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Danilo_Santos_07.jpeg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:104",
+      "number": 104,
+      "names": {
+        "en": "Éderson Silva 02",
+        "pt": "Éderson Silva 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Éderson_Silva_02.png",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:105",
+      "number": 105,
+      "names": {
+        "en": "Éderson Silva 04",
+        "pt": "Éderson Silva 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Éderson_Silva_04.png",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:106",
+      "number": 106,
+      "names": {
+        "en": "Éderson Silva 05",
+        "pt": "Éderson Silva 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Éderson_Silva_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:107",
+      "number": 107,
+      "names": {
+        "en": "Fabinho 01",
+        "pt": "Fabinho 01"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_01.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:108",
+      "number": 108,
+      "names": {
+        "en": "Fabinho 02",
+        "pt": "Fabinho 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:109",
+      "number": 109,
+      "names": {
+        "en": "Fabinho 03",
+        "pt": "Fabinho 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:110",
+      "number": 110,
+      "names": {
+        "en": "Fabinho 04",
+        "pt": "Fabinho 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_04.jpg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:111",
+      "number": 111,
+      "names": {
+        "en": "Fabinho 05",
+        "pt": "Fabinho 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_05.jpg",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:112",
+      "number": 112,
+      "names": {
+        "en": "Fabinho 06",
+        "pt": "Fabinho 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Fabinho_06.png",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:113",
+      "number": 113,
+      "names": {
+        "en": "Lucas Paquetá 02",
+        "pt": "Lucas Paquetá 02"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_02.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:114",
+      "number": 114,
+      "names": {
+        "en": "Lucas Paquetá 03",
+        "pt": "Lucas Paquetá 03"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_03.jpg",
+      "rarity": "common"
+    },
+    {
+      "id": "world-cup-2026:115",
+      "number": 115,
+      "names": {
+        "en": "Lucas Paquetá 04",
+        "pt": "Lucas Paquetá 04"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_04.jpeg",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "world-cup-2026:116",
+      "number": 116,
+      "names": {
+        "en": "Lucas Paquetá 05",
+        "pt": "Lucas Paquetá 05"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_05.png",
+      "rarity": "rare"
+    },
+    {
+      "id": "world-cup-2026:117",
+      "number": 117,
+      "names": {
+        "en": "Lucas Paquetá 06",
+        "pt": "Lucas Paquetá 06"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_06.jpg",
+      "rarity": "legendary"
+    },
+    {
+      "id": "world-cup-2026:118",
+      "number": 118,
+      "names": {
+        "en": "Lucas Paquetá 07",
+        "pt": "Lucas Paquetá 07"
+      },
+      "image": "stickers/2026_Brazil_BRA_MF_Lucas_Paquetá_07.png",
+      "rarity": "legendary"
     }
   ]
 }
